@@ -1,0 +1,9 @@
+CREATE TABLE `sistema_contable`.`usuario` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `documento` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `contrasena` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
