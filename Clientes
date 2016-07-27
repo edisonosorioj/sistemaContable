@@ -1,3 +1,8 @@
+Administradores
+	-ID
+	-Nombre
+	-Apellido
+	-Contraseña
 Clientes
 	-ID
 	-Documento
