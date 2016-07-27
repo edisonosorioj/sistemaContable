@@ -1,6 +1,21 @@
 Clientes
 	-ID
+	-Documento
 	-Nombres
+	-Telefono
+	-Email
 Ventas
-
+	-ID
+	-Cantidad
+	-Producto
+	-Valor
 Compras
+	-ID
+	-Cantidad
+	-Detalles
+	-Valor
+Creditos
+	-ID
+	-ClienteID
+	-Valor
+	
