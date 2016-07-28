@@ -1,8 +1,9 @@
 <?php
 
-$dbhostname = 'localhost';
+// $dbhostname = 'localhost';
+$dbhostname = '127.0.0.1';
 $dbusername = 'root';
-$dbpassword = '';
+$dbpassword = 'qwer1234';
 $DB = "sistema_contable";
 
 $conn = new mysqli($dbhostname,$dbusername, $dbpassword,$DB); 
