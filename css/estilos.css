@@ -1,0 +1,48 @@
+.lista_clientes{
+	height: 500px;
+}
+
+.table_result{
+	border: 2px solid #000000;
+	margin: 2 2em;
+	text-align: center;
+}
+
+.name_list{
+	background-color: #aaaaff; 
+	text-align: center;
+	font-weight: bold;
+}
+
+.title{
+	margin-left: 2em;
+}
+
+nav{
+	height: 6em;
+	margin-left: 2em;
+	width: 100%;
+}
+
+.close_session{
+	background: #aaaaff;
+	float: right;
+	padding: 5px 20px;
+	margin-right: 5em;
+	border-radius: 50px;
+}
+.agregar{
+	background: #aaaaff;
+	float: left;
+	padding: 5px 20px;
+	margin-right: 5em;
+	border-radius: 50px;
+}
+
+.rows{
+	border: 2px solid #000000;
+}
+
+body{
+	align: center;
+}
