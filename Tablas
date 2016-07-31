@@ -7,3 +7,18 @@ CREATE TABLE `sistema_contable`.`usuario` (
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
+
+CREATE TABLE `sistema_contable`.`compras` (
+  `idcompras` INT NOT NULL,
+  `cantidad` INT NOT NULL,
+  `detalles` VARCHAR(100) NULL,
+  `valor` VARCHAR(45) NULL,
+  PRIMARY KEY (`idcompras`));
+
+CREATE TABLE `sistema_contable`.`administradores` (
+  `idadmin` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
+  `contrasena` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idadmin`));

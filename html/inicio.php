@@ -1,3 +1,12 @@
+<?php
+
+if( !session_id() )
+{
+    session_start();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +24,7 @@
 		<div><a href="../php/clientes.php">Clientes</a></div>
 	</body>
 	<footer>
+		<a href='logout.php' class='close_session'>Salir</a>
 		Registros // Designed by <a href="http://edisonosorioj.com/" target="_blank" rel="nofollow">Edison Osorio</a>
 	</footer>
 </body>

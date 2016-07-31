@@ -1,35 +1,17 @@
-.lista_clientes{
-	height: 500px;
-}
-
-.table_result{
-	border: 2px solid #000000;
-	margin: 2 2em;
-	text-align: center;
-}
-
-.name_list{
-	background-color: #aaaaff; 
-	text-align: center;
-	font-weight: bold;
+a {
+	text-decoration: none;
 }
 
 .title{
 	margin-left: 2em;
 }
-
 nav{
-	height: 6em;
+	height: 10%;
 	margin-left: 2em;
 	width: 100%;
 }
-
-.close_session{
-	background: #aaaaff;
-	float: right;
-	padding: 5px 20px;
-	margin-right: 5em;
-	border-radius: 50px;
+div{
+	display: inline-block;
 }
 .agregar{
 	background: #aaaaff;
@@ -38,11 +20,37 @@ nav{
 	margin-right: 5em;
 	border-radius: 50px;
 }
+.close_session{
+	background: #aaaaff;
+	float: right;
+	padding: 5px 20px;
+	margin-right: 5em;
+	border-radius: 50px;
+}
+
+.lista_clientes{
+	height: 500px;
+	padding-top: 2em;
+	
+}
+
+.name_list{
+	background-color: #aaaaff; 
+	text-align: center;
+	font-weight: bold;
+}
+.table_result{
+	border: 2px solid #000000;
+	text-align: center;
+}
+
 
 .rows{
 	border: 2px solid #000000;
 }
 
-body{
-	align: center;
+footer{
+	position:fixed;
+	bottom:0;
+	left:0
 }

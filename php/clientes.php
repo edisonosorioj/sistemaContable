@@ -26,7 +26,6 @@ $html = "<html>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-		<script src='login.js'></script>
 	</head>
 	<body>
 		<nav>
@@ -47,6 +46,9 @@ $html = "<html>
 			 . $tr . 
 			 "</table>
 		 </div>
+		 <footer>
+			<a href='../html/inicio.html' class='agregar'>Menu</a>
+		</footer>
 		 </body>
 </html>";
 

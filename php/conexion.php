@@ -1,19 +1,27 @@
 <?php
 
-$dbhostname = 'localhost';
-// $dbhostname = '127.0.0.1';
-$dbusername = 'root';
-// $dbpassword = 'qwer1234';
-$dbpassword = '';
-$DB = "sistema_contable";
+class conection{
 
-$conn = new mysqli($dbhostname,$dbusername, $dbpassword,$DB); 
+	function conex(){
 
-if (mysqli_connect_errno()) {
-	exit('Fallo Conexion: ' . mysqli_connect_error());
+    //Cambia por los detalles de tu base datos
+	  $dbserver = "localhost";
+	  // $dbserver = "127.0.0.1";
+	  $dbuser = "root";
+	  $password = "";
+	  $dbname = "sistema_contable";
+	 
+	  $conex = new mysqli($dbserver, $dbuser, $password, $dbname);
+
+	  if($conex->connect_errno) {
+	    die("No se pudo conectar a la base de datos");
+	  }
+
+	  return $conex;
+
+	}
+
 }
- 
-return $conn;
 
 
 ?>
