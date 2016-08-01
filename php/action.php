@@ -18,11 +18,12 @@ $numrows=mysqli_num_rows($query);
  if($numrows!=0)
 	{
 /* Redirect browser */
-		 header("Location: ../html/inicio.php");
+		 header("Location: inicio.php");
 	 
 	 	} else {
 	 	
 		header("Location: session.php");
+	 	echo '<script language="javascript">alert("Usuario o Contraseña Incorrecto. Vuelta a intentarlo.");</script>'; 
 	}
 	 
 

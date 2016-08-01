@@ -2,6 +2,10 @@ a {
 	text-decoration: none;
 }
 
+body{
+	padding-left: 2em;
+}
+
 .title{
 	margin-left: 2em;
 }
@@ -51,6 +55,5 @@ div{
 
 footer{
 	position:fixed;
-	bottom:0;
-	left:0
+	bottom:30%;
 }

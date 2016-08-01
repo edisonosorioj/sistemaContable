@@ -1,13 +1,21 @@
 <?php
-require_once 'conexion.php';
 
-$query = 'select * from clientes';
+if( !session_id() )
+{
+    session_start();
+}
 
-$result = $conn->query($query);
+require_once "conexion.php";
+
+$conex = new conection();
+$result = $conex->conex();
+
+$query = mysqli_query($result,'select * from clientes');
+
 
 $tr = '';
 
- while ($row = $result->fetch_array(MYSQLI_BOTH)){
+ while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['documento'] 		. "</td>
@@ -47,7 +55,7 @@ $html = "<html>
 			 "</table>
 		 </div>
 		 <footer>
-			<a href='../html/inicio.html' class='agregar'>Menu</a>
+			<a href='inicio.php' class='agregar'>Menu</a>
 		</footer>
 		 </body>
 </html>";

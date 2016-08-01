@@ -1,13 +1,18 @@
 <?php
+if( !session_id() )
+{
+    session_start();
+}
 require_once 'conexion.php';
 
-$query = 'select * from compras';
-
-$result = $conn->query($query);
-
+$conex = new conection();
+$result = $conex->conex();
 $tr = '';
 
- while ($row = $result->fetch_array(MYSQLI_BOTH)){
+$query = mysqli_query($result,'select * from compras');
+
+
+ while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['cantidad'] 		. "</td>
@@ -47,7 +52,7 @@ $html = "<html>
 			 "</table>
 		</div>
 		<footer>
-			<a href='../html/inicio.html' class='agregar'>Menu</a>
+			<a href='inicio.php' class='agregar'>Menu</a>
 		</footer>
 		</body>
 </html>";
