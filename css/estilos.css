@@ -6,16 +6,21 @@ body{
 	padding-left: 2em;
 }
 
-.title{
-	margin-left: 2em;
-}
 nav{
 	height: 10%;
 	margin-left: 2em;
 	width: 100%;
 }
-div{
+div .lista_clientes{
 	display: inline-block;
+}
+
+h1{
+	font-size: 24px;
+}
+
+.title{
+	margin-left: 2em;
 }
 .agregar{
 	background: #aaaaff;
@@ -51,6 +56,12 @@ div{
 
 .rows{
 	border: 2px solid #000000;
+}
+
+#formadd{
+background-color: yellow;
+padding: 1em;
+margin: 1em;
 }
 
 footer{

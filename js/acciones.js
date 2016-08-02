@@ -34,3 +34,8 @@ $(function(){
 		}
 	});
 });
+
+$("#new").click(function(evento){
+        evento.preventDefault();
+        $("#destino").load("../html/form.html");
+  });

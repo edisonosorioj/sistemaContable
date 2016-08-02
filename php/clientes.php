@@ -30,6 +30,7 @@ $tr = '';
 
 $html = "<html>
 	<head>
+		<link rel='stylesheet' href='../css/reset.css' />
 		<link rel='stylesheet' href='../css/estilos.css' />
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
@@ -39,9 +40,10 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Clientes</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
-			<a href='agregarCliente.php' class='agregar'>Nuevo Cliente</a>
+			<a href='' id='new' class='agregar'>Nuevo Cliente</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
+		<div id=destino></div>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
@@ -57,7 +59,8 @@ $html = "<html>
 		 <footer>
 			<a href='inicio.php' class='agregar'>Menu</a>
 		</footer>
-		 </body>
+	</body>
+	<script src='../js/acciones.js'></script>
 </html>";
 
 
