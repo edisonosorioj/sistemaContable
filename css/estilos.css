@@ -22,24 +22,32 @@ h1{
 .title{
 	margin-left: 2em;
 }
-.agregar{
+
+.boton{
 	background: #aaaaff;
-	float: left;
 	padding: 5px 20px;
-	margin-right: 5em;
-	border-radius: 50px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	border-radius: 1em;
 }
+
+.botonTab{
+	padding: .5px 5px;
+	border-radius: 5px;
+}
+
 .close_session{
-	background: #aaaaff;
-	float: right;
+	background: #f8787e;
 	padding: 5px 20px;
-	margin-right: 5em;
-	border-radius: 50px;
+
+
+	border-radius: 1em;
 }
 
 .lista_clientes{
 	height: 500px;
-	padding-top: 2em;
+	margin: 4em 1em;
 	
 }
 
@@ -53,18 +61,24 @@ h1{
 	text-align: center;
 }
 
+#destino{
+	z-index: 2;
+}
 
 .rows{
 	border: 2px solid #000000;
+	height: 10px;
 }
 
-#formadd{
-background-color: yellow;
-padding: 1em;
-margin: 1em;
+#formAdd{
+	background-color: #83c2a2;
+	margin: .5em;
+	padding: 1em 1em;
+	border-radius: 1em;
+	position: absolute;
+	top: auto;
+	left: auto;
 }
 
 footer{
-	position:fixed;
-	bottom:30%;
 }

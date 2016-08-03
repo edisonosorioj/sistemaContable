@@ -22,7 +22,7 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['telefono'] 		. "</td>
 				<td>" . $row['correo'] 			. "</td>
-				<td>" . "<a href=''>Editar </a>" . "<a href=''> Eliminar</a>" . "</td>
+				<td>" . "<a href='eliminarCliente.php?id=" . echo $row['id']; . "' class='botonTab'>Editar</a>" "<a href='' class='botonTab'>Eliminar</a></td>
 			</tr>";
 
  }
@@ -40,7 +40,8 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Clientes</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
-			<a href='' id='new' class='agregar'>Nuevo Cliente</a>
+			<a href='inicio.php' class='boton'>Menu</a>
+			<a href='' id='new' class='boton'>Nuevo Cliente</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
@@ -51,13 +52,12 @@ $html = "<html>
 					<td width='20%'>Nombre</td>
 					<td width='10%'>Teléfono</td>
 					<td width='20%'>Correo</td>
-					<td width='20%'>Acciones</td>
+					<td width='15%'>Acciones</td>
 				</tr>"
 			 . $tr . 
 			 "</table>
 		 </div>
 		 <footer>
-			<a href='inicio.php' class='agregar'>Menu</a>
 		</footer>
 	</body>
 	<script src='../js/acciones.js'></script>

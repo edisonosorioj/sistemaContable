@@ -35,7 +35,20 @@ $(function(){
 	});
 });
 
+$.extend($.expr[":"], 
+{
+    "contains-ci": function(elem, i, match, array) 
+	{
+		return (elem.textContent || elem.innerText || $(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+	}
+});
+
+
 $("#new").click(function(evento){
         evento.preventDefault();
         $("#destino").load("../html/form.html");
   });
+
+function hideForm(){
+	$('#formadd').hide();
+}
