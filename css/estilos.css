@@ -80,5 +80,15 @@ h1{
 	left: auto;
 }
 
+.form{
+	text-align: center;
+	background-color: #83c2a2;
+	border-radius: .5em;
+	margin: .5em;
+	padding: 5px;
+	position: absolute;
+}
+
 footer{
+
 }

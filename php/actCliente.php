@@ -4,13 +4,13 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-
+	$id			=	$_POST['id'];
 	$documento	=	$_POST['documento'];
 	$nombres	=	$_POST['nombres'];
 	$telefono 	=	$_POST['telefono'];
 	$correo 	=	$_POST['correo'];
 
-	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo) VALUES ('$documento', '$nombres', '$telefono', '$correo');");
+	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo' where id ='$id';");
 	
 ?>
 <html>

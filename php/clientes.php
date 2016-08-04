@@ -10,7 +10,7 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-$query = mysqli_query($result,'select * from clientes');
+$query = mysqli_query($result,'select * from clientes order by id desc');
 
 
 $tr = '';
@@ -22,7 +22,7 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['telefono'] 		. "</td>
 				<td>" . $row['correo'] 			. "</td>
-				<td>" . "<a href='eliminarCliente.php?id=" . echo $row['id']; . "' class='botonTab'>Editar</a>" "<a href='' class='botonTab'>Eliminar</a></td>
+				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'>Editar</a><a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
 			</tr>";
 
  }
@@ -30,11 +30,12 @@ $tr = '';
 
 $html = "<html>
 	<head>
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<meta charset='UTF-8' />
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
+		<link rel='stylesheet' href='../css/reset.css' />
+		<link rel='stylesheet' href='../css/estilos.css' />
 	</head>
 	<body>
 		<nav>

@@ -13,7 +13,7 @@ $result = $conex->conex();
 <html>
 	<head>
 		<title>Cliente</title>
-				<meta charset="UTF-8" />
+		<meta charset="UTF-8" />
 		<link rel='stylesheet' href='../css/reset.css' />
 		<link rel='stylesheet' href='../css/estilos.css' />
 	</head>

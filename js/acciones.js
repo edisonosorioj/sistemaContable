@@ -49,6 +49,17 @@ $("#new").click(function(evento){
         $("#destino").load("../html/form.html");
   });
 
+$("#formEditar").click(function(evento){
+        evento.preventDefault();
+        $("#destino").load("../php/editarCliente.php");
+  });
+
 function hideForm(){
 	$('#formadd').hide();
+}
+
+function editarCliente(id)
+{
+  var id = id;
+  $.post('http://localhost/sistemaContable/php/clientes.php',{id:id});
 }
