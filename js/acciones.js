@@ -1,3 +1,5 @@
+
+//Session
 $(function(){
 	$('#button_send').live('click',function(){
 		var f = $('#login_form');
@@ -23,6 +25,8 @@ $(function(){
 
 });
 
+
+//General
 $(function(){
 	$("#search").keyup(function(){
 		if($(this).val() != ""){
@@ -43,16 +47,12 @@ $.extend($.expr[":"],
 	}
 });
 
-
+//Clientes
 $("#new").click(function(evento){
         evento.preventDefault();
         $("#destino").load("../html/form.html");
   });
 
-$("#formEditar").click(function(evento){
-        evento.preventDefault();
-        $("#destino").load("../php/editarCliente.php");
-  });
 
 function hideForm(){
 	$('#formadd').hide();
@@ -63,3 +63,35 @@ function editarCliente(id)
   var id = id;
   $.post('http://localhost/sistemaContable/php/clientes.php',{id:id});
 }
+
+//Compras
+
+$("#newCompra").click(function(evento){
+        evento.preventDefault();
+        $("#destino").load("../html/formCompras.html");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

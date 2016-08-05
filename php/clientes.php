@@ -22,7 +22,8 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['telefono'] 		. "</td>
 				<td>" . $row['correo'] 			. "</td>
-				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'>Editar</a><a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
+				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'>Editar</a>
+				<a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
 			</tr>";
 
  }
