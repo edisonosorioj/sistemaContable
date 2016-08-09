@@ -22,3 +22,19 @@ CREATE TABLE `sistema_contable`.`administradores` (
   `login` VARCHAR(45) NOT NULL,
   `contrasena` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idadmin`));
+
+CREATE TABLE `sistema_contable`.`clientesxcreditos` (
+  `idclientes` INT NOT NULL,
+  `idcreditos` INT NOT NULL,
+  PRIMARY KEY (`idclientes`, `idcreditos`),
+  INDEX `idcreditos_idx` (`idcreditos` ASC),
+  CONSTRAINT `id`
+    FOREIGN KEY (`idclientes`)
+    REFERENCES `sistema_contable`.`clientes` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `idcreditos`
+    FOREIGN KEY (`idcreditos`)
+    REFERENCES `sistema_contable`.`creditos` (`idcreditos`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

@@ -58,11 +58,6 @@ function hideForm(){
 	$('#formadd').hide();
 }
 
-function editarCliente(id)
-{
-  var id = id;
-  $.post('http://localhost/sistemaContable/php/clientes.php',{id:id});
-}
 
 //Compras
 
@@ -72,7 +67,12 @@ $("#newCompra").click(function(evento){
 });
 
 
+//Creditos
 
+$("#newCredito").click(function(evento){
+        evento.preventDefault();
+        $("#destino").load("../html/formCredito.html");
+});
 
 
 

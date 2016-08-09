@@ -20,7 +20,8 @@ $query = mysqli_query($result,'select * from compras order by fecha desc');
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td>" . $row['valor'] 		. "</td>
-				<td><a href='editarCompra.php?id=" . $row['idcompras'] . "' class='botonTab'>Editar</a><a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
+				<td><a href='editarCompra.php?id=" . $row['idcompras'] . "' class='botonTab'>Editar</a>
+				<a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
 			</tr>";
 
  }
