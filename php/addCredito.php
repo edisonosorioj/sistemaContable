@@ -4,13 +4,12 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-	$idcreditos =	
+	$id 		=	$_POST['id'];
 	$fecha 		= 	$_POST['fecha'];
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-	$query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor) VALUES ('$fecha', '$detalles', '$valor');");
-	$query2 = mysqli_query($result,"INSERT INTO clientesxcreditos (idclientes, idcreditos) VALUES ('$idclientes', '$idcreditos');");
+	$query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', '$valor', '$id');");
 	
 ?>
 <html>
@@ -29,7 +28,7 @@ $result = $conex->conex();
 			<?php	} ?>		
 			
 			<p></p>	
-			<a href="../php/compras.php" class="boton">Listo!</a>
+			<a href="clientes.php" class="boton">Listo!</a>
 		</center>
 	</body>
 	</html>	

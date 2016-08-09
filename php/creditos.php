@@ -11,17 +11,18 @@ $tr = '';
 
 $id = $_GET['id'];
 
-$query = mysqli_query($result,"select * from clientes c inner join clientesxcreditos cc inner join creditos cr on 
-	c.id = cc.idclientes and cc.idcreditos = cr.idcreditos where c.id = '$id';");
+// $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join clientesxcreditos cc inner join creditos cr on c.id = cc.idclientes and cc.idcreditos = cr.idcreditos where c.id = '$id';");
+
+$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id';");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['cr.idcreditos'] 		. "</td>
-				<td>" . $row['cr.fecha'] 	. "</td>
-				<td>" . $row['cr.detalles'] 	. "</td>
-				<td>" . $row['cr.valor'] 	. "</td>
+				<td>" . $row['idcreditos'] 	. "</td>
+				<td>" . $row['fecha'] 		. "</td>
+				<td>" . $row['detalles'] 	. "</td>
+				<td>" . $row['valor'] 		. "</td>
 				<td><a href='editarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'>Editar</a>
 				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
 			</tr>";
@@ -48,7 +49,7 @@ $html = "<html>
 			<p class='title'><h1>Estado de $nombre</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='clientes.php' class='boton'>Volver</a>
-			<a href='' id='newCredito' class='boton'>Agregar Valor</a>
+			<a href='../html/formCredito.php?id=" . $id . "' class='boton'>Agregar Valor</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>

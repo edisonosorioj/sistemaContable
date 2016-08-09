@@ -6,8 +6,6 @@ $conex = new conection();
 $result = $conex->conex();
 	
 
-// $id = $this->input->post('id');
-
 	$id=$_GET['id'];
 	
 	$query = mysqli_query($result, "select id,documento,nombres,telefono,correo from clientes where id='$id'");

@@ -19,7 +19,7 @@ if( !session_id() )
 		<h1>Acciones</h1>
 	</header>
 	<section>
-		<div><a href="creditos.php">Creditos</a></div>
+		<!-- <div><a href="creditos.php">Creditos</a></div> -->
 		<div><a href="compras.php">Compras</a></div>
 		<div><a href="ventas.php">Ventas</a></div>
 		<div><a href="clientes.php">Clientes</a></div>
