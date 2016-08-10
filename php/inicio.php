@@ -20,7 +20,7 @@ if( !session_id() )
 	</header>
 	<section>
 		<!-- <div><a href="creditos.php">Creditos</a></div> -->
-		<div><a href="compras.php">Compras</a></div>
+		<div><a href="compras.php">Gastos</a></div>
 		<div><a href="ventas.php">Ventas</a></div>
 		<div><a href="clientes.php">Clientes</a></div>
 	</section>

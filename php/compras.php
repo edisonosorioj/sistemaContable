@@ -38,7 +38,7 @@ $html = "<html>
 	</head>
 	<body>
 		<nav>
-			<p class='title'><h1>Compras</h1></p>
+			<p class='title'><h1>Gastos</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='inicio.php' class='boton'>Menu</a>
 			<a href='' id='newCompra' class='boton'>Nueva Compra</a>
