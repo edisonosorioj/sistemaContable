@@ -79,7 +79,7 @@ $("#newCompra").click(function(evento){
 
 $("#newIngreso").click(function(evento){
         evento.preventDefault();
-        $("#destino").load("../html/formIngreso.html");
+        $("#destino").load("../html/formIngreso.php");
 });
 
 

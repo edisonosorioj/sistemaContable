@@ -9,17 +9,16 @@
 	<link rel='stylesheet' href='../css/estilos.css' />
 </head>
 <body>
-<div class='form'>
-	<h1>Agrega Ingreso</h1>
-	<form method="post" action="../php/addIngreso.php" id='formadd'>
-		<input type="date" name="fecha" placeholder="Fecha"><br />
-		<input type="text" name="detalles" placeholder="Detalles"><br />
-		<input type="number" name="valor" placeholder="Valor"><br />
-		<input type="submit" name="agregar" id="enviarform" value="Guardar"><br />
-		<input type="reset" name="reset" value="Limpiar"><br />
-		<input type="button" onclick="hideForm()" name="cancelar" value="Cancelar">
-	</form>
-</div>
+<form method="post" action="../php/addIngreso.php" id='formadd'>
+	<input type="date" name="fecha" value="<?php echo date('Y-m-d');?>" disabled="disabled">
+	<input type="text" name="cantidad" placeholder="Cantidad">
+	<input type="text" name="producto" placeholder="Producto">
+	<input type="text" name="detalles" placeholder="Detalles">
+	<input type="number" name="valor" placeholder="Valor"><br />
+	<input type="submit" name="agregar" id="enviarform" value="Guardar">
+	<input type="reset" name="reset" value="Limpiar">
+	<input type="button" onclick="hideForm()" name="cancelar" value="Cancelar">
+</form>
 </body>
 <script src='../js/acciones.js'></script>
 </html>
