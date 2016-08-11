@@ -46,6 +46,7 @@ h1{
 }
 
 .lista_clientes{
+	width: 70%;
 	height: 500px;
 	margin: 4em 1em;
 	
@@ -63,6 +64,10 @@ h1{
 
 #destino{
 	z-index: 2;
+}
+
+#espacio{
+	height: 10%;
 }
 
 .rows{
@@ -91,4 +96,10 @@ h1{
 
 footer{
 
+}
+
+/*DERECHA ALIGN*/
+
+.right{
+	align: right;
 }

@@ -21,7 +21,7 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos where f
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
-				<td>" . $row['valor'] 		. "</td>
+				<td align='right'>" . $row['valor'] 		. "</td>
 				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'>Editar</a>
 				<a href='eliminarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
 			</tr>";
@@ -30,8 +30,9 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos where f
 
  	$row2 = $query2->fetch_assoc();
  	$tr2 .= "<tr class='row' id='rows'>
- 				<td><b>TOTAL</b></td>
- 				<td>" . $row2['total'] . "</td>
+				<td width='30%'></td>
+ 				<td width='10%'><b>TOTAL INGRESOS</b></td>
+ 				<td width='10%'>" . $row2['total'] . "</td>
  			</tr>";
 
 
@@ -54,20 +55,21 @@ $html = "<html>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
-		<table class='table_result' id='table_result'>
-				<tr class='name_list'>
-					<td width='10%'>Fecha</td>
-					<td width='10%'>Cantidad</td>
-					<td width='20%'>Producto</td>
-					<td width='10%'>Detalles</td>
-					<td width='20%'>Valor</td>
-					<td width='20%'>Acciones</td>
-				</tr>"
-			 . $tr . 
+			<table class='table_result' id='table_result'>
+					<tr class='name_list'>
+						<td width='10%'>Fecha</td>
+						<td width='10%'>Cantidad</td>
+						<td width='20%'>Producto</td>
+						<td width='10%'>Detalles</td>
+						<td width='10%'>Valor</td>
+						<td width='20%'>Acciones</td>
+					</tr>"
+				 . $tr . 
 			 "</table>
-		 <table>"
-		 	. $tr2 .
-		 "</table>
+			 <div id='espacio'></div>
+			 <table class='table_result' id='table_result' width='65%'>"
+			 	. $tr2 .
+			 "</table>
 		</div>
 		<footer>
 			<a href='inicio.php' class='boton'>Menu</a>
