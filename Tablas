@@ -38,3 +38,12 @@ CREATE TABLE `sistema_contable`.`clientesxcreditos` (
     REFERENCES `sistema_contable`.`creditos` (`idcreditos`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
+
+CREATE TABLE `sistema_contable`.`ingresos` (
+  `idingresos` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `cantidad` INT NOT NULL,
+  `producto` VARCHAR(45) NOT NULL,
+  `detalles` VARCHAR(100) NULL,
+  `valor` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idingresos`));

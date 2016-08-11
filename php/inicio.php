@@ -19,9 +19,8 @@ if( !session_id() )
 		<h1>Acciones</h1>
 	</header>
 	<section>
-		<!-- <div><a href="creditos.php">Creditos</a></div> -->
-		<div><a href="compras.php">Gastos</a></div>
-		<div><a href="ventas.php">Ventas</a></div>
+		<div><a href="compras.php">Egresos</a></div>
+		<div><a href="ingresos.php">Ingresos</a></div>
 		<div><a href="clientes.php">Clientes</a></div>
 	</section>
 	<footer>

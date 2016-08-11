@@ -59,7 +59,7 @@ function hideForm(){
 }
 
 
-//Compras
+//Egresos
 
 $("#newCompra").click(function(evento){
         evento.preventDefault();
@@ -69,18 +69,18 @@ $("#newCompra").click(function(evento){
 
 //Creditos
 
-$("#newCredito").click(function(evento){
+// $("#newCredito").click(function(evento){
+//         evento.preventDefault();
+//         $("#destino").load("../html/formCredito.html");
+// });
+
+
+//Ingresos
+
+$("#newIngreso").click(function(evento){
         evento.preventDefault();
-        $("#destino").load("../html/formCredito.html");
+        $("#destino").load("../html/formIngreso.html");
 });
-
-
-
-
-
-
-
-
 
 
 
