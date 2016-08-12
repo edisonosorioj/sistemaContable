@@ -22,8 +22,8 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos where f
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
-				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'>Editar</a>
-				<a href='eliminarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
+				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
+				<a href='eliminarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 
  }
@@ -31,7 +31,7 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos where f
  	$row2 = $query2->fetch_assoc();
  	$tr2 .= "<tr class='row' id='rows'>
 				<td width='30%'></td>
- 				<td width='10%'><b>TOTAL INGRESOS</b></td>
+ 				<td width='20%'><b>TOTAL INGRESOS</b></td>
  				<td width='10%'>" . $row2['total'] . "</td>
  			</tr>";
 

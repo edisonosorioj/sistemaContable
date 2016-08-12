@@ -19,9 +19,9 @@ $query = mysqli_query($result,'select * from compras order by fecha desc');
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
-				<td>" . $row['valor'] 		. "</td>
-				<td><a href='editarCompra.php?id=" . $row['idcompras'] . "' class='botonTab'>Editar</a>
-				<a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'>Eliminar</a></td>
+				<td align='right'>" . $row['valor'] 		. "</td>
+				<td><a href='editarCompra.php?id=" . $row['idcompras'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
+				<a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 
  }
@@ -48,18 +48,18 @@ $html = "<html>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='10%'>Fecha</td>
+					<td width='20%'>Fecha</td>
 					<td width='10%'>Cantidad</td>
 					<td width='20%'>Producto</td>
 					<td width='10%'>Detalles</td>
-					<td width='20%'>Valor</td>
-					<td width='20%'>Acciones</td>
+					<td width='15%'>Valor</td>
+					<td width='15%'>Acciones</td>
 				</tr>"
 			 . $tr . 
 			 "</table>
 		</div>
 		<footer>
-			<a href='inicio.php' class='agregar'>Menu</a>
+			<a href='inicio.php' class='boton'>Menu</a>
 		</footer>
 		</body>
 		<script src='../js/acciones.js'></script>

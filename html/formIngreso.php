@@ -11,7 +11,7 @@
 <body>
 <form method="post" action="../php/addIngreso.php" id='formadd'>
 	<input type="date" name="fecha" value="<?php echo date('Y-m-d');?>" disabled="disabled">
-	<input type="text" name="cantidad" placeholder="Cantidad">
+	<input type="number" name="cantidad" placeholder="Cantidad">
 	<input type="text" name="producto" placeholder="Producto">
 	<input type="text" name="detalles" placeholder="Detalles">
 	<input type="number" name="valor" placeholder="Valor"><br />
