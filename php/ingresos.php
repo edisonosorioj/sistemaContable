@@ -59,10 +59,10 @@ $html = "<html>
 					<tr class='name_list'>
 						<td width='10%'>Fecha</td>
 						<td width='10%'>Cantidad</td>
-						<td width='20%'>Producto</td>
-						<td width='10%'>Detalles</td>
+						<td width='15%'>Producto</td>
+						<td width='25%'>Detalles</td>
 						<td width='10%'>Valor</td>
-						<td width='20%'>Acciones</td>
+						<td width='10%'>Acciones</td>
 					</tr>"
 				 . $tr . 
 			 "</table>
