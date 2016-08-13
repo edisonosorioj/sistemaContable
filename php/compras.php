@@ -8,8 +8,11 @@ require_once 'conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
+$tr2 = '';
 
 $query = mysqli_query($result,'select * from compras order by fecha desc');
+
+$query2 = mysqli_query($result,"select SUM(valor) as total from compras where fecha between '2016-08-01' and '2016-08-30'");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -26,6 +29,13 @@ $query = mysqli_query($result,'select * from compras order by fecha desc');
 
  }
 
+ 	$row2 = $query2->fetch_assoc();
+ 	$tr2 .= "<tr class='row' id='rows'>
+				<td width='30%'></td>
+ 				<td width='20%'><b>TOTAL GASTOS</b></td>
+ 				<td width='10%'>" . $row2['total'] . "</td>
+ 			</tr>";
+
 
 $html = "<html>
 	<head>
@@ -41,7 +51,7 @@ $html = "<html>
 			<p class='title'><h1>Gastos</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='inicio.php' class='boton'>Menu</a>
-			<a href='' id='newCompra' class='boton'>Nueva Compra</a>
+			<a href='' id='newCompra' class='boton'>Nueva Gasto</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
@@ -51,11 +61,15 @@ $html = "<html>
 					<td width='20%'>Fecha</td>
 					<td width='10%'>Cantidad</td>
 					<td width='20%'>Producto</td>
-					<td width='10%'>Detalles</td>
-					<td width='15%'>Valor</td>
-					<td width='15%'>Acciones</td>
+					<td width='25%'>Detalles</td>
+					<td width='10%'>Valor</td>
+					<td width='7%'></td>
 				</tr>"
 			 . $tr . 
+			 "</table>
+			 <div id='espacio'></div>
+			 <table class='table_result' id='table_result' width='65%'>"
+			 . $tr2 .
 			 "</table>
 		</div>
 		<footer>

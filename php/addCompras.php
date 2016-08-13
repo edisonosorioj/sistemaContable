@@ -23,9 +23,9 @@ $result = $conex->conex();
 	<body>
 		<center>	
 			<?php if($query > 0){ ?>
-				<h1>Compra Guardada</h1>
+				<h1>Gasto Guardado</h1>
 				<?php }else{ ?>
-				<h1>Error al Guardar la Compra</h1>		
+				<h1>Error al Guardar Gasto</h1>		
 			<?php	} ?>		
 			
 			<p></p>	
