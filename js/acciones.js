@@ -82,15 +82,36 @@ $("#newIngreso").click(function(evento){
         $("#destino").load("../html/formIngreso.php");
 });
 
-
-
-
-
-
-
-
-
-
+$(function(){
+	$('#bd-desde').on('change', function(){
+		var desde = $('#bd-desde').val();
+		var hasta = $('#bd-hasta').val();
+		var url = '../php/busca_ingreso_fecha.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#destino').html(datos);
+		}
+	});
+	return false;
+	});
+	
+	$('#bd-hasta').on('change', function(){
+		var desde = $('#bd-desde').val();
+		var hasta = $('#bd-hasta').val();
+		var url = '../php/busca_ingreso_fecha.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#destino').html(datos);
+		}
+	});
+	return false;
+	});
 
 
 

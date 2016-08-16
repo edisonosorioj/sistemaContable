@@ -42,19 +42,25 @@ $html = "<html>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
+		<script src='../js/bootstrap.min.js'></script>
+		<script src='../js/bootstrap.js'></script>
 		<link rel='stylesheet' href='../css/reset.css' />
 		<link rel='stylesheet' href='../css/estilos.css' />
 	</head>
 	<body>
 		<nav>
 			<p class='title'><h1>Ingresos</h1></p>
-			<form><label>Buscar: </label><input type='text' id='search' /></form>
+			<form>
+				<label>Buscar: </label><input type='text' id='search' />
+				<label>Desde: </label><input type='date' id='bd-desde' />
+				<label>Hasta: </label><input type='date' id='bd-hasta' />
+			</form>
 			<a href='inicio.php' class='boton'>Menu</a>
-			<a href='' id='newIngreso' class='boton'>Nueva Ingreso</a>
+			<a href='' id='newIngreso' class='boton'>Nuevo Ingreso</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
-		<div class='lista_clientes'>
+		<div class='lista_clientes' id='agrega-registros'>
 			<table class='table_result' id='table_result'>
 					<tr class='name_list'>
 						<td width='10%'>Fecha</td>
