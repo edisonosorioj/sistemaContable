@@ -19,6 +19,13 @@ h1{
 	font-size: 24px;
 }
 
+section{
+	background-color: #adcbbc;
+	text-align: center;
+	width: 50%;
+
+}
+
 .title{
 	margin-left: 2em;
 }
@@ -57,6 +64,14 @@ h1{
 	text-align: center;
 	font-weight: bold;
 }
+
+.menu{
+	background-color: #7caab2;
+	border: 1em;
+	display: inline-block;
+	padding: 10px;
+}
+
 .table_result{
 	border: 2px solid #000000;
 	text-align: center;
@@ -103,3 +118,10 @@ footer{
 .right{
 	align: right;
 }
+
+
+
+
+
+
+

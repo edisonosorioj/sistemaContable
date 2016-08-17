@@ -19,14 +19,16 @@ if(isset($desde)==false){
 if(isset($hasta)==false){
 	$hasta = $desde;
 }
-
+// DATE(NOW()) - Hoy en base de datos.
 //EJECUTAMOS LA CONSULTA DE BUSQUEDA
 
-$registro = mysqli_query($result,"SELECT * FROM ingresos WHERE fecha BETWEEN '$desde' AND '$hasta' ORDER BY id_prod ASC");
+$registro = mysqli_query($result,"SELECT * FROM ingresos WHERE fecha BETWEEN '$desde' AND '$hasta' ORDER BY fecha DESC");
+
+$query2 = mysqli_query($result,"SELECT SUM(valor) AS total FROM ingresos WHERE fecha BETWEEN '$desde' AND '$hasta'");
 
 //CREAMOS NUESTRA VISTA Y LA DEVOLVEMOS AL AJAX
 
-echo "<table class='table table-striped table-condensed table-hover'>
+echo "<table class='table_result'>
 		<tr class='name_list'>
 			<td width='10%'>Fecha</td>
 			<td width='10%'>Cantidad</td>
@@ -35,22 +37,46 @@ echo "<table class='table table-striped table-condensed table-hover'>
 			<td width='10%'>Valor</td>
 			<td width='10%'>Acciones</td>
 		</tr>";
-if(mysqli_num_rows($registro)>0){
-	while($registro2 = mysql_fetch_array($registro)){
+
+$can = mysqli_num_rows($registro);
+if($can > 0){
+	while($registro2 = $registro->fetch_array(MYSQLI_BOTH)){
 		echo "<tr>
-				<td>'.fechaNormal($registro2['fecha']).'</td>
-				<td>'.$registro2['cantidad'].'</td>
-				<td>S/. '.$registro2['producto'].'</td>
-				<td>S/. '.$registro2['detalles'].'</td>
-				<td>'.$registro2['valor'].'</td>
-				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<td>".fechaNormal($registro2['fecha'])."</td>
+				<td>".$registro2['cantidad']."</td>
+				<td>".$registro2['producto']."</td>
+				<td align='left'>".$registro2['detalles']."</td>
+				<td align='right'>".$registro2['valor']."</td>
+				<td><a href='editarIngreso.php?id=" . $registro2['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
+				<a href='eliminarIngreso.php?id=" . $registro2['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 	}
 }else{
 	echo '<tr>
-				<td colspan="6">No se encontraron resultados</td>
-			</tr>';
+			<td colspan="6">No se encontraron resultados</td>
+		</tr>';
+}
+echo "</table>";
+
+echo "<div id='espacio'></div>
+		<table class='table_result' width='65%'>";
+
+if($can > 0){
+	 $row2 = $query2->fetch_assoc();{
+		echo "<tr>
+				<td width='30%'></td>
+				<td width='20%' align='right'><b>TOTAL</b></td>
+				<td width='10%'>".$row2['total']."</td>
+			</tr>";
+	}
+}else{
+	echo "<tr>
+			<td width='30%'></td>
+			<td width='20%' align='right'><b>TOTAL</b></td>
+			<td width='10%'>0</td>
+		</tr>";
 }
 echo '</table>';
+
+
 ?>

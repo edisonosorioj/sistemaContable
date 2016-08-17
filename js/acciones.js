@@ -92,7 +92,7 @@ $(function(){
 		url:url,
 		data:'desde='+desde+'&hasta='+hasta,
 		success: function(datos){
-			$('#destino').html(datos);
+			$('#agrega-registros').html(datos);
 		}
 	});
 	return false;
@@ -107,7 +107,7 @@ $(function(){
 		url:url,
 		data:'desde='+desde+'&hasta='+hasta,
 		success: function(datos){
-			$('#destino').html(datos);
+			$('#agrega-registros').html(datos);
 		}
 	});
 	return false;

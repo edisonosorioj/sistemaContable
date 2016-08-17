@@ -10,7 +10,7 @@
 </head>
 <body>
 <form method="post" action="../php/addIngreso.php" id='formadd'>
-	<input type="date" name="fecha" value="<?php echo date('Y-m-d');?>" disabled="disabled">
+	<input type="hidden" name="fecha" value="<?php echo date('Y-m-d');?>" disabled="disabled">
 	<input type="number" name="cantidad" placeholder="Cantidad">
 	<input type="text" name="producto" placeholder="Producto">
 	<input type="text" name="detalles" placeholder="Detalles">

@@ -12,7 +12,7 @@ $tr2 = '';
 
 $query = mysqli_query($result,'select * from ingresos order by fecha desc');
 
-$query2 = mysqli_query($result,'select SUM(valor) as total from ingresos where fecha = DATE(NOW())');
+$query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
@@ -20,8 +20,8 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos where f
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
-				<td>" . $row['detalles'] 	. "</td>
-				<td align='right'>" . $row['valor'] 		. "</td>
+				<td align='left'>" . $row['detalles'] 	. "</td>
+				<td align='right'>" . $row['valor'] . "</td>
 				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
 				<a href='eliminarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";

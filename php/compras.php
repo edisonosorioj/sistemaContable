@@ -63,7 +63,7 @@ $html = "<html>
 					<td width='20%'>Producto</td>
 					<td width='25%'>Detalles</td>
 					<td width='10%'>Valor</td>
-					<td width='7%'></td>
+					<td width='8%'></td>
 				</tr>"
 			 . $tr . 
 			 "</table>
