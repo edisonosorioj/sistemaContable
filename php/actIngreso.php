@@ -30,7 +30,7 @@ $result = $conex->conex();
 			<?php	} ?>		
 			
 			<p></p>	
-			<a href="../php/ingresos.php" class="agregar">Listo!</a>
+			<a href="../php/ingresos.php" class="boton">Listo!</a>
 		</center>
 	</body>
 	</html>	

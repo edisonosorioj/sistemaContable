@@ -78,7 +78,6 @@ $html = "<html>
 			 "</table>
 		</div>
 		<footer>
-			<a href='inicio.php' class='boton'>Menu</a>
 		</footer>
 		</body>
 		<script src='../js/acciones.js'></script>

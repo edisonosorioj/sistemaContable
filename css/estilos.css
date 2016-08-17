@@ -1,5 +1,7 @@
 a {
 	text-decoration: none;
+	color: white;
+	padding: 1em 2em;
 }
 
 body{
@@ -11,6 +13,7 @@ nav{
 	margin-left: 2em;
 	width: 100%;
 }
+
 div .lista_clientes{
 	display: inline-block;
 }
@@ -20,7 +23,6 @@ h1{
 }
 
 section{
-	background-color: #adcbbc;
 	text-align: center;
 	width: 50%;
 
@@ -31,6 +33,7 @@ section{
 }
 
 .boton{
+	color: black;
 	background: #aaaaff;
 	padding: 5px 20px;
 	margin-top: 5px;
@@ -47,8 +50,6 @@ section{
 .close_session{
 	background: #f8787e;
 	padding: 5px 20px;
-
-
 	border-radius: 1em;
 }
 
@@ -66,10 +67,12 @@ section{
 }
 
 .menu{
-	background-color: #7caab2;
-	border: 1em;
+	background-color: #4267b2;
+	border-radius: 3em;
+	color: white;
 	display: inline-block;
-	padding: 10px;
+	margin: 1em;
+	padding: 10px 10px;
 }
 
 .table_result{

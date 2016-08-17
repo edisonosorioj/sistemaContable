@@ -47,6 +47,19 @@ $.extend($.expr[":"],
 	}
 });
 
+//Inicio
+
+$(".menu").mouseover(function() {
+
+	$(this).animate({ backgroundColor: "#2e374b" }, 200);
+
+	}).mouseout(function() {
+
+    	$(this).animate({ backgroundColor: "#4267b2" }, 200);
+
+	});
+
+
 //Clientes
 $("#new").click(function(evento){
         evento.preventDefault();

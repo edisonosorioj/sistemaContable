@@ -29,7 +29,7 @@ $result = $conex->conex();
 			<?php	} ?>		
 			
 			<p></p>	
-			<a href="../php/clientes.php" class="agregar">Listo!</a>
+			<a href="../php/clientes.php" class="boton">Listo!</a>
 		</center>
 	</body>
 	</html>	
