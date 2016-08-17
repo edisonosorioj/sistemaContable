@@ -18,6 +18,7 @@
 	<input type="submit" name="agregar" id="enviarform" value="Guardar">
 	<input type="reset" name="reset" value="Limpiar">
 	<input type="button" onclick="hideForm()" name="cancelar" value="Cancelar">
+	<a href='clientes.php' class='menu'>Abono Cliente</a>
 </form>
 </body>
 <script src='../js/acciones.js'></script>

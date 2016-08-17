@@ -30,8 +30,24 @@ if( !session_id() )
 		<div class='menu'><a href="clientes.php">CLIENTES</a></div>
 	</section>
 	<section>
-		<div class="resultados">
-			
+		<div class="resultado">
+			<table class='table_result' width="100%">
+				<tr>
+					<th colspan="2" height="50px"><h3>REPORTE DIARIO</h3></th>
+				</tr>
+				<tr>
+					<th class='row_result'>EGRESOS</th>
+					<th class='row_result'>INGRESOS</th>
+				</tr>
+				<tr>
+					<td>----</td>
+					<td>----</td>
+				</tr>				
+				<tr>
+					<td>1100000</td>
+					<td>1100000</td>
+				</tr>
+			</table>
 		</div>
 	</section>
 	<footer>

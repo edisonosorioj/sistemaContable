@@ -55,8 +55,8 @@ $html = "<html>
 				<label>Desde: </label><input type='date' id='bd-desde' />
 				<label>Hasta: </label><input type='date' id='bd-hasta' />
 			</form>
-			<a href='inicio.php' class='boton'>Menu</a>
-			<a href='' id='newIngreso' class='boton'>Nuevo Ingreso</a>
+			<a href='inicio.php' class='menu'>Menu</a>
+			<a href='' id='newIngreso' class='menu'>Nuevo Ingreso</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
