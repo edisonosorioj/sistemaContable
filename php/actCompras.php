@@ -3,14 +3,15 @@ require_once "conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-
-	$fecha 		= 	date("Y-m-d");
+	
+	$id			=	$_POST['id'];
+	$fecha 		= 	$_POST['fecha'];
 	$cantidad	=	$_POST['cantidad'];
 	$producto	=	$_POST['producto'];
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-	$query = mysqli_query($result,"INSERT INTO compras (cantidad, producto, detalles, valor, fecha) VALUES ('$cantidad', '$producto', '$detalles', '$valor', '$fecha');");
+	$query = mysqli_query($result, "UPDATE compras set fecha = '$fecha', cantidad = '$cantidad', producto = '$producto', detalles = '$detalles', valor = '$valor' where idcompras = '$id';");
 	
 ?>
 <html>
@@ -23,9 +24,9 @@ $result = $conex->conex();
 	<body>
 		<center>	
 			<?php if($query > 0){ ?>
-				<h1>Gasto Guardado</h1>
+				<h1>Compra Guardada</h1>
 				<?php }else{ ?>
-				<h1>Error al Guardar Gasto</h1>		
+				<h1>Error al Guardar Compra</h1>		
 			<?php	} ?>		
 			
 			<p></p>	

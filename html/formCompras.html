@@ -1,14 +1,13 @@
 <html>
 <head>
-	<title>Agregar</title>
+	<title>Gastos</title>
 </head>
 <body>
 <form method="post" action="../php/addCompras.php" id='formadd'>
-	<input type="date" name="fecha" placeholder="Fecha">
 	<input type="number" name="cantidad" placeholder="Cantidad">
-	<input type="text" name="producto" placeholder="Producto"><br /><br />
+	<input type="text" name="producto" placeholder="Producto">
 	<input type="text" name="detalles" placeholder="Detalles">
-	<input type="number" name="valor" placeholder="Valor">
+	<input type="number" name="valor" placeholder="Valor"><br /><br />
 	<input type="submit" name="agregar" id="enviarform" value="Guardar">
 	<input type="reset" name="reset" value="Limpiar">
 	<input type="button" onclick="hideForm()" name="cancelar" value="Cancelar">

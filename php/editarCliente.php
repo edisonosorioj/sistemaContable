@@ -34,7 +34,7 @@ $result = $conex->conex();
 				Teléfono<br /><input list="report" name="telefono" value="<?php echo $row['telefono']; ?>" /><br />
 				Correo<br /><input type="text" name="correo" value="<?php echo $row['correo']; ?>" /><br /><br />	
 				 <input type="submit" name="send" value="Listo">
-				 <input type="button" onClick="clientes.php" name="cancelar" value="Cancelar">
+				 <input type="button" onclick="history.back()" name="cancelar" value="Cancelar">
 			</form>
 		</div>
 	</body>
