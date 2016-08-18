@@ -24,18 +24,18 @@ $result = $conex->conex();
 	<link rel='stylesheet' href='../css/estilos.css' />
 </head>
 <body>
-<div class='form'>
-	<h1 align="center">___Agrega Valor___</h1>
-	<form method="post" action="../php/addcredito.php" id='formadd'>
-		<input type="hidden" name="id" value="<?php echo $id; ?>">
-		<input type="date" name="fecha" placeholder="Fecha">
-		<input type="text" name="detalles" placeholder="Detalles">
-		<input type="number" name="valor" placeholder="Valor">
-		<input type="submit" name="agregar" id="enviarform" value="Guardar">
-		<input type="reset" name="reset" value="Limpiar">
-		<input type="button" onclick="hideForm()" name="cancelar" value="Cancelar">
-	</form>
-</div>
+	<div class='form'>
+		<p><h2>Agregar Valor</h2></p>
+		<form method="post" action="../php/addcredito.php" id='formadd'>
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			Fecha:<br /><input type="date" name="fecha" placeholder="Fecha"><br />
+			Detalles:<br /><input type="text" name="detalles" placeholder="Detalles"><br />
+			Valor:<br /><input type="number" name="valor" placeholder="Valor"><br /><br />
+			<input type="submit" name="agregar" id="enviarform" value="Guardar">
+			<input type="reset" name="reset" value="Limpiar">
+			<input type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+		</form>
+	</div>
 </body>
 <script src='../js/acciones.js'></script>
 </html>

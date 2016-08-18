@@ -43,8 +43,8 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Clientes</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
-			<a href='inicio.php' class='boton'>Menu</a>
-			<a href='' id='new' class='boton'>Nuevo Cliente</a>
+			<a href='inicio.php' class='menu'>Menu</a>
+			<a href='' id='new' class='menu'>Nuevo Cliente</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
