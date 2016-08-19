@@ -59,6 +59,39 @@ $(".menu").mouseover(function() {
 
 	});
 
+$(function(){
+	$('#ini-desde').on('change', function(){
+		var desde = $('#ini-desde').val();
+		var hasta = $('#ini-hasta').val();
+		var url = '../php/TotalEgresoIngreso.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#tablaTotal').html(datos);
+		}
+	});
+	return false;
+	});
+	
+	$('#ini-hasta').on('change', function(){
+		var desde = $('#ini-desde').val();
+		var hasta = $('#ini-hasta').val();
+		var url = '../php/TotalEgresoIngreso.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#tablaTotal').html(datos);
+		}
+	});
+	return false;
+	});
+
+});
+
 
 //Clientes
 $("#new").click(function(evento){

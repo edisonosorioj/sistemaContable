@@ -25,7 +25,6 @@ h1{
 section{
 	text-align: center;
 	width: 50%;
-
 }
 
 input[type=submit] {
@@ -126,6 +125,20 @@ input[type=button] {
 .table_result{
 	border: 2px solid #000000;
 	text-align: center;
+	width: 90%;
+}
+
+#totales{
+	background-color: #e4e4e4;
+	margin-top: 1em;
+	padding-top: 1em;
+	border-radius: 2em;
+	height: 170px;
+}
+
+#tablaTotal{
+	text-align: center;
+	padding-left: 3em;
 }
 
 .row_result{

@@ -17,13 +17,13 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['fecha'] 		. "</td>
-				<td>" . $row['cantidad'] 	. "</td>
-				<td>" . $row['producto'] 	. "</td>
+				<td>" . $row['fecha'] 					. "</td>
+				<td>" . $row['cantidad'] 				. "</td>
+				<td>" . $row['producto'] 				. "</td>
 				<td align='left'>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] . "</td>
 				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 
  }
@@ -83,5 +83,8 @@ $html = "<html>
 		<script src='../js/acciones.js'></script>
 </html>";
 
-
 echo $html;
+
+
+
+

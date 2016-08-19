@@ -29,8 +29,14 @@ if( !session_id() )
 		<div class='menu'><a href="ingresos.php">INGRESOS</a></div>
 		<div class='menu'><a href="clientes.php">CLIENTES</a></div>
 	</section>
-	<section>
-		<div class="resultado">
+	<section id='totales'>
+		<div>
+			<form>
+				<label>Desde: </label><input type='date' id='ini-desde' />
+				<label>Hasta: </label><input type='date' id='ini-hasta' />
+			</form>
+		</div>
+		<div class="resultado" id='tablaTotal'>
 			<table class='table_result' width="100%">
 				<tr>
 					<th colspan="2" height="50px"><h3>REPORTE DIARIO</h3></th>
@@ -44,8 +50,8 @@ if( !session_id() )
 					<td>----</td>
 				</tr>				
 				<tr>
-					<td>1100000</td>
-					<td>1100000</td>
+					<td>$</td>
+					<td>$</td>
 				</tr>
 			</table>
 		</div>
