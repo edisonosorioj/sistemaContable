@@ -112,6 +112,39 @@ $("#newCompra").click(function(evento){
         $("#destino").load("../html/formCompras.html");
 });
 
+$(function(){
+	$('#cp-desde').on('change', function(){
+		var desde = $('#cp-desde').val();
+		var hasta = $('#cp-hasta').val();
+		var url = '../php/busca_egreso_fecha.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#agrega-registros').html(datos);
+		}
+	});
+	return false;
+	});
+	
+	$('#cp-hasta').on('change', function(){
+		var desde = $('#cp-desde').val();
+		var hasta = $('#cp-hasta').val();
+		var url = '../php/busca_egreso_fecha.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#agrega-registros').html(datos);
+		}
+	});
+	return false;
+	});
+
+
+});
 
 //Creditos
 

@@ -24,7 +24,7 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
 				<td><a href='editarCompras.php?id=" . $row['idcompras'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarCompras.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 
  }
@@ -49,13 +49,17 @@ $html = "<html>
 	<body>
 		<nav>
 			<p class='title'><h1>Gastos</h1></p>
-			<form><label>Buscar: </label><input type='text' id='search' /></form>
+			<form>
+			<label>Buscar: </label><input type='text' id='search' />
+			<label>Desde: </label><input type='date' id='cp-desde' />
+			<label>Hasta: </label><input type='date' id='cp-hasta' />
+			</form>
 			<a href='inicio.php' class='menu'>Menu</a>
 			<a href='' id='newCompra' class='menu'>Nueva Gasto</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
-		<div class='lista_clientes'>
+		<div class='lista_clientes' id='agrega-registros'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
 					<td width='20%'>Fecha</td>

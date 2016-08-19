@@ -8,6 +8,7 @@ require_once 'conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
+$tr2 = '';
 
 $id = $_GET['id'];
 
@@ -24,7 +25,9 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['detalles'] 	. "</td>
 				<td>" . $row['valor'] 		. "</td>
 				<td><a href='editarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
+				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../img/copiar.png' alt='copiar'></a>
+				</td>
 			</tr>";
 
  }
@@ -34,6 +37,18 @@ $query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
 $row2=$query2->fetch_assoc();
 
 $nombre = $row2['nombres'];
+
+$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
+
+$row3 = $query3->fetch_assoc();
+$tr2 .= "<tr class='row' id='rows'>
+			<td width='30%'></td>
+			<td width='20%'><b>TOTAL GASTOS</b></td>
+			<td width='10%'>" . $row3['total'] . "</td>
+		</tr>";
+
+
+
 
 $html = "<html>
 	<head>
@@ -63,6 +78,10 @@ $html = "<html>
 					<td width='20%'>Acciones</td>
 				</tr>"
 			 . $tr . 
+			 "</table>
+			 <div id='espacio'></div>
+			 <table class='table_result' id='table_result' width='65%'>"
+			 . $tr2 .
 			 "</table>
 		</div>
 		<footer>
