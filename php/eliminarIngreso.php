@@ -6,13 +6,13 @@ $result = $conex->conex();
 	
 	$id=$_GET['id'];
 	
-	$query = mysqli_query($result,"delete from compras where idcompras='$id'");
+	$query = mysqli_query($result,"delete from ingresos where idingresos='$id'");
 	
 ?>
 
 <html>
 	<head>
-		<title>Egresos</title>
+		<title>Compras</title>
 		<meta charset="UTF-8" />
 		<link rel='stylesheet' href='../css/reset.css' />
 		<link rel='stylesheet' href='../css/estilos.css' />
@@ -24,15 +24,15 @@ $result = $conex->conex();
 				if($query > 0){
 				?>
 				
-				<h1>Egreso Eliminada</h1>
+				<h1>Ingreso Eliminado</h1>
 				
 				<?php 	} else { ?>
 				
-				<h1>Error al Eliminar Egreso</h1>
+				<h1>Error al Eliminar el Ingreso</h1>
 				
 			<?php 	} ?>		
 			
-			<a href="../php/compras.php" class='boton'>Listo!</a>
+			<a href="../php/ingresos.php" class='menu'>Listo!</a>
 			
 		</center>
 	</body>
