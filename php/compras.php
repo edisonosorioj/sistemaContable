@@ -56,6 +56,7 @@ $html = "<html>
 			</form>
 			<a href='inicio.php' class='menu'>Menu</a>
 			<a href='' id='newCompra' class='menu'>Nueva Gasto</a>
+			<input type='button' value='Actualizar' onclick='window.location.reload()' />
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>
