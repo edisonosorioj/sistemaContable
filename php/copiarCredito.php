@@ -33,16 +33,18 @@ $result = $conex->conex();
 	$detallesIng 	=	$row2['detalles'];
 	$valorIng 		=	$row2['valor'];
 
-if ($nombreCliente == $detallesIng){
+// echo $detallesIng . $nombreCliente;die();
+
+if ($detallesIng === $nombreCliente){
 	
+	$h1 = '<h1>Ya exite el registro</h1>';
+
+}else{
+
 	$query = mysqli_query($result,"INSERT INTO ingresos (cantidad, producto, detalles, valor, fecha) 
 				VALUES ('1', CONCAT('$id',' $detalles'), '$nombreCliente', '$valor', '$fecha');");
 
 	$h1 = '<h1>Copia Guardada</h1>';
-
-}else{
-
-	$h1 = '<h1>Ya exite el registro</h1>';
 }
 
 $query3 = mysqli_query($result, "SELECT * FROM creditos where idcreditos = '$id' limit 1;");

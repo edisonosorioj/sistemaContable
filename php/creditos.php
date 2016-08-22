@@ -23,7 +23,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
-				<td>" . $row['valor'] 		. "</td>
+				<td align='right'>" . $row['valor'] 		. "</td>
 				<td><a href='editarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
 				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
 				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../img/copiar.png' alt='copiar'></a>
