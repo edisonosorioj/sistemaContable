@@ -47,3 +47,13 @@ CREATE TABLE `sistema_contable`.`ingresos` (
   `detalles` VARCHAR(100) NULL,
   `valor` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idingresos`));
+
+  CREATE TABLE `sistema_contable`.`abonos` (
+  `idabonos` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `detalles` VARCHAR(100) NOT NULL,
+  `valor` MEDIUMINT NOT NULL,
+  `idclientes` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`idabonos`, `idclientes`)
+)
+ENGINE = InnoDB;

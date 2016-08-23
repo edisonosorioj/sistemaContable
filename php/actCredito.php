@@ -18,9 +18,9 @@ $row=$query2->fetch_assoc();
 $idcliente = $row['idclientes'];
 
 if($query > 0) {
-	$h1 = '<h1>Credito Guardado</h1>';
+	$h1 = '<h1>Credito Actualizado</h1>';
 }else{
-	$h1 = '<h1>Error al Guardar Credito</h1>';
+	$h1 = '<h1>Error al Actualizar Credito</h1>';
 }
 
 $html = "<html>

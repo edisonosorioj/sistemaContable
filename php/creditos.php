@@ -77,7 +77,8 @@ $html = "<html>
 			<p class='title'><h1>Estado de $nombre</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='clientes.php' class='menu'>Volver</a>
-			<a href='../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Valor</a>
+			<a href='../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Credito</a>
+			<a href='../html/formAbono.php?id=" . $id . "' class='menu'>Agregar Abono</a>
 			<a href='logout.php' class='close_session'>Salir</a>
 		</nav>
 		<div id=destino></div>

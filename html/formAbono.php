@@ -16,7 +16,7 @@ $result = $conex->conex();
 <html>
 <head>
 	<meta charset='UTF-8' />
-	<title>Agregar Credito</title>
+	<title>Agregar Abono</title>
 	<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 	<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
@@ -25,8 +25,8 @@ $result = $conex->conex();
 </head>
 <body>
 	<div class='form'>
-		<form method="post" action="../php/addCredito.php" id='formadd'>
-			<h2>Agregar Credito</h2>
+		<form method="post" action="../php/addAbono.php" id='formadd'>
+			<h2>Agregar Abono</h2>
 			<input type="hidden" name="id" value="<?php echo $id; ?>">
 			Fecha:<br /><input type="date" name="fecha" placeholder="Fecha"><br />
 			Detalles:<br /><input type="text" name="detalles" placeholder="Detalles"><br />

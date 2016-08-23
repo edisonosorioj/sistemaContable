@@ -9,7 +9,7 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-$query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valor'), '$id');");
+$query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', '$valor', '$id');");
 
 $query2 = mysqli_query($result, "SELECT * FROM clientes where id = '$id';");
 
@@ -17,16 +17,15 @@ $row=$query2->fetch_assoc();
 
 $idcliente = $row['id'];
 
-
 if($query > 0) {
-	$h1 = '<h1>Credito Guardado</h1>';
+	$h1 = '<h1>Abono Guardado</h1>';
 }else{
-	$h1 = '<h1>Error al Guardar Credito</h1>';
+	$h1 = '<h1>Error al Guardar Abono</h1>';
 }
 	
 $html = "<html>
 			<head>
-				<title>Creditos</title>
+				<title>Abono</title>
 				<meta charset='UTF-8' />
 				<link rel='stylesheet' href='../css/reset.css' />
 				<link rel='stylesheet' href='../css/estilos.css' />
@@ -40,4 +39,3 @@ $html = "<html>
 			</html>";
 
 echo $html;
-					// <input type='button' onclick='history.back(3)' name='listo' value='Listo'>
