@@ -189,8 +189,14 @@ footer{
 
 /*DERECHA ALIGN*/
 
-.right{
-	align: right;
+.deuda{
+	font-weight: bold;
+	color: red;
+}
+
+.aFavor{
+	font-weight: bold;
+	color: green;
 }
 
 

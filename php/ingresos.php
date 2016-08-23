@@ -20,7 +20,7 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
 				<td>" . $row['fecha'] 					. "</td>
 				<td>" . $row['cantidad'] 				. "</td>
 				<td>" . $row['producto'] 				. "</td>
-				<td align='left'>" . $row['detalles'] 	. "</td>
+				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] . "</td>
 				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
 				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
@@ -64,7 +64,7 @@ $html = "<html>
 			<table class='table_result' id='table_result'>
 					<tr class='name_list'>
 						<td width='10%'>Fecha</td>
-						<td width='10%'>Cantidad</td>
+						<td width='5%'>Can.</td>
 						<td width='15%'>Producto</td>
 						<td width='25%'>Detalles</td>
 						<td width='10%'>Valor</td>

@@ -4,36 +4,35 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 	
-	$id=$_GET['id'];
+	$id = $_GET['id'];
 	
-	$query = mysqli_query($result,"delete from creditos where idcreditos='$id'");
-	
-?>
+$query = mysqli_query($result, "delete from creditos where idcreditos = '$id'");
 
-<html>
+$query2 = mysqli_query($result, "SELECT * FROM creditos where idcreditos = '$id' limit 1;");
+
+$row=$query2->fetch_assoc();
+
+$idcliente = $row['idclientes'];
+
+if($query > 0) {
+	$h1 = '<h1>Credito Actualizado</h1>';
+}else{
+	$h1 = '<h1>Error al Actualizar Credito</h1>';
+}
+
+$html = "<html>
 	<head>
-		<title>Compras</title>
-		<meta charset="UTF-8" />
+		<title>Creditos</title>
+		<meta charset='UTF-8' />
 		<link rel='stylesheet' href='../css/reset.css' />
 		<link rel='stylesheet' href='../css/estilos.css' />
 	</head>
-	
 	<body>
-		<center>
-			<?php 
-				if($query > 0){
-				?>
-				
-				<h1>Credito Eliminado</h1>
-				
-				<?php 	} else { ?>
-				
-				<h1>Error al Eliminar el Credito</h1>
-				
-			<?php 	} ?>		
-			
-			<a href="../php/clientes.php" class='menu'>Listo!</a>
-			
+		<center>	
+			" . $h1 . "
+			<input type='button' onclick='history.back(2)' name='listo' value='Listo'>
 		</center>
 	</body>
-</html>
+	</html>";
+
+echo $html;

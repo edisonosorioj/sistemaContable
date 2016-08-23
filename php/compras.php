@@ -63,8 +63,8 @@ $html = "<html>
 		<div class='lista_clientes' id='agrega-registros'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='20%'>Fecha</td>
-					<td width='10%'>Cantidad</td>
+					<td width='15%'>Fecha</td>
+					<td width='5%'>Can.</td>
 					<td width='20%'>Producto</td>
 					<td width='25%'>Detalles</td>
 					<td width='10%'>Valor</td>

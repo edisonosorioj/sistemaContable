@@ -38,14 +38,27 @@ $row2=$query2->fetch_assoc();
 
 $nombre = $row2['nombres'];
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
+$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes 
+								where cr.idclientes = '$id'");
 
 $row3 = $query3->fetch_assoc();
-$tr2 .= "<tr class='row' id='rows'>
+
+if($row3['total'] < 0){
+
+	$tr2 .= "<tr class='row' id='rows'>
+				<td width='30%'></td>
+				<td width='20%'><b>TOTAL CREDITO</b></td>
+				<td width='10%' class='deuda'>" . $row3['total'] . "</td>
+			</tr>";
+
+}else{
+	$tr2 .= "<tr class='row' id='rows'>
 			<td width='30%'></td>
-			<td width='20%'><b>TOTAL GASTOS</b></td>
-			<td width='10%'>" . $row3['total'] . "</td>
+			<td width='20%'><b>TOTAL CREDITO</b></td>
+			<td width='10%' class='aFavor'>" . $row3['total'] . "</td>
 		</tr>";
+}
+
 
 
 
@@ -71,11 +84,11 @@ $html = "<html>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='10%'>Cod.</td>
+					<td width='5%'>Cod.</td>
 					<td width='10%'>Fecha</td>
 					<td width='20%'>Detalles</td>
 					<td width='10%'>Valor</td>
-					<td width='20%'>Acciones</td>
+					<td width='10%'>Acciones</td>
 				</tr>"
 			 . $tr . 
 			 "</table>
