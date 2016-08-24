@@ -57,3 +57,23 @@ CREATE TABLE `sistema_contable`.`ingresos` (
   PRIMARY KEY (`idabonos`, `idclientes`)
 )
 ENGINE = InnoDB;
+
+CREATE TABLE `sistema_contable`.`estadoCompras` (
+  `idestado` INT NOT NULL AUTO_INCREMENT,
+  `cantidad` INT NULL,
+  `producto` VARCHAR(45) NOT NULL,
+  `detalles` VARCHAR(100) NULL,
+  `valor` MEDIUMINT(10) NOT NULL,
+  `fecha` DATE NOT NULL,
+  PRIMARY KEY (`idestado`));
+
+CREATE TABLE `sistema_contable`.`estadocuentas` (
+  `idescuentas` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `cantidad` INT(10) NULL,
+  `producto` VARCHAR(45) NOT NULL,
+  `detalles` VARCHAR(100) NULL,
+  `valor` MEDIUMINT(10) NOT NULL,
+  `idestado` INT NOT NULL,
+  PRIMARY KEY (`idescuentas`, `idestado`));
+

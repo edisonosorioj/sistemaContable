@@ -57,7 +57,7 @@ $html = "<html>
 			</form>
 			<a href='inicio.php' class='menu'>Menu</a>
 			<a href='' id='newIngreso' class='menu'>Nuevo Ingreso</a>
-			<a href='logout.php' class='close_session'>Salir</a>
+			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>

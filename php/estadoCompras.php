@@ -10,7 +10,7 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-$query = mysqli_query($result,'select * from clientes order by id desc');
+$query = mysqli_query($result,'select * from estadoCompras order by idestado desc');
 
 
 $tr = '';
@@ -18,13 +18,14 @@ $tr = '';
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 		. "</td>
-				<td>" . $row['nombres'] 		. "</td>
-				<td>" . $row['telefono'] 		. "</td>
-				<td>" . $row['correo'] 			. "</td>
-				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
-				<a href='creditos.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><img src='../img/detalle.png' alt='detalle'></a></td>
+				<td>" . $row['fecha'] 			. "</td>
+				<td>" . $row['cantidad'] 		. "</td>
+				<td>" . $row['producto'] 		. "</td>
+				<td>" . $row['detalles'] 		. "</td>
+				<td>" . $row['valor'] 			. "</td>
+				<td><a href='editarMegaCuenta.php?id=" . $row['idestado'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
+				<a href='eliminarMegaCuenta.php?id=" . $row['idestado'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
+				<a href='estadoCuentas.php?id=" . $row['idestado'] . "' class='botonTab' class='botonTab'><img src='../img/detalle.png' alt='detalle'></a></td>
 			</tr>";
 
  }
@@ -41,21 +42,22 @@ $html = "<html>
 	</head>
 	<body>
 		<nav>
-			<p class='title'><h1>Clientes</h1></p>
+			<p class='title'><h1>Mega Cuentas</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='inicio.php' class='menu'>Menu</a>
-			<a href='' id='new' class='menu'>Nuevo Cliente</a>
+			<a href='' id='new' class='menu'>Nueva Gran Compra</a>
 			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='10%'>Documento</td>
-					<td width='20%'>Nombre</td>
-					<td width='10%'>Teléfono</td>
-					<td width='20%'>Correo</td>
-					<td width='15%'>Acciones</td>
+					<td width='10%'>Fecha</td>
+					<td width='5%'>Can.</td>
+					<td width='15%'>Producto</td>
+					<td width='25%'>Detalles</td>
+					<td width='10%'>Valor</td>
+					<td width='10%'>Acciones</td>
 				</tr>"
 			 . $tr . 
 			 "</table>

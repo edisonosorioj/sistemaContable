@@ -51,11 +51,21 @@ $.extend($.expr[":"],
 
 $(".menu").mouseover(function() {
 
-	$(this).animate({ backgroundColor: "#2e374b" }, 200);
+	$(this).animate({ backgroundColor: "#2e374b" },100);
 
 	}).mouseout(function() {
 
-    	$(this).animate({ backgroundColor: "#4267b2" }, 200);
+    	$(this).animate({ backgroundColor: "#4267b2" },100);
+
+	});
+
+$(".salir").mouseover(function() {
+
+	$(this).animate({ backgroundColor: "#fc030f" },100);
+
+	}).mouseout(function() {
+
+    	$(this).animate({ backgroundColor: "#f8787e" },100);
 
 	});
 

@@ -25,6 +25,7 @@ if( !session_id() )
 		<h1>Acciones</h1>
 	</header>
 	<section>
+		<div class='menu'><a href="estadoCompras.php">MEGA CUENTAS</a></div><br />
 		<div class='menu'><a href="compras.php">EGRESOS</a></div>
 		<div class='menu'><a href="ingresos.php">INGRESOS</a></div>
 		<div class='menu'><a href="clientes.php">CLIENTES</a></div>
@@ -58,7 +59,7 @@ if( !session_id() )
 	</section>
 	<footer>
 		<p>Registros // Designed by Edison Osorio</p>
-		<a href='logout.php' class='close_session'>Salir</a>
+		<a href='logout.php' class='close_session salir'>Salir</a>
 	</footer>
 </body>
 <script src='../js/acciones.js'></script>
