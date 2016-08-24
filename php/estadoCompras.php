@@ -45,7 +45,7 @@ $html = "<html>
 			<p class='title'><h1>Mega Cuentas</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='inicio.php' class='menu'>Menu</a>
-			<a href='' id='new' class='menu'>Nueva Gran Compra</a>
+			<a href='' id='newEstado' class='menu'>Nueva Gran Compra</a>
 			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>

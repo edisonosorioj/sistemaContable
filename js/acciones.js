@@ -205,3 +205,10 @@ $(function(){
 
 });
 
+
+//Estado de Compras
+
+$("#newEstado").click(function(evento){
+        evento.preventDefault();
+        $("#destino").load("../html/formEstadoCompras.html");
+});

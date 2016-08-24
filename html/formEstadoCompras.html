@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Mega Compra</title>
+</head>
+<body>
+<form method="post" action="../php/addEstadoCuenta.php" id='formadd'>
+	Fecha:<br /><input type="date" name="fecha" placeholder="Fecha">
+	Cantidad:<br /><input type="number" name="cantidad" placeholder="Cantidad">
+	Producto:<br /><input type="text" name="producto" placeholder="Producto">
+	Detalles:<br /><input type="text" name="detalles" placeholder="Detalles">
+	Valor:<br /><input type="text" name="valor" placeholder="Valor"><br />
+	<input type="submit" name="agregar" class='menu' id="enviarform" value="Guardar">
+	<input type="reset" name="reset" class='menu' value="Limpiar">
+	<input type="button" onclick="hideForm()" class='menu' name="cancelar" value="Cancelar">
+</form>
+</body>
+<script src='../js/acciones.js'></script>
+</html>
