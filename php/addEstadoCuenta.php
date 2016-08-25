@@ -4,18 +4,18 @@ require_once "conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
+	$fecha		=	$_POST['fecha'];
+	$cantidad	=	$_POST['cantidad'];
+	$producto	=	$_POST['producto'];
+	$detalles 	=	$_POST['detalles'];
+	$valor 		=	$_POST['valor'];
 
-	$documento	=	$_POST['documento'];
-	$nombres	=	$_POST['nombres'];
-	$telefono 	=	$_POST['telefono'];
-	$correo 	=	$_POST['correo'];
-
-	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo) VALUES ('$documento', '$nombres', '$telefono', '$correo');");
+	$query = mysqli_query($result,"INSERT INTO estadoCompras (fecha, cantidad, producto, detalles, valor) VALUES ('$fecha', '$cantidad', '$producto', '$detalles', '$valor');");
 	
 ?>
 <html>
 	<head>
-		<title>Clientes</title>
+		<title>Mega Compras</title>
 		<meta charset="UTF-8" />
 		<link rel='stylesheet' href='../css/reset.css' />
 		<link rel='stylesheet' href='../css/estilos.css' />
@@ -23,13 +23,13 @@ $result = $conex->conex();
 	<body>
 		<center>	
 			<?php if($query > 0){ ?>
-				<h1>Cliente Guardado</h1>
+				<h1>Información Guardada</h1>
 				<?php }else{ ?>
-				<h1>Error al Guardar Cliente</h1>		
+				<h1>Error al Guardar Información</h1>		
 			<?php	} ?>		
 			
 			<p></p>	
-			<a href="../php/clientes.php" class="boton">Listo!</a>
+			<a href="../php/estadoCompras.php" class="boton">Listo!</a>
 		</center>
 	</body>
 	</html>	
