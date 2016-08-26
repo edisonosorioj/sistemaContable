@@ -27,9 +27,9 @@ $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as
 				<td>" . $row['producto'] 		. "</td>
 				<td>" . $row['detalles'] 		. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
-				<td><a href='editarCredito.php?id=" . $row['idescuentas'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarCredito.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
-				<a href='copiarCredito.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/copiar.png' alt='copiar'></a>
+				<td><a href='editarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
+				<a href='eliminarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
+				<a href='copiarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/copiar.png' alt='copiar'></a>
 				</td>
 			</tr>";
 

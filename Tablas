@@ -67,7 +67,7 @@ CREATE TABLE `sistema_contable`.`estadoCompras` (
   `fecha` DATE NOT NULL,
   PRIMARY KEY (`idestado`));
 
-CREATE TABLE `sistema_contable`.`estadocuentas` (
+CREATE TABLE `sistema_contable`.`estadoCuentas` (
   `idescuentas` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `cantidad` INT(10) NULL,

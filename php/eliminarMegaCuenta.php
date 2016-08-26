@@ -6,7 +6,7 @@ $result = $conex->conex();
 	
 	$id=$_GET['id'];
 	
-	$query = mysqli_query($result,"delete from estadoCompras where idestados = '$id'");
+	$query = mysqli_query($result,"delete from estadoCompras where idestado = '$id'");
 	
 ?>
 
