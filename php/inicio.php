@@ -25,7 +25,10 @@ if( !session_id() )
 		<h1>Acciones</h1>
 	</header>
 	<section>
-		<div class='menu'><a href="estadoCompras.php">MEGA CUENTAS</a></div><br />
+		<div class='menu'><a href="estadoCompras.php">MEGA CUENTAS</a></div>
+		<div class='menu'><a href="inventario/index.php">INVENTARIOS</a></div>
+
+		<br />
 		<div class='menu'><a href="compras.php">EGRESOS</a></div>
 		<div class='menu'><a href="ingresos.php">INGRESOS</a></div>
 		<div class='menu'><a href="clientes.php">CLIENTES</a></div>

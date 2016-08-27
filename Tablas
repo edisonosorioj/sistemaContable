@@ -1,18 +1,10 @@
-CREATE TABLE `sistema_contable`.`usuario` (
-  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  `documento` VARCHAR(45) NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellido` VARCHAR(45) NOT NULL,
-  `contrasena` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`id`)
-)
-ENGINE = InnoDB;
-
 CREATE TABLE `sistema_contable`.`compras` (
   `idcompras` INT NOT NULL,
   `cantidad` INT NOT NULL,
+  `producto` VARCHAR(45) NOT NULL,
   `detalles` VARCHAR(100) NULL,
-  `valor` VARCHAR(45) NULL,
+  `valor` MEDIUMINT(45) NULL,
+  `fecha` DATE NOT NULL,
   PRIMARY KEY (`idcompras`));
 
 CREATE TABLE `sistema_contable`.`administradores` (
