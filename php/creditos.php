@@ -14,7 +14,8 @@ $id = $_GET['id'];
 
 
 $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor 
-								from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by fecha DESC;");
+								from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' 
+								order by fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){

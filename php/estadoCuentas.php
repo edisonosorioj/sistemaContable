@@ -14,7 +14,7 @@ $id = $_GET['id'];
 
 
 $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as fecha, cr.cantidad as cantidad, cr.producto as producto, 
-								cr.detalles as detalles, cr.valor as valor from estadoCompras c inner join estadocuentas cr 
+								cr.detalles as detalles, cr.valor as valor from estadoCompras c inner join estadoCuentas cr 
 								on c.idestado = cr.idestado where cr.idestado = '$id' order by fecha DESC;");
 
 
@@ -35,14 +35,14 @@ $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as
 
  }
 
-$query2 = mysqli_query($result, "select * from estadocompras where idestado='$id'");
+$query2 = mysqli_query($result, "select * from estadoCompras where idestado='$id'");
 
 $row2=$query2->fetch_assoc();
 
 $producto = $row2['producto'];
 $valor = $row2['valor'];
 
-$query3 = mysqli_query($result,"select SUM(cr.valor) as total from estadoCompras c inner join estadocuentas cr on c.idestado = cr.idestado 
+$query3 = mysqli_query($result,"select SUM(cr.valor) as total from estadoCompras c inner join estadoCuentas cr on c.idestado = cr.idestado 
 								where cr.idestado = '$id'");
 
 $row3 = $query3->fetch_assoc();

@@ -8,7 +8,7 @@ $result = $conex->conex();
 
 	$id=$_GET['id'];
 	
-	$query = mysqli_query($result, "select * from estadocuentas where idescuentas='$id'");
+	$query = mysqli_query($result, "select * from estadoCuentas where idescuentas='$id'");
 
 	$row=$query->fetch_assoc();
 	

@@ -15,21 +15,13 @@ CREATE TABLE `sistema_contable`.`administradores` (
   `contrasena` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idadmin`));
 
-CREATE TABLE `sistema_contable`.`clientesxcreditos` (
-  `idclientes` INT NOT NULL,
-  `idcreditos` INT NOT NULL,
-  PRIMARY KEY (`idclientes`, `idcreditos`),
-  INDEX `idcreditos_idx` (`idcreditos` ASC),
-  CONSTRAINT `id`
-    FOREIGN KEY (`idclientes`)
-    REFERENCES `sistema_contable`.`clientes` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `idcreditos`
-    FOREIGN KEY (`idcreditos`)
-    REFERENCES `sistema_contable`.`creditos` (`idcreditos`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE);
+CREATE TABLE `sistema_contable`.`clientes` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `documento` INT(10) NOT NULL,
+  `nombres` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(45) NOT NULL,
+  `correo` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
 
 CREATE TABLE `sistema_contable`.`ingresos` (
   `idingresos` INT NOT NULL AUTO_INCREMENT,
@@ -40,15 +32,14 @@ CREATE TABLE `sistema_contable`.`ingresos` (
   `valor` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idingresos`));
 
-  CREATE TABLE `sistema_contable`.`abonos` (
-  `idabonos` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sistema_contable`.`creditos` (
+  `idcreditos` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
-  `detalles` VARCHAR(100) NOT NULL,
-  `valor` MEDIUMINT NOT NULL,
-  `idclientes` INT(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`idabonos`, `idclientes`)
-)
-ENGINE = InnoDB;
+  `detalles` VARCHAR(100) NULL,
+  `valor` MEDIUMINT(10) NULL,
+  `idclientes` INT NOT NULL,
+  PRIMARY KEY (`idcreditos`));
+
 
 CREATE TABLE `sistema_contable`.`estadoCompras` (
   `idestado` INT NOT NULL AUTO_INCREMENT,
