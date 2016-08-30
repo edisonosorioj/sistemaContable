@@ -72,6 +72,10 @@ input[type=button] {
 	padding: 5px 20px;
 }
 
+select{
+	font-size: 17px;
+	border: none;
+}
 
 .title{
 	margin-left: 2em;

@@ -60,3 +60,9 @@ CREATE TABLE `sistema_contable`.`estadoCuentas` (
   `idestado` INT NOT NULL,
   PRIMARY KEY (`idescuentas`, `idestado`));
 
+CREATE TABLE `sistema_contable`.`productos` (
+  `idproductos` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL,
+  `disponible` MEDIUMINT(10) NULL DEFAULT 0,
+  PRIMARY KEY (`idproductos`));
