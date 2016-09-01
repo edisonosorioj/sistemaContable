@@ -11,7 +11,17 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-	$query = mysqli_query($result, "UPDATE ingresos set fecha = '$fecha', cantidad = '$cantidad', producto = '$producto', detalles = '$detalles', valor = '$valor' where idingresos = '$id';");
+	if($producto == '--seleccione--'){
+
+		$query = mysqli_query($result, "UPDATE ingresos set fecha = '$fecha', cantidad = '$cantidad', 
+										detalles = '$detalles', valor = '$valor' where idingresos = '$id';");
+		
+	}else{
+		$query = mysqli_query($result, "UPDATE ingresos set fecha = '$fecha', cantidad = '$cantidad', 
+										producto = '$producto', detalles = '$detalles', valor = '$valor' 
+										where idingresos = '$id';");
+	}
+
 	
 ?>
 <html>

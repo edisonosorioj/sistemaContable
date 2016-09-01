@@ -9,7 +9,7 @@ $conex = new conection();
 $result = $conex->conex();
 $tr = '';
 
-$query = mysqli_query($result,'select * from productos order by fecha desc');
+$query = mysqli_query($result,'select * from productos where idproductos != 1 order by fecha desc');
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
