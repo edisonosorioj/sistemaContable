@@ -43,7 +43,7 @@ $html = "<html>
 			<label>Hasta: </label><input type='date' id='cp-hasta' />
 			</form>
 			<a href='../inicio.php' class='menu'>Menu</a>
-			<a href='' id='newProducto' class='menu'>Nueva Producto</a>
+			<a href='' id='newProducto' class='menu'>Nuevo Producto</a>
 			<input type='button' value='Actualizar' onclick='window.location.reload()' />
 			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
