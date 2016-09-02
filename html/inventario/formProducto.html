@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Nuevo Producto</title>
+</head>
+<body>
+<form method="post" action="../php/addProducto.php" id='formadd'>
+	<h3>Agregar Producto</h3>
+	<input type="date" name="fecha" placeholder="Fecha"><br />
+	<input type="text" name="nombre" placeholder="Nombre"><br />
+	<input type="text" name="disponible" placeholder="Disponible"><br />
+	<input type="submit" name="agregar" class='menu' id="enviarform" value="Guardar"><br />
+	<input type="reset" name="reset" class='menu' value="Limpiar"><br />
+	<input type="button" onclick="hideForm()" class='menu' name="cancelar" value="Cancelar">
+</form>
+</body>
+<script src='../../js/acciones.js'></script>
+</html>

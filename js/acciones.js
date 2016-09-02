@@ -212,3 +212,44 @@ $("#newEstado").click(function(evento){
         evento.preventDefault();
         $("#destino").load("../html/formEstadoCompras.html");
 });
+
+//Inventario
+
+$("#newProducto").click(function(evento){
+        evento.preventDefault();
+        $("#destino").load("../../html/inventario/formProducto.html");
+});
+
+$(function(){
+	$('#in-desde').on('change', function(){
+		var desde = $('#in-desde').val();
+		var hasta = $('#in-hasta').val();
+		var url = '../inventario/busca_inventario_fecha.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#agrega-registros').html(datos);
+		}
+	});
+	return false;
+	});
+	
+	$('#in-hasta').on('change', function(){
+		var desde = $('#in-desde').val();
+		var hasta = $('#in-hasta').val();
+		var url = '../inventario/busca_inventario_fecha.php';
+		$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#agrega-registros').html(datos);
+		}
+	});
+	return false;
+	});
+
+
+});

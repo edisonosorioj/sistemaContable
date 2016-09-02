@@ -39,8 +39,8 @@ $html = "<html>
 			<p class='title'><h1>Inventario</h1></p>
 			<form>
 			<label>Buscar: </label><input type='text' id='search' />
-			<label>Desde: </label><input type='date' id='cp-desde' />
-			<label>Hasta: </label><input type='date' id='cp-hasta' />
+			<label>Desde: </label><input type='date' id='in-desde' />
+			<label>Hasta: </label><input type='date' id='in-hasta' />
 			</form>
 			<a href='../inicio.php' class='menu'>Menu</a>
 			<a href='' id='newProducto' class='menu'>Nuevo Producto</a>
@@ -63,7 +63,7 @@ $html = "<html>
 		<footer>
 		</footer>
 		</body>
-		<script src='../js/acciones.js'></script>
+		<script src='../../js/acciones.js'></script>
 </html>";
 
 

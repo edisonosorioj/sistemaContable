@@ -29,7 +29,6 @@ $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as
 				<td align='right'>" . $row['valor'] 		. "</td>
 				<td><a href='editarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
 				<a href='eliminarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
-				<a href='copiarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/copiar.png' alt='copiar'></a>
 				</td>
 			</tr>";
 
@@ -81,7 +80,7 @@ $html = "<html>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='estadoCompras.php' class='menu'>Volver</a>
 			<a href='../html/formGasto.php?id=" . $id . "' class='menu'>Agregar Gasto</a>
-			<a href='../html/formVenta.php?id=" . $id . "' class='menu'>Agregar Venta</a>
+			<a href='../html/formVenta.php?id=" . $id . "' class='menu'>Agregar Producto</a>
 			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
@@ -94,7 +93,7 @@ $html = "<html>
 					<td width='10%'>Producto</td>
 					<td width='20%'>Detalles</td>
 					<td width='10%'>Valor</td>
-					<td width='10%'>Acciones</td>
+					<td width='7%'>Opc.</td>
 				</tr>"
 			 . $tr . 
 			 "</table>

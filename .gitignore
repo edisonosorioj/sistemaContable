@@ -2,3 +2,5 @@
 html/.DS_Store
 
 php/.DS_Store
+
+php/conexion.php

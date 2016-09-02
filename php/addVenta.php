@@ -14,6 +14,9 @@ $result = $conex->conex();
 $query = mysqli_query($result,"INSERT INTO estadocuentas (fecha, cantidad, producto, detalles, valor, idestado) 
 								VALUES ('$fecha', '$cantidad', '$producto', '$detalles', '$valor', '$id');");
 
+$query2 = mysqli_query($result,"UPDATE productos SET disponible = disponible + $cantidad
+									WHERE nombre = '$producto';");
+
 $query2 = mysqli_query($result, "SELECT * FROM estadoCompras where idestado = '$id';");
 
 $row=$query2->fetch_assoc();

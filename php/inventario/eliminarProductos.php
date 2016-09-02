@@ -32,7 +32,7 @@ $result = $conex->conex();
 				
 			<?php 	} ?>		
 			
-			<a href="../php/productos.php" class='menu'>Listo!</a>
+			<a href="../inventario/index.php" class='menu'>Listo!</a>
 			
 		</center>
 	</body>
