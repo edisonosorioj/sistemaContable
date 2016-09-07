@@ -15,23 +15,23 @@ if( !session_id() )
 	<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 	<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-	<script src='../js/bootstrap.min.js'></script>
-	<script src='../js/bootstrap.js'></script>
-	<link rel='stylesheet' href='../css/reset.css' />
-	<link rel='stylesheet' href='../css/estilos.css' />
+	<script src='../../js/bootstrap.min.js'></script>
+	<script src='../../js/bootstrap.js'></script>
+	<link rel='stylesheet' href='../../css/reset.css' />
+	<link rel='stylesheet' href='../../css/estilos.css' />
 </head>
 <body>
 	<header>
 		<h1>Acciones</h1>
 	</header>
 	<section>
-		<div class='menu'><a href="estadoCompras.php">MEGA CUENTAS</a></div>
-		<div class='menu'><a href="inventario/index.php">INVENTARIOS</a></div>
+		<div class='menu'><a href="../megaCuenta/estadoCompras.php">MEGA CUENTAS</a></div>
+		<div class='menu'><a href="../inventario/index.php">INVENTARIOS</a></div>
 
 		<br />
-		<div class='menu'><a href="compras.php">EGRESOS</a></div>
-		<div class='menu'><a href="ingresos.php">INGRESOS</a></div>
-		<div class='menu'><a href="clientes.php">CLIENTES</a></div>
+		<div class='menu'><a href="../egresos/compras.php">EGRESOS</a></div>
+		<div class='menu'><a href="../ingresos/ingresos.php">INGRESOS</a></div>
+		<div class='menu'><a href="../cliente/clientes.php">CLIENTES</a></div>
 	</section>
 	<section id='totales'>
 		<div>
@@ -65,5 +65,5 @@ if( !session_id() )
 		<a href='logout.php' class='close_session salir'>Salir</a>
 	</footer>
 </body>
-<script src='../js/acciones.js'></script>
+<script src='../../js/acciones.js'></script>
 </html>

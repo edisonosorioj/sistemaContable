@@ -73,7 +73,7 @@ $(function(){
 	$('#ini-desde').on('change', function(){
 		var desde = $('#ini-desde').val();
 		var hasta = $('#ini-hasta').val();
-		var url = '../php/TotalEgresoIngreso.php';
+		var url = '../inicio/totalEgresoIngreso.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -88,7 +88,7 @@ $(function(){
 	$('#ini-hasta').on('change', function(){
 		var desde = $('#ini-desde').val();
 		var hasta = $('#ini-hasta').val();
-		var url = '../php/TotalEgresoIngreso.php';
+		var url = '../inicio/totalEgresoIngreso.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -210,7 +210,7 @@ $(function(){
 
 $("#newEstado").click(function(evento){
         evento.preventDefault();
-        $("#destino").load("../html/formEstadoCompras.html");
+        $("#destino").load("../../html/formEstadoCompras.html");
 });
 
 //Inventario

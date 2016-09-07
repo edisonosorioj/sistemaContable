@@ -1,5 +1,5 @@
 <?php 
-require_once "conexion.php";
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
@@ -18,13 +18,13 @@ $html = "<html>
 	<head>
 		<title>Estado de Cuenta</title>
 		<meta charset='UTF-8' />
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 	</head>
 	<body>
 		<center>	
 			" . $h1 . "
-			<input type='button' onclick='history.back(2)' name='listo' value='Listo'>
+			<input type='button' onclick='history.back(2)' name='listo' value='Listo' class='menu'>
 		</center>
 	</body>
 	</html>";
