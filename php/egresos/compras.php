@@ -3,7 +3,7 @@ if( !session_id() )
 {
     session_start();
 }
-require_once 'conexion.php';
+require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
@@ -23,8 +23,10 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
-				<td><a href='editarCompras.php?id=" . $row['idcompras'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<td><a href='editarCompras.php?id=" . $row['idcompras'] . "' class='botonTab'><span data-tooltip='Editar'>
+				<img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarCompra.php?id=" . $row['idcompras'] . "' class='botonTab'><span data-tooltip='Eliminar'>
+				<img src='../../img/eliminar.png' alt='eliminar'></spam></a></td>
 			</tr>";
 
  }
@@ -43,8 +45,8 @@ $html = "<html>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 	</head>
 	<body>
 		<nav>
@@ -80,7 +82,7 @@ $html = "<html>
 		<footer>
 		</footer>
 		</body>
-		<script src='../js/acciones.js'></script>
+		<script src='../../js/acciones.js'></script>
 </html>";
 
 
