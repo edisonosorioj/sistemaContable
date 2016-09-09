@@ -33,8 +33,8 @@ $html = "<html>
 			<head>
 				<title>Ventas</title>
 				<meta charset='UTF-8' />
-				<link rel='stylesheet' href='../css/reset.css' />
-				<link rel='stylesheet' href='../css/estilos.css' />
+				<link rel='stylesheet' href='../../css/reset.css' />
+				<link rel='stylesheet' href='../../css/estilos.css' />
 			</head>
 			<body>
 				<center>	

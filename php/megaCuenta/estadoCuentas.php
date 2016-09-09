@@ -27,8 +27,8 @@ $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as
 				<td>" . $row['producto'] 		. "</td>
 				<td>" . $row['detalles'] 		. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
-				<td><a href='editarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a>
+				<td><a href='editarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
+				<a href='eliminarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a>
 				</td>
 			</tr>";
 
@@ -70,8 +70,8 @@ $html = "<html>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 		<title>Estado Super Cuenta</title>
 	</head>
 	<body>
@@ -79,8 +79,8 @@ $html = "<html>
 			<p class='title'><h1>Estado de Cuenta: $producto $ $valor</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='estadoCompras.php' class='menu'>Volver</a>
-			<a href='../html/formGasto.php?id=" . $id . "' class='menu'>Agregar Gasto</a>
-			<a href='../html/formVenta.php?id=" . $id . "' class='menu'>Agregar Producto</a>
+			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'>Agregar Gasto</a>
+			<a href='../../html/formVenta.php?id=" . $id . "' class='menu'>Agregar Producto</a>
 			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>

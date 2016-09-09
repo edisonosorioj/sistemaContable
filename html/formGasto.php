@@ -35,7 +35,7 @@ $html = "<html>
 			</head>
 			<body>
 				<div class='form'>
-					<form method='post' action='../php/addGasto.php' id='formadd'>
+					<form method='post' action='../php/megaCuenta/addGasto.php' id='formadd'>
 						<h2>Agregar Gasto</h2>
 						<input type='hidden' name='id' value='" . $id . "'>
 						Fecha:<br /><input type='date' name='fecha' placeholder='Fecha'><br />
