@@ -1,5 +1,5 @@
 <?php 
-require_once "conexion.php";
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
@@ -14,8 +14,8 @@ $result = $conex->conex();
 	<head>
 		<title>Compras</title>
 		<meta charset="UTF-8" />
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 	</head>
 	
 	<body>
@@ -32,7 +32,7 @@ $result = $conex->conex();
 				
 			<?php 	} ?>		
 			
-			<a href="../php/ingresos.php" class='menu'>Listo!</a>
+			<a href="ingresos.php" class='menu'>Listo!</a>
 			
 		</center>
 	</body>

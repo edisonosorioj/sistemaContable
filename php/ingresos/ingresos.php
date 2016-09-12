@@ -3,7 +3,7 @@ if( !session_id() )
 {
     session_start();
 }
-require_once 'conexion.php';
+require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
@@ -22,8 +22,8 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
 				<td>" . $row['producto'] 				. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] . "</td>
-				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
+				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 
  }
@@ -42,10 +42,10 @@ $html = "<html>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-		<script src='../js/bootstrap.min.js'></script>
-		<script src='../js/bootstrap.js'></script>
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<script src='../../js/bootstrap.min.js'></script>
+		<script src='../../js/bootstrap.js'></script>
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 	</head>
 	<body>
 		<nav>
@@ -55,9 +55,9 @@ $html = "<html>
 				<label>Desde: </label><input type='date' id='bd-desde' />
 				<label>Hasta: </label><input type='date' id='bd-hasta' />
 			</form>
-			<a href='inicio.php' class='menu'>Menu</a>
+			<a href='../inicio/inicio.php' class='menu'>Menu</a>
 			<a href='' id='newIngreso' class='menu'>Nuevo Ingreso</a>
-			<a href='logout.php' class='close_session salir'>Salir</a>
+			<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>
@@ -80,7 +80,7 @@ $html = "<html>
 		<footer>
 		</footer>
 		</body>
-		<script src='../js/acciones.js'></script>
+		<script src='../../js/acciones.js'></script>
 </html>";
 
 echo $html;

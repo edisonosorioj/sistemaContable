@@ -1,6 +1,6 @@
 <?php
 	
-	require_once "conexion.php";
+	require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
@@ -29,8 +29,8 @@ $html = "<html>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 	</head>
 	<body>
 		<div class='form'>

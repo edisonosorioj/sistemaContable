@@ -26,11 +26,11 @@ $html = "<html>
 				<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 				<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 				<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
-				<link rel='stylesheet' href='../css/reset.css' />
-				<link rel='stylesheet' href='../css/estilos.css' />
+				<link rel='stylesheet' href='../../css/reset.css' />
+				<link rel='stylesheet' href='../../css/estilos.css' />
 			</head>
 			<body>
-			<form method='post' action='../php/addIngreso.php' id='formadd'>
+			<form method='post' action='../ingresos/addIngreso.php' id='formadd'>
 				<input type='hidden' name='fecha' value='" . date('Y-m-d') . "' disabled='disabled'>
 				<input type='number' name='cantidad' placeholder='Cantidad'>
 				<select name='producto'>
@@ -41,10 +41,10 @@ $html = "<html>
 				<input type='submit' name='agregar' id='enviarform' value='Guardar'>
 				<input type='reset' name='reset' value='Limpiar'>
 				<input type='button' onclick='hideForm()' name='cancelar' value='Cancelar'>
-				<a href='clientes.php' class='menu'>Abono Cliente</a>
+				<a href='../cliente/clientes.php' class='menu'>Abono Cliente</a>
 			</form>
 			</body>
-			<script src='../js/acciones.js'></script>
+			<script src='../../js/acciones.js'></script>
 		</html>";
 
 echo $html;

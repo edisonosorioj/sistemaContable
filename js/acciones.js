@@ -106,7 +106,7 @@ $(function(){
 //Clientes
 $("#new").click(function(evento){
         evento.preventDefault();
-        $("#destino").load("../html/form.html");
+        $("#destino").load("../../html/form.html");
   });
 
 
@@ -119,14 +119,14 @@ function hideForm(){
 
 $("#newCompra").click(function(evento){
         evento.preventDefault();
-        $("#destino").load("../html/formCompras.html");
+        $("#destino").load("../../html/formCompras.html");
 });
 
 $(function(){
 	$('#cp-desde').on('change', function(){
 		var desde = $('#cp-desde').val();
 		var hasta = $('#cp-hasta').val();
-		var url = '../php/busca_egreso_fecha.php';
+		var url = '../egresos/busca_egreso_fecha.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -141,7 +141,7 @@ $(function(){
 	$('#cp-hasta').on('change', function(){
 		var desde = $('#cp-desde').val();
 		var hasta = $('#cp-hasta').val();
-		var url = '../php/busca_egreso_fecha.php';
+		var url = '../egresos/busca_egreso_fecha.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -168,14 +168,14 @@ $(function(){
 
 $("#newIngreso").click(function(evento){
         evento.preventDefault();
-        $("#destino").load("../html/formIngreso.php");
+        $("#destino").load("../../html/formIngreso.php");
 });
 
 $(function(){
 	$('#bd-desde').on('change', function(){
 		var desde = $('#bd-desde').val();
 		var hasta = $('#bd-hasta').val();
-		var url = '../php/busca_ingreso_fecha.php';
+		var url = '../ingresos/busca_ingreso_fecha.php';
 		$.ajax({
 		type:'POST',
 		url:url,
@@ -190,7 +190,7 @@ $(function(){
 	$('#bd-hasta').on('change', function(){
 		var desde = $('#bd-desde').val();
 		var hasta = $('#bd-hasta').val();
-		var url = '../php/busca_ingreso_fecha.php';
+		var url = '../ingresos/busca_ingreso_fecha.php';
 		$.ajax({
 		type:'POST',
 		url:url,

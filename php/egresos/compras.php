@@ -56,10 +56,10 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='cp-desde' />
 			<label>Hasta: </label><input type='date' id='cp-hasta' />
 			</form>
-			<a href='inicio.php' class='menu'>Menu</a>
+			<a href='../inicio/inicio.php' class='menu'>Menu</a>
 			<a href='' id='newCompra' class='menu'>Nueva Gasto</a>
 			<input type='button' value='Actualizar' onclick='window.location.reload()' />
-			<a href='logout.php' class='close_session salir'>Salir</a>
+			<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>

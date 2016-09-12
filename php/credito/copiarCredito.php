@@ -1,5 +1,5 @@
 <?php
-require_once "conexion.php";
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
@@ -33,8 +33,6 @@ $result = $conex->conex();
 	$detallesIng 	=	$row2['detalles'];
 	$valorIng 		=	$row2['valor'];
 
-// echo $detallesIng . $nombreCliente;die();
-
 
 	$query = mysqli_query($result,"INSERT INTO ingresos (cantidad, producto, detalles, valor, fecha) 
 				VALUES ('1', CONCAT('$id',' $detalles'), '$nombreCliente', '$valor', '$fecha');");
@@ -53,15 +51,15 @@ $html = "<html>
 	<head>
 		<title>Ingresos</title>
 		<meta charset='UTF-8' />
-		<link rel='stylesheet' href='../css/reset.css' />
-		<link rel='stylesheet' href='../css/estilos.css' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
 	</head>
 	<body>
 		<center>	
 		<center>	
 			" . $h1 . "
 			<a href='creditos.php?id=" . $idcliente . "' class='menu'>Volver a Cliente</a>
-			<a href='ingresos.php' class='menu'>Ir a Ingresos</a>
+			<a href='../ingresos/ingresos.php' class='menu'>Ir a Ingresos</a>
 		</center>
 	</body>
 	</html>";

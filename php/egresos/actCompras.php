@@ -1,5 +1,5 @@
 <?php
-require_once "conexion.php";
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
@@ -30,7 +30,7 @@ $result = $conex->conex();
 			<?php	} ?>		
 			
 			<p></p>	
-			<a href="../php/compras.php" class="boton">Listo!</a>
+			<a href="compras.php" class="menu">Listo!</a>
 		</center>
 	</body>
 	</html>	

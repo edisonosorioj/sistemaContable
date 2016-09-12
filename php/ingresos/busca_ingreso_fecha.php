@@ -3,7 +3,7 @@ if( !session_id() )
 {
     session_start();
 }
-require_once 'conexion.php';
+require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
@@ -47,8 +47,8 @@ if($can > 0){
 				<td>".$registro2['producto']."</td>
 				<td align='left'>".$registro2['detalles']."</td>
 				<td align='right'>".$registro2['valor']."</td>
-				<td><a href='editarIngreso.php?id=" . $registro2['idingresos'] . "' class='botonTab'><img src='../img/editar.png' alt='editar'></a>
-				<a href='eliminarIngreso.php?id=" . $registro2['idingresos'] . "' class='botonTab' class='botonTab'><img src='../img/eliminar.png' alt='eliminar'></a></td>
+				<td><a href='editarIngreso.php?id=" . $registro2['idingresos'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
+				<a href='eliminarIngreso.php?id=" . $registro2['idingresos'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a></td>
 			</tr>";
 	}
 }else{
