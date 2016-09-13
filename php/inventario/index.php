@@ -1,8 +1,5 @@
 <?php
-if( !session_id() )
-{
-    session_start();
-}
+
 require_once '../conexion.php';
 
 $conex = new conection();
