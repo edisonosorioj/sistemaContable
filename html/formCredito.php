@@ -25,7 +25,7 @@ $result = $conex->conex();
 </head>
 <body>
 	<div class='form'>
-		<form method="post" action="../php/addCredito.php" id='formadd'>
+		<form method="post" action="../php/credito/addCredito.php" id='formadd'>
 			<h2>Agregar Credito</h2>
 			<input type="hidden" name="id" value="<?php echo $id; ?>">
 			Fecha:<br /><input type="date" name="fecha" placeholder="Fecha"><br />

@@ -22,9 +22,9 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['telefono'] 		. "</td>
 				<td>" . $row['correo'] 			. "</td>
-				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
-				<a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a>
-				<a href='../credito/creditos.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><img src='../../img/detalle.png' alt='detalle'></a></td>
+				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
+				<a href='../credito/creditos.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Historia'><img src='../../img/detalle.png' alt='detalle'></spam></a></td>
 			</tr>";
 
  }

@@ -28,7 +28,7 @@ $result = $conex->conex();
 			<?php	} ?>		
 			
 			<p></p>	
-			<a href="index.php" class="boton">Listo!</a>
+			<a href="index.php" class="menu">Listo!</a>
 		</center>
 	</body>
 	</html>	

@@ -26,7 +26,7 @@ if( !session_id() )
 	</header>
 	<section>
 		<div class='menu'><a href="../megaCuenta/estadoCompras.php">MEGA CUENTAS</a></div>
-		<div class='menu'><a href="../inventario/index.php">INVENTARIOS</a></div>
+		<div class='menu'><a href="../inventario/index.php">INVENTARIO</a></div>
 
 		<br />
 		<div class='menu'><a href="../egresos/compras.php">EGRESOS</a></div>

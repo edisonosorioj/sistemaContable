@@ -19,8 +19,8 @@ $query = mysqli_query($result,'select * from productos where idproductos != 1 or
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['nombre'] 		. "</td>
 				<td>" . $row['disponible'] 	. "</td>
-				<td><a href='editarProductos.php?id=" . $row['idproductos'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
-				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a></td>
+				<td><a href='editarProductos.php?id=" . $row['idproductos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a></td>
 			</tr>";
 
  }
@@ -42,7 +42,7 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='in-desde' />
 			<label>Hasta: </label><input type='date' id='in-hasta' />
 			</form>
-			<a href='../inicio.php' class='menu'>Menu</a>
+			<a href='../inicio/inicio.php' class='menu'>Menu</a>
 			<a href='' id='newProducto' class='menu'>Nuevo Producto</a>
 			<input type='button' value='Actualizar' onclick='window.location.reload()' />
 			<a href='logout.php' class='close_session salir'>Salir</a>

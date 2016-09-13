@@ -15,7 +15,7 @@ $id = $_GET['id'];
 
 $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor 
 								from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' 
-								order by fecha DESC;");
+								order by fecha DESC, cr.idcreditos DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -25,9 +25,9 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
-				<td><a href='editarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
-				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a>
-				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><img src='../../img/copiar.png' alt='copiar'></a>
+				<td><a href='editarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
+				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Copiar Ing.'><img src='../../img/copiar.png' alt='copiar'></spam></a>
 				</td>
 			</tr>";
 

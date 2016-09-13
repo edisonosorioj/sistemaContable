@@ -27,8 +27,8 @@ $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as
 				<td>" . $row['producto'] 		. "</td>
 				<td>" . $row['detalles'] 		. "</td>
 				<td align='right'>" . $row['valor'] 		. "</td>
-				<td><a href='editarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
-				<a href='eliminarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a>
+				<td><a href='editarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarEstadoCuenta.php?id=" . $row['idescuentas'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 				</td>
 			</tr>";
 

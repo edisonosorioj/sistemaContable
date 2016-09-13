@@ -23,9 +23,9 @@ $tr = '';
 				<td>" . $row['producto'] 		. "</td>
 				<td>" . $row['detalles'] 		. "</td>
 				<td>" . $row['valor'] 			. "</td>
-				<td><a href='editarMegaCuenta.php?id=" . $row['idestado'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
-				<a href='eliminarMegaCuenta.php?id=" . $row['idestado'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a>
-				<a href='estadoCuentas.php?id=" . $row['idestado'] . "' class='botonTab' class='botonTab'><img src='../../img/detalle.png' alt='detalle'></a></td>
+				<td><a href='editarMegaCuenta.php?id=" . $row['idestado'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarMegaCuenta.php?id=" . $row['idestado'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
+				<a href='estadoCuentas.php?id=" . $row['idestado'] . "' class='botonTab' class='botonTab'><span data-tooltip='Detalles'><img src='../../img/detalle.png' alt='detalle'></spam></a></td>
 			</tr>";
 
  }

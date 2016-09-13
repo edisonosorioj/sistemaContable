@@ -22,8 +22,8 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
 				<td>" . $row['producto'] 				. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>" . $row['valor'] . "</td>
-				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><img src='../../img/editar.png' alt='editar'></a>
-				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "' class='botonTab' class='botonTab'><img src='../../img/eliminar.png' alt='eliminar'></a></td>
+				<td><a href='editarIngreso.php?id=" . $row['idingresos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a></td>
 			</tr>";
 
  }
