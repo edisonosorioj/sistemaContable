@@ -1,8 +1,13 @@
 <?php
+session_start();
 
-if( !session_id() )
-{
-    session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+} else {
+	
+	header("Location: ../inicio/session.php");
+	 
+	exit;
 }
 
 require_once "../conexion.php";

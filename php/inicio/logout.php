@@ -1,6 +1,7 @@
 <?php   
-session_start(); 
-session_destroy(); 
-header("location:session.php");
-exit();
+session_start();
+4	unset ($SESSION['username']);
+5	session_destroy();
+6	 
+7	header('Location: session.php');
 ?>

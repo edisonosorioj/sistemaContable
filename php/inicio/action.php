@@ -14,11 +14,13 @@ $password = md5($_POST['password']);
 
 $query = mysqli_query($conection,"select * from administradores where login = '" . $login . "' and password = '" . $password . "'");
 
-$numrows=mysqli_num_rows($query);
- if($numrows!=0)
+$numrows = mysqli_num_rows($query);
+ if($numrows > 0)
 	{
 /* Redirect browser */
-		 header("Location: inicio.php");
+		$_SESSION['loggedin'] = true;
+		$_SESSION['username'] = $login;
+		header("Location: inicio.php");
 	 
 	 	} else {
 	 	

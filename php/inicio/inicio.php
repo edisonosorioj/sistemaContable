@@ -1,10 +1,15 @@
 <?php
+session_start();
 
-if( !session_id() )
-{
-    session_start();
-}
+if (isset($_SESSION['username']) && $_SESSION['loggedin'] == true) {
 
+} else {
+	
+	echo '<script language="javascript">alert("Debes Iniciar Sesión!!.");</script>';
+	header("Location: session.php");
+	 
+	exit;
+	}
 ?>
 
 <!DOCTYPE html>
