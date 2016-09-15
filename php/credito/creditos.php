@@ -101,13 +101,10 @@ $html = "<html>
 			 . $tr2 .
 			 "</table>
 		</div>
-	<footer>
-		<p>Registros // Designed by Edison Osorio</p>
-		<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
-	</footer>
 	</body>
 	<script src='../../js/acciones.js'></script>
 </html>";
 
 
 echo $html;
+$footer = include('../footer.php');

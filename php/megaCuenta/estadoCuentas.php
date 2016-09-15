@@ -87,7 +87,6 @@ $html = "<html>
 			<a href='estadoCompras.php' class='menu'>Volver</a>
 			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'>Agregar Gasto</a>
 			<a href='../../html/formVenta.php?id=" . $id . "' class='menu'>Agregar Producto</a>
-			<a href='logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
@@ -108,11 +107,10 @@ $html = "<html>
 			 . $tr2 .
 			 "</table>
 		</div>
-		<footer>
-		</footer>
 		</body>
 		<script src='../js/acciones.js'></script>
 </html>";
 
 
 echo $html;
+$footer = include('../footer.php');

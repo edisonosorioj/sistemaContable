@@ -62,10 +62,7 @@ if (!isset($_SESSION['login'])) {
 			</table>
 		</div>
 	</section>
-	<footer>
-		<p>Registros // Designed by Edison Osorio</p>
-		<a href='logout.php' class='close_session salir'>Salir</a>
-	</footer>
+	<?php include("../footer.php"); ?>
 </body>
 <script src='../../js/acciones.js'></script>
 </html>

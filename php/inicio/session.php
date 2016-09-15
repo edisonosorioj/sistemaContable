@@ -6,6 +6,7 @@
 	<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 	<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
+	<script src='../../js/acciones.js'></script>
 	
 	<title>Inicio</title>
 </head>
@@ -28,6 +29,8 @@
 			</tr>
 		</table>
 	</form>
-</body>
-	<script src='../../js/acciones.js'></script>
+	<footer>
+		<p>Registros // Designed by Edison Osorio</p>
+	</footer>
+	</body>
 </html>

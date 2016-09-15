@@ -64,7 +64,6 @@ $html = "<html>
 			<a href='../inicio/inicio.php' class='menu'>Menu</a>
 			<a href='' id='newCompra' class='menu'>Nueva Gasto</a>
 			<input type='button' value='Actualizar' onclick='window.location.reload()' />
-			<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>
@@ -84,11 +83,10 @@ $html = "<html>
 			 . $tr2 .
 			 "</table>
 		</div>
-		<footer>
-		</footer>
 		</body>
 		<script src='../../js/acciones.js'></script>
 </html>";
 
 
 echo $html;
+$footer = include('../footer.php');
