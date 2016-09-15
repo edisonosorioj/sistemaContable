@@ -9,9 +9,9 @@ body{
 }
 
 nav{
-	height: 10%;
+	height: 60px;
 	margin-left: 2em;
-	width: 100%;
+	width: 70%;
 }
 
 div .lista_clientes{
@@ -103,8 +103,8 @@ select{
 }
 
 .lista_clientes{
-	height: 500px;
-	margin: 4em 1em;
+	height: 50%;
+	padding: 4em 1em;
 	width: 70%;
 	
 }

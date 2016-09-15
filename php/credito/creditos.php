@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+if (!isset($_SESSION['login'])) {
 
-} else {
-	
 	header("Location: ../inicio/session.php");
-	 
-	exit;
+	exit();
+	
 }
 
 
@@ -69,9 +67,6 @@ if($row3['total'] < 0){
 }
 
 
-
-
-
 $html = "<html>
 	<head>
 		<meta charset='UTF-8' />
@@ -88,7 +83,6 @@ $html = "<html>
 			<a href='../cliente/clientes.php' class='menu'>Volver</a>
 			<a href='../../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Credito</a>
 			<a href='../../html/formAbono.php?id=" . $id . "' class='menu'>Agregar Abono</a>
-			<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
@@ -107,10 +101,12 @@ $html = "<html>
 			 . $tr2 .
 			 "</table>
 		</div>
-		<footer>
-		</footer>
-		</body>
-		<script src='../../js/acciones.js'></script>
+	<footer>
+		<p>Registros // Designed by Edison Osorio</p>
+		<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
+	</footer>
+	</body>
+	<script src='../../js/acciones.js'></script>
 </html>";
 
 

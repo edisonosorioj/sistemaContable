@@ -1,7 +1,10 @@
-<?php   
-session_start();
-4	unset ($SESSION['username']);
-5	session_destroy();
-6	 
-7	header('Location: session.php');
+<?php 
+ //Crear sesión
+ session_start();
+ //Vaciar sesión
+ $_SESSION = array();
+ //Destruir Sesión
+ session_destroy();
+ //Redireccionar a login.php
+ header('Location: session.php');
 ?>

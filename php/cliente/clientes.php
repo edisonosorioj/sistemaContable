@@ -2,13 +2,11 @@
 
 session_start();
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+if (!isset($_SESSION['login'])) {
 
-} else {
-	
 	header("Location: ../inicio/session.php");
-	 
-	exit;
+	exit();
+	
 }
 
 require_once "../conexion.php";
@@ -51,7 +49,6 @@ $html = "<html>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='../inicio/inicio.php' class='menu'>Menu</a>
 			<a href='' id='new' class='menu'>Nuevo Cliente</a>
-			<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
@@ -66,8 +63,10 @@ $html = "<html>
 			 . $tr . 
 			 "</table>
 		 </div>
-		 <footer>
-		</footer>
+	<footer>
+		<p>Registros // Designed by Edison Osorio</p>
+		<a href='../inicio/logout.php' class='close_session salir'>Salir</a>
+	</footer>
 	</body>
 	<script src='../../js/acciones.js'></script>
 </html>";
