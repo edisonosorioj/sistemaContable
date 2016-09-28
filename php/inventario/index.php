@@ -14,8 +14,27 @@ $conex = new conection();
 $result = $conex->conex();
 $tr = '';
 
-$query = mysqli_query($result,'select * from productos where idproductos != 0 order by fecha desc');
+//$registros nos entrega la cantidad de registros a mostrar.
+$registros = 10;
+ 
+//$contador como su nombre lo indica el contador.	
+$contador = 1;
+ 
+/**
+ * Se inicia la paginación, si el valor de $pagina es 0 le asigna el valor 1 e $inicio entra con valor 0.
+ * si no es la pagina 1 entonces $inicio sera igual al numero de pagina menos 1 multiplicado por la cantidad de registro
+ */
+if (!$pagina) { 
+    $inicio = 0; 
+    $pagina = 1; 
+} else { 
+    $inicio = ($pagina - 1) * $registros; 
+} 
 
+$query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
+
+$total_registros = mysqli_num_rows($query);
+$total_paginas = ceil($total_registros / $registros);
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
@@ -24,6 +43,7 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['nombre'] 		. "</td>
 				<td>" . $row['disponible'] 	. "</td>
+				<td>" . $row['valor'] 	. "</td>
 				<td><a href='editarProductos.php?id=" . $row['idproductos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
 				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a></td>
 			</tr>";
@@ -59,6 +79,7 @@ $html = "<html>
 					<td width='15%'>Fecha</td>
 					<td width='25%'>Nombre</td>
 					<td width='10%'>Disponible</td>
+					<td width='10%'>Precio</td>
 					<td width='8%'></td>
 				</tr>"
 			 . $tr . 

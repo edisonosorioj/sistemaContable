@@ -14,9 +14,6 @@ nav{
 	width: 70%;
 }
 
-div .lista_clientes{
-	display: inline-block;
-}
 
 h1{
 	font-size: 24px;
@@ -103,8 +100,8 @@ select{
 }
 
 .lista_clientes{
-	height: 100px;
-	padding: 4em 1em;
+	height: 50%;
+	padding: 5em 1em;
 	width: 70%;
 	
 }
@@ -188,7 +185,7 @@ select{
 
 footer{
 	margin-top: 50px;
-
+	position:absolute;
 }
 
 /*DERECHA ALIGN*/
