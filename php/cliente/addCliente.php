@@ -1,4 +1,14 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION['login'])) {
+
+	header("Location: ../inicio/session.php");
+	exit();
+	
+}
+
 require_once "../conexion.php";
 
 $conex = new conection();

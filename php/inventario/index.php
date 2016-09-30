@@ -13,28 +13,9 @@ require_once '../conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
-
-//$registros nos entrega la cantidad de registros a mostrar.
-$registros = 10;
  
-//$contador como su nombre lo indica el contador.	
-$contador = 1;
- 
-/**
- * Se inicia la paginación, si el valor de $pagina es 0 le asigna el valor 1 e $inicio entra con valor 0.
- * si no es la pagina 1 entonces $inicio sera igual al numero de pagina menos 1 multiplicado por la cantidad de registro
- */
-if (!$pagina) { 
-    $inicio = 0; 
-    $pagina = 1; 
-} else { 
-    $inicio = ($pagina - 1) * $registros; 
-} 
 
 $query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
-
-$total_registros = mysqli_num_rows($query);
-$total_paginas = ceil($total_registros / $registros);
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
@@ -47,7 +28,6 @@ $total_paginas = ceil($total_registros / $registros);
 				<td><a href='editarProductos.php?id=" . $row['idproductos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
 				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a></td>
 			</tr>";
-
  }
 
 $html = "<html>
@@ -91,4 +71,4 @@ $html = "<html>
 
 
 echo $html;
-$footer = include('../footer.php');
+// $footer = include('../footer.php');

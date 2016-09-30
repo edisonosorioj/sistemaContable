@@ -14,7 +14,8 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-$query = mysqli_query($result,'select * from clientes order by id desc');
+$query = mysqli_query($result,'select * from clientes order by id');
+
 
 
 $tr = '';
@@ -26,12 +27,15 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['telefono'] 		. "</td>
 				<td>" . $row['correo'] 			. "</td>
-				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
-				<a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
-				<a href='../credito/creditos.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Historia'><img src='../../img/detalle.png' alt='detalle'></spam></a></td>
+				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Editar'>
+					<img src='../../img/editar.png' alt='editar'></spam></a>
+				<a href='../credito/creditos.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Historia'>
+					<img src='../../img/detalle.png' alt='detalle'></spam></a>
+				</td>
 			</tr>";
 
  }
+				// <a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 
 
 $html = "<html>
@@ -54,11 +58,11 @@ $html = "<html>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='10%'>Documento</td>
+					<td width='5%'>No.</td>
 					<td width='20%'>Nombre</td>
 					<td width='10%'>Teléfono</td>
-					<td width='20%'>Correo</td>
-					<td width='15%'>Acciones</td>
+					<td width='10%'>Adeudado</td>
+					<td width='10%'>Acciones</td>
 				</tr>"
 			 . $tr . 
 			 "</table>
@@ -69,4 +73,4 @@ $html = "<html>
 
 
 echo $html;
-$footer = include('../footer.php');
+// $footer = include('../footer.php');
