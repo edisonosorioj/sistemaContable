@@ -14,7 +14,9 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-$query = mysqli_query($result,'select * from clientes order by id');
+$query = mysqli_query($result,'select c.id, c.documento, c.nombres, telefono, SUM(cr.valor) as valor from clientes c
+								left join creditos cr on c.id = cr.idclientes
+								group by c.id order by c.nombres');
 
 
 
@@ -23,10 +25,10 @@ $tr = '';
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 		. "</td>
-				<td>" . $row['nombres'] 		. "</td>
-				<td>" . $row['telefono'] 		. "</td>
-				<td>" . $row['correo'] 			. "</td>
+				<td>" . $row['documento'] 				. "</td>
+				<td>" . $row['nombres'] 				. "</td>
+				<td>" . $row['telefono'] 				. "</td>
+				<td  align='right'>" . $row['valor'] 	. "</td>
 				<td><a href='editarCliente.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Editar'>
 					<img src='../../img/editar.png' alt='editar'></spam></a>
 				<a href='../credito/creditos.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Historia'>
