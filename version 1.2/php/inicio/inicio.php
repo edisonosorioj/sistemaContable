@@ -14,8 +14,7 @@ if (!isset($_SESSION['login'])) {
 <head>
 	<title>Selección de Herramientas</title>
 	<meta charset="UTF-8" />
-	<!-- <meta name="viewport" content="width:device-width,maximum-scale=1"/> -->
-	<meta name=”viewport” content="width=device-width, maximum-scale=1.2" />
+	<meta name="viewport" content="width=320"/>
 	<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 	<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
@@ -45,7 +44,10 @@ if (!isset($_SESSION['login'])) {
 			</form>
 		</div>
 		<div class="resultado" id='tablaTotal'>
-			<table class='table_result' width="100%">
+			<h3>REPORTE DIARIO</h3>
+			<p><b>EGRESOS: $</b></p>
+			<p><b>INGRESOS: $</b></p>
+<!-- 			<table class='table_result' width="100%">
 				<tr>
 					<th colspan="2" height="50px"><h3>REPORTE DIARIO</h3></th>
 				</tr>
@@ -61,7 +63,7 @@ if (!isset($_SESSION['login'])) {
 					<td>$</td>
 					<td>$</td>
 				</tr>
-			</table>
+			</table> -->
 		</div>
 	</section>
 	<?php include("../footer.php"); ?>

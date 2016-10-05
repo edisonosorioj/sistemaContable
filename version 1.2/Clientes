@@ -1,0 +1,28 @@
+Administradores
+	-ID
+	-Nombre
+	-Apellido
+	-Contraseña
+Clientes
+	-ID
+	-Documento
+	-Nombres
+	-Telefono
+	-Email
+Ventas
+	-ID
+	-Cantidad
+	-Producto
+	-Valor
+Compras
+	-ID
+	-Cantidad
+	-Detalles
+	-Valor
+Creditos
+	-ID
+	-ClienteID
+	-Valor
+	
+http://www.jose-aguilar.com/blog/modificar-registros-en-linea-con-jquery-ajax-php/
+https://www.codejobs.biz/es/blog/2013/03/01/paginacion-de-resultados-con-php-y-mysqli
