@@ -17,7 +17,7 @@
 		<h1>Inicio</h1>
 		<table>
 			<tr>
-				<td>Login</td>
+				<td>Usuario</td>
 				<td><input id='login' name='login' type='text'></td>
 			</tr>
 			<tr>
