@@ -21,7 +21,7 @@
 				<td><input id='login' name='login' type='text'></td>
 			</tr>
 			<tr>
-				<td>Password</td>
+				<td>Contraseña</td>
 				<td><input id='password' name='password' type='password'></td>
 			</tr>
 			<tr>
