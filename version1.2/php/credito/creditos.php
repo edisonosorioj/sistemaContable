@@ -107,4 +107,4 @@ $html = "<html>
 
 
 echo $html;
-$footer = include('../footer.php');
+// $footer = include('../footer.php');
