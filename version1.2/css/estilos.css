@@ -122,11 +122,7 @@ select{
 	background: #2e374b;
 }
 
-.inicio{
-	/*width: 20px;*/
-}
-
-.inicio img{
+.menu img{
 	width: 15px;
 	padding-right: 5px;
 }
