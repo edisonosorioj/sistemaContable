@@ -43,6 +43,7 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
  				<td width='10%'>" . $row2['total'] . "</td>
  			</tr>";
 
+include('../menu.php');
 
 $html = "<html>
 	<head>
@@ -52,6 +53,7 @@ $html = "<html>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
 		<link rel='stylesheet' href='../../css/reset.css' />
 		<link rel='stylesheet' href='../../css/estilos.css' />
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 	</head>
 	<body>
 		<nav>
@@ -61,9 +63,8 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='cp-desde' />
 			<label>Hasta: </label><input type='date' id='cp-hasta' />
 			</form>
-			<a href='../inicio/inicio.php' class='menu'>Menu</a>
 			<a href='' id='newCompra' class='menu'>Nueva Gasto</a>
-			<input type='button' value='Actualizar' onclick='window.location.reload()' />
+			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>

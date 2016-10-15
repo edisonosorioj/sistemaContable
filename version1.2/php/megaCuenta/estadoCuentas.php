@@ -68,7 +68,7 @@ if($row3['total'] < 0){
 		</tr>";
 }
 
-
+include('../menu.php');
 
 $html = "<html>
 	<head>
@@ -78,6 +78,7 @@ $html = "<html>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
 		<link rel='stylesheet' href='../../css/reset.css' />
 		<link rel='stylesheet' href='../../css/estilos.css' />
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 		<title>Estado Super Cuenta</title>
 	</head>
 	<body>
@@ -108,7 +109,7 @@ $html = "<html>
 			 "</table>
 		</div>
 		</body>
-		<script src='../js/acciones.js'></script>
+		<script src='../../js/acciones.js'></script>
 </html>";
 
 

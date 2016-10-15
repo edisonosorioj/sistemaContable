@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<footer>
-			<a href='logout.php' class='close_session salir'>Salir</a>
+			<!-- <a href='logout.php' class='close_session salir'>Salir</a> -->
 			<p>Registros // Designed by Edison Osorio</p>
 		</footer>
 	</body>

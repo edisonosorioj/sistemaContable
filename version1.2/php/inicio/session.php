@@ -4,6 +4,7 @@
 	<meta name="viewport" content="width=device-width"/>
 	<link rel='stylesheet' href='http://code.jquery.com/ui/1.11.3/themes/start/jquery-ui.css'>
 	<link rel='stylesheet' href='../../css/estilos.css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 	<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 	<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 	<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
@@ -26,7 +27,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input id='button_send' type='button' value="Enviar" /></td>
+				<td><input id='button_send' type='button' class="menu" value="Enviar" /></td>
 			</tr>
 		</table>
 	</form>

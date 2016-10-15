@@ -1,17 +1,16 @@
 a {
 	text-decoration: none;
 	color: white;
-	padding: 1em 2em;
 }
 
 body{
 	padding-left: 2em;
+	padding-right: 2em;
+	font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 nav{
-	height: 60px;
-	margin-left: 2em;
-	width: 70%;
+	margin-top: 1em;
 }
 
 
@@ -21,7 +20,6 @@ h1{
 
 section{
 	text-align: center;
-	width: 50%;
 }
 
 input[type=submit] {
@@ -93,15 +91,8 @@ select{
 	padding: .5px 5px;
 }
 
-.close_session{
-	background: #f8787e;
-	border-radius: 1em;
-	padding: 5px 20px;
-}
-
 .lista_clientes{
 	height: 50%;
-	padding: 5em 1em;
 	width: 70%;
 	
 }
@@ -113,29 +104,78 @@ select{
 }
 
 .menu{
-	border-radius: 1em;
 	background-color: #4267b2;
+	border-radius: 1em;
+	box-shadow: rgba(0,0,0,0.5) 0px 0px 10px;
 	color: white;
 	display: inline-block;
+	font-size: 14px;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	margin-right: 10px;
-	/*padding: 5px 10px;*/
-	width: 500px;
+	margin-right: 1px;
+	padding: 5px 10px;
+	text-align: center;
+	width: 100px;
+}
+
+.menu:hover{
+	background: #2e374b;
+}
+
+.inicio{
+	/*width: 20px;*/
+}
+
+.inicio img{
+	width: 15px;
+	padding-right: 5px;
 }
 
 .table_result{
-	border: 2px solid #000000;
+	border: 2px solid lightgray;
 	text-align: center;
 	width: 90%;
 }
 
+.salir{
+	background: #f8787e;
+	border-radius: 1em;
+	box-shadow: rgba(0,0,0,0.5) 0px 0px 10px;
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 1px;
+	padding: 5px 20px;
+ 	position: absolute;
+	right: 0;
+	top: -0.1em;
+}
+
+.salir:hover{
+	background: #fc030f;
+}
+
+nav
+{
+	padding: 0 5.5em 0 0;
+	position: relative;
+}
+
+nav ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
 #totales{
 	background-color: #e4e4e4;
+	border-radius: 2em;
 	margin-top: 1em;
 	padding-top: 1em;
-	border-radius: 2em;
-	height: 170px;
+	text-align: center;
+	/*height: 170px;*/
 }
 
 #tablaTotal{
@@ -144,7 +184,7 @@ select{
 }
 
 .row_result{
-	border: 2px solid #000000;
+	border: 2px solid lightgray;
 }
 
 .resultado{
@@ -161,7 +201,7 @@ select{
 }
 
 .rows{
-	border: 2px solid #000000;
+	border: 2px solid #lightgray;
 	height: 10px;
 }
 
@@ -173,6 +213,7 @@ select{
 	padding: 1em 1em;
 	position: absolute;
 	top: auto;
+	z-index: 2;
 }
 
 .form{
@@ -239,5 +280,13 @@ display: none;
 [data-tooltip]:hover::after
 { display:block;} 
 
+/* Adaptacion para resoluciones pequenas*/
 
+@media screen and (max-width:100px){
+	.menu{
+		overflow: hidden;
+		width: 150px;
+	}
+
+}
 

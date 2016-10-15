@@ -40,6 +40,7 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
  				<td width='10%'>" . $row2['total'] . "</td>
  			</tr>";
 
+include('../menu.php');
 
 $html = "<html>
 	<head>
@@ -51,6 +52,7 @@ $html = "<html>
 		<script src='../../js/bootstrap.js'></script>
 		<link rel='stylesheet' href='../../css/reset.css' />
 		<link rel='stylesheet' href='../../css/estilos.css' />
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 	</head>
 	<body>
 		<nav>

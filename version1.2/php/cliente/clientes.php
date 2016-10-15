@@ -39,6 +39,7 @@ $tr = '';
  }
 				// <a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 
+include('../menu.php');
 
 $html = "<html>
 	<head>
@@ -49,13 +50,13 @@ $html = "<html>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
 		<link rel='stylesheet' href='../../css/reset.css' />
 		<link rel='stylesheet' href='../../css/estilos.css' />
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 	</head>
 	<body>
 		<nav>
 			<p class='title'><h1>Clientes</h1></p>
-			<form><label>Buscar: </label><input type='text' id='search' /></form>
-			<a href='../inicio/inicio.php' class='menu'>Menu</a>
-			<a href='' id='new' class='menu'>Nuevo Cliente</a>
+			<form><label>Buscar: </label><input type='text' id='search' />
+			<a href='' id='new' class='menu'>NUEVO</a></form>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
@@ -76,4 +77,4 @@ $html = "<html>
 
 
 echo $html;
-// $footer = include('../footer.php');
+$footer = include('../footer.php');

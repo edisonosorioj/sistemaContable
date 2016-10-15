@@ -22,20 +22,13 @@ if (!isset($_SESSION['login'])) {
 	<script src='../../js/bootstrap.js'></script>
 	<link rel='stylesheet' href='../../css/reset.css' />
 	<link rel='stylesheet' href='../../css/estilos.css' />
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 </head>
 <body>
 	<header>
-		<h1>Acciones</h1>
+		<?php include("../menu.php"); ?>
+		<h1>Bienvenido <?echo $_SESSION['login']; ?></h1>
 	</header>
-	<section>
-		<div class='menu'><a href="../megaCuenta/estadoCompras.php">MEGA CUENTAS</a></div>
-		<div class='menu'><a href="../inventario/index.php">INVENTARIO</a></div>
-
-		<br />
-		<div class='menu'><a href="../egresos/compras.php">EGRESOS</a></div>
-		<div class='menu'><a href="../ingresos/ingresos.php">INGRESOS</a></div>
-		<div class='menu'><a href="../cliente/clientes.php">CLIENTES</a></div>
-	</section>
 	<section id='totales'>
 		<div>
 			<form>
