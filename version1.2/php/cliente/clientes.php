@@ -56,7 +56,7 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Clientes</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' />
-			<a href='' id='new' class='menu'>NUEVO</a></form>
+			<a href='' id='new' class='menu'><img src='../../img/mas.png'>NUEVO</a></form>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
