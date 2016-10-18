@@ -49,7 +49,7 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Mega Cuentas</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' />
-			<a href='' id='newEstado' class='menu'>Agregar Compra</a></form>
+			<a href='' id='newEstado' class='menu'><img src='../../img/mas.png'>Agregar</a></form>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>

@@ -62,8 +62,8 @@ $html = "<html>
 				<label>Desde: </label><input type='date' id='bd-desde' />
 				<label>Hasta: </label><input type='date' id='bd-hasta' />
 			</form>
-			<a href='../inicio/inicio.php' class='menu'>Menu</a>
-			<a href='' id='newIngreso' class='menu'>Nuevo Ingreso</a>
+			<a href='' id='newIngreso' class='menu'><img src='../../img/mas.png'>Nuevo</a>
+			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>

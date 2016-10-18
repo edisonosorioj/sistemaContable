@@ -26,8 +26,8 @@ $query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+				// <td>" . $row['idescuentas'] 	. "</td>
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['idescuentas'] 	. "</td>
 				<td>" . $row['fecha'] 			. "</td>
 				<td>" . $row['cantidad'] 		. "</td>
 				<td>" . $row['producto'] 		. "</td>
@@ -86,14 +86,13 @@ $html = "<html>
 			<p class='title'><h1>Estado de Cuenta: $producto $ $valor</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='estadoCompras.php' class='menu'>Volver</a>
-			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'>Agregar Gasto</a>
-			<a href='../../html/formVenta.php?id=" . $id . "' class='menu'>Agregar Producto</a>
+			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Agr. Gasto</a>
+			<a href='../../html/formVenta.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Agr. Producto</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='5%'>ID</td>
 					<td width='10%'>Fecha</td>
 					<td width='5%'>Cant.</td>
 					<td width='10%'>Producto</td>
@@ -112,6 +111,7 @@ $html = "<html>
 		<script src='../../js/acciones.js'></script>
 </html>";
 
+					// <td width='5%'>ID</td>
 
 echo $html;
 $footer = include('../footer.php');

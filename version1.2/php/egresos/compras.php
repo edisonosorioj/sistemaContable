@@ -63,7 +63,7 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='cp-desde' />
 			<label>Hasta: </label><input type='date' id='cp-hasta' />
 			</form>
-			<a href='' id='newCompra' class='menu'>Nueva Gasto</a>
+			<a href='' id='newCompra' class='menu'><img src='../../img/mas.png'>Nuevo</a>
 			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
 		</nav>
 		<div id=destino></div>
