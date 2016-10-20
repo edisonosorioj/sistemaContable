@@ -50,9 +50,8 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='in-desde' />
 			<label>Hasta: </label><input type='date' id='in-hasta' />
 			</form>
-			<a href='../inicio/inicio.php' class='menu'>Menu</a>
-			<a href='' id='newProducto' class='menu'>Nuevo Producto</a>
-			<input type='button' value='Actualizar' onclick='window.location.reload()' />
+			<a href='' id='newProducto' class='menu'><img src='../../img/mas.png'>Nuevo</a>
+			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>
@@ -61,7 +60,7 @@ $html = "<html>
 					<td width='5%'>ID</td>
 					<td width='15%'>Fecha</td>
 					<td width='25%'>Nombre</td>
-					<td width='10%'>Disponible</td>
+					<td width='10%'>Disponible Lb.</td>
 					<td width='10%'>Precio</td>
 					<td width='8%'></td>
 				</tr>"
