@@ -23,6 +23,7 @@ $result = $conex->conex();
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
 		<link rel='stylesheet' href='../../css/reset.css' />
 		<link rel='stylesheet' href='../../css/estilos.css' />
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 	</head>
 	<body>
 		<div class='form'>
@@ -34,8 +35,8 @@ $result = $conex->conex();
 				Producto<br /><input type="text" name="producto" value="<?php echo $row['producto']; ?>" /><br />
 				Detalles<br /><input type="text" name="detalles" value="<?php echo $row['detalles']; ?>" /><br />
 				Valor<br /><input type="number" name="valor" value="<?php echo $row['valor']; ?>" /><br /><br />	
-				 <input type="submit" name="send" value="Listo">
-				 <input type="button" onclick="history.back()" name="cancelar" value="Cancelar">
+				 <input type="submit" name="send" class='menu' value="Listo">
+				 <input type="button" onclick="history.back()" class='menu' name="cancelar" value="Cancelar">
 			</form>
 		</div>
 	</body>
