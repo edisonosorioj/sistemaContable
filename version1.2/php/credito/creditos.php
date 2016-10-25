@@ -33,11 +33,11 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td align='right'>" . $row['valor'] 		. "</td>
 				<td><a href='editarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
 				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Copiar Ing.'><img src='../../img/copiar.png' alt='copiar'></spam></a>
+				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 				</td>
 			</tr>";
 
  }
-				// <a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 
 $query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
 

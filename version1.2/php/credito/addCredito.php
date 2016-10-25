@@ -30,6 +30,7 @@ $html = "<html>
 				<meta charset='UTF-8' />
 				<link rel='stylesheet' href='../../css/reset.css' />
 				<link rel='stylesheet' href='../../css/estilos.css' />
+				<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 			</head>
 			<body>
 				<center>	

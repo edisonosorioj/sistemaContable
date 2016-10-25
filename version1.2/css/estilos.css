@@ -72,6 +72,12 @@ select{
 	border: none;
 }
 
+.cartera{
+	color: red;
+	font-size: 24px;
+	margin-left: 5em;
+}
+
 .title{
 	margin-left: 2em;
 }

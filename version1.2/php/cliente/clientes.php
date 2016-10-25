@@ -39,6 +39,10 @@ $tr = '';
  }
 				// <a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 
+ $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
+ 
+ $cartera = $query2->fetch_array(MYSQLI_BOTH);
+
 include('../menu.php');
 
 $html = "<html>
@@ -56,7 +60,8 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Clientes</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' />
-			<a href='' id='new' class='menu'><img src='../../img/mas.png'>Nuevo</a></form>
+			<a href='' id='new' class='menu'><img src='../../img/mas.png'>Nuevo</a>
+			<label class='cartera'>Cartera Pendiente: $ " . $cartera['valor'] ."<label/></form>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
@@ -77,4 +82,4 @@ $html = "<html>
 
 
 echo $html;
-$footer = include('../footer.php');
+// $footer = include('../footer.php');
