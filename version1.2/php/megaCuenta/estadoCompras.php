@@ -42,6 +42,7 @@ include('../menu.php');
 $html = "<html>
 	<head>
 		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width'/>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
@@ -53,7 +54,7 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Mega Cuentas</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' />
-			<a href='' id='newEstado' class='menu'><img src='../../img/mas.png'>Agregar</a></form>
+			<a href='' id='newEstado' class='menu'><img src='../../img/mas.png'>Agregar</a>
 			<label class='cartera'>Saldos: $ " . $cartera['valor'] ."<label/></form>
 		</nav>
 		<div id=destino></div>
