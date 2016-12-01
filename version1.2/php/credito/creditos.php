@@ -15,13 +15,14 @@ $conex = new conection();
 $result = $conex->conex();
 $tr = '';
 $tr2 = '';
+$deuda = '';
 
 $id = $_GET['id'];
 
 
 $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor 
 								from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' 
-								order by fecha DESC, cr.idcreditos DESC;");
+								order by cr.idcreditos DESC, fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -52,18 +53,21 @@ $row3 = $query3->fetch_assoc();
 
 if($row3['total'] < 0){
 
-	$tr2 .= "<tr class='row' id='rows'>
-				<td width='30%'></td>
-				<td width='20%'><b>TOTAL CREDITO</b></td>
-				<td width='10%' class='deuda'>" . $row3['total'] . "</td>
-			</tr>";
+	// $tr2 .= "<tr class='row' id='rows'>
+	// 			<td width='30%'></td>
+	// 			<td width='20%'><b>TOTAL CREDITO</b></td>
+	// 			<td width='10%' class='deuda'>" . $row3['total'] . "</td>
+	// 		</tr>";
+	$deuda .="<label class='deuda' >Cartera Pendiente: $ " . $row3['total'] ."<label/></form>";
 
 }else{
-	$tr2 .= "<tr class='row' id='rows'>
-			<td width='30%'></td>
-			<td width='20%'><b>TOTAL CREDITO</b></td>
-			<td width='10%' class='aFavor'>" . $row3['total'] . "</td>
-		</tr>";
+	$deuda .="<label class='aFavor' >Cartera Pendiente: $ " . $row3['total'] ."<label/></form>";
+	// $tr2 .= "<tr class='row' id='rows'>
+	// 		<td width='30%'></td>
+	// 		<td width='20%'><b>TOTAL CREDITO</b></td>
+	// 		<td width='10%' class='aFavor'>" . $row3['total'] . "</td>
+	// 	</tr>";
+
 }
 
 include('../menu.php');
@@ -85,6 +89,7 @@ $html = "<html>
 			<a href='../cliente/clientes.php' class='menu'>Volver</a>
 			<a href='../../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Credito</a>
 			<a href='../../html/formAbono.php?id=" . $id . "' class='menu'>Agregar Abono</a>
+	" . $deuda . "
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
@@ -98,15 +103,15 @@ $html = "<html>
 				</tr>"
 			 . $tr . 
 			 "</table>
-			 <div id='espacio'></div>
-			 <table class='table_result' id='table_result' width='65%'>"
-			 . $tr2 .
-			 "</table>
 		</div>
 	</body>
 	<script src='../../js/acciones.js'></script>
 </html>";
 
+			 // <div id='espacio'></div>
+			 // <table class='table_result' id='table_result' width='65%'>"
+			 // . $tr2 .
+			 // "</table>
 
 echo $html;
 // $footer = include('../footer.php');
