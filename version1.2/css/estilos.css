@@ -235,11 +235,13 @@ footer{
 /*DERECHA ALIGN*/
 
 .deuda{
+	font-size: 18px;
 	font-weight: bold;
 	color: red;
 }
 
 .aFavor{
+	font-size: 18px;
 	font-weight: bold;
 	color: green;
 }

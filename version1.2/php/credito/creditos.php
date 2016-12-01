@@ -8,7 +8,6 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
-
 require_once '../conexion.php';
 
 $conex = new conection();
@@ -58,10 +57,10 @@ if($row3['total'] < 0){
 	// 			<td width='20%'><b>TOTAL CREDITO</b></td>
 	// 			<td width='10%' class='deuda'>" . $row3['total'] . "</td>
 	// 		</tr>";
-	$deuda .="<label class='deuda' >Cartera Pendiente: $ " . $row3['total'] ."<label/></form>";
+	$deuda .="<label class='deuda'>Cartera Pendiente: $ " . $row3['total'] ."</label></form>";
 
 }else{
-	$deuda .="<label class='aFavor' >Cartera Pendiente: $ " . $row3['total'] ."<label/></form>";
+	$deuda .="<label class='aFavor'>Cartera a Favor: $ " . $row3['total'] ."</label></form>";
 	// $tr2 .= "<tr class='row' id='rows'>
 	// 		<td width='30%'></td>
 	// 		<td width='20%'><b>TOTAL CREDITO</b></td>
@@ -75,6 +74,7 @@ include('../menu.php');
 $html = "<html>
 	<head>
 		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width'/>
 		<script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 		<script src='http://code.jquery.com/jquery-migrate-1.2.1.min.js'></script>
 		<script src='http://code.jquery.com/ui/1.11.3/jquery-ui.min.js'></script>
@@ -84,12 +84,11 @@ $html = "<html>
 	</head>
 	<body>
 		<nav>
-			<p class='title'><h1>Estado de Cuenta: $nombre</h1></p>
+			<p class='title'><h1>Estado de Cuenta: $nombre</h1> " . $deuda . "</p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='../cliente/clientes.php' class='menu'>Volver</a>
 			<a href='../../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Credito</a>
 			<a href='../../html/formAbono.php?id=" . $id . "' class='menu'>Agregar Abono</a>
-	" . $deuda . "
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
