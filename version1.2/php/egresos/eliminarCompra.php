@@ -9,15 +9,15 @@ $result = $conex->conex();
 	$query = mysqli_query($result,"delete from compras where idcompras='$id'");
 	 
 	if($query > 0){
-		$msg = 'El usuario fue eliminado con exito';
+		$msg = 'El egreso fue eliminado con exito';
 	}else{
-		$msg = 'Error al Eliminar el usuario';
+		$msg = 'Error al eliminar el egreso. Contacte al Administrador!';
 	}
 		
 	$html = "<script>
 		window.alert('$msg');
 		self.location='compras.php';
 	</script>";
-	
+
 echo $html;	
 			
