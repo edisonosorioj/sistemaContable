@@ -30,7 +30,6 @@ $result = $conex->conex();
 			<form name="actualizar_ingreso" method="post" action="actEstadoCuenta.php" autocomplete="on">
 				<input type="hidden" name="id" value="<?php echo $row['idescuentas']; ?>">
 				Fecha<br /><input type="date" name="fecha" value="<?php echo $row['fecha']; ?>" /><br />
-				Cantidad<br /><input type="number" name="cantidad" value="<?php echo $row['cantidad']; ?>" /><br />
 				Producto<br /><input type="text" name="producto" value="<?php echo $row['producto']; ?>" /><br />
 				Detalles<br /><input type="text" name="detalles" value="<?php echo $row['detalles']; ?>" /><br />
 				Valor<br /><input type="number" name="valor" value="<?php echo $row['valor']; ?>" /><br /><br />	

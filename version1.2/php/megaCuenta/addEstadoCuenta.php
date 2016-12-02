@@ -5,7 +5,7 @@ $conex = new conection();
 $result = $conex->conex();
 
 	$fecha		=	$_POST['fecha'];
-	$cantidad	=	$_POST['cantidad'];
+	$cantidad	=	1;
 	$producto	=	$_POST['producto'];
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];

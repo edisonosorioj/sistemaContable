@@ -11,7 +11,7 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-	$query = mysqli_query($result, "UPDATE estadoCompras set fecha = '$fecha', cantidad = '$cantidad', producto = '$producto', 
+	$query = mysqli_query($result, "UPDATE estadoCompras set fecha = '$fecha', cantidad = 1, producto = '$producto', 
 								detalles = '$detalles', valor = '$valor' where idestado = '$id';");
 	
 ?>
