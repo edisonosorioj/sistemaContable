@@ -12,11 +12,12 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+
 $tr = '';
 
-$query = mysqli_query($result,'select * from estadocompras order by idestado desc');
+$query = mysqli_query($result,'select * from estadoCompras order by idestado desc');
 
-$query2 = mysqli_query($result,'select SUM(cr.valor) as valor from estadocompras cr');
+$query2 = mysqli_query($result,'select SUM(ec.valor) as valor from estadoCompras ec');
  
  $cartera = $query2->fetch_array(MYSQLI_BOTH);
 
