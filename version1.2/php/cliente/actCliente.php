@@ -12,24 +12,15 @@ $result = $conex->conex();
 
 	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo' where id ='$id';");
 	
-?>
-<html>
-	<head>
-		<title>Clientes</title>
-		<meta charset="UTF-8" />
-		<link rel='stylesheet' href='../../css/reset.css' />
-		<link rel='stylesheet' href='../../css/estilos.css' />
-	</head>
-	<body>
-		<center>	
-			<?php if($query > 0){ ?>
-				<h1>Cliente Guardado</h1>
-				<?php }else{ ?>
-				<h1>Error al Guardar Cliente</h1>		
-			<?php	} ?>		
-			
-			<p></p>	
-			<a href="clientes.php" class="menu">Listo!</a>
-		</center>
-	</body>
-	</html>	
+	if($query > 0){
+		$msg = "El cliente ". $nombres ." fue actualizado";
+	}else{
+		$msg = 'Error al actualizar el cliente. Contacte al Administrador';
+	}
+		
+	$html = "<script>
+		window.alert('$msg');
+		self.location='compras.php';
+	</script>";
+	
+echo $html;	

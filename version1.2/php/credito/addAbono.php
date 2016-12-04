@@ -17,26 +17,15 @@ $row=$query2->fetch_assoc();
 
 $idcliente = $row['id'];
 
-if($query > 0) {
-	$h1 = '<h1>Abono Guardado</h1>';
+if($query > 0){
+	$msg = 'El abono fue agregado con exito';
 }else{
-	$h1 = '<h1>Error al Guardar Abono</h1>';
+	$msg = 'Error al agregar el abono. Contacte al Administrador';
 }
 	
-$html = "<html>
-			<head>
-				<title>Abono</title>
-				<meta charset='UTF-8' />
-				<link rel='stylesheet' href='../../css/reset.css' />
-				<link rel='stylesheet' href='../../css/estilos.css' />
-				<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
-			</head>
-			<body>
-				<center>	
-					" . $h1 . "
-					<a href='creditos.php?id=" . $idcliente . "' class='menu'>Listo!</a>
-				</center>
-			</body>
-			</html>";
-
+$html = "<script>
+	window.alert('$msg');
+	self.location='creditos.php?id=" . $idcliente . "';
+</script>";
+	
 echo $html;
