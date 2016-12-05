@@ -23,7 +23,7 @@ $result = $conex->conex();
 	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo) VALUES ('$documento', '$nombres', '$telefono', '$correo');");
 	
 	if($query > 0){
-		$msg = "El cliente" . $nombres . "agregado con exito";
+		$msg = "El cliente " . $nombres . " fue agregado";
 	}else{
 		$msg = 'Error al agregar el cliente. Contacte al Administrador';
 	}
