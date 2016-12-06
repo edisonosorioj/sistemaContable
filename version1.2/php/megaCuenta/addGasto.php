@@ -20,25 +20,15 @@ $row=$query2->fetch_assoc();
 
 $idestado = $row['idestado'];
 
-if($query > 0) {
-	$h1 = '<h1>Gasto Guardado</h1>';
+if($query > 0){
+	$msg = 'El registro fue agregado';
 }else{
-	$h1 = '<h1>Error al Guardar Gasto</h1>';
+	$msg = 'Error al agregar el registro. Intentelo de nuevo';
 }
 	
-$html = "<html>
-			<head>
-				<title>Ventas</title>
-				<meta charset='UTF-8' />
-				<link rel='stylesheet' href='../../css/reset.css' />
-				<link rel='stylesheet' href='../../css/estilos.css' />
-			</head>
-			<body>
-				<center>	
-					" . $h1 . "
-					<a href='estadoCuentas.php?id=" . $idestado . "' class='menu'>Listo!</a>
-				</center>
-			</body>
-			</html>";
-
+$html = "<script>
+	window.alert('$msg');
+	self.location='estadoCuentas.php?id=" . $idestado . "';
+</script>";
+	
 echo $html;
