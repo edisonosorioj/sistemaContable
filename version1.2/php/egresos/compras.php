@@ -23,6 +23,9 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
+				<td>
+				<input type='checkbox' value='" . $row['idcompras'] . "' name='ids[]' />
+				</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
@@ -70,6 +73,7 @@ $html = "<html>
 		<div class='lista_clientes' id='agrega-registros'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
+					<td width='3%'></td>
 					<td width='15%'>Fecha</td>
 					<td width='5%'>Can.</td>
 					<td width='20%'>Producto</td>
