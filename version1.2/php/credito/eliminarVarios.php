@@ -6,6 +6,11 @@ error_reporting(E_ALL ^ E_NOTICE);
 $conex = new conection();
 $result = $conex->conex();
 
+$id = $_POST['idcreditos'];
+$query2 = mysqli_query($result, "SELECT * FROM creditos where idcreditos = '$id' limit 1;");
+$row=$query2->fetch_assoc();
+$idcliente = $row['idclientes'];
+
 $ids = [$_POST['ids']];
 $num_ids = count($ids[0]);
 
@@ -21,7 +26,7 @@ if ($num_ids > 0) {
             $current++;
         }
 
-		$query = mysqli_query($result,"delete from compras where idcompras in($selected)");
+		$query = mysqli_query($result,"delete from compras where idcreditos in($selected)");
 		 
 		if($query > 0){
 			$msg = 'Lo seleccionado fue eliminado';
@@ -36,7 +41,7 @@ if ($num_ids > 0) {
    
 	$html = "<script>
 		window.alert('$msg');
-		self.location='compras.php';
+		self.location='creditos.php?id=" . $idcliente . "';
 	</script>";
 
 echo $html;	

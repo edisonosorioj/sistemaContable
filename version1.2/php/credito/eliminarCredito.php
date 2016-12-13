@@ -14,25 +14,15 @@ $row=$query2->fetch_assoc();
 
 $idcliente = $row['idclientes'];
 
-if($query > 0) {
-	$h1 = '<h1>Credito Actualizado</h1>';
+if($query > 0){
+	$msg = 'El registro fue elimina';
 }else{
-	$h1 = '<h1>Error al Actualizar Credito</h1>';
+	$msg = 'Error al eliminar el registro. Intentalo de nuevo';
 }
-
-$html = "<html>
-	<head>
-		<title>Creditos</title>
-		<meta charset='UTF-8' />
-		<link rel='stylesheet' href='../../css/reset.css' />
-		<link rel='stylesheet' href='../../css/estilos.css' />
-	</head>
-	<body>
-		<center>	
-			" . $h1 . "
-			<input type='button' onclick='history.back(2)' name='listo' value='Listo'>
-		</center>
-	</body>
-	</html>";
-
+	
+$html = "<script>
+	window.alert('$msg');
+	self.location='creditos.php?id=" . $idcliente . "';
+</script>";
+	
 echo $html;

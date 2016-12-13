@@ -27,6 +27,9 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
+ 				<td>
+				<input type='checkbox' value='" . $row['idcreditos'] . "' name='ids[]' />
+				</td>
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
@@ -45,27 +48,16 @@ $row2=$query2->fetch_assoc();
 
 $nombre = $row2['nombres'];
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes 
-								where cr.idclientes = '$id'");
+$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
 
 $row3 = $query3->fetch_assoc();
 
 if($row3['total'] < 0){
 
-	// $tr2 .= "<tr class='row' id='rows'>
-	// 			<td width='30%'></td>
-	// 			<td width='20%'><b>TOTAL CREDITO</b></td>
-	// 			<td width='10%' class='deuda'>" . $row3['total'] . "</td>
-	// 		</tr>";
 	$deuda .="<label class='deuda'>Cartera Pendiente: $ " . $row3['total'] ."</label></form>";
 
 }else{
 	$deuda .="<label class='aFavor'>Cartera a Favor: $ " . $row3['total'] ."</label></form>";
-	// $tr2 .= "<tr class='row' id='rows'>
-	// 		<td width='30%'></td>
-	// 		<td width='20%'><b>TOTAL CREDITO</b></td>
-	// 		<td width='10%' class='aFavor'>" . $row3['total'] . "</td>
-	// 	</tr>";
 
 }
 
@@ -86,14 +78,17 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Estado de Cuenta: $nombre</h1> " . $deuda . "</p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
+			<form action='eliminarVarios.php' method='post'>
 			<a href='../cliente/clientes.php' class='menu'>Volver</a>
 			<a href='../../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Credito</a>
 			<a href='../../html/formAbono.php?id=" . $id . "' class='menu'>Agregar Abono</a>
+			<input type='submit' name='delete' value='Eliminar' class='menu' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
+					<td width='3%'></td>
 					<td width='5%'>Cod.</td>
 					<td width='10%'>Fecha</td>
 					<td width='20%'>Detalles</td>
@@ -102,15 +97,11 @@ $html = "<html>
 				</tr>"
 			 . $tr . 
 			 "</table>
+			 </form>
 		</div>
 	</body>
 	<script src='../../js/acciones.js'></script>
 </html>";
 
-			 // <div id='espacio'></div>
-			 // <table class='table_result' id='table_result' width='65%'>"
-			 // . $tr2 .
-			 // "</table>
 
 echo $html;
-// $footer = include('../footer.php');

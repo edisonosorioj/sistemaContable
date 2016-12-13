@@ -66,12 +66,13 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='cp-desde' />
 			<label>Hasta: </label><input type='date' id='cp-hasta' />
 			</form>
+			<form action='eliminarVarios.php' method='post'>
 			<a href='' id='newCompra' class='menu'><img src='../../img/mas.png'>Nuevo</a>
+			<input type='submit' name='delete' value='Eliminar' class='menu' />
 			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>
-		<form action='eliminarVarios.php' method='post'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
 					<td width='3%'></td>
@@ -85,7 +86,6 @@ $html = "<html>
 			 . $tr . 
 			 "</table>
 			 <div id='espacio'></div>
-			<input type='submit' name='delete' value='Eliminar' class='menu' />
 			</form>
 			 <table class='table_result' id='table_result' width='65%'>"
 			 . $tr2 .
