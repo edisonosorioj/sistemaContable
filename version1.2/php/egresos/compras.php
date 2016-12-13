@@ -85,11 +85,11 @@ $html = "<html>
 			 . $tr . 
 			 "</table>
 			 <div id='espacio'></div>
+			<input type='submit' name='delete' value='Eliminar' class='menu' />
+			</form>
 			 <table class='table_result' id='table_result' width='65%'>"
 			 . $tr2 .
 			 "</table>
-			<input type='submit' name='delete' value='Eliminar' class='menu' />
-			</form>
 		</div>
 		</body>
 		<script src='../../js/acciones.js'></script>
