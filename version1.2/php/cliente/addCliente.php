@@ -22,15 +22,24 @@ $result = $conex->conex();
 
 	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo) VALUES ('$documento', '$nombres', '$telefono', '$correo');");
 	
-	if($query > 0){
-		$msg = "El cliente " . $nombres . " fue agregado";
-	}else{
-		$msg = 'Error al agregar el cliente. Contacte al Administrador';
-	}
-		
-	$html = "<script>
-		window.alert('$msg');
-		self.location='clientes.php';
-	</script>";
-	
-echo $html;	
+?>
+<html>
+	<head>
+		<title>Clientes</title>
+		<meta charset="UTF-8" />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
+	</head>
+	<body>
+		<center>	
+			<?php if($query > 0){ ?>
+				<h1>Cliente Guardado</h1>
+				<?php }else{ ?>
+				<h1>Error al Guardar Cliente</h1>		
+			<?php	} ?>		
+			
+			<p></p>	
+			<a href="clientes.php" class="menu">Listo!</a>
+		</center>
+	</body>
+	</html>	

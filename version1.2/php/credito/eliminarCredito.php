@@ -1,26 +1,38 @@
 <?php 
-// Version 1.3 of Edison Osorio
 require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-
-// Trae el ID seleccionado a eliminar
-$id = $_GET['id'];
-
-// Realiza la eliminacion del credito enviado. Y genera un mensaje seg[un las respuesta mySql
+	
+	$id = $_GET['id'];
+	
 $query = mysqli_query($result, "delete from creditos where idcreditos = '$id'");
 
-if($query > 0){
-	$msg = 'El registro fue elimina';
+$query2 = mysqli_query($result, "SELECT * FROM creditos where idcreditos = '$id' limit 1;");
+
+$row=$query2->fetch_assoc();
+
+$idcliente = $row['idclientes'];
+
+if($query > 0) {
+	$h1 = '<h1>Credito Actualizado</h1>';
 }else{
-	$msg = 'Error al eliminar el registro. Intentalo de nuevo';
+	$h1 = '<h1>Error al Actualizar Credito</h1>';
 }
 
-// Se construye el HTML
-$html = "<script>
-	window.alert('$msg');
-	javascript:history.back();
-</script>";
-	
+$html = "<html>
+	<head>
+		<title>Creditos</title>
+		<meta charset='UTF-8' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
+	</head>
+	<body>
+		<center>	
+			" . $h1 . "
+			<input type='button' onclick='history.back(2)' name='listo' value='Listo'>
+		</center>
+	</body>
+	</html>";
+
 echo $html;

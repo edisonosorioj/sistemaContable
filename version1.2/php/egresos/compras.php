@@ -23,9 +23,6 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>
-				<input type='checkbox' value='" . $row['idcompras'] . "' name='ids[]' />
-				</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
@@ -66,16 +63,13 @@ $html = "<html>
 			<label>Desde: </label><input type='date' id='cp-desde' />
 			<label>Hasta: </label><input type='date' id='cp-hasta' />
 			</form>
-			<form action='eliminarVarios.php' method='post'>
 			<a href='' id='newCompra' class='menu'><img src='../../img/mas.png'>Nuevo</a>
 			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
-			<input type='submit' name='delete' value='Eliminar' class='menu' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>
 		<table class='table_result' id='table_result'>
 				<tr class='name_list'>
-					<td width='3%'></td>
 					<td width='15%'>Fecha</td>
 					<td width='5%'>Can.</td>
 					<td width='20%'>Producto</td>
@@ -86,7 +80,6 @@ $html = "<html>
 			 . $tr . 
 			 "</table>
 			 <div id='espacio'></div>
-			</form>
 			 <table class='table_result' id='table_result' width='65%'>"
 			 . $tr2 .
 			 "</table>

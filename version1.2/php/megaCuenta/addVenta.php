@@ -23,15 +23,25 @@ $row=$query2->fetch_assoc();
 
 $idestado = $row['idestado'];
 
-if($query > 0){
-	$msg = 'El registro fue agregado';
+if($query > 0) {
+	$h1 = '<h1>Venta Guardada</h1>';
 }else{
-	$msg = 'Error al agregar el registro. Intentelo de nuevo';
+	$h1 = '<h1>Error al Guardar Venta</h1>';
 }
 	
-$html = "<script>
-	window.alert('$msg');
-	self.location='estadoCuentas.php?id=" . $idestado . "';
-</script>";
-	
+$html = "<html>
+			<head>
+				<title>Ventas</title>
+				<meta charset='UTF-8' />
+				<link rel='stylesheet' href='../../css/reset.css' />
+				<link rel='stylesheet' href='../../css/estilos.css' />
+			</head>
+			<body>
+				<center>	
+					" . $h1 . "
+					<a href='estadoCuentas.php?id=" . $idestado . "' class='menu'>Listo!</a>
+				</center>
+			</body>
+			</html>";
+
 echo $html;

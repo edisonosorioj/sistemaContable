@@ -5,32 +5,35 @@ $conex = new conection();
 $result = $conex->conex();
 	
 	$id=$_GET['id'];
+	
+	$query = mysqli_query($result,"delete from clientes where id='$id'");
+	
+?>
 
-	$query2 = mysqli_query($result,"select count(detalles) as registros from creditos where idclientes='$id'");
-
-	$totalregistros = $query2->fetch_array(MYSQLI_BOTH);
+<html>
+	<head>
+		<title>Cliente</title>
+		<meta charset="UTF-8" />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
+	</head>
 	
-	
-	if ($totalregistros['registros'] == 0) {
-		
-		$query = mysqli_query($result,"delete from clientes where id='$id'");
-	
-		if($query > 0){
-			$msg = 'El cliente fue eliminado';
-		}else{
-			$msg = 'Error al eliminar el Cliente. Contacte al Administrador del sistema';
-		}
-	
-	}else{
-	
-		$msg = 'No es posible Eliminar el Cliente. Debe eliminar primero su historial de credito';
-		
-	}
-
-		
-	$html = "<script>
-		window.alert('$msg');
-		self.location='clientes.php';
-	</script>";
-	
-echo $html;	
+	<body>
+		<center>
+			<?php 
+				if($query > 0){
+				?>
+				
+				<h1>Cliente Eliminado</h1>
+				
+				<?php 	} else { ?>
+				
+				<h1>Error al Eliminar Cliente</h1>
+				
+			<?php 	} ?>		
+			
+			<a href="clientes.php" class='menu'>Listo!</a>
+			
+		</center>
+	</body>
+</html>

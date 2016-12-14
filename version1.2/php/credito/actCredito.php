@@ -17,15 +17,25 @@ $row=$query2->fetch_assoc();
 
 $idcliente = $row['idclientes'];
 
-if($query > 0){
-	$msg = 'El registro fue actualizado con exito';
+if($query > 0) {
+	$h1 = '<h1>Credito Actualizado</h1>';
 }else{
-	$msg = 'Error al actualizar el registro. Contacte al Administrador';
+	$h1 = '<h1>Error al Actualizar Credito</h1>';
 }
-	
-$html = "<script>
-	window.alert('$msg');
-	self.location='creditos.php?id=" . $idcliente . "';
-</script>";
-	
+
+$html = "<html>
+	<head>
+		<title>Creditos</title>
+		<meta charset='UTF-8' />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
+	</head>
+	<body>
+		<center>	
+			" . $h1 . "
+			<a href='creditos.php?id=" . $idcliente . "' class='menu'>Listo!</a>
+		</center>
+	</body>
+	</html>";
+
 echo $html;

@@ -33,12 +33,11 @@ $tr = '';
 					<img src='../../img/editar.png' alt='editar'></spam></a>
 				<a href='../credito/creditos.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Historia'>
 					<img src='../../img/detalle.png' alt='detalle'></spam></a>
-				<a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'>
-					<img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 				</td>
 			</tr>";
 
  }
+				// <a href='eliminarCliente.php?id=" . $row['id'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a>
 
  $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
  

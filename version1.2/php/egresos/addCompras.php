@@ -12,15 +12,24 @@ $result = $conex->conex();
 
 	$query = mysqli_query($result,"INSERT INTO compras (cantidad, producto, detalles, valor, fecha) VALUES ('$cantidad', '$producto', '$detalles', '$valor', '$fecha');");
 	
-	if($query > 0){
-		$msg = 'El egreso fue agregado con exito';
-	}else{
-		$msg = 'Error al agregar el egreso. Contacte al Administrador';
-	}
-		
-	$html = "<script>
-		window.alert('$msg');
-		self.location='compras.php';
-	</script>";
-	
-echo $html;	
+?>
+<html>
+	<head>
+		<title>Compras</title>
+		<meta charset="UTF-8" />
+		<link rel='stylesheet' href='../../css/reset.css' />
+		<link rel='stylesheet' href='../../css/estilos.css' />
+	</head>
+	<body>
+		<center>	
+			<?php if($query > 0){ ?>
+				<h1>Gasto Guardado</h1>
+				<?php }else{ ?>
+				<h1>Error al Guardar Gasto</h1>		
+			<?php	} ?>		
+			
+			<p></p>	
+			<a href="compras.php" class="menu">Listo!</a>
+		</center>
+	</body>
+	</html>	
