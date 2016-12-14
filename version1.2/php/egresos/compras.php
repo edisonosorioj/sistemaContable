@@ -68,8 +68,8 @@ $html = "<html>
 			</form>
 			<form action='eliminarVarios.php' method='post'>
 			<a href='' id='newCompra' class='menu'><img src='../../img/mas.png'>Nuevo</a>
-			<input type='submit' name='delete' value='Eliminar' class='menu' />
 			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
+			<input type='submit' name='delete' value='Eliminar' class='menu' />
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>

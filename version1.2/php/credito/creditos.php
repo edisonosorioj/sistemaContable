@@ -1,6 +1,9 @@
 <?php
+// Version 1.3 of Edison Osorio
 session_start();
 
+
+// Verifica que la sesion este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
 	header("Location: ../inicio/session.php");
@@ -16,9 +19,10 @@ $tr = '';
 $tr2 = '';
 $deuda = '';
 
+// Obtiene el ID enviado desde Cliente para visualizar su historial
 $id = $_GET['id'];
 
-
+// Realiza la consulta para ser visualizada en un tabla por medio de un While
 $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor 
 								from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' 
 								order by cr.idcreditos DESC, fecha DESC;");
@@ -42,12 +46,14 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 
  }
 
+// Utilizamos esta consulta para obtener el nombre del cliente en su historial 
 $query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
 
 $row2=$query2->fetch_assoc();
 
 $nombre = $row2['nombres'];
 
+// Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
 $query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
 
 $row3 = $query3->fetch_assoc();
@@ -63,6 +69,7 @@ if($row3['total'] < 0){
 
 include('../menu.php');
 
+// Se construye el HTML con algunas variables que construimos arriba.
 $html = "<html>
 	<head>
 		<meta charset='UTF-8' />

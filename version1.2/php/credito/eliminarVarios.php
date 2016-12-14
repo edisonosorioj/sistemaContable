@@ -1,20 +1,18 @@
-<?php 
+<?php
+// Version 1.3 of Edison Osorio
 require_once "../conexion.php";
 
+// Quita el reporte notice del navegador
 error_reporting(E_ALL ^ E_NOTICE);
 
 $conex = new conection();
 $result = $conex->conex();
 
-$id = $_POST['idcreditos'];
-$query2 = mysqli_query($result, "SELECT * FROM creditos where idcreditos = '$id' limit 1;");
-$row=$query2->fetch_assoc();
-$idcliente = $row['idclientes'];
-
+// Trae los IDS seleccionado y les hace un conteo
 $ids = [$_POST['ids']];
 $num_ids = count($ids[0]);
 
-
+// Lista los IDS seleccionados para eliminacion masiva
 if ($num_ids > 0) {
 		$selected = '';
 		$current = 0;
@@ -25,23 +23,26 @@ if ($num_ids > 0) {
                 $selected .= $value.'';
             $current++;
         }
-
-		$query = mysqli_query($result,"delete from compras where idcreditos in($selected)");
+// Realiza la consulta de eliminacion y valida si se hace o no el proceso
+		$query = mysqli_query($result,"delete from creditos where idcreditos in($selected)");
 		 
 		if($query > 0){
 			$msg = 'Lo seleccionado fue eliminado';
+
 		}else{
 			$msg = 'Error al eliminar lo seleccionado. Intentalo de nuevo';
+
 	      }
 
     }else {
+// Mensaje en caso que no se seleccione ningun ID a eliminar
     	$msg = 'Debes seleccionar como minimo un registro';
     }
 
-   
-	$html = "<script>
+$html = "<script>
 		window.alert('$msg');
-		self.location='creditos.php?id=" . $idcliente . "';
+		javascript:history.back();
 	</script>";
+	echo $html;
 
-echo $html;	
+   
