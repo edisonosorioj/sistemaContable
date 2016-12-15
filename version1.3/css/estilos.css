@@ -75,7 +75,7 @@ select{
 .cartera{
 	color: red;
 	font-size: 24px;
-	margin-left: 5em;
+	margin-left: 2em;
 }
 
 .title{
@@ -286,11 +286,15 @@ display: none;
 
 /* Adaptacion para resoluciones pequenas*/
 
-@media screen and (max-width:100px){
+@media screen and (max-width:675px){
 	.menu{
 		overflow: hidden;
 		width: 150px;
 	}
+	.cartera{
+		font-size: 20px;
+		margin-left: 1px;
+}
 
 }
 
