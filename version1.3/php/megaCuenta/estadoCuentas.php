@@ -19,9 +19,7 @@ $tr2 = '';
 $id = $_GET['id'];
 
 
-$query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as fecha, cr.cantidad as cantidad, cr.producto as producto, 
-								cr.detalles as detalles, cr.valor as valor from estadoCompras c inner join estadoCuentas cr 
-								on c.idestado = cr.idestado where cr.idestado = '$id' order by fecha DESC;");
+$query = mysqli_query($result,"select cr.idescuentas as idescuentas, cr.fecha as fecha, cr.cantidad as cantidad, cr.producto as producto, cr.detalles as detalles, cr.valor as valor from estadoCompras c inner join estadoCuentas cr on c.idestado = cr.idestado where cr.idestado = '$id' order by fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -47,25 +45,18 @@ $row2=$query2->fetch_assoc();
 $producto = $row2['producto'];
 $valor = $row2['valor'];
 
-$query3 = mysqli_query($result,"select SUM(cr.valor) as total from estadoCompras c inner join estadoCuentas cr on c.idestado = cr.idestado 
-								where cr.idestado = '$id'");
+$query3 = mysqli_query($result,"select SUM(cr.valor) as total from estadoCompras c inner join estadoCuentas cr on c.idestado = cr.idestado where cr.idestado = '$id'");
 
 $row3 = $query3->fetch_assoc();
 
+$sumas = $valor + $row3['total'];
+
 if($row3['total'] < 0){
 
-	$tr2 .= "<tr class='row' id='rows'>
-				<td width='30%'></td>
-				<td width='20%'><b>TOTAL ESTADO</b></td>
-				<td width='10%' class='deuda'>" . $row3['total'] . "</td>
-			</tr>";
+	$tr2 .= "<label class='deuda'>$sumas</label>";
 
 }else{
-	$tr2 .= "<tr class='row' id='rows'>
-			<td width='30%'></td>
-			<td width='20%'><b>TOTAL ESTADO</b></td>
-			<td width='10%' class='aFavor'>" . $row3['total'] . "</td>
-		</tr>";
+	$tr2 .= "<label class='aFavor'>$sumas</laber>";
 }
 
 include('../menu.php');
@@ -84,7 +75,7 @@ $html = "<html>
 	</head>
 	<body>
 		<nav>
-			<p class='title'><h1>Estado de Cuenta: $producto $ $valor</h1></p>
+			<p class='title'><h1>Estado de Cuenta: $producto $ " . $tr2 . "</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='estadoCompras.php' class='menu'>Volver</a>
 			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Agr. Gasto</a>
@@ -102,10 +93,6 @@ $html = "<html>
 					<td width='7%'>Opc.</td>
 				</tr>"
 			 . $tr . 
-			 "</table>
-			 <div id='espacio'></div>
-			 <table class='table_result' id='table_result' width='65%'>"
-			 . $tr2 .
 			 "</table>
 		</div>
 		</body>
