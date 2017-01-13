@@ -1,11 +1,11 @@
 <?php
 	
-	require_once "../conexion.php";
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
 	
-
+// Con el ID nos abre otro HTML correspondiente al Editar para organizarlo
 	$id=$_GET['id'];
 	
 	$query = mysqli_query($result, "select * from creditos where idcreditos='$id'");
@@ -13,7 +13,7 @@ $result = $conex->conex();
 	$row=$query->fetch_assoc();
 	
 ?>
-
+<!-- Se crea el HTML con la información del credito -->
 <html>
 	<head>
 		<meta charset='UTF-8' />

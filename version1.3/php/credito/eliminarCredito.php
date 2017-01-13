@@ -12,7 +12,7 @@ $id = $_GET['id'];
 $query = mysqli_query($result, "delete from creditos where idcreditos = '$id'");
 
 if($query > 0){
-	$msg = 'El registro fue elimina';
+	$msg = 'El registro fue eliminado';
 }else{
 	$msg = 'Error al eliminar el registro. Intentalo de nuevo';
 }

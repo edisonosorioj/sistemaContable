@@ -1,13 +1,15 @@
 <?php 
 require_once "../conexion.php";
 
-error_reporting(E_ALL ^ E_NOTICE);
+// error_reporting(E_ALL ^ E_NOTICE);
 
 $conex = new conection();
 $result = $conex->conex();
 
 $ids = [$_POST['ids']];
 $num_ids = count($ids[0]);
+
+echo $num_ids;die();
 
 
 if ($num_ids > 0) {

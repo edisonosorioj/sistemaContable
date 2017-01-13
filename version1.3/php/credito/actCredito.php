@@ -9,8 +9,10 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
+// Realiza la actualización del credito o abono
 $query = mysqli_query($result, "UPDATE creditos set fecha = '$fecha', detalles = '$detalles', valor = '$valor' where idcreditos = '$id';");
 
+// Realiza la consulta para que al realizar la acción se devuelva al cliente que se estaba trabajando
 $query2 = mysqli_query($result, "SELECT * FROM creditos where idcreditos = '$id' limit 1;");
 
 $row=$query2->fetch_assoc();

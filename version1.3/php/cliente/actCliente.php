@@ -10,8 +10,10 @@ $result = $conex->conex();
 	$telefono 	=	$_POST['telefono'];
 	$correo 	=	$_POST['correo'];
 
+// Consulta para actualizar el cliente
 	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo' where id ='$id';");
-	
+
+// Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){
 		$msg = "El cliente ". $nombres ." fue actualizado";
 	}else{
@@ -20,7 +22,7 @@ $result = $conex->conex();
 		
 	$html = "<script>
 		window.alert('$msg');
-		self.location='compras.php';
+		self.location='clientes.php';
 	</script>";
 	
 echo $html;	
