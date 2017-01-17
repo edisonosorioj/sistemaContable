@@ -6,32 +6,30 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-// print_r($_POST['ids']);die();
-
 $ids = array();
 
-if (is_array($ids)) {
-	$idss = $ids;
+if (isset($_POST['ids']) > 0) {
+	$idss = $_POST['ids'];
 }else{
-	$idss = array();
+	$idss = $ids;
 }
 
 $num_idss = count($idss);
 
-// echo $num_idss;die();
 
 
 if ($num_idss > 0) {
 		$selected = '';
 		$current = 0;
-		foreach ($idss[0] as $key => $value) {
-            if ($current != $num_ids-1)
+		foreach ($idss as $key => $value) {
+            if ($current != $num_idss-1)
                 $selected .= $value.', ';
             else
                 $selected .= $value.'';
             $current++;
         }
 
+		// echo $selected;die();
 		$query = mysqli_query($result,"delete from compras where idcompras in($selected)");
 		 
 		if($query > 0){

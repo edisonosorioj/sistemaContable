@@ -83,7 +83,7 @@ $html = "<html>
 		<nav>
 			<p class='title'><h1>Estado de Cuenta: $nombre</h1> " . $deuda . "</p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
-			<form action='eliminarVarios.php' method='get'>
+			<form action='eliminarVarios.php' method='post'>
 			<a href='../cliente/clientes.php' class='menu'>Volver</a>
 			<a href='../../html/formCredito.php?id=" . $id . "' class='menu'>Agregar Credito</a>
 			<a href='../../html/formAbono.php?id=" . $id . "' class='menu'>Agregar Abono</a>

@@ -8,32 +8,15 @@ $result = $conex->conex();
 	
 	$query = mysqli_query($result,"delete from ingresos where idingresos='$id'");
 	
-?>
+	if($query > 0){
+		$msg = 'El ingreso fue eliminado';
+	}else{
+		$msg = 'Error al eliminar el ingreso. Intentelo de nuevo!';
+	}
+		
+	$html = "<script>
+		window.alert('$msg');
+		self.location='ingresos.php';
+	</script>";
 
-<html>
-	<head>
-		<title>Compras</title>
-		<meta charset="UTF-8" />
-		<link rel='stylesheet' href='../../css/reset.css' />
-		<link rel='stylesheet' href='../../css/estilos.css' />
-	</head>
-	
-	<body>
-		<center>
-			<?php 
-				if($query > 0){
-				?>
-				
-				<h1>Ingreso Eliminado</h1>
-				
-				<?php 	} else { ?>
-				
-				<h1>Error al Eliminar el Ingreso</h1>
-				
-			<?php 	} ?>		
-			
-			<a href="ingresos.php" class='menu'>Listo!</a>
-			
-		</center>
-	</body>
-</html>
+echo $html;	
