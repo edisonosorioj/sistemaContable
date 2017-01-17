@@ -6,16 +6,25 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-$ids = [$_POST['ids']];
-$num_ids = count($ids[0]);
+// print_r($_POST['ids']);die();
 
-echo $num_ids;die();
+$ids = array();
+
+if (is_array($ids)) {
+	$idss = $ids;
+}else{
+	$idss = array();
+}
+
+$num_idss = count($idss);
+
+// echo $num_idss;die();
 
 
-if ($num_ids > 0) {
+if ($num_idss > 0) {
 		$selected = '';
 		$current = 0;
-		foreach ($ids[0] as $key => $value) {
+		foreach ($idss[0] as $key => $value) {
             if ($current != $num_ids-1)
                 $selected .= $value.', ';
             else
