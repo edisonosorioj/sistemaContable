@@ -1,20 +1,27 @@
 <?php 
 require_once "../conexion.php";
 
-error_reporting(E_ALL ^ E_NOTICE);
+// error_reporting(E_ALL ^ E_NOTICE);
 
 $conex = new conection();
 $result = $conex->conex();
 
-$ids = [$_POST['ids']];
-$num_ids = count($ids[0]);
+$ids = array();
+
+if (isset($_POST['ids']) > 0) {
+	$idss = $_POST['ids'];
+}else{
+	$idss = $ids;
+}
+
+$num_idss = count($idss);
 
 
-if ($num_ids > 0) {
+if ($num_idss > 0) {
 		$selected = '';
 		$current = 0;
-		foreach ($ids[0] as $key => $value) {
-            if ($current != $num_ids-1)
+		foreach ($idss as $key => $value) {
+            if ($current != $num_idss-1)
                 $selected .= $value.', ';
             else
                 $selected .= $value.'';
