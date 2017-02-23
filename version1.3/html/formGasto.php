@@ -11,18 +11,6 @@ $result = $conex->conex();
 
 	$row=$query->fetch_assoc();
 
-$option='';
-
-$query2 = mysqli_query($result,'select * from productos order by idproductos');
-
-while ($row2 = $query2->fetch_array()){
-
-	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
-
- }
-
-
-
 $html = "<html>
 			<head>
 				<meta charset='UTF-8' />
@@ -36,8 +24,8 @@ $html = "<html>
 				<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 			</head>
 			<body>
-				<div class='form'>
-					<form method='post' action='../php/megaCuenta/addGasto.php' id='formadd'>
+				<div>
+					<form method='post' action='../php/megaCuenta/addGasto.php' id='formAddPHP'>
 						<h2>Agregar Gasto</h2>
 						<input type='hidden' name='id' value='" . $id . "'>
 						Fecha:<br /><input type='date' name='fecha' placeholder='Fecha'><br />
@@ -46,7 +34,6 @@ $html = "<html>
 						Detalles:<br /><input type='text' name='detalles' placeholder='Detalles'><br />
 						Valor:<br /><input type='number' name='valor' placeholder='Valor'><br /><br />
 						<input type='submit' name='agregar' id='enviarform' value='Guardar'>
-						<input type='reset' name='reset' value='Limpiar'>
 						<input type='button' onclick='history.back()' name='cancelar' value='Cancelar'>
 					</form>
 				</div>

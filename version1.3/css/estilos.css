@@ -207,7 +207,7 @@ nav ul
 	height: 10px;
 }
 
-#formAdd{
+#formAddp{
 	background-color: #83c2a2;
 	border-radius: 1em;
 	left: auto;
@@ -216,6 +216,18 @@ nav ul
 	position: absolute;
 	top: auto;
 	z-index: 2;
+}
+
+#formAddPhp{
+	background-color: #83c2a2;
+	border-radius: 1em;
+	left: auto;
+	margin: .5em;
+	padding: 1em 1em;
+	position: absolute;
+	text-align: center;
+	top: auto;
+	width: 200px;	
 }
 
 .form{
