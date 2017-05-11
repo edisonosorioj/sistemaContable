@@ -8,7 +8,7 @@
 		<li class='menu'><a href="../megaCuenta/estadoCompras.php"><img src="../../img/compras.png">CUENTAS</a></li>
 		<li class='menu'><a href="../inventario/index.php"><img src="../../img/reporte.png">INVENTARIO</a></li>
 		<li id="salir">
-			<a href='logout.php' class='salir'>Salir</a>
+			<a href='../inicio/logout.php' class='salir'>Salir</a>
 		</li>
 	</ul>
 </nav>
