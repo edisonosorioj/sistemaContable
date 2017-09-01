@@ -4,6 +4,6 @@
 </head>
 
 <body>
-<p><h1>AlDía</h1></p>
+<p align="center"><h1>AlDía</h1></p>
 </body>
 </html>

@@ -9,9 +9,9 @@ $result = $conex->conex();
 
 	$query = mysqli_query($result, "select idestado from estadoCompras where idestado='$id'");
 
-	$row = $query->fetch_assoc();
+	$row=$query->fetch_assoc();
 
-$option = '';
+$option='';
 
 $query2 = mysqli_query($result,'select * from productos order by idproductos');
 
@@ -36,8 +36,8 @@ $html = "<html>
 				<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
 			</head>
 			<body>
-				<div>
-					<form method='post' action='../php/megaCuenta/addVenta.php' id='formAddPhp'>
+				<div class='form'>
+					<form method='post' action='../php/megaCuenta/addVenta.php' id='formadd'>
 						<h2>Agregar Venta</h2>
 						<input type='hidden' name='id' value='" . $id . "'>
 						Fecha:<br /><input type='date' name='fecha' placeholder='Fecha'><br />
@@ -46,6 +46,7 @@ $html = "<html>
 						Detalles:<br /><input type='text' name='detalles' placeholder='Detalles'><br />
 						Valor:<br /><input type='number' name='valor' placeholder='Valor'><br /><br />
 						<input type='submit' name='agregar' id='enviarform' value='Guardar'>
+						<input type='reset' name='reset' value='Limpiar'>
 						<input type='button' onclick='history.back()' name='cancelar' value='Cancelar'>
 					</form>
 				</div>

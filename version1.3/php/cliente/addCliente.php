@@ -20,14 +20,12 @@ $result = $conex->conex();
 	$telefono 	=	$_POST['telefono'];
 	$correo 	=	$_POST['correo'];
 
-// Agrega nuevos usuarios según el formulario recibido
 	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo) VALUES ('$documento', '$nombres', '$telefono', '$correo');");
-
-//Según la respuesta de la inserción se da una respuesta en un alert 
+	
 	if($query > 0){
 		$msg = "El cliente " . $nombres . " fue agregado";
 	}else{
-		$msg = 'Error al agregar el cliente. Intente nuevamente';
+		$msg = 'Error al agregar el cliente. Contacte al Administrador';
 	}
 		
 	$html = "<script>

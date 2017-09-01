@@ -14,7 +14,6 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-// Consulta y por medio de un while muestra la lista de los clientes
 $query = mysqli_query($result,'select c.id, c.documento, c.nombres, telefono, SUM(cr.valor) as valor from clientes c
 								left join creditos cr on c.id = cr.idclientes
 								group by c.id order by c.nombres');
@@ -41,15 +40,12 @@ $tr = '';
 
  }
 
-// Realiza una segunda consulta que suma el total que deben todos los clientes
  $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
-
-// Lo organiza en un array y permite utilizar cada uno de los parametros
+ 
  $cartera = $query2->fetch_array(MYSQLI_BOTH);
 
 include('../menu.php');
 
-// Se contruye toda la HTML y muestra la información
 $html = "<html>
 	<head>
 		<meta charset='UTF-8' />

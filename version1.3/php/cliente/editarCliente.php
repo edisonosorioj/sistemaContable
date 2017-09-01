@@ -5,15 +5,15 @@
 $conex = new conection();
 $result = $conex->conex();
 	
-// Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
-$id=$_GET['id'];
 
-$query = mysqli_query($result, "select id,documento,nombres,telefono,correo from clientes where id='$id'");
+	$id=$_GET['id'];
+	
+	$query = mysqli_query($result, "select id,documento,nombres,telefono,correo from clientes where id='$id'");
 
-$row=$query->fetch_assoc();
-
+	$row=$query->fetch_assoc();
+	
 ?>
-<!-- Se construye el HTML para editar el cliente con valores de la consulta -->
+
 <html>
 	<head>
 		<meta charset='UTF-8' />
