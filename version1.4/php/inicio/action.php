@@ -23,8 +23,8 @@ $numrows = mysqli_num_rows($query);
 	 
 	 	} else {
 	 	
-	 	echo '<script language="javascript">alert("Usuario o Contraseña Incorrecto. Vuelta a intentarlo.");</script>'; 
-		header("Location: session.html");
+	 	// echo '<script language="javascript">alert("Usuario o Contraseña Incorrecto. Vuelta a intentarlo.");</script>'; 
+		header("Location: session2.html");
 	}
 	 
 
