@@ -1,0 +1,19 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width'/>
+	<title>Nuevo Producto</title>
+</head>
+<body>
+	<form method="post" action="../inventario/addProducto.php" id='formadd'>
+		<h3>Agregar Producto</h3>
+		<input type="text" name="nombre" placeholder="Nombre"><br />
+		<input type="text" name="disponible" placeholder="Disponible"><br />
+		<input type="number" name="valor" placeholder="Valor"><br />
+		<input type="submit" name="agregar" class='menu' id="enviarform" value="Guardar"><br />
+		<input type="reset" name="reset" class='menu' value="Limpiar"><br />
+		<input type="button" onclick="hideForm()" class='menu' name="cancelar" value="Cancelar">
+	</form>
+</body>
+<script src='../../js/acciones.js'></script>
+</html>
