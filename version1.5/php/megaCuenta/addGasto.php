@@ -11,7 +11,7 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-$query = mysqli_query($result,"INSERT INTO estadocuentas (fecha, cantidad, producto, detalles, valor, idestado) 
+$query = mysqli_query($result,"INSERT INTO estadoCuentas (fecha, cantidad, producto, detalles, valor, idestado) 
 								VALUES ('$fecha', '$cantidad', '$producto', '$detalles', CONCAT('-','$valor'), '$id');");
 
 $query2 = mysqli_query($result, "SELECT * FROM estadoCompras where idestado = '$id';");

@@ -35,9 +35,7 @@ $html = "<html>
 			<form method='post' action='../ingresos/addIngreso.php' id='formadd'>
 				<input type='hidden' name='fecha' value='" . date('Y-m-d') . "' disabled='disabled'>
 				<input type='number' name='cantidad' placeholder='Cantidad'>
-				<select name='producto'>
-				" . $option . "
-				</select>
+				<input type='producto' name='producto' placeholder='Producto'>
 				<input type='text' name='detalles' placeholder='Detalles'>
 				<input type='number' name='valor' placeholder='Valor'><br />
 				<input type='submit' name='agregar' id='enviarform' value='Guardar'>

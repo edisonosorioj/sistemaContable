@@ -12,10 +12,6 @@ $result = $conex->conex();
 
 	$query = mysqli_query($result,"INSERT INTO ingresos (cantidad, producto, detalles, valor, fecha) 
 				VALUES ('$cantidad', '$producto', '$detalles', '$valor', '$fecha');");
-
-	$query2 = mysqli_query($result,"UPDATE productos SET disponible = disponible - $cantidad
-				WHERE nombre = '$producto';");
-
 	
 ?>
 <html>
@@ -33,11 +29,6 @@ $result = $conex->conex();
 				<h1>Error al Guardar el Ingreso</h1>		
 			<?php	} ?>		
 			
-			<?php if($query2 > 0){ ?>
-				<h1>Inventario Actualizado</h1>
-				<?php }else{ ?>
-				<h1>Error al Actualizar Inventario</h1>		
-			<?php	} ?>	
 			<p></p>	
 			<a href="ingresos.php" class="menu">Listo!</a>
 		</center>

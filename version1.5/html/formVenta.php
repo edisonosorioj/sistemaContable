@@ -42,7 +42,7 @@ $html = "<html>
 						<input type='hidden' name='id' value='" . $id . "'>
 						Fecha:<br /><input type='date' name='fecha' placeholder='Fecha'><br />
 						Cantidad:<br /><input type='text' name='cantidad' placeholder='Cantidad'><br />
-						Producto:<br /><select name='producto'>" . $option . "</select><br />
+						Producto:<br /><input type='text' name='producto' placeholder='Producto'><br />
 						Detalles:<br /><input type='text' name='detalles' placeholder='Detalles'><br />
 						Valor:<br /><input type='number' name='valor' placeholder='Valor'><br /><br />
 						<input type='submit' name='agregar' id='enviarform' value='Guardar'>

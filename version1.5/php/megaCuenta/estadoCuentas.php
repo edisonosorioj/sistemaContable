@@ -79,8 +79,8 @@ $html = "<html>
 			<p class='title'><h1>Estado de Cuenta: $producto $ " . $tr2 . "</h1></p>
 			<form><label>Buscar: </label><input type='text' id='search' /></form>
 			<a href='estadoCompras.php' class='menu'>Volver</a>
-			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Agr. Gasto</a>
-			<a href='../../html/formVenta.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Agr. Producto</a>
+			<a href='../../html/formGasto.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Abono</a>
+			<a href='../../html/formVenta.php?id=" . $id . "' class='menu'><img src='../../img/mas.png'>Cartera</a>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes'>
