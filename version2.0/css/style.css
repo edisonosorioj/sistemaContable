@@ -1,4 +1,4 @@
-/*
+
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -33,6 +33,59 @@ ul,label{
 	margin:0;
 	padding:0;
 }
+
+/* Tooltip   REVISAR*/
+
+[data-tooltip]{ 
+position:relative; 
+border-bottom: 1px dotted #09C;
+cursor:pointer;
+}
+[data-tooltip]::before {
+content : attr(data-tooltip);
+background-color:rgba(0,0,0,.75);
+color:white;
+-webkit-font-smoothing: antialiased;
+width:80px;
+padding:10px;
+height:auto;
+border-radius:3px;
+display:none;
+position:absolute;
+bottom:25px;
+left:calc(100% - 75%);
+pointer-events: none;
+z-index:99;
+ }
+[data-tooltip]::after{
+content:"";
+height:1px;
+width:1px;
+border:10px solid transparent;
+border-top-color:rgba(0,0,0,.75);
+position:absolute;
+bottom:4px;
+left:50%;
+display: none;
+}
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after
+{ display:block;} 
+
+.deuda{
+	font-size: 24px;
+	font-weight: bold;
+	color: red;
+}
+
+.aFavor{
+	font-size: 24px;
+	font-weight: bold;
+	color: green;
+}
+
+/*PORQUE NO FUNCIONA HASTA EL AVISO DE ARRIBA*/
+
 body a:hover{
 	text-decoration:none;
 }
@@ -4664,4 +4717,4 @@ div#vmap {
 		width: 16%;
 	}
 }
-/*-- //responsive --*/
+/*-- //responsive --
