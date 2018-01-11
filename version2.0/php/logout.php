@@ -6,5 +6,5 @@
  //Destruir Sesión
  session_destroy();
  //Redireccionar a login.php
- header('Location: session.html');
+ header('Location: inicio/session.html');
 ?>

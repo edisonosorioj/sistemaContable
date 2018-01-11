@@ -1,17 +1,19 @@
 <?php
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['login'])) {
 
-// 	header("Location: ../inicio/session.php");
-// 	exit();
+	header("Location: ../inicio/session.php");
+	exit();
 	
-// }
+}
 
 require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+
+include "../menu.php";
 
 // Consulta y por medio de un while muestra la lista de los clientes
 $query = mysqli_query($result,'select c.id, c.documento, c.nombres, telefono, SUM(cr.valor) as valor from clientes c
@@ -98,68 +100,7 @@ $html="<!DOCTYPE html>
 </head>
 <body class='dashboard-page'>
 
-	<nav class='main-menu'>
-		<ul>
-			<li>
-				<a href='index.html'>
-					<i class='fa fa-home nav_icon'></i>
-					<span class='nav-text'>
-					Inicio
-					</span>
-				</a>
-			</li>
-			<li class='has-subnav'>
-				<a href='cliente.php'>
-				<i class='fa fa-cogs' aria-hidden='true'></i>
-				<span class='nav-text'>
-					Clientes
-				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
-				</a>
-			</li>
-			<li class='has-subnav'>
-				<a href='egresos.php'>
-				<i class='fa fa-check-square-o nav_icon'></i>
-				<span class='nav-text'>
-				Egresos
-				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
-				</a>
-			</li>
-			<li class='has-subnav'>
-				<a href='ingresos.php'>
-					<i class='fa fa-file-text-o nav_icon'></i>
-						<span class='nav-text'>Ingresos</span>
-					<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
-				</a>
-			</li>
-			<li>
-				<a href='cuentas.php'>
-					<i class='fa fa-bar-chart nav_icon'></i>
-					<span class='nav-text'>
-						Cuentas
-					</span>
-				</a>
-			</li>
-			<li>
-				<a href='../inventario/inventario.php'>
-					<i class='icon-font nav-icon'></i>
-					<span class='nav-text'>
-					Inventario
-					</span>
-				</a>
-			</li>
-		<ul class='logout'>
-			<li>
-			<a href='../inicio/session.html'>
-			<i class='icon-off nav-icon'></i>
-			<span class='nav-text'>
-			Salir
-			</span>
-			</a>
-			</li>
-		</ul>
-	</nav>
+	
 	<section class='wrapper scrollable'>
 		<nav class='user-menu'>
 			<a href='javascript:;' class='main-menu-access'>

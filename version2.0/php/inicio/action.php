@@ -19,7 +19,7 @@ $numrows = mysqli_num_rows($query);
 		
 		$_SESSION['login'] = $login;
 		
-		header("Location: inicio.php");
+		header("Location: index.php");
 	 
 	 	} else {
 	 	
