@@ -61,6 +61,7 @@ $html = "<script>
 		window.alert('$msg');
 		javascript:history.back();
 	</script>";
-	echo $html;
+
+echo $html;
 
    

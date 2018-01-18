@@ -32,7 +32,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 
  	$tr .=	"<tr class='rows' id='rows'>
  				<td>
-				<input type='checkbox' value='" . $row['idcreditos'] . "' name='ids[]' />
+					<input type='checkbox' value='" . $row['idcreditos'] . "' name='ids[]' />
 				</td>
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
@@ -130,10 +130,11 @@ $html="<!DOCTYPE html>
 					<h2>$nombre</h2>
 				</div>
 				<div class='bs-component mb20 col-md-8'>
+					<form action='eliminarVarios.php' method='post'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Abono</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Credito</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/cliente/eliminarVarios.php\")'>Eliminar</button>
+					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' href='eliminarVarios.php'>Eliminar</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -155,6 +156,7 @@ $html="<!DOCTYPE html>
 						  "
 						</tbody>
 					  </table>
+					  </form>
 					</div>
 				</div>
 				<!-- //tables -->
@@ -169,6 +171,11 @@ $html="<!DOCTYPE html>
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 	<script src='../../js/acciones.js'></script>
+	<script>
+		$('#checkTodos').change(function () {
+  		$('input:checkbox').prop('checked', $(this).prop('checked'));
+		});
+	</script>
 </body>
 </html>";
 

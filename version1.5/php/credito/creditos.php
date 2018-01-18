@@ -1,9 +1,9 @@
 <?php
-// Version 1.3 of Edison Osorio
+// Version 1.5 of Edison Osorio
 session_start();
 
 
-// Verifica que la sesion este correcta. Sino existe lo saca del sistema.
+// Verifica que la session este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
 	header("Location: ../inicio/session.php");
@@ -30,7 +30,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 
  	$tr .=	"<tr class='rows' id='rows'>
  				<td>
-				<input type='checkbox' value='" . $row['idcreditos'] . "' name='ids[]' />
+					<input type='checkbox' value='" . $row['idcreditos'] . "' name='ids[]' />
 				</td>
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>

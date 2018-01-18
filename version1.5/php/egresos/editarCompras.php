@@ -35,7 +35,7 @@ $result = $conex->conex();
 				Cantidad<br /><input type="number" name="cantidad" value="<?php echo $row['cantidad']; ?>" /><br />
 				Producto<br /><input type="text" name="producto" value="<?php echo $row['producto']; ?>" /><br />
 				Detalles<br /><input type="text" name="detalles" value="<?php echo $row['detalles']; ?>" /><br />
-				Valor<br /><input type="number" name="valor" value="<?php echo $row['valor']; ?>" /><br /><br />	
+				Valor<br /><input type="text" name="valor" value="<?php echo $row['valor']; ?>" /><br /><br />	
 				 <input type="submit" name="send" class='menu' value="Listo">
 				 <input type="button" onclick="history.back()" class='menu' name="cancelar" value="Cancelar">
 			</form>
