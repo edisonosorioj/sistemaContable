@@ -15,13 +15,10 @@ $result = $conex->conex();
 
 $tr = '';
 
-$query = mysqli_query($result,'select * from estadoCompras order by idestado desc');
+$query = mysqli_query($result,'select c.fecha, c.producto, c.detalles, c.idestado, SUM(cr.valor) as valor from estadoCompras c 
+		left join estadoCuentas cr on c.idestado = cr.idestado group by c.idestado');
 
-$query2 = mysqli_query($result,'select SUM(ec.valor) as valor from estadoCompras ec');
  
- $cartera = $query2->fetch_array(MYSQLI_BOTH);
-
-				// <td>" . $row['cantidad'] 		. "</td>
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
@@ -37,6 +34,12 @@ $query2 = mysqli_query($result,'select SUM(ec.valor) as valor from estadoCompras
 			</tr>";
 
  }
+
+
+$query2 = mysqli_query($result,'select SUM(c.valor) as valor from estadoCuentas c');
+
+$cartera = $query2->fetch_array(MYSQLI_BOTH);
+
 
 include('../menu.php');
 

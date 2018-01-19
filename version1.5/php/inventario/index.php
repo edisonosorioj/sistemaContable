@@ -13,11 +13,16 @@ require_once '../conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
- 
+$total = '';
+$sumtotal = '';
 
-$query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
+$query = mysqli_query($result,'select * from productos order by idproductos');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
+	
+	$total = $total+$sumtotal;
+
+	$sumtotal=$row['disponible']*$row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
  				<td>
@@ -28,10 +33,12 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<td>" . $row['nombre'] 		. "</td>
 				<td>" . $row['disponible'] 	. "</td>
 				<td>" . number_format($row['valor'], 0, ",", ".") 	. "</td>
+				<td>" . number_format($sumtotal, 0, ",", ".") 	. "</td>
 				<td><a href='editarProductos.php?id=" . $row['idproductos'] . "' class='botonTab'><span data-tooltip='Editar'><img src='../../img/editar.png' alt='editar'></spam></a>
 				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "' class='botonTab' class='botonTab'><span data-tooltip='Eliminar'><img src='../../img/eliminar.png' alt='eliminar'></spam></a></td>
 			</tr>";
  }
+
 
 include('../menu.php');
 
@@ -58,6 +65,7 @@ $html = "<html>
 			<a href='' id='newProducto' class='menu'><img src='../../img/mas.png'>Nuevo</a>
 			<input type='button' value='Actualizar' class='menu' onclick='window.location.reload()' />
 			<input type='submit' name='delete' value='Eliminar' class='menu' />
+			<label class='cartera'>Saldo Inventario: $ " . number_format($total, 0, ",", ".") ."<label/>
 		</nav>
 		<div id=destino></div>
 		<div class='lista_clientes' id='agrega-registros'>
@@ -67,8 +75,9 @@ $html = "<html>
 					<td width='5%'>ID</td>
 					<td width='15%'>Fecha</td>
 					<td width='25%'>Nombre</td>
-					<td width='10%'>Disponible Lb.</td>
+					<td width='10%'>Disponible Kl</td>
 					<td width='10%'>Precio</td>
+					<td width='10%'>Total</td>
 					<td width='8%'></td>
 				</tr>"
 			 . $tr . 

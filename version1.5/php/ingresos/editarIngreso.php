@@ -40,8 +40,7 @@ $html = "<html>
 				<input type='hidden' name='id' value=" . $row['idingresos'] . ">
 				Fecha<br /><input type='date' name='fecha' value='" . $row['fecha'] . "' /><br />
 				Cantidad<br /><input type='number' name='cantidad' value='" . $row['cantidad'] . "' /><br />
-				Producto<br /><input type='text' name='exproducto' value='" . $row['producto'] . "' disabled/><br />
-					Cambiar:<select name='producto'>" . $option . "</select><br />
+				Producto<br /><input type='text' name='producto' value='" . $row['producto'] . "' /><br />
 				Detalles<br /><input type='text' name='detalles' value='" . $row['detalles'] . "' /><br />
 				Valor<br /><input type='number' name='valor' value='" . $row['valor'] . "' /><br /><br />	
 				 <input type='submit' name='send' value='Listo'>
