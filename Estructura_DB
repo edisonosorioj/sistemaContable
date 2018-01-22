@@ -70,3 +70,6 @@ CREATE TABLE `productos` (
   `nombre` VARCHAR(100) NOT NULL,
   `disponible` MEDIUMINT(10) NULL DEFAULT 0,
   PRIMARY KEY (`idproductos`));
+
+
+INSERT INTO clientes (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Zoraida', 'Diaz', 'zoraida', 'f8fe8c766622ad3271a40cabadaf28b4');
