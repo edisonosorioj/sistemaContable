@@ -65,4 +65,5 @@ CREATE TABLE `sistema_contable`.`productos` (
   `fecha` DATE NOT NULL,
   `nombre` VARCHAR(100) NOT NULL,
   `disponible` MEDIUMINT(10) NULL DEFAULT 0,
+  `valor` varchar(45) NULL,
   PRIMARY KEY (`idproductos`));

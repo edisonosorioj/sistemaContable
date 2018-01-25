@@ -16,7 +16,9 @@ $result = $conex->conex();
 		
 	$html = "<script>
 		window.alert('$msg');
-		self.location='index.php';
+		self.location='inventario.php';
 	</script>";
+
+
 
 echo $html;	

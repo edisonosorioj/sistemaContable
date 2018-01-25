@@ -44,17 +44,17 @@ $menu = "
 					<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
-<!-- 		<li>
-				<a href='inventario/inventario.php'>
+			<li>
+				<a href='../inventario/inventario.php'>
 					<i class='icon-font nav-icon'></i>
 					<span class='nav-text'>
 					Inventario
 					</span>
 				</a>
-			</li> -->
+			</li>
 		<ul class='logout'>
 			<li>
-			<a href='../logout.php'>
+			<a href='logout.php'>
 			<i class='icon-off nav-icon'></i>
 			<span class='nav-text'>
 			Salir
@@ -99,7 +99,7 @@ $menu = "
 								<ul class='dropdown-menu drp-mnu'>
 									<li> <a href='#'><i class='fa fa-cog'></i> Configuración</a> </li> 
 									<li> <a href='#'><i class='fa fa-user'></i> Perfil</a> </li> 
-									<li> <a href='#'><i class='fa fa-sign-out'></i> Salir</a> </li>
+									<li> <a href='logout.php'><i class='fa fa-sign-out'></i> Salir</a> </li>
 								</ul>
 							</li>
 						</ul>

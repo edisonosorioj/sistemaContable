@@ -1,27 +1,10 @@
-<?php
-if( !session_id() )
-{
-    session_start();
-}
-require_once '../conexion.php';
-
-$conex = new conection();
-$result = $conex->conex();
-
-	$id=$_GET['id'];
-	
-	$query = mysqli_query($result, "select * from productos where idproductos = '$id'");
-
-	$row=$query->fetch_assoc();
-
-?>
-<!-- Se crea el HTML con la información del credito -->
 <!DOCTYPE html>
 <head>
-<title>Edición Egreso</title>
+<title>Nuevo Egreso</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
+<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -75,7 +58,7 @@ $result = $conex->conex();
 				<!-- input-forms -->
 				<div class="grids">
 					<div class="progressbar-heading grids-heading">
-						<h2>Editar Producto</h2>
+						<h2>Nuevo Producto</h2>
 					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
@@ -84,27 +67,19 @@ $result = $conex->conex();
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class="form-body">
-									<form action="actProductos.php" method="post"> 
-										<div class="form-group"> 
-											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
-										</div>
-										<div class="form-group"> 
-											<label>Fecha</label> 
-											<input type="text" name="fecha" class="form-control" placeholder="Fecha" value="<?php echo $row['fecha']; ?>"> 
-										</div>
+									<form action="../../php/inventario/addProducto.php" method="post"> 
 										<div class="form-group"> 
 											<label>Nombre</label> 
-											<input type="text" name="nombre" class="form-control" placeholder="Nombre" value="<?php echo $row['nombre']; ?>"> 
-										</div> 
+											<input type="text" name="nombre" class="form-control" placeholder="Nombre"> 
+										</div>
 										<div class="form-group"> 
 											<label>Disponible</label> 
-											<input type="text" name="disponible" class="form-control" placeholder="Disponible" value="<?php echo $row['disponible']; ?>"> 
+											<input type="text" name="disponible" class="form-control" placeholder="Disponible" required="true"> 
 										</div>
 										<div class="form-group"> 
 											<label>Valor</label> 
-											<input type="number" name="valor" class="form-control" placeholder="Valor" value="<?php echo $row['valor']; ?>"> 
+											<input type="number" name="valor" class="form-control" placeholder="Valor"> 
 										</div> 
-
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 
 									</form> 
