@@ -73,4 +73,4 @@ CREATE TABLE `productos` (
   PRIMARY KEY (`idproductos`));
 
 
-INSERT INTO clientes (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Zoraida', 'Diaz', 'zoraida', 'f8fe8c766622ad3271a40cabadaf28b4');
+INSERT INTO administradores (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
