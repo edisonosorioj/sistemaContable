@@ -98,7 +98,7 @@ $menu = "
 								</a>
 								<ul class='dropdown-menu drp-mnu'>
 									<li> <a href='#'><i class='fa fa-cog'></i> Configuración</a> </li> 
-									<li> <a href='perfil/perfil.php'><i class='fa fa-user'></i> Perfil</a> </li> 
+									<li> <a href='../perfil/perfil.php'><i class='fa fa-user'></i> Perfil</a> </li> 
 									<li> <a href='logout.php'><i class='fa fa-sign-out'></i> Salir</a> </li>
 								</ul>
 							</li>

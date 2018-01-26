@@ -11,6 +11,8 @@ $password = md5($_POST['password']);
 
 $query = mysqli_query($conection,"select * from administradores where login = '" . $login . "' and password = '" . $password . "'");
 
+$row = $query->fetch_assoc();
+
 $numrows = mysqli_num_rows($query);
  if($numrows > 0)
 	{
@@ -18,6 +20,7 @@ $numrows = mysqli_num_rows($query);
 		session_start();
 		
 		$_SESSION['login'] = $login;
+		$_SESSION['idadmin'] = $row['idadmin'];
 		
 		header("Location: index.php");
 	 
