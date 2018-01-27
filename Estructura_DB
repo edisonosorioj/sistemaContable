@@ -3,7 +3,7 @@ CREATE DATABASE --------;
 USE --------;
 
 CREATE TABLE `administradores` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `idadmin` INT NOT NULL AUTO_INCREMENT,
   `documento` VARCHAR(45) NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `apellido` VARCHAR(45) NOT NULL,

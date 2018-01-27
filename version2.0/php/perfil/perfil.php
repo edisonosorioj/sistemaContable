@@ -145,7 +145,7 @@ include "../menu.php";
 										<div class='form-group'>
 											<label for='disabledinput' class='col-sm-2 control-label'>ID</label>
 											<div class='col-sm-8'>
-												<input disabled='' type='text' name='id' value="<?php echo $row['idadmin']; ?>"class='form-control1' id='disabledinput' placeholder='ID'>
+												<input disabled='' type='text' name='id' value="<?php echo $row['idadmin']; ?>" class='form-control1' id='disabledinput'>
 											</div>
 										</div>
 										<div class='form-group'>
@@ -160,19 +160,19 @@ include "../menu.php";
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Nombres</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value="<?php echo $row['nombre']; ?>" name='Default Input' id='focusedinput' placeholder='Nombres'>
+												<input type='text' class='form-control1' value="<?php echo $row['nombre']; ?>" name='nombre' id='focusedinput' placeholder='Nombres'>
 											</div>
 										</div>
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Apellidos</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value="<?php echo $row['apellido']; ?>" name='Default Input' id='focusedinput' placeholder='Apellido'>
+												<input type='text' class='form-control1' value="<?php echo $row['apellido']; ?>" name='apellido' id='focusedinput' placeholder='Apellido'>
 											</div>
 										</div>
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Login</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value="<?php echo $row['login']; ?>" name='Default Input' id='focusedinput' placeholder='Apellido'>
+												<input type='text' class='form-control1' value="<?php echo $row['login']; ?>" name='login' id='focusedinput' placeholder='Apellido'>
 											</div>
 											<div class='col-sm-2'>
 												<p class='help-block'>Nuevo Login</p>
@@ -181,14 +181,14 @@ include "../menu.php";
 										<div class='form-group'>
 											<label for='inputPassword' class='col-sm-2 control-label'>Password</label>
 											<div class='col-sm-8'>
-												<input type='password' class='form-control1' id='inputPassword' placeholder='Password'>
+												<input type='password' class='form-control1' id='inputPassword' placeholder='Password' name="password">
 											</div>
 											<div class='col-sm-2'>
 												<p class='help-block'>Nuevo Password</p>
 											</div>
 										</div>
 										<button type='submit' class='btn btn-default w3ls-button'>Actualizar</button>
-										<button type='submit' class='btn btn-default w3ls-button'>Cancelar</button> 
+										<button type='button' onclick="history.back()" class='btn btn-default w3ls-button'>Cancelar</button> 
 									</form>
 								</div>
 						</div>
