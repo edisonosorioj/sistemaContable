@@ -12,7 +12,7 @@ $result = $conex->conex();
 	$password 	=	$_POST['password'];
 
 // Consulta para actualizar el cliente
-	if ($password != '') {
+	if ($password == '') {
 		$query = mysqli_query($result, "UPDATE administradores set documento = '$documento', nombre = '$nombre', apellido = '$apellido, 'login = '$login', login = '$login', password = '$password' where idadmin ='$id';");
 	}else{
 
