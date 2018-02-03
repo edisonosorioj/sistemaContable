@@ -4,7 +4,8 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-	$fecha 		= 	date("Y-m-d");
+	// $fecha 		= 	date("Y-m-d");
+	$fecha 		= 	$_POST['fecha'];
 	$cantidad	=	$_POST['cantidad'];
 	$producto	=	$_POST['producto'];
 	$detalles 	=	$_POST['detalles'];

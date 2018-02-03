@@ -24,9 +24,4 @@ class conection{
 
 }
 
-function fechaNormal($fecha){
-		$nfecha = date('d/m/Y',strtotime($fecha));
-		return $nfecha;
-}
-
 ?>
