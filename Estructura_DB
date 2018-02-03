@@ -1,6 +1,6 @@
-CREATE DATABASE --------;
+CREATE DATABASE ---------;
 
-USE --------;
+USE ----------;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
@@ -9,7 +9,7 @@ CREATE TABLE `administradores` (
   `apellido` VARCHAR(45) NOT NULL,
   `login` VARCHAR(45) NOT NULL,
   `password` VARCHAR(200) NOT NULL,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`idadmin`));
 
 CREATE TABLE `clientes` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
@@ -45,6 +45,14 @@ CREATE TABLE `creditos` (
   `idclientes` INT NOT NULL,
   PRIMARY KEY (`idcreditos`));
 
+CREATE TABLE `productos` (
+  `idproductos` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL,
+  `disponible` MEDIUMINT(10) NULL DEFAULT 0,
+  `valor` varchar(45) NULL,
+  PRIMARY KEY (`idproductos`));
+
 CREATE TABLE `estadoCompras` (
   `idestado` INT NOT NULL AUTO_INCREMENT,
   `cantidad` INT NULL,
@@ -64,13 +72,7 @@ CREATE TABLE `estadoCuentas` (
   `idestado` INT NOT NULL,
   PRIMARY KEY (`idescuentas`, `idestado`));
 
-CREATE TABLE `productos` (
-  `idproductos` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATE NOT NULL,
-  `nombre` VARCHAR(100) NOT NULL,
-  `disponible` MEDIUMINT(10) NULL DEFAULT 0,
-  `valor` varchar(45) NULL,
-  PRIMARY KEY (`idproductos`));
-
-
 INSERT INTO administradores (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
+
+
+
