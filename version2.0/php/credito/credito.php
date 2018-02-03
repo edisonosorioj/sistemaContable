@@ -132,8 +132,8 @@ $html="<!DOCTYPE html>
 				<div class='bs-component mb20 col-md-8'>
 					<form action='eliminarVarios.php' method='post'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Abono</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Credito</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>C.Cobro</button>
 					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' href='eliminarVarios.php'>Eliminar</button>
 				</div>
 				<div class='agile-tables'>
@@ -164,7 +164,7 @@ $html="<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 ForPymes . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>
