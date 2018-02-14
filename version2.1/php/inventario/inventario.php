@@ -13,16 +13,18 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
-$tr2 = '';
+$total = '';
+$sumtotal = '';
 
 include "../menu.php";
 
 $query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
 
-$query2 = mysqli_query($result,"select SUM(valor) as total from productos");
-
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+
+	$sumtotal=$row['disponible']*$row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>
@@ -33,16 +35,15 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from productos");
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
 				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td align='right'>" . number_format($sumtotal, 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'>
 				<i class='fa fa-file-text-o nav_icon'></i></spam></a>
 				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off nav-icon'></i></spam></a></td>
 			</tr>";
 
+ 	$total = $total+$sumtotal;
  }
-
- 	$row2 = $query2->fetch_assoc();
- 	$tr2 .= "" . number_format($row2['total'], 0, ",", ".") . "";
 
 
 $html="<!DOCTYPE html>
@@ -108,7 +109,7 @@ $html="<!DOCTYPE html>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Inventario: $ " . number_format($row2['total'], 0, ",", ".") . "</h3>
+					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
@@ -118,6 +119,7 @@ $html="<!DOCTYPE html>
 							<th>Producto</th>
 							<th>Detalles</th>
 							<th>Valor</th>
+							<th>Total</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
