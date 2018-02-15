@@ -142,7 +142,7 @@ $html="<!DOCTYPE html>
 													<h4>Datos Básicos</h4>
 												</div>
 												<div class='form-body'>
-													<form action='../../php/ingresos/addIngreso.php' method='post'> 
+													<form action='../../php/ingresos/addIngreso2.php' method='post'> 
 														<div class='form-group'> 
 															<label>Fecha</label> 
 															<input type='date' name='fecha' class='form-control'> 
