@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -35,7 +35,7 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
 				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
-				<td align='right'>" . number_format($sumtotal, 0, ",", ".") 	. "</td>
+				<td align='right'>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'>
 				<i class='fa fa-file-text-o nav_icon'></i></spam></a>
 				<a href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
@@ -117,7 +117,7 @@ $html="<!DOCTYPE html>
 							<th>ID</th>
 							<th>Fecha</th>
 							<th>Producto</th>
-							<th>Detalles</th>
+							<th>Cantidad</th>
 							<th>Valor</th>
 							<th>Total</th>
 							<th>Acciones</th>
