@@ -42,7 +42,7 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
  }
 
  	$row2 = $query2->fetch_assoc();
- 	$tr2 .= "" . number_format($row2['total'], 0, ",", ".") . "";
+ 	$egr = $row2['total'];
 
 
 $html="<!DOCTYPE html>

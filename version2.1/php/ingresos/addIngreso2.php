@@ -17,7 +17,7 @@ $result = $conex->conex();
 				WHERE nombre = '$producto';");
 
 	
-if($query > 0)&&($query2 > 0){
+if(($query > 0)&&($query2 > 0)){
 	$msg = 'El Ingreso fue agregado con exito y se actualizo correctamente el Inventario';
 }else{
 	$msg = 'Error al Ingresar el egreso. Intente de nuevo. Si persiste el problema, notifique al administrador del sistema.';

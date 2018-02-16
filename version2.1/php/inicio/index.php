@@ -11,12 +11,14 @@ if (!isset($_SESSION['login'])) {
 
 require_once "../conexion.php";
 
-
 $conex = new conection();
 $result = $conex->conex();
 
+
 include "graficas.php";
 include "../menu.php";
+
+$caja = $ing - $egr;
 
 
 $html= "<!DOCTYPE html>
@@ -79,6 +81,7 @@ $html= "<!DOCTYPE html>
 	<body class='dashboard-page'>
 			<div class='agile-grids'>
 				<div class='col-md-6 charts-right'>
+					<h3> - Saldo en Caja: " . number_format($caja, 0, ",", ".") . "</h3>
 					<!-- area-chart -->
 					<div class='area-grids'>
 						<div class='area-grids-heading'>
