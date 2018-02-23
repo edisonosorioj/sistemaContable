@@ -193,10 +193,12 @@ if ($row4['total'] <= 0) {
 
 ///////////////////
 
-$ingreso = mysqli_query($result,'select SUM(valor) as total from ingresos');
+
+
+$ingreso = mysqli_query($result,'select SUM(valor) as total from ingresos where MONTH(fecha) = MONTH(now())');
  	$cam1 = $ingreso->fetch_assoc();
  	$ing = $cam1['total'];
 
- $egreso = mysqli_query($result,"select SUM(valor) as total from compras");
+ $egreso = mysqli_query($result,"select SUM(valor) as total from compras where MONTH(fecha) = MONTH(now())");
  	$cam2 = $egreso->fetch_assoc();
  	$egr = $cam2['total'];

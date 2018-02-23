@@ -81,7 +81,9 @@ $html= "<!DOCTYPE html>
 	<body class='dashboard-page'>
 			<div class='agile-grids'>
 				<div class='col-md-6 charts-right'>
-					<h3> - Saldo en Caja: " . number_format($caja, 0, ",", ".") . "</h3>
+					<div class='area-grids-heading'>
+						<h3>Saldo en Caja: $ " . number_format($caja, 0, ",", ".") . "</h3>
+					</div>
 					<!-- area-chart -->
 					<div class='area-grids'>
 						<div class='area-grids-heading'>
