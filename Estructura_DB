@@ -72,6 +72,15 @@ CREATE TABLE `estadoCuentas` (
   `idestado` INT NOT NULL,
   PRIMARY KEY (`idescuentas`, `idestado`));
 
+  CREATE TABLE `pedidos` (
+  `pedido_id` INT NOT NULL AUTO_INCREMENT,
+  `cliente_id` INT NOT NULL,
+  `nombre_pedido` VARCHAR(45) NULL,
+  `t_costo` VARCHAR(45) NULL,
+  `t_cobrado` VARCHAR(45) NULL,
+  `fecha` DATE NULL,
+  PRIMARY KEY (`pedido_id`, `cliente_id`));
+
 INSERT INTO administradores (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
 

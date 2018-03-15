@@ -41,7 +41,6 @@ $menu = "
 				<a href='../ingresos/ingresos.php'>
 					<i class='fa fa-file-text-o nav_icon'></i>
 						<span class='nav-text'>Ingresos</span>
-					<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
 			<li>
@@ -49,6 +48,14 @@ $menu = "
 					<i class='icon-font nav-icon'></i>
 					<span class='nav-text'>
 					Inventario
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href='../pedidos/pedido.php'>
+					<i class='icon-table nav-icon'></i>
+					<span class='nav-text'>
+					Pedidos
 					</span>
 				</a>
 			</li>
