@@ -81,6 +81,16 @@ CREATE TABLE `estadoCuentas` (
   `fecha` DATE NULL,
   PRIMARY KEY (`pedido_id`, `cliente_id`));
 
+CREATE TABLE `pedidoProductos` (
+  `peproducto_id` INT NOT NULL AUTO_INCREMENT,
+  `producto` VARCHAR(100) NULL,
+  `valoru` VARCHAR(10) NULL,
+  `cantidad` VARCHAR(10) NULL,
+  `valort` VARCHAR(10) NULL,
+  `pedido_id` INT NOT NULL,
+  `cliente_id` INT NOT NULL,
+  PRIMARY KEY (`peproducto_id`));
+
 INSERT INTO administradores (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
 

@@ -16,8 +16,7 @@ $result = $conex->conex();
 include "../menu.php";
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select * from pedidos 
-							order by pedido_id;');
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha from pedidos p inner join clientes c on p.cliente_id = c.id;');
 
 
 
@@ -27,16 +26,16 @@ $tr = '';
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['pedido_id'] 		. "</td>
-				<td>" . $row['cliente_id'] 		. "</td>
+				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['nombre_pedido'] 	. "</td>
 				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
 				<td  align='right'>$ " . $row['t_cobrado'] 	. "</td>
 				<td>" . $row['fecha']	. "</td>
-				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'>
+				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'>
 					<i class='fa fa-file-text-o nav_icon'></i></spam></a>
-				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
+				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
 					<i class='fa fa-bar-chart nav_icon'></i></spam></a>
-				<a href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
+				<a href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off nav-icon'></i></a>
 				</td>
 			</tr>";
@@ -111,6 +110,7 @@ $html="<!DOCTYPE html>
 						  <tr>
 							<th>Id</th>
 							<th>Cliente</th>
+							<th>Nombre Pedido</th>
 							<th>Costo</th>
 							<th>Cobrado</th>
 							<th>Fecha</th>
