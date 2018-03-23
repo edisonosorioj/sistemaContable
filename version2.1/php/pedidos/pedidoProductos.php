@@ -16,13 +16,19 @@ require_once '../conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
-$tr2 = '';
-$deuda = '';
+$option = '';
+$estado = '';
 
 include "../menu.php";
 
-// Obtiene el ID enviado desde Pedido para visualizar su historial
+// Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
 $id = $_GET['id'];
+
+// Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
+$query3 = mysqli_query($result, "select nombre_pedido, nombres from pedidos p inner join clientes c where pedido_id = '$id'");
+$row3=$query3->fetch_assoc();
+$nombre_pedido = $row3['nombre_pedido'];
+$nombre_cliente = $row3['nombres'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
 $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id DESC");
@@ -31,49 +37,44 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td>
-					<input type='checkbox' value='" . $row['peproducto_id'] . "' name='ids[]' />
-				</td>
-				<td>" . $row['peproducto_id'] 	. "</td>
-				<td>" . $row['producto'] 		. "</td>
-				<td align='right'>$ " . number_format($row['valou'], 0, ",", ".") 	. "</td>
+				<td>" 	. 	$row['idproducto'] 	. "</td>
+				<td>" 	. 	$row['producto'] 	. "</td>
+				<td align='right'>$ " . number_format($row['valoru'], 0, ",", ".") 	. "</td>
 				<td>" . $row['cantidad'] 		. "</td>
-				<td align='right'>$ " . number_format($row['valot'], 0, ",", ".") 	. "</td>
+				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['peproducto_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
-				<a href='copiarCredito.php?id=" . $row['peproducto_id'] . "' class='botonTab'><span data-tooltip='C.Ingreso'><i class='fa fa-check-square-o nav_icon'></i></spam></a>
-				<a href='eliminarCredito.php?id=" . $row['peproducto_id'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a>
+				<a class='botonTab' onclick='javascript:abrir(\"editarPeProducto.php?id=" . $row['idproducto'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
+				<a href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a>
 				</td>
 			</tr>";
 
  }
 
-// Utilizamos esta consulta para obtener el nombre del cliente en su historial 
-$query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
-
-$row2=$query2->fetch_assoc();
-
-$nombre = $row2['nombres'];
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
+$query3 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
 
 $row3 = $query3->fetch_assoc();
 
-if($row3['total'] < 0){
+$estado .="Valor Pedido: $ " . number_format($row3['valor'], 0, ",", ".") . "";
 
-	$deuda .="<label class='deuda'>Cartera Pendiente: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
+//Sale la lista de productos disponibles.
 
-}else{
-	$deuda .="<label class='aFavor'>Cartera a Favor: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
+$option='';
 
-}
+$query4 = mysqli_query($result,'select * from productos order by idproductos');
+
+while ($row = $query4->fetch_array()){
+
+	 	$option .=	"<option value='" . $row['nombre'] . "'>" . $row['nombre'] . "</option>";
+	}
+
 
 // Se contruye el HTML para imprimirlo mas adelante.
 
 $html="<!DOCTYPE html>
 <head>
-<title>Credito</title>
+<title>Productos de Pedido</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -127,25 +128,34 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>$nombre</h2>
+					<h2>$nombre_cliente - $nombre_pedido</h2>
 				</div>
-				<div class='bs-component mb20 col-md-8'>
-					<form action='eliminarVarios.php' method='post'>
-					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>C.Cobro</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' href='eliminarVarios.php'>Eliminar</button>
+				<div class='forms'>
+					<div class='form-two widget-shadow'>
+						<div class='form-title'>
+							<h4>" . $estado . "</h4>
+						</div>
+						<div class='form-body' data-example-id='simple-form-inline'>
+							<form class='form-inline' action='#' method='post'> 
+								<div class='form-group'> 
+									<label>Producto:</label> 
+									<select name='producto' class='form-control'>" . $option . "</select>
+								<div class='form-group'> <label>Cantidad</label> 
+									<input type='number' name='cantidad' class='form-control' id='cantidad'>
+								</div> 
+								<button type='submit' class='btn btn-default col-12'>Agregar</button> 
+							</form> 
+						</div>
+					</div>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>" . $deuda . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
 							<th>Cod.</th>
 							<th>Producto</th>
-							<th width='30%'>V.Unitario</th>
+							<th>V.Unitario</th>
 							<th>Cantidad</th>
 							<th>V.Total</th>
 							<th>Acciones</th>

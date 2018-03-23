@@ -42,7 +42,7 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<i class='fa icon-off nav-icon'></i></spam></a></td>
 			</tr>";
 
- 	$total = $total+$sumtotal;
+ 	$total = ((int)$total+(int)$sumtotal);
  }
 
 
