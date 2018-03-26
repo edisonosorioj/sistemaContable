@@ -39,8 +39,8 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" 	. 	$row['idproducto'] 	. "</td>
 				<td>" 	. 	$row['producto'] 	. "</td>
+				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valoru'], 0, ",", ".") 	. "</td>
-				<td>" . $row['cantidad'] 		. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 				<td>
 				<a class='botonTab' onclick='javascript:abrir(\"editarPeProducto.php?id=" . $row['idproducto'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
@@ -136,8 +136,10 @@ $html="<!DOCTYPE html>
 							<h4>" . $estado . "</h4>
 						</div>
 						<div class='form-body' data-example-id='simple-form-inline'>
-							<form class='form-inline' action='#' method='post'> 
+							<form class='form-inline' action='addPeProducto.php' method='post'> 
 								<div class='form-group'> 
+									<input type='hidden' name='pedido_id' id='$nombre_pedido'>
+									<input type='hidden' name='cliente_id' id='$nombre_cliente'>
 									<label>Producto:</label> 
 									<select name='producto' class='form-control'>" . $option . "</select>
 								<div class='form-group'> <label>Cantidad</label> 

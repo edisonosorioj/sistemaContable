@@ -28,6 +28,8 @@ CREATE TABLE `compras` (
   `valor` VARCHAR(45) NULL,
   PRIMARY KEY (`idcompras`));
 
+  ALTER TABLE `compras` MODIFY COLUMN `valor` VARCHAR(20) NOT NULL;
+
 CREATE TABLE `ingresos` (
   `idingresos` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
@@ -89,6 +91,7 @@ CREATE TABLE `pedidoProductos` (
   `valort` VARCHAR(10) NULL,
   `pedido_id` INT NOT NULL,
   `cliente_id` INT NOT NULL,
+  `producto_id` INT NOT NULL,
   PRIMARY KEY (`peproducto_id`));
 
 INSERT INTO administradores (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');

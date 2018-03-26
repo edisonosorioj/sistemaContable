@@ -18,7 +18,7 @@ $result = $conex->conex();
 include "graficas.php";
 include "../menu.php";
 
-$caja = $ing - $egr;
+$caja = $ingmes - $egrmes;
 
 
 $html= "<!DOCTYPE html>
@@ -95,7 +95,7 @@ $html= "<!DOCTYPE html>
 							  element: 'graph4',
 							  data: [
 								{value: " . $porcIng . ", label: 'Ingresos', formatted: '$ " . $ingr . "' },
-								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . $egr . "' }
+								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . number_format($egr, 0, ",", ".") . "' }
 							  ],
 							  formatter: function (x, data) { return data.formatted; }
 							});
@@ -134,80 +134,13 @@ $html= "<!DOCTYPE html>
 				
 			
 			<div class='agile-bottom-grids'>
-			<!-- //area-chart -->
-			<!--<div class='col-md-6 agile-bottom-right'>
-					<div class='agile-bottom-grid'>
-						<div class='area-grids-heading'>
-							<h3>Stacked Bars chart</h3>
-						</div>
-						<div id='graph6'></div>
-						<script>
-						// Use Morris.Bar
-						Morris.Bar({
-						  element: 'graph6',
-						  data: [
-							{x: '2011 Q1', y: 0},
-							{x: '2011 Q2', y: 1},
-							{x: '2011 Q3', y: 2},
-							{x: '2011 Q4', y: 3},
-							{x: '2012 Q1', y: 4},
-							{x: '2012 Q2', y: 5},
-							{x: '2012 Q3', y: 6},
-							{x: '2012 Q4', y: 7},
-							{x: '2013 Q1', y: 8}
-						  ],
-						  xkey: 'x',
-						  ykeys: ['y'],
-						  labels: ['Y'],
-						  barColors: function (row, series, type) {
-							if (type === 'bar') {
-							  var red = Math.ceil(255 * row.y / this.ymax);
-							  return 'rgb(' + red + ',0,0)';
-							}
-							else {
-							  return '#000';
-							}
-						  }
-						});
-						</script>
-					</div>
-				</div>-->
-
-			<!--<div class='col-md-6 agile-last-left agile-last-middle'>
-					<div class='agile-last-grid'>
-						<div class='area-grids-heading'>
-							<h3>Balance últimos 7 Días</h3>
-						</div>
-						<div id='graph9'></div>
-						<script>
-						/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-						var day_data = [
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000},
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000},
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000},
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000},
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000},
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000},
-		  					{'period': '2017-04-01', 'ingreso2': 225.000, 'egreso2': 500.000}
-						];
-						Morris.Bar({
-						  element: 'graph9',
-						  data: day_data,
-						  xkey: 'period',
-						  ykeys: ['ingreso2', 'egreso2'],
-						  labels: ['INGRESO', 'EGRESO'],
-						  xLabelAngle: 60
-						});
-						</script>
-					</div>
-				</div>-->
 
 				<div class='clearfix'> </div>
 			</div>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2016 AlDía . All Rights Reserved . Design by <a href=''>AlDía</a></p>
+			<p>© 2018 Forpymes . All Rights Reserved . Design by <a href=''>Forpymes</a></p>
 		</div>
 		<!-- //footer -->
 	</section>

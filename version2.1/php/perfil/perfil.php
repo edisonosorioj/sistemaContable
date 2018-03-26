@@ -9,11 +9,13 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+
 if ($_SESSION['idadmin']){
 
 	$idadmin = $_SESSION['idadmin'];
 	
 }
+
 
 require_once "../conexion.php";
 
@@ -23,13 +25,20 @@ $result = $conex->conex();
 include "../menu.php";
 
 
-// Realiza una segunda consulta que suma el total que deben todos los clientes
- $query = mysqli_query($result,"select * from administradores where idadmin = '" . $idadmin . "'");
+// Realiza una consulta para verificar unos parametros en la base de datos y asi permitir la actualización de la información.
+ $query = mysqli_query($result,"select * from administradores where idadmin = '" . $idadmin . "';");
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
  $row = $query->fetch_assoc();
 
-?>
+ $id 		= $row['idadmin'];
+ $documento = $row['documento'];
+ $nombre 	= $row['nombre'];
+ $apellido 	= $row['apellido'];
+ $login 	= $row['login'];
+
+
+$html="
 <!DOCTYPE html>
 <head>
 <title>Perfil</title>
@@ -98,13 +107,13 @@ include "../menu.php";
 										<div class='form-group'>
 											<label for='disabledinput' class='col-sm-2 control-label'>ID</label>
 											<div class='col-sm-8'>
-												<input disabled='' type='text' name='id' value="<?php echo $row['idadmin']; ?>" class='form-control1' id='disabledinput'>
+												<input disabled='' type='text' name='id' value='$id' class='form-control1' id='disabledinput'>
 											</div>
 										</div>
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Documento</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' name='documento' value="<?php echo $row['documento']; ?>" id='focusedinput' placeholder='Documento'>
+												<input type='text' class='form-control1' name='documento' value='$documento' id='focusedinput' placeholder='Documento'>
 											</div>
 											<div class='col-sm-2'>
 												<p class='help-block'>CC, Nit, TI</p>
@@ -113,19 +122,19 @@ include "../menu.php";
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Nombres</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value="<?php echo $row['nombre']; ?>" name='nombre' id='focusedinput' placeholder='Nombres'>
+												<input type='text' class='form-control1' value='$nombre' name='nombre' id='focusedinput' placeholder='Nombres'>
 											</div>
 										</div>
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Apellidos</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value="<?php echo $row['apellido']; ?>" name='apellido' id='focusedinput' placeholder='Apellido'>
+												<input type='text' class='form-control1' value='$apellido' name='apellido' id='focusedinput' placeholder='Apellido'>
 											</div>
 										</div>
 										<div class='form-group'>
 											<label for='focusedinput' class='col-sm-2 control-label'>Login</label>
 											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value="<?php echo $row['login']; ?>" name='login' id='focusedinput' placeholder='Apellido'>
+												<input type='text' class='form-control1' value='$login' name='login' id='focusedinput' placeholder='Apellido'>
 											</div>
 											<div class='col-sm-2'>
 												<p class='help-block'>Nuevo Login</p>
@@ -134,14 +143,14 @@ include "../menu.php";
 										<div class='form-group'>
 											<label for='inputPassword' class='col-sm-2 control-label'>Password</label>
 											<div class='col-sm-8'>
-												<input type='password' class='form-control1' id='inputPassword' placeholder='Password' name="password">
+												<input type='password' class='form-control1' id='inputPassword' placeholder='Password' name='password'>
 											</div>
 											<div class='col-sm-2'>
 												<p class='help-block'>Nuevo Password</p>
 											</div>
 										</div>
 										<button type='submit' class='btn btn-default w3ls-button'>Actualizar</button>
-										<button type='button' onclick="history.back()" class='btn btn-default w3ls-button'>Cancelar</button> 
+										<button type='button' onclick='history.back()' class='btn btn-default w3ls-button'>Cancelar</button> 
 									</form>
 								</div>
 						</div>
@@ -159,4 +168,8 @@ include "../menu.php";
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 </body>
-</html>
+</html>";
+
+echo $html;
+
+?>

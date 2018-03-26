@@ -30,10 +30,10 @@ $row = $query->fetch_assoc();
 $ingr .= number_format($row['total'], 0, ",", ".");
 
 // Egresos
-$query2 = mysqli_query($result,"select SUM(valor) as total from compras");
+$query2 = mysqli_query($result,'select SUM(valor) as total from compras');
 
 $row2 = $query2->fetch_assoc();
-$egr .= number_format($row2['total'], 0, ",", ".");
+$egr .= $row2['total'];
 
 /////////////////////Porcentaje Ing-Egr/////////////////////////////
 
@@ -197,8 +197,8 @@ if ($row4['total'] <= 0) {
 
 $ingreso = mysqli_query($result,'select SUM(valor) as total from ingresos where MONTH(fecha) = MONTH(now())');
  	$cam1 = $ingreso->fetch_assoc();
- 	$ing = $cam1['total'];
+ 	$ingmes = $cam1['total'];
 
  $egreso = mysqli_query($result,"select SUM(valor) as total from compras where MONTH(fecha) = MONTH(now())");
  	$cam2 = $egreso->fetch_assoc();
- 	$egr = $cam2['total'];
+ 	$egrmes = $cam2['total'];
