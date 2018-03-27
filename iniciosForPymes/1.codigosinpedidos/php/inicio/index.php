@@ -23,7 +23,7 @@ $caja = $ingmes - $egrmes;
 
 $html= "<!DOCTYPE html>
 <head>
-<title>Cervell</title>
+<title>Centraliza</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -140,7 +140,7 @@ $html= "<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 Forpymes . All Rights Reserved . Design by <a href=''>Forpymes</a></p>
+			<p>© 2016 AlDía . All Rights Reserved . Design by <a href=''>AlDía</a></p>
 		</div>
 		<!-- //footer -->
 	</section>
