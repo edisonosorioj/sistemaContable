@@ -1,6 +1,6 @@
-CREATE DATABASE ---------;
+CREATE DATABASE cervell;
 
-USE ----------;
+USE cervell;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
@@ -27,8 +27,6 @@ CREATE TABLE `compras` (
   `detalles` VARCHAR(100) NULL,
   `valor` VARCHAR(45) NULL,
   PRIMARY KEY (`idcompras`));
-
-  ALTER TABLE `compras` MODIFY COLUMN `valor` VARCHAR(20) NOT NULL;
 
 CREATE TABLE `ingresos` (
   `idingresos` INT NOT NULL AUTO_INCREMENT,
@@ -94,7 +92,7 @@ CREATE TABLE `pedidoProductos` (
   `producto_id` INT NOT NULL,
   PRIMARY KEY (`peproducto_id`));
 
-INSERT INTO administradores (id, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
+INSERT INTO administradores (idadmin, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
 
 
