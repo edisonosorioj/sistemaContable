@@ -51,14 +51,6 @@ $menu = "
 					</span>
 				</a>
 			</li>
-			<li>
-				<a href='../pedidos/pedido.php'>
-					<i class='icon-table nav-icon'></i>
-					<span class='nav-text'>
-					Pedidos
-					</span>
-				</a>
-			</li>
 		<ul class='logout'>
 			<li>
 			<a href='../logout.php'>
