@@ -142,9 +142,9 @@ $html="<!DOCTYPE html>
 									<label>Producto:</label> 
 									<select name='producto' class='form-control'>" . $option . "</select>
 								<div class='form-group'> <label>Cantidad</label> 
-									<input type='number' name='cantidad' class='form-control' id='cantidad'>
+									<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
 								</div> 
-								<button type='submit' class='btn btn-default col-12'>Agregar</button> 
+								<button type='submit' class='btn btn-default'>Agregar</button> 
 							</form> 
 						</div>
 					</div>

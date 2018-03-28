@@ -17,7 +17,7 @@ $result = $conex->conex();
 
 	$producto	=	$_POST['producto'];
 	$cantidad 	=	$_POST['cantidad'];
-	$pedido_id 	=	$_POST['id'];
+	$pedido_id 	=	$_POST['pedido_id'];
 
 
 
@@ -28,7 +28,6 @@ $result = $conex->conex();
 
  	$producto_id = $row['idproductos'];
  	$valor = $row['valor'];
- 	$canProducto = $row['disponible'] - $cantidad;
 
  	$valort = $valor * $cantidad;
 
@@ -44,16 +43,12 @@ $result = $conex->conex();
 									VALUES ('$producto', '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
-	if($query > 0){
-		$msg = "El producto fue agregado";
-	}else{
-		$msg = 'Error al agregar el cliente. Intente nuevamente';
+	if($query < 0){
+		$html .= "window.alert('Error al ingresar la información')";
 	}
 		
 	$html = "<script>
-		window.alert('$msg');
-		opener.location.reload();
-		window.close();
+		javascript:history.back();
 	</script>";
 	
 echo $html;	

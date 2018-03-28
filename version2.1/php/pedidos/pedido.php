@@ -16,7 +16,7 @@ $result = $conex->conex();
 include "../menu.php";
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha from pedidos p inner join clientes c on p.cliente_id = c.id;');
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha from pedidos p inner join clientes c on p.cliente_id = c.id;');
 
 
 
