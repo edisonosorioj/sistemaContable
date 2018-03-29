@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select id,documento,nombres,telefono,correo from clientes where id='$id'");
+$query = mysqli_query($result, "select id, documento, empresa, nombres, telefono, correo, direccion from clientes where id='$id'");
 
 $row=$query->fetch_assoc();
 	
@@ -91,6 +91,10 @@ $row=$query->fetch_assoc();
 											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
 										</div>
 										<div class="form-group"> 
+											<label>Empresa</label> 
+											<input type="text" name="empresa" class="form-control" placeholder="Empresa" value="<?php echo $row['empresa']; ?>"> 
+										</div> 
+										<div class="form-group"> 
 											<label>Nombres</label> 
 											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>"> 
 										</div> 
@@ -101,6 +105,10 @@ $row=$query->fetch_assoc();
 										<div class="form-group"> 
 											<label>Correo</label> 
 											<input type="text" name="correo" class="form-control" placeholder="Correo" value="<?php echo $row['correo']; ?>"> 
+										</div> 
+										<div class="form-group"> 
+											<label>Dirección</label> 
+											<input type="text" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $row['direccion']; ?>"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

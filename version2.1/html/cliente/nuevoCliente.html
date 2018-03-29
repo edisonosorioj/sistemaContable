@@ -70,11 +70,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<form action="../../php/cliente/addCliente.php" method="post"> 
 										<div class="form-group"> 
 											<label>Identificación</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Id" required="true"> 
+											<input type="text" name="documento" class="form-control" placeholder="Documento o Nit" required/> 
+										</div>
+										<div class="form-group"> 
+											<label>Nombre Empresa</label> 
+											<input type="text" name="empresa" class="form-control" placeholder="Empresa"> 
 										</div>
 										<div class="form-group"> 
 											<label>Nombre Cliente</label> 
-											<input type="text" name="nombres" class="form-control" placeholder="Nombre" required="true"> 
+											<input type="text" name="nombres" class="form-control" placeholder="Nombre" required/> 
 										</div>
 										<div class="form-group"> 
 											<label>Teléfono</label> 
@@ -83,6 +87,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="form-group"> 
 											<label>Email</label> 
 											<input type="email" name="correo" class="form-control" placeholder="Correo" id="exampleInputEmail1"> 
+										</div> 
+										<div class="form-group"> 
+											<label>Dirección</label> 
+											<input type="text" name="direccion" class="form-control" placeholder="Direccion"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

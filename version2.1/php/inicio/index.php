@@ -95,7 +95,7 @@ $html= "<!DOCTYPE html>
 							  element: 'graph4',
 							  data: [
 								{value: " . $porcIng . ", label: 'Ingresos', formatted: '$ " . $ingr . "' },
-								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . number_format($egr, 0, ",", ".") . "' }
+								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . number_format((float)$egr, 0, ",", ".") . "' }
 							  ],
 							  formatter: function (x, data) { return data.formatted; }
 							});
