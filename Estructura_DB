@@ -14,10 +14,19 @@ CREATE TABLE `administradores` (
 CREATE TABLE `clientes` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `documento` INT(10) NOT NULL,
+  `empresa` VARCHAR(100) NULL,
   `nombres` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(45) NOT NULL,
   `correo` VARCHAR(45) NULL,
+  `direccion` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
+
+
+//ACTUALIZACIÓN PENDIENTE EN TABLA DE CLIENTES PARA QUE APAREZCAN MAS EN LA TABLA
+ALTER TABLE `clientes` 
+ADD COLUMN `empresa` VARCHAR(100) NULL AFTER `correo`,
+ADD COLUMN `direccion` VARCHAR(100) NULL AFTER `empresa`;
+
 
 CREATE TABLE `compras` (
   `idcompras` INT NOT NULL AUTO_INCREMENT,

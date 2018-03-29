@@ -27,9 +27,9 @@ $tr = '';
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 				. "</td>
-				<td>" . $row['nombres'] 				. "</td>
-				<td>" . $row['telefono'] 				. "</td>
+				<td>" . $row['documento'] 	. "</td>
+				<td>" . $row['nombres'] 	. "</td>
+				<td>" . $row['telefono'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'>
 					<i class='fa fa-file-text-o nav_icon'></i></spam></a>
