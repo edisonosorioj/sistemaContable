@@ -91,14 +91,14 @@ $html = "<!DOCTYPE html>
 															<input type='date' name='fecha' class='form-control'> 
 														</div>
 														<div class='form-group'> 
-															<label>Nombre</label> 
-															<input type='text' name='nombre' class='form-control' placeholder='Nombre'> 
-														</div>
-														<div class='form-group'> 
 															<label>Cliente</label> 
 															<select name='cliente' class='form-control1'>
 																" . $option . "
 															</select>
+														</div>
+														<div class='form-group'> 
+															<label>Nombre</label> 
+															<input type='text' name='nombre' class='form-control' placeholder='Nombre'> 
 														</div>
 
 														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 

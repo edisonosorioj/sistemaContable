@@ -18,6 +18,7 @@ $result = $conex->conex();
 	$producto	=	$_POST['producto'];
 	$cantidad 	=	$_POST['cantidad'];
 	$pedido_id 	=	$_POST['pedido_id'];
+	$cliente_id =	$_POST['cliente_id'];
 
 
 
@@ -30,13 +31,6 @@ $result = $conex->conex();
  	$valor = $row['valor'];
 
  	$valort = $valor * $cantidad;
-
-// Genera el ID de Cliente y del Pedido para tabla
- 	$query3 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");
-
- 	$row2 = $query3->fetch_assoc();
-
- 	$cliente_id = $row2['cliente_id'];
 
 // Agrega producto a la tabla pedidoProductos
 	$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 

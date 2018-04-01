@@ -9,7 +9,7 @@ $conection = $conex->conex();
 $login = $_POST['login'];
 $password = md5($_POST['password']);
 
-$query = mysqli_query($conection,"select * from administradores where login = '" . $login . "' and password = '" . $password . "'");
+$query = mysqli_query($conection,"select * from administradores where login = '" . $login . "' and contrasena = '" . $password . "'");
 
 $row = $query->fetch_assoc();
 

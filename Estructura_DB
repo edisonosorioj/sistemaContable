@@ -1,6 +1,6 @@
-CREATE DATABASE cervell;
+CREATE DATABASE demo;
 
-USE cervell;
+USE demo;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
@@ -21,11 +21,6 @@ CREATE TABLE `clientes` (
   `direccion` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
 
-
-//ACTUALIZACIÓN PENDIENTE EN TABLA DE CLIENTES PARA QUE APAREZCAN MAS EN LA TABLA
-ALTER TABLE `clientes` 
-ADD COLUMN `empresa` VARCHAR(100) NULL AFTER `correo`,
-ADD COLUMN `direccion` VARCHAR(100) NULL AFTER `empresa`;
 
 
 CREATE TABLE `compras` (
@@ -88,6 +83,7 @@ CREATE TABLE `estadoCuentas` (
   `t_costo` VARCHAR(45) NULL,
   `t_cobrado` VARCHAR(45) NULL,
   `fecha` DATE NULL,
+  `estado` INT NOT NULL,
   PRIMARY KEY (`pedido_id`, `cliente_id`));
 
 CREATE TABLE `pedidoProductos` (
@@ -102,6 +98,14 @@ CREATE TABLE `pedidoProductos` (
   PRIMARY KEY (`peproducto_id`));
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
+
+//ACTUALIZACIÓN PENDIENTE EN TABLA DE CLIENTES PARA QUE APAREZCAN MAS EN LA TABLA
+ALTER TABLE `clientes` 
+ADD COLUMN `empresa` VARCHAR(100) NULL AFTER `correo`,
+ADD COLUMN `direccion` VARCHAR(100) NULL AFTER `empresa`;
+
+ALTER TABLE `administradores` 
+CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL ;
 
 
 

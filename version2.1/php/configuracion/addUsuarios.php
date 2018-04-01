@@ -19,10 +19,10 @@ $result = $conex->conex();
 	$nombre		=	$_POST['nombre'];
 	$apellido	=	$_POST['apellido'];
 	$login	 	=	$_POST['login'];
-	$password 	=	$_POST['password'];
+	$password 	=	md5($_POST['password']);
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO administradores (documento, nombre, apellido, login, password) VALUES ('$documento', '$nombre', '$apellido' '$login', md5('$password'));");
+	$query = mysqli_query($result,"INSERT INTO administradores (documento, nombre, apellido, login, contrasena) VALUES ('$documento', '$nombre', '$apellido', '$login', '$password');");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

@@ -25,13 +25,16 @@ include "../menu.php";
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query3 = mysqli_query($result, "select nombre_pedido, nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row3=$query3->fetch_assoc();
+$id_pedido = $row3['pedido_id'];
 $nombre_pedido = $row3['nombre_pedido'];
 $nombre_cliente = $row3['nombres'];
+$id_cliente = $row3['id'];
+$estado = $row3['estado'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id DESC");
+$query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -135,16 +138,20 @@ $html="<!DOCTYPE html>
 						<div class='form-title'>
 							<h4>" . $estado . "</h4>
 						</div>
-						<div class='form-body' data-example-id='simple-form-inline'>
+						<div class='form-body'>
 							<form class='form-inline' action='addPeProducto.php' method='post'> 
 								<div class='form-group'> 
-									<input type='hidden' name='pedido_id' value='$id'>
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<label>Producto:</label> 
 									<select name='producto' class='form-control'>" . $option . "</select>
 								<div class='form-group'> <label>Cantidad</label> 
 									<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
 								</div> 
-								<button type='submit' class='btn btn-default'>Agregar</button> 
+								<button type='submit' class='btn btn-lg btn-primary'>Agregar</button> 
+								<form class='form-inline' action='hacerPedido.php' method='post'> 
+									<button type='submit' class='btn btn-lg btn-primary'>Hacer Pedido</button> 
+								</form> 
 							</form> 
 						</div>
 					</div>

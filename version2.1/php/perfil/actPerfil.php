@@ -21,7 +21,7 @@ $result = $conex->conex();
 
 // Consulta para actualizar el cliente
 	if ($password != '') {
-		$query = mysqli_query($result, "UPDATE administradores set documento = '$documento', nombre = '$nombre', apellido = '$apellido', login = '$login', password = md5('$password') where idadmin = '$idadmin';");
+		$query = mysqli_query($result, "UPDATE administradores set documento = '$documento', nombre = '$nombre', apellido = '$apellido', login = '$login', contrasena = md5('$password') where idadmin = '$idadmin';");
 	}else{
 
 		$query = mysqli_query($result, "UPDATE administradores set documento = '$documento', nombre = '$nombre', apellido = '$apellido', login = '$login' where idadmin = '$idadmin';");

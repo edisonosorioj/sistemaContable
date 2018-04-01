@@ -28,7 +28,7 @@ $result = $conex->conex();
  	$cliente_id = $row['id'];
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha) VALUES ('$cliente_id', '$nombre', '$fecha');");
+	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado) VALUES ('$cliente_id', '$nombre', '$fecha', '0');");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
