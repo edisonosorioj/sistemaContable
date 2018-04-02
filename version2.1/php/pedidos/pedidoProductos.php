@@ -59,7 +59,7 @@ $query3 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner
 
 $row3 = $query3->fetch_assoc();
 
-$estado .="Valor Pedido: $ " . number_format($row3['valor'], 0, ",", ".") . "";
+$valorPedido = "Valor Pedido: $ " . number_format($row3['valor'], 0, ",", ".") . "";
 
 //Sale la lista de productos disponibles.
 
@@ -128,7 +128,6 @@ $html="<!DOCTYPE html>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	
-				<!-- tables -->
 				
 				<div class='table-heading'>
 					<h2>$nombre_cliente - $nombre_pedido</h2>
@@ -136,23 +135,33 @@ $html="<!DOCTYPE html>
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
 						<div class='form-title'>
-							<h4>" . $estado . "</h4>
+							<h4>" . $valorPedido . "</h4>
 						</div>
-						<div class='form-body'>
-							<form class='form-inline' action='addPeProducto.php' method='post'> 
-								<div class='form-group'> 
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<input type='hidden' name='cliente_id' value='$id_cliente'>
-									<label>Producto:</label> 
-									<select name='producto' class='form-control'>" . $option . "</select>
-								<div class='form-group'> <label>Cantidad</label> 
-									<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
-								</div> 
-								<button type='submit' class='btn btn-lg btn-primary'>Agregar</button> 
-								<form class='form-inline' action='hacerPedido.php' method='post'> 
-									<button type='submit' class='btn btn-lg btn-primary'>Hacer Pedido</button> 
+						<div class='row mb40'>
+							<div class='col-md-6'>
+								<form class='form-inline' action='addPeProducto.php' method='post'> 
+									<div class='form-group'> 
+										<input type='hidden' name='pedido_id' value='$id_pedido'>
+										<input type='hidden' name='cliente_id' value='$id_cliente'>
+										<label>Producto:</label> 
+										<select name='producto' class='form-control'>" . $option . "</select>
+									<div class='form-group'> <label>Cantidad</label> 
+										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
+									</div> 
+									<button type='submit' class='btn btn-primary'>Agregar</button> 
 								</form> 
-							</form> 
+							</div>
+						</div>
+						<div class='row mb40'>
+							<div class='col-md-6'>
+								<form class='form-inline' action='hacerPedido.php' method='post'>
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<div class='form-group'> <label>Cobrado</label> 
+										<input type='text' name='cobrado' class='form-control'>
+									</div> 
+									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
+								</form> 
+							</div>
 						</div>
 					</div>
 				</div>
@@ -175,7 +184,6 @@ $html="<!DOCTYPE html>
 						  "
 						</tbody>
 					  </table>
-					  </form>
 					</div>
 				</div>
 				<!-- //tables -->
@@ -183,7 +191,7 @@ $html="<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 ForPymes . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 ForPymes. All Rights Reserved. Design by <a href='edisonosorioj.com'></a>Edison Osorio</p>
 		</div>
 		<!-- //footer -->
 	</section>

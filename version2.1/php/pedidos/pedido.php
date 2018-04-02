@@ -16,13 +16,15 @@ $result = $conex->conex();
 include "../menu.php";
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha from pedidos p inner join clientes c on p.cliente_id = c.id;');
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id;');
 
 
 
 $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+ 	$estado = ($row['estado'] == '0')?"Pendiente":"Realizado";
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['pedido_id'] 		. "</td>
@@ -31,6 +33,7 @@ $tr = '';
 				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
 				<td  align='right'>$ " . $row['t_cobrado'] 	. "</td>
 				<td>" . $row['fecha']	. "</td>
+				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'>
 					<i class='fa fa-file-text-o nav_icon'></i></spam></a>
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
@@ -114,6 +117,7 @@ $html="<!DOCTYPE html>
 							<th>Costo</th>
 							<th>Cobrado</th>
 							<th>Fecha</th>
+							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
