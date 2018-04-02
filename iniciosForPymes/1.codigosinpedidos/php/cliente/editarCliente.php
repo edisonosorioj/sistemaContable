@@ -8,15 +8,15 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select id,documento,nombres,telefono,correo from clientes where id='$id'");
+$query = mysqli_query($result, "select id, documento, empresa, nombres, telefono, correo, direccion from clientes where id='$id'");
 
 $row=$query->fetch_assoc();
 	
 ?>
-<!-- Se crea el HTML con la información del credito -->
+<!-- Se crea el HTML con la información del Cliente -->
 <!DOCTYPE html>
 <head>
-<title>Edición Abono/Crédito</title>
+<title>Editar Cliente</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
@@ -62,12 +62,6 @@ $row=$query->fetch_assoc();
 			<i class="icon-reorder"></i>
 			</a>
 		</nav>
-<!-- 		<section class="title-bar">
-			<div class="logo">
-				<h1><a href="index.html"><img src="images/logo.png" alt="" />LOGO</a></h1>
-			</div>
-			<div class="clearfix"> </div>
-		</section> -->
 		<div class="main-grid">
 			<div class="agile-grids">	
 				<!-- input-forms -->
@@ -91,6 +85,10 @@ $row=$query->fetch_assoc();
 											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
 										</div>
 										<div class="form-group"> 
+											<label>Empresa</label> 
+											<input type="text" name="empresa" class="form-control" placeholder="Empresa" value="<?php echo $row['empresa']; ?>"> 
+										</div> 
+										<div class="form-group"> 
 											<label>Nombres</label> 
 											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>"> 
 										</div> 
@@ -101,6 +99,10 @@ $row=$query->fetch_assoc();
 										<div class="form-group"> 
 											<label>Correo</label> 
 											<input type="text" name="correo" class="form-control" placeholder="Correo" value="<?php echo $row['correo']; ?>"> 
+										</div> 
+										<div class="form-group"> 
+											<label>Dirección</label> 
+											<input type="text" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $row['direccion']; ?>"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

@@ -16,12 +16,14 @@ $result = $conex->conex();
 
 
 	$documento	=	$_POST['documento'];
+	$empresa	=	$_POST['empresa'];
 	$nombres	=	$_POST['nombres'];
 	$telefono 	=	$_POST['telefono'];
 	$correo 	=	$_POST['correo'];
+	$direccion 	=	$_POST['direccion'];
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo) VALUES ('$documento', '$nombres', '$telefono', '$correo');");
+	$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo, empresa, direccion) VALUES ('$documento', '$nombres', '$telefono', '$correo', '$empresa', '$direccion');");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

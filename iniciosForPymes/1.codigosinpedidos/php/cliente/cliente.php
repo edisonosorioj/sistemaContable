@@ -16,9 +16,8 @@ $result = $conex->conex();
 include "../menu.php";
 
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.documento, c.nombres, telefono, SUM(cr.valor) as valor from clientes c
-								left join creditos cr on c.id = cr.idclientes
-								group by c.id order by c.nombres');
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c
+								left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 
 
@@ -27,9 +26,12 @@ $tr = '';
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 				. "</td>
-				<td>" . $row['nombres'] 				. "</td>
-				<td>" . $row['telefono'] 				. "</td>
+				<td>" . $row['documento'] 	. "</td>
+				<td>" . $row['empresa'] 	. "</td>
+				<td>" . $row['nombres'] 	. "</td>
+				<td>" . $row['telefono'] 	. "</td>
+				<td>" . $row['correo'] 		. "</td>
+				<td>" . $row['direccion'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'>
 					<i class='fa fa-file-text-o nav_icon'></i></spam></a>
@@ -117,8 +119,11 @@ $html="<!DOCTYPE html>
 						<thead>
 						  <tr>
 							<th>ID</th>
+							<th>Empresa</th>
 							<th>Nombre</th>
 							<th>Telefono</th>
+							<th>Correo</th>
+							<th>Dirección</th>
 							<th>Saldo</th>
 							<th>Acciones</th>
 						  </tr>

@@ -71,7 +71,7 @@ $menu = "
 		</nav>
 		<section class='title-bar'>
 			<div class='logo'>
-				<h1><a href='index.html'><img src='../../images/logo.png' alt='' />Cervell</a></h1>
+				<h1><a href='index.html'><img src='../../images/logo.png' alt='' />Forpymes</a></h1>
 			</div>
 			<div class='full-screen'>
 				<section class='full-top'>
@@ -96,6 +96,7 @@ $menu = "
 									</div>	
 								</a>
 								<ul class='dropdown-menu drp-mnu'>
+									<li> <a href='../configuracion/configuracion.php'><i class='fa fa-cog'></i> Configuración</a> </li> 
 									<li> <a href='../perfil/perfil.php'><i class='fa fa-user'></i> Perfil</a> </li> 
 									<li> <a href='../logout.php'><i class='fa fa-sign-out'></i> Salir</a> </li>
 								</ul>
@@ -109,8 +110,6 @@ $menu = "
 		</section>
 
 ";
-// Modulo configuración - En construcción.
-// <li> <a href='#'><i class='fa fa-cog'></i> Configuración</a> </li> 
 
 
 
