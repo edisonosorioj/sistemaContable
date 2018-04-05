@@ -42,8 +42,8 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" 	. 	$row['idproducto'] 	. "</td>
 				<td>" 	. 	$row['producto'] 	. "</td>
-				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valoru'], 0, ",", ".") 	. "</td>
+				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 				<td>
 				<a class='botonTab' onclick='javascript:abrir(\"editarPeProducto.php?id=" . $row['idproducto'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
@@ -138,31 +138,43 @@ $html="<!DOCTYPE html>
 							<h4>" . $valorPedido . "</h4>
 						</div>
 						<div class='row mb40'>
-							<div class='col-md-6'>
-								<form class='form-inline' action='addPeProducto.php' method='post'> 
-									<div class='form-group'> 
+								
+								<div class='col-md-2'>
+									<form class='form-horizontal' action='addPeProducto.php' method='post'> 
+										<div class='form-group'> 
+											<input type='hidden' name='pedido_id' value='$id_pedido'>
+											<input type='hidden' name='cliente_id' value='$id_cliente'>
+											<label>Producto:</label> 
+											<select name='producto' class='form-control'>" . $option . "</select>
+										</div>
+								</div>
+								<div class='col-md-2'>
+										<div class='form-group'> <label>Cantidad: </label> 
+											<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
+										</div> 
+										<button type='submit' class='btn btn-primary'>Agregar</button> 
+									</form>
+								</div>
+								<div class='col-md-2'>
+								</div>
+								<div class='col-md-2'>
+									<form class='form-horizontal' action='hacerPedido.php' method='post'>
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
-										<input type='hidden' name='cliente_id' value='$id_cliente'>
-										<label>Producto:</label> 
-										<select name='producto' class='form-control'>" . $option . "</select>
-									<div class='form-group'> <label>Cantidad</label> 
-										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
-									</div> 
-									<button type='submit' class='btn btn-primary'>Agregar</button> 
-								</form> 
+										<div class='form-group'> <label>Cobrado: </label> 
+											<input type='text' name='cobrado' class='form-control'>
+										</div> 
+										<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
+									</form> 
+								</div>
+								<div class='col-md-2'>
+									<form class='form-horizontal' action='cuentaCobro.php' method='post'>
+										<div class='form-group'> <label>Cuenta Cobro #</label> 
+											<input type='text' name='cobrado' class='form-control' value='$id_pedido' id='disabledinput'>
+										</div>
+										<button type='submit' class='btn btn-danger'>Generar</button>
+									</form>
+								</div>
 							</div>
-						</div>
-						<div class='row mb40'>
-							<div class='col-md-6'>
-								<form class='form-inline' action='hacerPedido.php' method='post'>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<div class='form-group'> <label>Cobrado</label> 
-										<input type='text' name='cobrado' class='form-control'>
-									</div> 
-									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
-								</form> 
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class='agile-tables'>
