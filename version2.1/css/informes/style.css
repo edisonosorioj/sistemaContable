@@ -1,0 +1,32 @@
+html, body{
+	padding: 10px, 20px;
+    background: #f4f7f9;
+	font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+    overflow-x: hidden;
+}
+
+.hoja{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+
+}
+
+.logo{
+	margin-top: 10%;
+}
+
+.fecha{
+	margin-top: 10%;
+	text-align: center;
+}
+
+.numero{
+	margin-left: 80%;
+	margin-top: 5%;
+}
+
+.encabezado{
+	margin-top: 5%;
+}
