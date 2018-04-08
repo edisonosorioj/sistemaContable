@@ -97,6 +97,25 @@ CREATE TABLE `pedidoProductos` (
   `producto_id` INT NOT NULL,
   PRIMARY KEY (`peproducto_id`));
 
+CREATE TABLE `variables` (
+  `variable_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `detalle` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`variable_id`)
+)
+
+
+//Configuracion Básica para Cuenta de Cobro
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'identificacion', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('3', 'tipo_identificacion', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('4', 'forma_de_pago', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('5', 'lugar_expedicion', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'cel', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'tel', '');
+
+
+
 INSERT INTO administradores (idadmin, documento, nombre, apellido, login, password) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
 //ACTUALIZACIÓN PENDIENTE EN TABLA DE CLIENTES PARA QUE APAREZCAN MAS EN LA TABLA

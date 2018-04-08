@@ -47,7 +47,7 @@ $menu = "
 				<a href='../inventario/inventario.php'>
 					<i class='icon-font nav-icon'></i>
 					<span class='nav-text'>
-					Inventario
+					Lista de Precios
 					</span>
 				</a>
 			</li>

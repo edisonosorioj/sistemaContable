@@ -102,14 +102,14 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Inventario</h2>
+					<h2>Lista de Precios</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
+					  	<h3>Total: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>

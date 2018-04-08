@@ -1,3 +1,12 @@
+
+/*Para no incluir a la hora de imprimir*/
+.imprimir {
+  display: none;
+}
+
+
+/*Estilos de impresion*/
+
 html, body{
 	padding: 10px, 20px;
     background: #f4f7f9;
@@ -28,7 +37,7 @@ html, body{
 }
 
 .numero{
-	margin-left: 75%;
+	margin-left: 70%;
 	margin-top: 5%;
 }
 
@@ -163,7 +172,7 @@ td.text-right {
 
 /*Campo de informacion de pago*/
 .pago{
-	margin-top: 10%;
+	margin-top: 5%;
 }
 
 /*Campo de informacion Firma*/
