@@ -16,7 +16,6 @@ $result = $conex->conex();
 
 
 	$pedido_id		=	$_POST['pedido_id'];
-	$cobrado		=	$_POST['cobrado'];
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
 	$query5 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");
@@ -30,9 +29,9 @@ $result = $conex->conex();
 	$row 	= $query2->fetch_assoc();
  	$valor 	= $row['valor'];
 
-if ($estado == 1) {
+if ($estado == 0) {
 
- 	$msg = "El pedido ya fue realizado, no es posible hacerlo nuevamente. Si desea cambiarlo debe cancelarlo primero y despues realizar de nuevo el procedimiento";
+ 	$msg = "El pedido ya fue Cancelado, no es posible hacerlo nuevamente";
 
 	$html = "<script>
 		window.alert('$msg');
@@ -55,23 +54,21 @@ if ($estado == 1) {
 	 	$disponibleProducto = $row4['disponibleProducto'];
 	 	$producto_id = $row4['producto_id'];
 
-	 	$total = $disponibleProducto - $cantidadPedido;
+	 	$total = $disponibleProducto + $cantidadPedido;
 
 		$query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
 
 	 }
 
-	 
-
 	// Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-		$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' where pedido_id = '$pedido_id';");
+		$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '0', estado = '0' where pedido_id = '$pedido_id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
-		$msg = "El pedido se hizo correctamente";
+		$msg = "El pedido se canceló correctamente";
 	}else{
 
-		$msg = 'Error al agregar el pedido. Intente nuevamente';
+		$msg = 'Error al cancelar el pedido. Intente nuevamente';
 
 	}
 		

@@ -200,6 +200,12 @@ $html="<!DOCTYPE html>
 					</div>
 				</div>
 				<!-- //tables -->
+				<div class='col-md-2'>
+					<form class='form-horizontal' action='cancelarPedido.php' method='post'>
+						<input type='hidden' name='pedido_id' value='$id_pedido'>
+						<button type='submit' class='btn btn-primary'>Cancelar Pedido</button> 
+					</form> 
+				</div>
 			</div>
 		</div>
 		<!-- footer -->
