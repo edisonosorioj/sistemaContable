@@ -9,6 +9,8 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
+
+
 require_once "../conexion.php";
 
 $conex = new conection();
@@ -22,7 +24,9 @@ $result = $conex->conex();
 	$query5 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");
 	$row5 	= $query5->fetch_assoc();
 
-	$estado = $row5['estado'];
+	$estado 		= $row5['estado'];
+	$nombre_pedido 	= $row5['nombre_pedido'];
+	$cliente_id		= $row5['cliente_id'];
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
 	$query2 = mysqli_query($result,"SELECT SUM(valort) as valor FROM pedidoProductos WHERE pedido_id = '$pedido_id';");
@@ -44,27 +48,38 @@ if ($estado == 1) {
 
 }else{
 
-	// Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
+// Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
 
-	 $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoproductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
+ // $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoproductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
 
 
-	 while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
+ // while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
 
-	 	$cantidadPedido = $row4['cantidadPedido'];
-	 	$disponibleProducto = $row4['disponibleProducto'];
-	 	$producto_id = $row4['producto_id'];
+ // 	$cantidadPedido = $row4['cantidadPedido'];
+ // 	$disponibleProducto = $row4['disponibleProducto'];
+ // 	$producto_id = $row4['producto_id'];
 
-	 	$total = $disponibleProducto - $cantidadPedido;
+ // 	$total = $disponibleProducto - $cantidadPedido;
 
-		$query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
+	// $query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
 
-	 }
+ // }
 
-	 
+// echo "Hola Mundo";
 
-	// Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-		$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' where pedido_id = '$pedido_id';");
+// die();
+
+//Agrega un registro al resumen del cliente
+
+ $fecha 		= date('y-m-d');
+ $detalles 		= "Pedido No. " . $pedido_id . " - " . $nombre_pedido;
+ $valorcredito 	= $cobrado;
+
+ $query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valorcredito'), '$cliente_id');");
+
+
+// Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
+	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' where pedido_id = '$pedido_id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

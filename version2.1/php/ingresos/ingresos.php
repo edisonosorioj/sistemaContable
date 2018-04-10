@@ -33,7 +33,7 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
 				<td>" . $row['detalles'] 			. "</td>
 				<td align='right'>" . number_format($row['valor'], 0, ",", ".") . "</td>
 				<td><a onclick='javascript:abrir(\"editarIngreso.php?id=" . $row['idingresos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
-				<a href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a></td>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a></td>
 			</tr>";
 
  }
@@ -87,6 +87,16 @@ $html="<!DOCTYPE html>
 	function abrir(url) { 
 	open(url,'','top=100,left=100,width=900,height=700') ; 
 	}
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- //tables -->
 </head>

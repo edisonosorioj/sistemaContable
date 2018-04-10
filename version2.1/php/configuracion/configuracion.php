@@ -96,6 +96,14 @@ $html= "<!DOCTYPE html>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
 												</td>	
 											</tr>
+											<tr>
+												<td>
+													<h4>2. Datos Básicos de la Empresa o Persona</h4>
+												</td>
+												<td class='type-info'>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/datosEmpresa.php\")'>Actualizar</button>
+												</td>	
+											</tr>
 										</tbody>
 									</table>
 								</div>

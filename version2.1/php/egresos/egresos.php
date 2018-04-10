@@ -35,7 +35,7 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
 				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
 				<td><a onclick='javascript:abrir(\"editarEgreso.php?id=" . $row['idcompras'] . "\")'><span data-tooltip='Editar'>
 				<i class='fa fa-file-text-o nav_icon'></i></spam></a>
-				<a href='eliminarEgreso.php?id=" . $row['idcompras'] . "'><span data-tooltip='Eliminar'>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarEgreso.php?id=" . $row['idcompras'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off nav-icon'></i></spam></a></td>
 			</tr>";
 
@@ -79,6 +79,16 @@ $html="<!DOCTYPE html>
 			screenfull.toggle($('#container')[0]);
 		});	
 	});
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />

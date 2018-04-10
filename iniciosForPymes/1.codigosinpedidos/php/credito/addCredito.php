@@ -12,13 +12,6 @@ $result = $conex->conex();
 // Realiza la inserción de un credito agregando un signo "-" para que reste los totales
 $query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valor'), '$id');");
 
-// Realiza la consulta para que al realizar la acción se devuelva al cliente que se estaba trabajando
-$query2 = mysqli_query($result, "SELECT * FROM clientes where id = '$id';");
-
-$row=$query2->fetch_assoc();
-
-$idcliente = $row['id'];
-
 
 if($query > 0){
 	$msg = 'El registro fue agregado';

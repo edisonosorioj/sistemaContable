@@ -16,10 +16,7 @@ $result = $conex->conex();
 include "../menu.php";
 
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c
-								left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
-
-
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 $tr = '';
 
@@ -37,7 +34,7 @@ $tr = '';
 					<i class='fa fa-file-text-o nav_icon'></i></spam></a>
 				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
 					<i class='fa fa-bar-chart nav_icon'></i></spam></a>
-				<a href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off nav-icon'></i></a>
 				</td>
 			</tr>";
@@ -85,6 +82,16 @@ $html="<!DOCTYPE html>
 			screenfull.toggle($('#container')[0]);
 		});	
 	});
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />

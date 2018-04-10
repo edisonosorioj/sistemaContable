@@ -38,7 +38,7 @@ $tr = '';
 					<i class='fa fa-file-text-o nav_icon'></i></spam></a>
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
 					<i class='fa fa-bar-chart nav_icon'></i></spam></a>
-				<a href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off nav-icon'></i></a>
 				</td>
 			</tr>";
@@ -91,6 +91,16 @@ $html="<!DOCTYPE html>
 	function abrir(url) { 
 	open(url,'','top=100,left=100,width=900,height=700') ; 
 	}
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- //tables -->
 </head>

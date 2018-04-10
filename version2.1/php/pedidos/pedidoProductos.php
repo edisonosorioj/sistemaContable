@@ -47,7 +47,7 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 				<td>
 				<a class='botonTab' onclick='javascript:abrir(\"editarPeProducto.php?id=" . $row['idproducto'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
-				<a href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a>
 				</td>
 			</tr>";
 
@@ -109,6 +109,16 @@ $html="<!DOCTYPE html>
 			screenfull.toggle($('#container')[0]);
 		});	
 	});
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />

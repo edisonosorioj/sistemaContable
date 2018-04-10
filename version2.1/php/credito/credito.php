@@ -42,7 +42,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 
 				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-file-text-o nav_icon'></i></spam></a>
 				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='C.Ingreso'><i class='fa fa-check-square-o nav_icon'></i></spam></a>
-				<a href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off nav-icon'></i></spam></a>
 				</td>
 			</tr>";
 
@@ -118,6 +118,16 @@ $html="<!DOCTYPE html>
 	open(url,'','top=100,left=100,width=900,height=600') ; 
 	}
 </script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
+</script>
 <!-- //tables -->
 </head>
 <body class='dashboard-page'>
@@ -134,7 +144,6 @@ $html="<!DOCTYPE html>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>C.Cobro</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' href='eliminarVarios.php'>Eliminar</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
