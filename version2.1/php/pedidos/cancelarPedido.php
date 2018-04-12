@@ -45,7 +45,7 @@ if ($estado == 0) {
 
 	// Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
 
-	 $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoproductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
+	 $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
 
 
 	 while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){

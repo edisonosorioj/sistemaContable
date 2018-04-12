@@ -7,7 +7,7 @@ $result = $conex->conex();
 $id=$_GET['id'];
 
 // Obtiene la información del productopedido por medio del PEPRODUCTO ID
-	$query3 = mysqli_query($result,"SELECT * FROM pedidoproductos WHERE peproducto_id = '$id' limit 1;");
+	$query3 = mysqli_query($result,"SELECT * FROM pedidoProductos WHERE peproducto_id = '$id';");
 	$row3 	= $query3->fetch_assoc();
 
 	$pedido_id = $row3['pedido_id'];
@@ -35,7 +35,7 @@ if ($estado == 1) {
 
 }else{
 		
-	$query = mysqli_query($result,"delete from pedidoproductos where peproducto_id = '$id'");
+	$query = mysqli_query($result,"delete from pedidoProductos where peproducto_id = '$id'");
 
 	if($query > 0){
 		$msg = 'El producto del Pedido fue eliminado';

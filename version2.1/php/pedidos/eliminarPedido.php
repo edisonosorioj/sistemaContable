@@ -8,7 +8,7 @@ $id=$_GET['id'];
 
 // Realiza un conteo de la cantidad de productos por pedido antes de realizar una eliminación
 
-$query2 = mysqli_query($result,"select count(nombre_pedido) as registros from pedidoProductos where pedido_id = '$id'");
+$query2 = mysqli_query($result,"select count(producto) as registros from pedidoProductos where pedido_id = '$id'");
 
 $totalregistros = $query2->fetch_array(MYSQLI_BOTH);
 	

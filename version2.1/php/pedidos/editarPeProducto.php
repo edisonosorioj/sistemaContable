@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de productos del pedido y permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select * from pedidoproductos where peProducto_id ='$id'");
+$query = mysqli_query($result, "select * from pedidoProductos where peProducto_id ='$id'");
 
 $row = $query->fetch_assoc();
 

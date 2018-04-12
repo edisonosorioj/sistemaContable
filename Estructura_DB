@@ -106,13 +106,13 @@ CREATE TABLE `variables` (
 
 
 //Configuracion Básica para Cuenta de Cobro
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', '');
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'identificacion', '');
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('3', 'tipo_identificacion', '');
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('4', 'forma_de_pago', '');
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('5', 'lugar_expedicion', '');
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'cel', '');
-INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'tel', '');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'ESTEFANIA DUQUE ZAPATA');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'tipo_identificacion', 'CC');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('3', 'identificacion', '1.038.407.938');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('4', 'lugar_expedicion', 'Marinilla');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('5', 'forma_de_pago', 'Favor consignar en la cuenta de ahorros Bancolombia 024-469496- 94 a nombre de ESTEFANIA DUQUE.');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'cel', '3192916803');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'tel', '6147402');
 
 
 

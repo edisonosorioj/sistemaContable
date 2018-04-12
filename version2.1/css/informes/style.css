@@ -28,7 +28,7 @@ html, body{
 }
 
 .numero{
-	margin-left: 75%;
+	margin-left: 70%;
 	margin-top: 5%;
 }
 
@@ -45,7 +45,7 @@ html, body{
   	border-radius:3px;
   	border-collapse: collapse;
   	margin: auto;
-  	max-width: 600px;
+  	max-width: 800px;
   	padding:5px;
   	width: 100%;
   	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
