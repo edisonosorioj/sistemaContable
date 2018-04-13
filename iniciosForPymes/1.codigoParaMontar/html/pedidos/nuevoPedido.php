@@ -10,11 +10,11 @@ $result = $conex->conex();
 
 $option='';
 
-$query = mysqli_query($result,'select * from productos order by idproductos');
+$query = mysqli_query($result,'select * from clientes order by id');
 
 while ($row = $query->fetch_array()){
 
-	 	$option .=	"<option value='" . $row['nombre'] . "'>" . $row['nombre'] . "</option>";
+	 	$option .=	"<option value='" . $row['nombres'] . "'>" . $row['nombres'] . "</option>";
 	}
 
 
@@ -68,10 +68,6 @@ $html = "<!DOCTYPE html>
 		</nav>
 		<div class='grid_3 grid_5 wow fadeInUp animated' data-wow-delay='.5s'>
 			<div class='bs-example bs-example-tabs' role='tabpanel' data-example-id='togglable-tabs'>
-				<ul id='myTab' class='nav nav-tabs' role='tablist'>
-					<li role='presentation' class='active'><a href='#home' id='home-tab' role='tab' data-toggle='tab' aria-controls='home' aria-expanded='true'>General</a></li>
-					<li role='presentation'><a href='#profile' role='tab' id='profile-tab' data-toggle='tab' aria-controls='profile'>Productos</a></li>
-				</ul>
 				<div id='myTabContent' class='tab-content'>
 					<div role='tabpanel' class='tab-pane fade in active' id='home' aria-labelledby='home-tab'>
 					
@@ -80,7 +76,7 @@ $html = "<!DOCTYPE html>
 								<!-- input-forms -->
 								<div class='grids'>
 									<div class='progressbar-heading grids-heading'>
-										<h2>Nuevo Compra</h2>
+										<h2>Nuevo Pedido</h2>
 									</div>
 									<div class='panel panel-widget forms-panel'>
 										<div class='forms'>
@@ -89,81 +85,21 @@ $html = "<!DOCTYPE html>
 													<h4>Datos Básicos</h4>
 												</div>
 												<div class='form-body'>
-													<form action='../../php/egresos/addEgreso.php' method='post'> 
+													<form action='../../php/pedidos/addPedido.php' method='post'> 
 														<div class='form-group'> 
 															<label>Fecha</label> 
 															<input type='date' name='fecha' class='form-control'> 
 														</div>
 														<div class='form-group'> 
-															<label>Cantidad</label> 
-															<input type='text' name='cantidad' class='form-control' placeholder='Cantidad'> 
-														</div>
-														<div class='form-group'> 
-															<label>Producto</label> 
-															<input type='text' name='producto' class='form-control' placeholder='Producto' required='true'> 
-														</div>
-														<div class='form-group'> 
-															<label>Detalles</label> 
-															<input type='text' name='detalles' class='form-control' placeholder='Detalles'> 
-														</div> 
-														<div class='form-group'> 
-															<label>Valor</label> 
-															<input type='text' name='valor' class='form-control' placeholder='Valor'> 
-														</div> 
-
-														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
-														<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
-													</form> 
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-								<!-- //input-forms -->
-							</div>
-						</div>
-
-					</div>
-					<div role='tabpanel' class='tab-pane fade' id='profile' aria-labelledby='profile-tab'>
-						
-						<div class='main-grid'>
-							<div class='agile-grids'>	
-								<!-- input-forms -->
-								<div class='grids'>
-									<div class='progressbar-heading grids-heading'>
-										<h2>Nuevo Compra de Productos</h2>
-									</div>
-									<div class='panel panel-widget forms-panel'>
-										<div class='forms'>
-											<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
-												<div class='form-title'>
-													<h4>Datos Básicos</h4>
-												</div>
-												<div class='form-body'>
-													<form action='../../php/egresos/addegreso2.php' method='post'> 
-														<div class='form-group'> 
-															<label>Fecha</label> 
-															<input type='date' name='fecha' class='form-control'> 
-														</div>
-														<div class='form-group'> 
-															<label>Cantidad</label> 
-															<input type='text' name='cantidad' class='form-control' placeholder='Cantidad'> 
-														</div>
-														<div class='form-group'> 
-															<label>Producto</label> 
-															<select name='producto' class='form-control1'>
+															<label>Cliente</label> 
+															<select name='cliente' class='form-control1'>
 																" . $option . "
 															</select>
 														</div>
 														<div class='form-group'> 
-															<label>Detalles</label> 
-															<input type='text' name='detalles' class='form-control' placeholder='Detalles'> 
-														</div> 
-														<div class='form-group'> 
-															<label>Valor</label> 
-															<input type='text' name='valor' class='form-control' placeholder='Valor'> 
-														</div> 
+															<label>Nombre</label> 
+															<input type='text' name='nombre' class='form-control' placeholder='Nombre'> 
+														</div>
 
 														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
 														<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 

@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -13,35 +13,39 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
-$tr2 = '';
+$total = '';
+$sumtotal = '';
 
 include "../menu.php";
 
-$query = mysqli_query($result,'select * from ingresos order by fecha desc');
+$query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
 
-$query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+
+	$sumtotal=$row['disponible']*$row['valor'];
+
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td></td>
+				<td></td>
+				<td>" . $row['idproductos'] 		. "</td>
 				<td>" . $row['fecha'] 				. "</td>
-				<td>" . $row['cantidad'] 			. "</td>
-				<td>" . $row['producto'] 			. "</td>
-				<td>" . $row['detalles'] 			. "</td>
-				<td align='right'>" . number_format($row['valor'], 0, ",", ".") . "</td>
-				<td><a onclick='javascript:abrir(\"editarIngreso.php?id=" . $row['idingresos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
+				<td>" . $row['nombre'] 				. "</td>
+				<td>" . $row['disponible'] 			. "</td>
+				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
+				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
+				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
+ 	$total = ((int)$total+(int)$sumtotal);
  }
 
- 	$row2 = $query2->fetch_assoc();
- 	$ing = $row2['total'];
 
 $html="<!DOCTYPE html>
 <head>
-<title>Ingresos</title>
+<title>Inventario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -83,7 +87,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=900,height=500') ; 
 	}
 </script>
 <script>
@@ -105,23 +109,24 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Ingresos</h2>
+					<h2>Inventario</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/ingreso/nuevoIngreso.php\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Ingresos: $ " . number_format($row2['total'], 0, ",", ".") . "</h3>
+					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
 							<th><input type='checkbox' id='checkTodos' /></th>
+							<th>ID</th>
 							<th>Fecha</th>
-							<th>Can.</th>
 							<th>Producto</th>
-							<th>Detalles</th>
+							<th>Cantidad</th>
 							<th>Valor</th>
+							<th>Total</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
@@ -149,3 +154,4 @@ else return false;
 </html>";
 
 echo $html;
+

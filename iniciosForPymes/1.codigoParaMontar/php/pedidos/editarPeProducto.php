@@ -1,41 +1,57 @@
 <?php
-
-require_once "../../php/conexion.php";
+	
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+	
+// Con el ID que se trae de productos del pedido y permite abrir un nuevo html y con información existente
+$id=$_GET['id'];
 
-$query4 = mysqli_query($result, "select * from variables;");
+$query = mysqli_query($result, "select * from pedidoProductos where peProducto_id ='$id'");
 
-$rows = mysqli_num_rows ($query4);  
-          
-if ($rows > 0)  
-{  
-    for ($i=0; $i<$rows; $i++)  
-    {  
-        $row4 = mysqli_fetch_array($query4);  
-        $rows4[$i] = $row4["nombre"];  
-        $datos[$rows4[$i]] = $row4["detalle"];  
-    }  
-              
-}  
+$row = $query->fetch_assoc();
 
-$nombre_empresa 	= $datos['empresa'];
-$tipo 				= $datos['tipo_identificacion'];
-$identificacion		= $datos['identificacion'];
-$forma_de_pago		= $datos['forma_de_pago'];
-$lugar_expedicion	= $datos['lugar_expedicion'];
-$cel				= $datos['cel'];
-$tel				= $datos['tel'];
+$pedido_id = $row['pedido_id'];
+$cantidad = $row['cantidad'];
 
+$query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
 
+$row3 = $query3->fetch_assoc();
 
-$html = "<!DOCTYPE html>
+$estado = $row3['estado'];
+
+if ($estado == 1) {
+	 
+	$msg = "El pedido ya fue realizado, no es posible hacerlo nuevamente. Si desea cambiarlo debe cancelarlo primero y despues realizar de nuevo el procedimiento";
+
+	$html = "<script>
+		window.alert('$msg');
+		window.close();
+	</script>";
+
+	echo $html;	
+}else{
+
+$option='';
+
+$query2 = mysqli_query($result,'select * from productos order by idproductos');
+
+$producto = $row['producto'];
+
+while ($row2 = $query2->fetch_array()){
+
+	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
+	}
+	
+$html = "
+<!-- Se crea el HTML con la información del Pedido -->
+<!DOCTYPE html>
 <head>
-<title>Actualización Datos</title>
+<title>Editar Producto del Pedido</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-<meta name='keywords' content='AdminSoft' />
+<meta name='keywords' content='Administración de Negocios, Admin, Negocios' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel='stylesheet' href='../../css/bootstrap.css'>
@@ -72,18 +88,12 @@ $html = "<!DOCTYPE html>
 <body class='dashboard-page'>
 
 	<section class='wrapper scrollable'>
-		<nav class='user-menu'>
-			<a href='javascript:;' class='main-menu-access'>
-			<i class='icon-proton-logo'></i>
-			<i class='icon-reorder'></i>
-			</a>
-		</nav>
 		<div class='main-grid'>
 			<div class='agile-grids'>	
 				<!-- input-forms -->
 				<div class='grids'>
 					<div class='progressbar-heading grids-heading'>
-						<h2>Actualización de Datos</h2>
+						<h2>Editar Producto del Pedido</h2>
 					</div>
 					<div class='panel panel-widget forms-panel'>
 						<div class='forms'>
@@ -92,35 +102,25 @@ $html = "<!DOCTYPE html>
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class='form-body'>
-									<form action='../../php/configuracion/actDatosEmpresa.php' method='post'> 
+									<form action='actPeProducto.php' method='post'>
+
 										<div class='form-group'> 
-											<label>Nombre Persona Natural o Empresa</label> 
-											<input type='text' name='n_empresa' class='form-control' placeholder='Nombre Empresa' value='$nombre_empresa'> 
+											<input type='hidden' name='id' value='$id' class='form-control'> 
 										</div>
 										<div class='form-group'> 
-											<label>Tipo de Identificación</label> 
-											<input type='text' name='t_identificacion' class='form-control' placeholder='Tipo Identificación' value='$tipo'> 
+											<label>Producto Actual</label> 
+											<input type='text' name='producto_actual' class='form-control' value='$producto' disabled> 
+										</div> 
+										<div class='form-group'> 
+											<label>Producto</label> 
+											<select name='nuevo_producto' class='form-control1'>
+												$option
+											</select>
+										</div> 
+										<div class='form-group'> 
+											<label>Cantidad</label> 
+											<input type='text' name='cantidad' class='form-control' placeholder='Cantidad' value='$cantidad'> 
 										</div>
-										<div class='form-group'> 
-											<label>Identificación</label> 
-											<input type='text' name='identificacion' class='form-control' placeholder='Numero de Identificación' value='$identificacion'> 
-										</div>
-										<div class='form-group'> 
-											<label>Lugar de Expedición del Documento</label> 
-											<input type='text' name='l_expedicion' class='form-control' placeholder='Lugar de Expedición' value='$lugar_expedicion'> 
-										</div> 
-										<div class='form-group'> 
-											<label>Detalles</label> 
-											<input type='text' name='forma_pago' class='form-control' placeholder='Forma de Pago' value='$forma_de_pago'> 
-										</div> 
-										<div class='form-group'> 
-											<label>Telefono Fijo</label> 
-											<input type='text' name='fijo' class='form-control' placeholder='Tel. Fijo' value='$tel'> 
-										</div> 
-										<div class='form-group'> 
-											<label>Telefono Celular</label> 
-											<input type='text' name='celular' class='form-control' placeholder='No. Celular' value='$cel'> 
-										</div> 
 
 										<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
 										<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
@@ -141,3 +141,4 @@ $html = "<!DOCTYPE html>
 </html>";
 
 echo $html;
+}

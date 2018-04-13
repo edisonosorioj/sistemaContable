@@ -34,12 +34,11 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<td>" . $row['fecha'] 				. "</td>
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
-				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
-				<td align='right'>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'>
-				<i class='fa fa-file-text-o nav_icon'></i></spam></a>
+				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
+				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
-				<i class='fa icon-off nav-icon'></i></spam></a></td>
+				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
  	$total = ((int)$total+(int)$sumtotal);

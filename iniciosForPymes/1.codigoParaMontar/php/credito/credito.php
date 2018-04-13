@@ -31,9 +31,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td>
-					<input type='checkbox' value='" . $row['idcreditos'] . "' name='ids[]' />
-				</td>
+ 				<td></td>
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
