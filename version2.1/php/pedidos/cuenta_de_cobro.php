@@ -75,8 +75,8 @@ if ($rows > 0)
 $nombre_empresa 	= $datos['empresa'];
 $tipo 				= $datos['tipo_identificacion'];
 $identificacion		= $datos['identificacion'];
-$forma_de_pago		= $datos['forma_de_pago'];
 $lugar_expedicion	= $datos['lugar_expedicion'];
+$forma_de_pago		= $datos['forma_de_pago'];
 $cel				= $datos['cel'];
 $tel				= $datos['tel'];
 
