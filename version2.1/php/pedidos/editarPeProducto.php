@@ -23,7 +23,7 @@ $estado = $row3['estado'];
 
 if ($estado == 1) {
 	 
-	$msg = "El pedido ya fue realizado, no es posible hacerlo nuevamente. Si desea cambiarlo debe cancelarlo primero y despues realizar de nuevo el procedimiento";
+	$msg = "El pedido ya fue realizado, no es posible cambiar los productos. Si desea cambiarlos debe cancelarlo primero el pedido y despues realizar de nuevo el procedimiento";
 
 	$html = "<script>
 		window.alert('$msg');

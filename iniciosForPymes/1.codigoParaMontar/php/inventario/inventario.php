@@ -27,7 +27,9 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 	$sumtotal=$row['disponible']*$row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td></td>
+				<td>
+				<input type='checkbox' value='" . $row['idproductos'] . "' name='ids[]' />
+				</td>
 				<td>" . $row['idproductos'] 		. "</td>
 				<td>" . $row['fecha'] 				. "</td>
 				<td>" . $row['nombre'] 				. "</td>

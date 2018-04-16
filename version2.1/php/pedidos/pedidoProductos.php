@@ -178,11 +178,12 @@ else return false;
 								</form> 
 							</div>
 							<div class='col-md-2'>
-								<form name='contacto' method='get' action='cuenta_de_cobro.php' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-									<div class='form-group'> <label>Cuenta Cobro #</label> 
-										<input type='text' name='id' class='form-control' value='$id_pedido' id='disabledinput'>
+								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+									<div class='form-group'> <label>Cuenta Cobro #</label>
+										<input type='hidden' name='pedido_id' value='$id_pedido'>
+										<input type='text' name='nuevo_pedido_id' class='form-control' value='$id_pedido' disabled/>
 									</div>
-									<button type='input' class='btn btn-danger'>Generar</button>
+									<button type='submit' class='btn btn-danger'>Generar</button>
 								</form>
 							</div>
 						</div>

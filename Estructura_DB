@@ -126,5 +126,8 @@ ADD COLUMN `direccion` VARCHAR(100) NULL AFTER `empresa`;
 ALTER TABLE `administradores` 
 CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL ;
 
+//Actualizar inicializacion ID Pedidos
+
+ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
 
 

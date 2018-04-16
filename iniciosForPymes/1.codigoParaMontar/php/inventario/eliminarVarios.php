@@ -17,7 +17,6 @@ if (isset($_POST['ids']) > 0) {
 $num_idss = count($idss);
 
 
-
 if ($num_idss > 0) {
 		$selected = '';
 		$current = 0;
@@ -29,8 +28,7 @@ if ($num_idss > 0) {
             $current++;
         }
 
-		// echo $selected;die();
-		$query = mysqli_query($result,"delete from compras where idcompras in($selected)");
+		$query = mysqli_query($result,"delete from productos where idproductos in($selected)");
 		 
 		if($query > 0){
 			$msg = 'Lo seleccionado fue eliminado';
@@ -45,7 +43,7 @@ if ($num_idss > 0) {
    
 	$html = "<script>
 		window.alert('$msg');
-		self.location='compras.php';
+		self.location='index.php';
 	</script>";
 
 echo $html;	

@@ -148,7 +148,7 @@ else return false;
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
+							<th></th>
 							<th>Cod.</th>
 							<th>Fecha</th>
 							<th width='30%'>Detalles</th>

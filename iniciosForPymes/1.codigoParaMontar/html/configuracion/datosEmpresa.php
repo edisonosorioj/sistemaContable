@@ -95,31 +95,31 @@ $html = "<!DOCTYPE html>
 									<form action='../../php/configuracion/actDatosEmpresa.php' method='post'> 
 										<div class='form-group'> 
 											<label>Nombre Persona Natural o Empresa</label> 
-											<input type='text' name='n_empresa' class='form-control' placeholder='Nombre Empresa' required='true' value='$nombre_empresa'> 
+											<input type='text' name='n_empresa' class='form-control' placeholder='Nombre Empresa' value='$nombre_empresa'> 
 										</div>
 										<div class='form-group'> 
 											<label>Tipo de Identificación</label> 
-											<input type='text' name='t_identificacion' class='form-control' placeholder='Tipo Identificación' required='true' value='$tipo'> 
+											<input type='text' name='t_identificacion' class='form-control' placeholder='Tipo Identificación' value='$tipo'> 
 										</div>
 										<div class='form-group'> 
 											<label>Identificación</label> 
-											<input type='text' name='identificacion' class='form-control' placeholder='Numero de Identificación' required='true' value='$identificacion'> 
+											<input type='text' name='identificacion' class='form-control' placeholder='Numero de Identificación' value='$identificacion'> 
 										</div>
 										<div class='form-group'> 
 											<label>Lugar de Expedición del Documento</label> 
-											<input type='text' name='l_expedicion' class='form-control' placeholder='Lugar de Expedición' required='true' value='$lugar_expedicion'> 
+											<input type='text' name='l_expedicion' class='form-control' placeholder='Lugar de Expedición' value='$lugar_expedicion'> 
 										</div> 
 										<div class='form-group'> 
 											<label>Detalles</label> 
-											<input type='text' name='forma_pago' class='form-control' placeholder='Forma de Pago' required='true' value='$forma_de_pago'> 
+											<input type='text' name='forma_pago' class='form-control' placeholder='Forma de Pago' value='$forma_de_pago'> 
 										</div> 
 										<div class='form-group'> 
 											<label>Telefono Fijo</label> 
-											<input type='text' name='fijo' class='form-control' placeholder='Tel. Fijo' required='true' value='$tel'> 
+											<input type='text' name='fijo' class='form-control' placeholder='Tel. Fijo' value='$tel'> 
 										</div> 
 										<div class='form-group'> 
 											<label>Telefono Celular</label> 
-											<input type='text' name='celular' class='form-control' placeholder='No. Celular' required='true' value='$cel'> 
+											<input type='text' name='celular' class='form-control' placeholder='No. Celular' value='$cel'> 
 										</div> 
 
 										<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
