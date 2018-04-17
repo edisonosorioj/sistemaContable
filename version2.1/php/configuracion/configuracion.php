@@ -104,6 +104,14 @@ $html= "<!DOCTYPE html>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/datosEmpresa.php\")'>Actualizar</button>
 												</td>	
 											</tr>
+											<tr>
+												<td>
+													<h4>3. Consecutivo Cuenta de Cobros</h4>
+												</td>
+												<td class='type-info'>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/consecutivo.php\")'>Actualizar</button>
+												</td>	
+											</tr>
 										</tbody>
 									</table>
 								</div>

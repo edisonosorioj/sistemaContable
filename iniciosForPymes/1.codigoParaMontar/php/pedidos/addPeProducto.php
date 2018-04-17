@@ -20,7 +20,24 @@ $result = $conex->conex();
 	$pedido_id 	=	$_POST['pedido_id'];
 	$cliente_id =	$_POST['cliente_id'];
 
+$query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
 
+$row3 = $query3->fetch_assoc();
+
+$estado = $row3['estado'];
+
+if ($estado == 1) {
+	 
+	$msg = "El pedido ya fue realizado, no es posible agregar mas productos. Si desea hacerlo debe cancelarlo primero el pedido y despues agregar el producto";
+
+	$html = "<script>
+		window.alert('$msg');
+		javascript:history.back();
+	</script>";
+
+	echo $html;	
+
+}else{
 
 // Consulta para que aparezca la información de los productos disponibles
 	$query2 = mysqli_query($result,"SELECT * FROM productos WHERE nombre = '$producto';");
@@ -46,3 +63,4 @@ $result = $conex->conex();
 	</script>";
 	
 echo $html;	
+}

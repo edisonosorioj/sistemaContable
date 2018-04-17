@@ -9,7 +9,7 @@ class conection{
 	  $dbuser = "root";
 	  // $password = "";
 	  $password = "qwer1234";
-	  $dbname = "demo";
+	  $dbname = "dientedeleon";
 	 
 	  $conex = new mysqli($dbserver, $dbuser, $password, $dbname);
 

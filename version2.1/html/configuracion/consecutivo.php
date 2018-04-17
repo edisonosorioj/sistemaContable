@@ -1,57 +1,22 @@
 <?php
-	
-require_once "../conexion.php";
+
+require_once "../../php/conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-	
-// Con el ID que se trae de productos del pedido y permite abrir un nuevo html y con información existente
-$id=$_GET['id'];
 
-$query = mysqli_query($result, "select * from pedidoProductos where peProducto_id ='$id'");
+$query = mysqli_query($result, "select * from variables where variable_id = 8;");
 
-$row = $query->fetch_assoc();
+$row=$query->fetch_assoc();
 
-$pedido_id = $row['pedido_id'];
-$cantidad = $row['cantidad'];
+$consecutivo = $row['detalle'];
 
-$query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
-
-$row3 = $query3->fetch_assoc();
-
-$estado = $row3['estado'];
-
-if ($estado == 1) {
-	 
-	$msg = "El pedido ya fue realizado, no es posible cambiar los productos. Si desea cambiarlos debe cancelarlo primero el pedido y despues realizar de nuevo el procedimiento";
-
-	$html = "<script>
-		window.alert('$msg');
-		window.close();
-	</script>";
-
-	echo $html;	
-}else{
-
-$option='';
-
-$query2 = mysqli_query($result,'select * from productos order by idproductos');
-
-$producto = $row['producto'];
-
-while ($row2 = $query2->fetch_array()){
-
-	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
-	}
-	
-$html = "
-<!-- Se crea el HTML con la información del Pedido -->
-<!DOCTYPE html>
+$html = "<!DOCTYPE html>
 <head>
-<title>Editar Producto del Pedido</title>
+<title>Actualización Datos</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-<meta name='keywords' content='Administración de Negocios, Admin, Negocios' />
+<meta name='keywords' content='AdminSoft' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel='stylesheet' href='../../css/bootstrap.css'>
@@ -88,12 +53,18 @@ $html = "
 <body class='dashboard-page'>
 
 	<section class='wrapper scrollable'>
+		<nav class='user-menu'>
+			<a href='javascript:;' class='main-menu-access'>
+			<i class='icon-proton-logo'></i>
+			<i class='icon-reorder'></i>
+			</a>
+		</nav>
 		<div class='main-grid'>
 			<div class='agile-grids'>	
 				<!-- input-forms -->
 				<div class='grids'>
 					<div class='progressbar-heading grids-heading'>
-						<h2>Editar Producto del Pedido</h2>
+						<h2>Actualización de Datos</h2>
 					</div>
 					<div class='panel panel-widget forms-panel'>
 						<div class='forms'>
@@ -102,26 +73,11 @@ $html = "
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class='form-body'>
-									<form action='actPeProducto.php' method='post'>
-
+									<form action='../../php/configuracion/actConsecutivo.php' method='post'> 
 										<div class='form-group'> 
-											<input type='hidden' name='id' value='$id' class='form-control'> 
+											<label>Consecutivo para Cuenta de Cobro No. $consecutivo</label> 
+											<input type='text' name='consecutivo' class='form-control' placeholder='Nuevo Consecutivo para Cuenta Cobro - Pedidos'> 
 										</div>
-										<div class='form-group'> 
-											<label>Producto Actual</label> 
-											<input type='text' name='producto_actual' class='form-control' value='$producto' disabled> 
-										</div> 
-										<div class='form-group'> 
-											<label>Producto</label> 
-											<select name='nuevo_producto' class='form-control1'>
-												$option
-											</select>
-										</div> 
-										<div class='form-group'> 
-											<label>Cantidad</label> 
-											<input type='text' name='cantidad' class='form-control' placeholder='Cantidad' value='$cantidad'> 
-										</div>
-
 										<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
 										<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
 									</form> 
@@ -141,4 +97,3 @@ $html = "
 </html>";
 
 echo $html;
-}
