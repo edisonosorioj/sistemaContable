@@ -14,6 +14,13 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
+// Realiza una consulta para saber la cantidad de usuarios
+ $query2 = mysqli_query($result,'select count(nombre) as user from administradores');
+
+// Lo organiza en un array y permite utilizar cada uno de los parametros
+ $usuario = $query2->fetch_array(MYSQLI_BOTH);
+ $user = $usuario['user'];
+
 include "../menu.php";
 
 
@@ -90,10 +97,11 @@ $html= "<!DOCTYPE html>
 										<tbody>
 											<tr>
 												<td>
-													<h4>1. Crear nuevo usuario Administrador</h4>
+													<h4>1. Crear nuevo usuario Administrador. Existen<b> $user </b> Usuarios</h4>
 												</td>
 												<td class='type-info'>
-													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
+													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
+													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/verUsuario.html\")'>Revisar</button>
 												</td>	
 											</tr>
 											<tr>

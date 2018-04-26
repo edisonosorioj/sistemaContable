@@ -47,57 +47,7 @@ $tr = '';
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
  $cartera = $query2->fetch_array(MYSQLI_BOTH);
-
-
-$sql = 'SELECT c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor FROM clientes c LEFT JOIN creditos cr on c.id = cr.idclientes GROUP BY c.id ORDER BY c.nombres';
-
-$resultado = mysqli_query ($result, $sql) or die (mysql_error ());
-
-$libros = array();
-
-while( $rows = mysqli_fetch_assoc($resultado) ) {
-
-$libros[] = $rows;
-
-}
-
-if(isset($_POST['export_data'])) {
-
-if(!empty($libros)) {
-
-$filename = 'clientes.xls';
-
-header('Content-Type: application/vnd.ms-excel');
-
-header('Content-Disposition: attachment; filename='.$filename);
-
-$mostrar_columnas = false;
-
-foreach($libros as $libro) {
-
-if(!$mostrar_columnas) {
-
-echo implode('\t', array_keys($libro)) . '\n';
-
-$mostrar_columnas = true;
-
-}
-
-echo implode('\t', array_values($libro)) . '\n';
-
-}
-
- 
-
-}else{
-
-echo 'No hay datos a exportar';
-
-}
-
-exit;
-
-}
+ $cTotal = number_format($cartera['valor'], 0, ",", ".");
 
 
 $html="<!DOCTYPE html>
@@ -162,13 +112,8 @@ $html="<!DOCTYPE html>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
 				</div>
 				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Cartera Pendiente: $ " . number_format($cartera['valor'], 0, ",", ".") ."</h3>
+			  		<h3>Cartera Pendiente: $ $cTotal</h3>
 			  	</div>
-				<div class='bs-component mb20 col-md-2'>
-				<form action='$_SERVER['PHP_SELF']' method='post'>
-					<button type='submit' id='export_data' name='export_data' class='btn btn-danger btn-block hvr-icon-float-away'>Exportar</button>
-				</form>
-				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
