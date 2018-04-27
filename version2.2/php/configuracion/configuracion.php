@@ -101,7 +101,7 @@ $html= "<!DOCTYPE html>
 												</td>
 												<td class='type-info'>
 													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
-													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/verUsuario.html\")'>Revisar</button>
+													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/verUsuarios.php\")'>Revisar</button>
 												</td>	
 											</tr>
 											<tr>
