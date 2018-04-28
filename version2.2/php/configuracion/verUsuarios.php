@@ -8,7 +8,7 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
-require_once "../../php/conexion.php";
+require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
@@ -16,25 +16,24 @@ $tr = '';
 $tr2 = '';
 
 
-$query = mysqli_query($result,'select * from administradores order by fecha desc');
+$query = mysqli_query($result,'select * from administradores');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
  				<td>" . $row['idadmin']			. "</td>
-				<td>" . $row['documento'] 				. "</td>
+				<td>" . $row['documento'] 		. "</td>
 				<td>" . $row['nombre'] 			. "</td>
-				<td>" . $row['apellido'] 			. "</td>
+				<td>" . $row['apellido'] 		. "</td>
+				<td>" . $row['idrol'] 			. "</td>
 				<td>" . $row['login'] 			. "</td>
-				<td align='right'>" . number_format($row['valor'], 0, ",", ".") . "</td>
-				<td><a onclick='javascript:abrir(\"editarUsuario.php?id=" . $row['idingresos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarUsuario.php?id=" 	. $row['idingresos'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
+				<td><a onclick='javascript:abrir(\"editarUsuario.php?id=" . $row['idadmin'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarUsuario.php?id=" 	. $row['idadmin'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
  }
 
- 	$row2 = $query2->fetch_assoc();
- 	$ing = $row2['total'];
+include "../menu.php";
 
 $html="<!DOCTYPE html>
 <head>
@@ -104,12 +103,8 @@ else return false;
 				<div class='table-heading'>
 					<h2>Usuarios</h2>
 				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"crearUsuario.php\")'>Nuevo</button>
-				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Ingresos: $ " . number_format($row2['total'], 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
@@ -117,6 +112,7 @@ else return false;
 							<th>Documento</th>
 							<th>Nombres</th>
 							<th>Apellidos</th>
+							<th>Rol</th>
 							<th>Login</th>
 							<th>Acciones</th>
 						  </tr>

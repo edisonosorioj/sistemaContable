@@ -97,11 +97,10 @@ $html= "<!DOCTYPE html>
 										<tbody>
 											<tr>
 												<td>
-													<h4>1. Crear nuevo usuario Administrador. Existen<b> $user </b> Usuarios</h4>
+													<h4>1. Crear nuevo usuario Administrador. Existen<b> $user </b> Usuarios. <a href='verUsuarios.php'> Ver</a></h4>
 												</td>
 												<td class='type-info'>
-													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
-													<button type='button' class='btn-hover btn-xs hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/verUsuarios.php\")'>Revisar</button>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
 												</td>	
 											</tr>
 											<tr>

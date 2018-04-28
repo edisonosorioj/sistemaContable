@@ -128,4 +128,7 @@ CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL ;
 
 ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
 
+//Actualizacion tabla administradores con idrol
+ALTER TABLE `sistema_contable`.`administradores` ADD COLUMN `idrol` INT(10) NOT NULL AFTER `login`;
+
 
