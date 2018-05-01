@@ -8,6 +8,11 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
 
 require_once "../conexion.php";
 
@@ -21,7 +26,11 @@ $result = $conex->conex();
  $usuario = $query2->fetch_array(MYSQLI_BOTH);
  $user = $usuario['user'];
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
 
 
 $html= "<!DOCTYPE html>

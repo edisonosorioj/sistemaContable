@@ -9,6 +9,13 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
+
+
 require_once "../conexion.php";
 
 $conex = new conection();
@@ -16,7 +23,11 @@ $result = $conex->conex();
 
 
 include "graficas.php";
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+} else {
+	include "../menu2.php";
+}
 
 $caja = $ingmes - $egrmes;
 

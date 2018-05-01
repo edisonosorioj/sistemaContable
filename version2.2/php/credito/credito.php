@@ -10,6 +10,11 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
 
 require_once '../conexion.php';
 
@@ -19,7 +24,11 @@ $tr = '';
 $tr2 = '';
 $deuda = '';
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
 
 // Obtiene el ID enviado desde Cliente para visualizar su historial
 $id = $_GET['id'];
