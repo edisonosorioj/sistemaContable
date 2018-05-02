@@ -84,14 +84,14 @@ $(function () {
 										</div>
 										<div class="form-group"> 
 											<label>Nombres</label> 
-											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombre']; ?>"> 
+											<input type="text" name="nombre" class="form-control" placeholder="Nombres" value="<?php echo $row['nombre']; ?>"> 
 										</div> 
 										<div class="form-group"> 
 											<label>Apellido</label> 
-											<input type="text" name="apellidos" class="form-control" placeholder="Apellido" value="<?php echo $row['apellido']; ?>"> 
+											<input type="text" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $row['apellido']; ?>"> 
 										</div> 
 										<div class="form-group"> 
-											<label>Rol</label> 
+											<label>Rol - Seleccione 0 = Adm, 1 = Ventas</label> 
 											<input type="text" name="idrol" class="form-control" placeholder="Rol" value="<?php echo $row['idrol']; ?>"> 
 										</div>
 										<div class="form-group"> 
@@ -100,7 +100,7 @@ $(function () {
 										</div> 
 										<div class="form-group"> 
 											<label>Cambiar Contraseña</label> 
-											<input type="text" name="contraseña" class="form-control" placeholder="Nueva Contraseña"> 
+											<input type="text" name="contrasena" class="form-control" placeholder="Nueva Contraseña"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

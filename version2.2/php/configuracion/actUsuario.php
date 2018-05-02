@@ -24,14 +24,14 @@ $result = $conex->conex();
 
 // Agrega nuevos usuarios según el formulario recibido
 	if ($password != '') {
-		$query = mysqli_query($result,"UPDATE administradores SET documento = '$documento', nombre = '$nombre', apellido = '$apellido', idrol = '$idrol', login = '$login', contrasena = md5('$password') where idadmin = 'idadmin';");
+		$query = mysqli_query($result,"UPDATE administradores SET documento = '$documento', nombre = '$nombre', apellido = '$apellido', idrol = '$idrol', login = '$login', contrasena = md5('$password') where idadmin = '$idadmin';");
 	}else{
-		$query = mysqli_query($result,"UPDATE administradores SET documento = '$documento', nombre = '$nombre', apellido = '$apellido', idrol = '$idrol', login = '$login' where idadmin = 'idadmin';");
+		$query = mysqli_query($result,"UPDATE administradores SET documento = '$documento', nombre = '$nombre', apellido = '$apellido', idrol = '$idrol', login = '$login' where idadmin = '$idadmin';");
 	}
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
-		$msg = "El usuario " . $nombres . " fue actualizado";
+		$msg = "El usuario " . $nombre . " fue actualizado";
 	}else{
 		$msg = 'Error al editar el usuario. Intente nuevamente';
 	}
