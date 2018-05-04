@@ -7,6 +7,11 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
 
 require_once "../conexion.php";
 
@@ -15,7 +20,11 @@ $result = $conex->conex();
 $tr = '';
 $tr2 = '';
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
 
 $query = mysqli_query($result,'select * from compras order by fecha desc');
 

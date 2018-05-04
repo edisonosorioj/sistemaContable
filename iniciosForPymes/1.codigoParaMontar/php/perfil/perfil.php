@@ -10,9 +10,14 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
-if ($_SESSION['idadmin']){
+if (isset($_SESSION['idadmin'])){
 
 	$idadmin = $_SESSION['idadmin'];
+	
+}
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
 	
 }
 
@@ -22,7 +27,11 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
 
 
 // Realiza una consulta para verificar unos parametros en la base de datos y asi permitir la actualización de la información.

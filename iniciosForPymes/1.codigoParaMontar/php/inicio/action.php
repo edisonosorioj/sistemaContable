@@ -21,6 +21,7 @@ $numrows = mysqli_num_rows($query);
 		
 		$_SESSION['login'] = $login;
 		$_SESSION['idadmin'] = $row['idadmin'];
+		$_SESSION['idrol'] = $row['idrol'];
 		
 		header("Location: index.php");
 	 

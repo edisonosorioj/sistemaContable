@@ -36,21 +36,19 @@ $row=$query->fetch_assoc();
 <script src="../../js/modernizr.js"></script>
 <script src="../../js/jquery.cookie.js"></script>
 <script src="../../js/screenfull.js"></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+<script>
+$(function () {
+	$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-			if (!screenfull.enabled) {
-				return false;
-			}
+	if (!screenfull.enabled) {
+		return false;
+	}
 
-			
-
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
+	$('#toggle').click(function () {
+		screenfull.toggle($('#container')[0]);
+	});	
+});
+</script>
 		
 </head>
 <body class="dashboard-page">

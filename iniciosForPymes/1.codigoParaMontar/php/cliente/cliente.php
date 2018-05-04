@@ -7,17 +7,24 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
 
 require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
 
-include "../menu.php";
-
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c
-								left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 
 
@@ -48,6 +55,7 @@ $tr = '';
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
  $cartera = $query2->fetch_array(MYSQLI_BOTH);
+ $cTotal = number_format($cartera['valor'], 0, ",", ".");
 
 
 $html="<!DOCTYPE html>
@@ -111,9 +119,11 @@ $html="<!DOCTYPE html>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
 				</div>
+				<div class='bs-component mb20 col-md-6'>
+			  		<h3>Cartera Pendiente: $ $cTotal</h3>
+			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Cartera Pendiente: $ " . number_format($cartera['valor'], 0, ",", ".") ."</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>

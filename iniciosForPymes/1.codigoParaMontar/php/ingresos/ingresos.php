@@ -7,6 +7,11 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
 
 require_once "../conexion.php";
 

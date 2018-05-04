@@ -57,6 +57,10 @@ table {
   width: 100%;
 }
 
+.type-info{
+  width: 15%;
+}
+
 table tr,
 table th,
 table td {

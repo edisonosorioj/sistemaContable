@@ -1,19 +1,20 @@
-CREATE DATABASE dientedeleon;
+CREATE DATABASE edisonosorio;
 
-USE dientedeleon;
+USE edisonosorio;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
   `documento` VARCHAR(45) NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `apellido` VARCHAR(45) NOT NULL,
+  `idrol` INT(10) NOT NULL,
   `login` VARCHAR(45) NOT NULL,
   `contrasena` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`idadmin`));
 
 CREATE TABLE `clientes` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
-  `documento` INT(10) NOT NULL,
+  `documento` VARCHAR(45) NOT NULL,
   `empresa` VARCHAR(100) NULL,
   `nombres` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(45) NOT NULL,
@@ -55,25 +56,6 @@ CREATE TABLE `productos` (
   `valor` varchar(45) NULL,
   PRIMARY KEY (`idproductos`));
 
-CREATE TABLE `estadoCompras` (
-  `idestado` INT NOT NULL AUTO_INCREMENT,
-  `cantidad` INT NULL,
-  `producto` VARCHAR(45) NOT NULL,
-  `detalles` VARCHAR(100) NULL,
-  `valor` VARCHAR(10) NOT NULL,
-  `fecha` DATE NOT NULL,
-  PRIMARY KEY (`idestado`));
-
-CREATE TABLE `estadoCuentas` (
-  `idescuentas` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATE NOT NULL,
-  `cantidad` INT(10) NULL,
-  `producto` VARCHAR(45) NOT NULL,
-  `detalles` VARCHAR(100) NULL,
-  `valor` VARCHAR(10) NOT NULL,
-  `idestado` INT NOT NULL,
-  PRIMARY KEY (`idescuentas`, `idestado`));
-
   CREATE TABLE `pedidos` (
   `pedido_id` INT NOT NULL AUTO_INCREMENT,
   `cliente_id` INT NOT NULL,
@@ -101,7 +83,6 @@ CREATE TABLE `variables` (
   `detalle` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`variable_id`));
 
-
 //Configuracion Básica para Cuenta de Cobro
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'MI EMPRESA');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'tipo_identificacion', 'CC');
@@ -111,8 +92,6 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('5', 'forma_de_pago
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'tel', '9876543');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'cel', '3211234567');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo', '0');
-
-
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
@@ -129,6 +108,28 @@ CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL ;
 ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
 
 //Actualizacion tabla administradores con idrol
-ALTER TABLE `sistema_contable`.`administradores` ADD COLUMN `idrol` INT(10) NOT NULL AFTER `login`;
+ALTER TABLE `administradores` ADD COLUMN `idrol` INT(10) NOT NULL AFTER `login`;
+
+//Actualizacicion tabla clientes documento
+ALTER TABLE `clientes` MODIFY COLUMN `documento` VARCHAR(45) NOT NULL;
 
 
+//HERRAMIENTA ALTERNATIVA SOLO UTILIZADA POR CARNICERIA RIONEGRO
+CREATE TABLE `estadoCompras` (
+  `idestado` INT NOT NULL AUTO_INCREMENT,
+  `cantidad` INT NULL,
+  `producto` VARCHAR(45) NOT NULL,
+  `detalles` VARCHAR(100) NULL,
+  `valor` VARCHAR(10) NOT NULL,
+  `fecha` DATE NOT NULL,
+  PRIMARY KEY (`idestado`));
+
+CREATE TABLE `estadoCuentas` (
+  `idescuentas` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `cantidad` INT(10) NULL,
+  `producto` VARCHAR(45) NOT NULL,
+  `detalles` VARCHAR(100) NULL,
+  `valor` VARCHAR(10) NOT NULL,
+  `idestado` INT NOT NULL,
+  PRIMARY KEY (`idescuentas`, `idestado`));

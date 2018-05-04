@@ -7,13 +7,22 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
 
 require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
 
 // Consulta y por medio de un while muestra la lista de los pedidos
 $query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id;');

@@ -1,9 +1,25 @@
+<?php
+	
+require_once "../conexion.php";
+
+$conex = new conection();
+$result = $conex->conex();
+	
+// Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
+$id=$_GET['id'];
+
+$query = mysqli_query($result, "select * from administradores where idadmin='$id'");
+
+$row=$query->fetch_assoc();
+	
+?>
+<!-- Se crea el HTML con la información del Cliente -->
 <!DOCTYPE html>
 <head>
-<title>Nuevo Administrador</title>
+<title>Editar Usuario</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Centralizados Forpymes" />
+<meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -20,19 +36,19 @@
 <script src="../../js/modernizr.js"></script>
 <script src="../../js/jquery.cookie.js"></script>
 <script src="../../js/screenfull.js"></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+<script>
+$(function () {
+	$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-			if (!screenfull.enabled) {
-				return false;
-			}
+	if (!screenfull.enabled) {
+		return false;
+	}
 
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
+	$('#toggle').click(function () {
+		screenfull.toggle($('#container')[0]);
+	});	
+});
+</script>
 		
 </head>
 <body class="dashboard-page">
@@ -49,7 +65,7 @@
 				<!-- input-forms -->
 				<div class="grids">
 					<div class="progressbar-heading grids-heading">
-						<h2>Nuevo Usuario Administrador</h2>
+						<h2>Editar Usuario</h2>
 					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
@@ -58,30 +74,33 @@
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class="form-body">
-									<form action="../../php/configuracion/addUsuarios.php" method="post"> 
+									<form action="actUsuario.php" method="post"> 
+										<div class="form-group"> 
+											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
+										</div>
 										<div class="form-group"> 
 											<label>Documento</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Documento" required/> 
+											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
 										</div>
 										<div class="form-group"> 
 											<label>Nombres</label> 
-											<input type="text" name="nombre" class="form-control" placeholder="Nombres" required/> 
-										</div>
+											<input type="text" name="nombre" class="form-control" placeholder="Nombres" value="<?php echo $row['nombre']; ?>"> 
+										</div> 
 										<div class="form-group"> 
-											<label>Apellidos</label> 
-											<input type="text" name="apellido" class="form-control" placeholder="Apellidos" required/> 
+											<label>Apellido</label> 
+											<input type="text" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $row['apellido']; ?>"> 
 										</div> 
 										<div class="form-group"> 
 											<label>Rol - Seleccione 0 = Adm, 1 = Ventas</label> 
-											<input type="text" name="rol" class="form-control" placeholder="Rol" required/> 
+											<input type="text" name="idrol" class="form-control" placeholder="Rol" value="<?php echo $row['idrol']; ?>"> 
+										</div>
+										<div class="form-group"> 
+											<label>Login</label> 
+											<input type="text" name="login" class="form-control" placeholder="Login" value="<?php echo $row['login']; ?>"> 
 										</div> 
 										<div class="form-group"> 
-											<label>Usuario</label> 
-											<input type="text" name="login" class="form-control" placeholder="Usuario para ingreso" required/> 
-										</div> 
-										<div class="form-group"> 
-											<label>Contraseña</label> 
-											<input type="password" name="password" class="form-control" placeholder="Password o Contraseña" required/> 
+											<label>Cambiar Contraseña</label> 
+											<input type="text" name="contrasena" class="form-control" placeholder="Nueva Contraseña"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

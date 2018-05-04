@@ -9,6 +9,13 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
+if (isset($_SESSION['idrol'])){
+
+	$idrol = $_SESSION['idrol'];
+	
+}
+
+
 require_once "../conexion.php";
 
 $conex = new conection();
@@ -16,14 +23,18 @@ $result = $conex->conex();
 
 
 include "graficas.php";
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+} else {
+	include "../menu2.php";
+}
 
 $caja = $ingmes - $egrmes;
 
 
 $html= "<!DOCTYPE html>
 <head>
-<title>Cervell</title>
+<title>Inicio</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
