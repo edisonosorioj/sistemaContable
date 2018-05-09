@@ -221,7 +221,15 @@ else return false;
 				</div>
 				<!-- //tables -->
 				<div class='col-md-2'>
+					<form class='form-horizontal' action='cotizacion.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
+						<label></label>
+						<input type='hidden' name='pedido_id' value='$id_pedido'>
+						<button type='submit' class='btn btn-primary'>Cotizacion</button> 
+					</form> 
+				</div>
+				<div class='col-md-2'>
 					<form class='form-horizontal' action='cancelarPedido.php' method='post'>
+						<label></label>
 						<input type='hidden' name='pedido_id' value='$id_pedido'>
 						<button type='submit' class='btn btn-primary'>Cancelar Pedido</button> 
 					</form> 
