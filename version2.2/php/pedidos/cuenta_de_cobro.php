@@ -29,7 +29,6 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" 	. 	$row['idproducto'] 	. "</td>
 				<td>" 	. 	$row['producto'] 	. "</td>
-				<td>" 	. 	$row['pfecha']		. "</td>
 				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 			</tr>";
@@ -50,10 +49,11 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 $fecha = $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query2 = mysqli_query($result, "select nombre_pedido, nombres, documento, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row2=$query2->fetch_assoc();
 
 $nombre_cliente = $row2['nombres'];
+$cliente_empresa = $row2['empresa'];
 $documento_cliente = $row2['documento'];
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
@@ -95,13 +95,12 @@ $html="<!DOCTYPE html>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='fecha'>Rionegro, $fecha</div>
 		<div class='numero'>Cuenta de Cobro No. $id</div>
-		<div class='encabezado'>$nombre_cliente con Identificador $documento_cliente debe a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor contemplado al final de la tabla por concepto de:</div>
+		<div class='encabezado'>$cliente_empresa con Identificador $documento_cliente debe a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor contemplado al final de la tabla por concepto de:</div>
 		<div class='table'>
 			<table class='table-fill'>
 				<tr>
 					<th></th>
 					<th>PRODUCTO</th>
-					<th>FECHA</th>
 					<th>CANTIDAD</th>
 					<th>VALOR</th>
 				</tr>
@@ -109,7 +108,7 @@ $html="<!DOCTYPE html>
 				. $tr . 
 				"
 				<tr>
-					<td colspan='3'></td>
+					<td colspan='2'></td>
 					<th>TOTAL</th>
 					<td>$valorPedido</td>
 				</tr>

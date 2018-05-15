@@ -133,6 +133,13 @@ else return false;
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
+<script>
+    var theme = $.cookie('protonTheme') || 'default';
+    $('body').removeClass (function (index, css) {
+        return (css.match (/\btheme-\S+/g) || []).join(' ');
+    });
+    if (theme !== 'default') $('body').addClass(theme);
+</script>
 <script type='text/javascript'>
     $(document).ready(function() {
       $('#table').basictable();
@@ -168,14 +175,19 @@ else return false;
 										<select name='producto' class='form-control'>" . $option . "</select>
 									</div>
 							</div>
-							<div class='col-md-2'>
+							<div class='col-md-1'>
 									<div class='form-group'> <label>Cantidad: </label> 
 										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
 									</div> 
 									<button type='submit' class='btn btn-primary'>Agregar</button> 
-								</form>
 							</div>
 							<div class='col-md-2'>
+									<div class='form-group'> <label>Detalles: </label> 
+										<input type='text' name='detalles' class='form-control'>
+									</div> 
+								</form>
+							</div>
+							<div class='col-md-1'>
 							</div>
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>

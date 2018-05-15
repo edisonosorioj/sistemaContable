@@ -75,6 +75,7 @@ $html="<!DOCTYPE html>
 <!-- font-awesome icons -->
 <link rel='stylesheet' href='../../css/font.css' type='text/css'/>
 <link href='../../css/font-awesome.css' rel='stylesheet'> 
+<link rel='icon' href='../../images/fav.png'>
 <!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
@@ -97,6 +98,13 @@ $html="<!DOCTYPE html>
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
+<script>
+    var theme = $.cookie('protonTheme') || 'default';
+    $('body').removeClass (function (index, css) {
+        return (css.match (/\btheme-\S+/g) || []).join(' ');
+    });
+    if (theme !== 'default') $('body').addClass(theme);
+</script>
 <script type='text/javascript'>
     $(document).ready(function() {
       $('#table').basictable();

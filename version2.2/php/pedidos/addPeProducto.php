@@ -17,6 +17,7 @@ $result = $conex->conex();
 
 	$producto	=	$_POST['producto'];
 	$cantidad 	=	$_POST['cantidad'];
+	$detalles 	=	$_POST['detalles'];
 	$pedido_id 	=	$_POST['pedido_id'];
 	$cliente_id =	$_POST['cliente_id'];
 
@@ -46,21 +47,25 @@ if ($estado == 1) {
 
  	$producto_id = $row['idproductos'];
  	$valor = $row['valor'];
+ 	$disponible = $row['disponible'];
 
  	$valort = $valor * $cantidad;
 
 // Agrega producto a la tabla pedidoProductos
-	$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
-									VALUES ('$producto', '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
+ 	if ($disponible > 0) {
+		$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
+									VALUES ( CONCAT('$producto', ' - ' ,'$detalles'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
+		$html = "<script>
+			javascript:history.back();
+		</script>";
+		echo $html;
+ 	}else{
 
-//Según la respuesta de la inserción se da una respuesta en un alert 
-	if($query < 0){
-		$html .= "window.alert('Error al ingresar la información')";
-	}
-		
-	$html = "<script>
-		javascript:history.back();
-	</script>";
-	
-echo $html;	
+		$html = "<script>
+					window.alert('No hay disponibilidad del producto. Actualice desde el Módulo de Inventarios');
+					javascript:history.back();
+				</script>";
+
+		echo $html;	
+ 	}
 }

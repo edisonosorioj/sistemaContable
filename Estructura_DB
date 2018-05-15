@@ -101,7 +101,7 @@ ADD COLUMN `empresa` VARCHAR(100) NULL AFTER `correo`,
 ADD COLUMN `direccion` VARCHAR(100) NULL AFTER `empresa`;
 
 ALTER TABLE `administradores` 
-CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL ;
+CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL;
 
 //Actualizar inicializacion ID Pedidos
 
@@ -110,8 +110,12 @@ ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
 //Actualizacion tabla administradores con idrol
 ALTER TABLE `administradores` ADD COLUMN `idrol` INT(10) NOT NULL AFTER `login`;
 
-//Actualizacicion tabla clientes documento
+//Actualizacion tabla clientes documento
 ALTER TABLE `clientes` MODIFY COLUMN `documento` VARCHAR(45) NOT NULL;
+
+//Actualización para tabla Productos para hacerlo No Null
+ALTER TABLE `productos` MODIFY COLUMN `disponible` MEDIUMINT(10) UNSIGNED NOT NULL DEFAULT 0,
+ MODIFY COLUMN `valor` MEDIUMINT(10) UNSIGNED NOT NULL DEFAULT 0;
 
 
 //HERRAMIENTA ALTERNATIVA SOLO UTILIZADA POR CARNICERIA RIONEGRO

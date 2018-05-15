@@ -1,14 +1,6 @@
 <?php 
 
 $menu = "
-
-	<script>
-	        var theme = $.cookie('protonTheme') || 'default';
-	        $('body').removeClass (function (index, css) {
-	            return (css.match (/\btheme-\S+/g) || []).join(' ');
-	        });
-	        if (theme !== 'default') $('body').addClass(theme);
-        </script>
 	<nav class='main-menu'>
 		<ul>
 			<li>

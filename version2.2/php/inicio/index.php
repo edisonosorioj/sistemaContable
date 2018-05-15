@@ -71,6 +71,13 @@ $html= "<!DOCTYPE html>
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
+<script>
+    var theme = $.cookie('protonTheme') || 'default';
+    $('body').removeClass (function (index, css) {
+        return (css.match (/\btheme-\S+/g) || []).join(' ');
+    });
+    if (theme !== 'default') $('body').addClass(theme);
+</script>
 <script type='text/javascript'>
     $(document).ready(function() {
       $('#table').basictable();
