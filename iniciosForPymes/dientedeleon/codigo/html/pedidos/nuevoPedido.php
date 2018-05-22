@@ -10,7 +10,7 @@ $result = $conex->conex();
 
 $option='';
 
-$query = mysqli_query($result,'select * from clientes order by id');
+$query = mysqli_query($result,'select * from clientes order by nombres');
 
 while ($row = $query->fetch_array()){
 

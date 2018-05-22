@@ -24,7 +24,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
+$query = mysqli_query($result,'select c.id, c.nombres, c.telefono, c.red, c.correo, c.distribuidor, c.observaciones, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 
 
@@ -32,13 +32,17 @@ $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	$distribuidor = ($row['distribuidor'] == '0')?"NO":"SI";
+ 	$red = ($row['red'] == '')?"NO TIENE":"Facebook";
+
+
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 	. "</td>
-				<td>" . $row['empresa'] 	. "</td>
-				<td>" . $row['nombres'] 	. "</td>
-				<td>" . $row['telefono'] 	. "</td>
-				<td>" . $row['correo'] 		. "</td>
-				<td>" . $row['direccion'] 	. "</td>
+				<td>" . $row['nombres'] 		. "</td>
+				<td>" . $row['telefono'] 		. "</td>
+				<td><a href='>" . $row['red'] 	. "' target='_blank'>" . $red . "</a></td>
+				<td>" . $row['correo'] 			. "</td>
+				<td>" . $distribuidor 			. "</td>
+				<td>" . $row['observaciones'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
@@ -127,12 +131,12 @@ $html="<!DOCTYPE html>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>ID</th>
-							<th>Empresa</th>
 							<th>Nombre</th>
 							<th>Telefono</th>
+							<th>Red</th>
 							<th>Correo</th>
-							<th>Dirección</th>
+							<th>Distribuidor</th>
+							<th>Observaciones</th>
 							<th>Saldo</th>
 							<th>Acciones</th>
 						  </tr>
@@ -150,7 +154,7 @@ $html="<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>

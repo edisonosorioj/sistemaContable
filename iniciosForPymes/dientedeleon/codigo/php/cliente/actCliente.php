@@ -4,16 +4,16 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-	$id			=	$_POST['id'];
-	$documento	=	$_POST['documento'];
-	$empresa	=	$_POST['empresa'];
-	$nombres	=	$_POST['nombres'];
-	$telefono 	=	$_POST['telefono'];
-	$correo 	=	$_POST['correo'];
-	$direccion 	=	$_POST['direccion'];
+	$id				=	$_POST['id'];
+	$nombres		=	$_POST['nombres'];
+	$telefono 		=	$_POST['telefono'];
+	$red			=	$_POST['red'];
+	$correo 		=	$_POST['correo'];
+	$distribuidor 	=	$_POST['distribuidor'];
+	$observaciones 	=	$_POST['observaciones'];
 
 // Consulta para actualizar el cliente
-	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo', empresa = '$empresa', direccion = '$direccion' where id ='$id';");
+	$query = mysqli_query($result, "UPDATE clientes set nombres = '$nombres', telefono = '$telefono', red = '$red', correo = '$correo', distribuidor = '$distribuidor', observaciones = '$observaciones' where id ='$id';");
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){

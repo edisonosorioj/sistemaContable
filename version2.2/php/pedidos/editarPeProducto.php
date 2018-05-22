@@ -118,6 +118,10 @@ $html = "
 											</select>
 										</div> 
 										<div class='form-group'> 
+											<label>Detalles</label> 
+											<input type='text' name='detalles' class='form-control' placeholder='Detalles'> 
+										</div>
+										<div class='form-group'> 
 											<label>Cantidad</label> 
 											<input type='text' name='cantidad' class='form-control' placeholder='Cantidad' value='$cantidad'> 
 										</div>

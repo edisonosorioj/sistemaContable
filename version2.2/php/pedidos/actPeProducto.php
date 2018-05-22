@@ -6,6 +6,7 @@ $result = $conex->conex();
 
 	$id				=	$_POST['id'];
 	$producto		=	$_POST['nuevo_producto'];
+	$detalles		=	$_POST['detalles'];
 	$cantidad		=	$_POST['cantidad'];
 
 // Consulta para que aparezca la información de los productos disponibles
@@ -18,8 +19,12 @@ $result = $conex->conex();
 
  	$valort = $valor * $cantidad;
 
+ 	$proDetalles = $producto . " - " . $detalles;
+
+ 	echo $proDetalles;die();
+
 // Consulta para actualizar el cliente
-	$query = mysqli_query($result, "UPDATE pedidoproductos set producto = '$producto', valoru = '$valor', cantidad = '$cantidad', valort = '$valort' where peproducto_id ='$id';");
+	$query = mysqli_query($result, "UPDATE pedidoproductos set producto = $proDetalles, valoru = '$valor', cantidad = '$cantidad', valort = '$valort' where peproducto_id ='$id';");
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){

@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select id, documento, empresa, nombres, telefono, correo, direccion from clientes where id='$id'");
+$query = mysqli_query($result, "select * from clientes where id='$id'");
 
 $row=$query->fetch_assoc();
 	
@@ -79,14 +79,6 @@ $(function () {
 											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
-											<label>Documento</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
-										</div>
-										<div class="form-group"> 
-											<label>Empresa</label> 
-											<input type="text" name="empresa" class="form-control" placeholder="Empresa" value="<?php echo $row['empresa']; ?>"> 
-										</div> 
-										<div class="form-group"> 
 											<label>Nombres</label> 
 											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>"> 
 										</div> 
@@ -95,12 +87,20 @@ $(function () {
 											<input type="text" name="telefono" class="form-control" placeholder="Telefono" value="<?php echo $row['telefono']; ?>"> 
 										</div>
 										<div class="form-group"> 
+											<label>Red</label> 
+											<input type="text" name="correo" class="form-control" placeholder="Red" value="<?php echo $row['red']; ?>"> 
+										</div> 
+										<div class="form-group"> 
 											<label>Correo</label> 
 											<input type="text" name="correo" class="form-control" placeholder="Correo" value="<?php echo $row['correo']; ?>"> 
 										</div> 
 										<div class="form-group"> 
-											<label>Dirección</label> 
-											<input type="text" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $row['direccion']; ?>"> 
+											<label>Distribuidor</label> 
+											<input type="text" name="distribuidor" class="form-control" placeholder="Distribuidor" value="<?php echo $row['distribuidor']; ?>"> 
+										</div> 
+										<div class="form-group"> 
+											<label>Observaciones</label> 
+											<input type="text" name="observaciones" class="form-control" placeholder="Observaciones" value="<?php echo $row['observaciones']; ?>"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

@@ -102,7 +102,7 @@ $html="<!DOCTYPE html>
 					<th></th>
 					<th>PRODUCTO</th>
 					<th>CANTIDAD</th>
-					<th>VALOR</th>
+					<th width='80'>VALOR</th>
 				</tr>
 				" 
 				. $tr . 
