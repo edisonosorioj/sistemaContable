@@ -23,13 +23,70 @@ $result = $conex->conex();
 
 
 include "graficas.php";
+
 if ($idrol == 0) {
 	include "../menu.php";
+	$caja = $ingmes - $egrmes;
+	$graficas = "<div class='col-md-6 charts-right'>
+					<div class='area-grids-heading'>
+						<h3>Saldo este mes: $ " . number_format($caja, 0, ",", ".") . "</h3>
+					</div>
+					<!-- area-chart -->
+					<div class='area-grids'>
+						<div class='area-grids-heading'>
+							<h3>Balance General</h3>
+						</div>
+						<div id='graph4'></div>
+						<script>
+							Morris.Donut({
+							  element: 'graph4',
+							  data: [
+								{value: " . $porcIng . ", label: 'Ingresos', formatted: '$ " . $ingr . "' },
+								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . number_format((float)$egr, 0, ",", ".") . "' }
+							  ],
+							  formatter: function (x, data) { return data.formatted; }
+							});
+						</script>
+
+					</div>
+				</div>
+				<div class='col-md-6 charts-right'>
+					<div class='agile-last-grid'>
+						<div class='area-grids-heading'>
+							<h3>Balance últimos 7 Días</h3>
+						</div>
+						<div id='graph8'></div>
+						<script>
+						/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
+						var day_data = [
+		  					{'period': '" . $dia6 . "', 'ingreso': " . $ingr6 . ", 'egreso': " . $egr6 . "},
+		  					{'period': '" . $dia5 . "', 'ingreso': " . $ingr5 . ", 'egreso': " . $egr5 . "},
+		  					{'period': '" . $dia4 . "', 'ingreso': " . $ingr4 . ", 'egreso': " . $egr4 . "},
+		  					{'period': '" . $dia3 . "', 'ingreso': " . $ingr3 . ", 'egreso': " . $egr3 . "},
+		  					{'period': '" . $dia2 . "', 'ingreso': " . $ingr2 . ", 'egreso': " . $egr2 . "},
+		  					{'period': '" . $dia1 . "', 'ingreso': " . $ingr1 . ", 'egreso': " . $egr1 . "},
+		  					{'period': '" . $dia . "', 'ingreso': " . $ingr0 . ", 'egreso': " . $egr0 . "}
+						];
+						Morris.Bar({
+						  element: 'graph8',
+						  data: day_data,
+						  xkey: 'period',
+						  ykeys: ['ingreso', 'egreso'],
+						  labels: ['INGRESO', 'EGRESO'],
+						  xLabelAngle: 60
+						});
+						</script>
+					</div>
+				</div>";
 } else {
 	include "../menu2.php";
+	$graficas = "<div class='col-md-6 charts-right'>
+					<div class='area-grids-heading'>
+						<h3>Bienvenidos</h3>
+					</div>
+				</div>";
 }
 
-$caja = $ingmes - $egrmes;
 
 
 $html= "<!DOCTYPE html>
@@ -98,57 +155,9 @@ $html= "<!DOCTYPE html>
 </head>
 	<body class='dashboard-page'>
 			<div class='agile-grids'>
-				<div class='col-md-6 charts-right'>
-					<div class='area-grids-heading'>
-						<h3>Saldo en Caja: $ " . number_format($caja, 0, ",", ".") . "</h3>
-					</div>
-					<!-- area-chart -->
-					<div class='area-grids'>
-						<div class='area-grids-heading'>
-							<h3>Balance General</h3>
-						</div>
-						<div id='graph4'></div>
-						<script>
-							Morris.Donut({
-							  element: 'graph4',
-							  data: [
-								{value: " . $porcIng . ", label: 'Ingresos', formatted: '$ " . $ingr . "' },
-								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . number_format((float)$egr, 0, ",", ".") . "' }
-							  ],
-							  formatter: function (x, data) { return data.formatted; }
-							});
-						</script>
+				
+				" . $graficas . "
 
-					</div>
-				</div>
-				<div class='col-md-6 charts-right'>
-					<div class='agile-last-grid'>
-						<div class='area-grids-heading'>
-							<h3>Balance últimos 7 Días</h3>
-						</div>
-						<div id='graph8'></div>
-						<script>
-						/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-						var day_data = [
-		  					{'period': '" . $dia6 . "', 'ingreso': " . $ingr6 . ", 'egreso': " . $egr6 . "},
-		  					{'period': '" . $dia5 . "', 'ingreso': " . $ingr5 . ", 'egreso': " . $egr5 . "},
-		  					{'period': '" . $dia4 . "', 'ingreso': " . $ingr4 . ", 'egreso': " . $egr4 . "},
-		  					{'period': '" . $dia3 . "', 'ingreso': " . $ingr3 . ", 'egreso': " . $egr3 . "},
-		  					{'period': '" . $dia2 . "', 'ingreso': " . $ingr2 . ", 'egreso': " . $egr2 . "},
-		  					{'period': '" . $dia1 . "', 'ingreso': " . $ingr1 . ", 'egreso': " . $egr1 . "},
-		  					{'period': '" . $dia . "', 'ingreso': " . $ingr0 . ", 'egreso': " . $egr0 . "}
-						];
-						Morris.Bar({
-						  element: 'graph8',
-						  data: day_data,
-						  xkey: 'period',
-						  ykeys: ['ingreso', 'egreso'],
-						  labels: ['INGRESO', 'EGRESO'],
-						  xLabelAngle: 60
-						});
-						</script>
-					</div>
-				</div>
 				
 			
 			<div class='agile-bottom-grids'>

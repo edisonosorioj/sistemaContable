@@ -33,24 +33,22 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
 
-	$sumtotal=$row['disponible']*$row['valor'];
+	// $sumtotal=$row['disponible']*$row['valor'];
+	// . number_format($row['valor'], 0, ",", ".") 		. 
+	//. number_format($sumtotal, 0, ",", ".") 	. 
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>
-				<input type='checkbox' value='" . $row['idproductos'] . "' name='ids[]' />
-				</td>
-				<td>" . $row['idproductos'] 		. "</td>
-				<td>" . $row['fecha'] 				. "</td>
-				<td>" . $row['nombre'] 				. "</td>
-				<td>" . $row['disponible'] 			. "</td>
-				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
-				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
+				<td>" . $row['nombres'] 			. "</td>
+				<td>" . $row['idtipo'] 				. "</td>
+				<td>" . $row['familia'] 			. "</td>
+				<td>" . $row['marca'] 				. "</td>
+				<td>" . $row['genero'] 				. "</td>
 				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
- 	$total = ((int)$total+(int)$sumtotal);
+ 	// $total = ((int)$total+(int)$sumtotal);
  }
 
 
@@ -127,17 +125,15 @@ else return false;
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
+					  	<h3>Total Inventario</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
-							<th>ID</th>
-							<th>Fecha</th>
-							<th>Producto</th>
-							<th>Cantidad</th>
+							<th>Nombre</th>
+							<th>Tipo</th>
+							<th>Familia</th>
+							<th>Genero</th>
 							<th>Valor</th>
-							<th>Total</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

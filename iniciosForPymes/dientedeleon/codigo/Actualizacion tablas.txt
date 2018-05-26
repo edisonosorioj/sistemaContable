@@ -1,7 +1,14 @@
-ALTER TABLE `sistema_contable`.`clientes` DROP COLUMN `documento`,
+ALTER TABLE `clientes` DROP COLUMN `documento`,
  CHANGE COLUMN `correo` `red` VARCHAR(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
  CHANGE COLUMN `empresa` `correo` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
  CHANGE COLUMN `direccion` `distribuidor` INT(10) DEFAULT 0,
  ADD COLUMN `observaciones` VARCHAR(1000) AFTER `distribuidor`;
 
+ALTER TABLE `productos` CHANGE COLUMN `fecha` `nombres` VARCHAR(200) NOT NULL,
+ CHANGE COLUMN `nombre` `familia` VARCHAR(200),
+ CHANGE COLUMN `disponible` `descripcion` VARCHAR(1000),
+ CHANGE COLUMN `valor` `marca` VARCHAR(200),
+ ADD COLUMN `genero` VARCHAR(200) AFTER `marca`,
+ ADD COLUMN `disponibles` MEDIUMINT(10) DEFAULT 0 AFTER `genero`;
  
+ALTER TABLE `productos` ADD COLUMN `idtipo` INT(11) NOT NULL AFTER `idproductos`;

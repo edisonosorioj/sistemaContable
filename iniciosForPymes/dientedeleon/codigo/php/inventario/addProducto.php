@@ -4,13 +4,15 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-	$fecha 		= 	date("Y-m-d");
 	$nombre		=	$_POST['nombre'];
-	$disponible	=	$_POST['disponible'];
-	$valor		=	$_POST['valor'];
+	$tipo		=	$_POST['tipo'];
+	$familia	=	$_POST['familia'];
+	$descripcion=	$_POST['descripcion'];
+	$marca		=	$_POST['marca'];
+	$genero		=	$_POST['genero'];
 
 
-	$query = mysqli_query($result,"INSERT INTO productos (fecha, nombre, disponible, valor) VALUES ('$fecha','$nombre', '$disponible', '$valor');");
+	$query = mysqli_query($result,"INSERT INTO productos (idtipo, nombre, familia, descripcion, marca, genero) VALUES ('$tipo','$nombre', '$familia', '$descripcion', '$marca', '$genero');");
 	
 	if($query > 0){
 		$msg = 'El producto fue agregado';
