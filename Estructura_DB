@@ -1,6 +1,6 @@
-CREATE DATABASE edisonosorio;
+CREATE DATABASE storytellers;
 
-USE edisonosorio;
+USE storytellers;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
@@ -68,7 +68,7 @@ CREATE TABLE `productos` (
 
 CREATE TABLE `pedidoProductos` (
   `peproducto_id` INT NOT NULL AUTO_INCREMENT,
-  `producto` VARCHAR(100) NULL,
+  `producto` VARCHAR(500) NULL,
   `valoru` VARCHAR(10) NULL,
   `cantidad` VARCHAR(10) NULL,
   `valort` VARCHAR(10) NULL,
@@ -93,32 +93,11 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'tel', '987654
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'cel', '3211234567');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo', '0');
 
-INSERT INTO administradores (idadmin, documento, nombre, apellido, login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
-
-//ACTUALIZACIÓN PENDIENTE EN TABLA DE CLIENTES PARA QUE APAREZCAN MAS EN LA TABLA
-ALTER TABLE `clientes` 
-ADD COLUMN `empresa` VARCHAR(100) NULL AFTER `correo`,
-ADD COLUMN `direccion` VARCHAR(100) NULL AFTER `empresa`;
-
-ALTER TABLE `administradores` 
-CHANGE COLUMN `password` `contrasena` VARCHAR(200) NOT NULL;
+INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
 //Actualizar inicializacion ID Pedidos
 
 ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
-
-//Actualizacion tabla administradores con idrol
-ALTER TABLE `administradores` ADD COLUMN `idrol` INT(10) NOT NULL AFTER `login`;
-
-//Actualizacion tabla clientes documento
-ALTER TABLE `clientes` MODIFY COLUMN `documento` VARCHAR(45) NOT NULL;
-
-//Actualización para tabla Productos para hacerlo No Null
-ALTER TABLE `productos` MODIFY COLUMN `disponible` MEDIUMINT(10) UNSIGNED NOT NULL DEFAULT 0,
- MODIFY COLUMN `valor` MEDIUMINT(10) UNSIGNED NOT NULL DEFAULT 0;
-
-//Actualizacion de campo para guardar mas datos en productos
-ALTER TABLE `pedidoProductos` MODIFY COLUMN `producto` VARCHAR(500) NOT NULL;
 
 
 //HERRAMIENTA ALTERNATIVA SOLO UTILIZADA POR CARNICERIA RIONEGRO
