@@ -14,7 +14,6 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-
 	$producto	=	$_POST['producto'];
 	$cantidad 	=	$_POST['cantidad'];
 	$detalles 	=	$_POST['detalles'];
@@ -51,9 +50,20 @@ if ($estado == 1) {
 
  	$valort = $valor * $cantidad;
 
+// Consulta para Verificar la disponibilidad por fecha segun pedidos
+	$query3 = mysqli_query($result,"SELECT * FROM pedidos p INNER JOIN pedidoproductos pp INNER JOIN productos pr on p.pedido_id = pp.pedido_id and pp.producto_id = pr.idproductos WHERE pr.idproductos = '$producto_id';");
+
+	$row3 = $query3->fetch_assoc();
+
+ 	$producto_id = $row3['idproductos'];
+ 	$valor = $row3['valor'];
+ 	$disponible = $row3['disponible'];
+
+ 	$valort = $valor * $cantidad;
+
 // Agrega producto a la tabla pedidoProductos
  	if ($disponible > 0) {
-		$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
+		$query = mysqli_query($result,"INSERT INTO pedidoproductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
 									VALUES ( CONCAT('$producto', ' - ' ,'$detalles'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
 		$html = "<script>
 			javascript:history.back();

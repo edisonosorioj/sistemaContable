@@ -10,8 +10,7 @@ ALTER TABLE `productos` CHANGE COLUMN `fecha` `nombres` VARCHAR(200) NOT NULL,
  CHANGE COLUMN `valor` `marca` VARCHAR(200),
  ADD COLUMN `genero` VARCHAR(200) AFTER `marca`,
  ADD COLUMN `disponibles` MEDIUMINT(10) DEFAULT 0 AFTER `genero`;
- 
-ALTER TABLE `productos` ADD COLUMN `idtipo` INT(11) NOT NULL AFTER `idproductos`;
+ ADD COLUMN `idtipo` INT(11) NOT NULL AFTER `idproductos`;
 
 CREATE TABLE `tipoProducto` (
   `idtipo` INTE(10) NOT NULL AUTO_INCREMENT,
@@ -19,6 +18,7 @@ CREATE TABLE `tipoProducto` (
   `cantidad` VARCHAR(45),
   `precio` VARCHAR(45),
   `precio_d` VARCHAR(45),
-  PRIMARY KEY (`tipoid`)
+  `proveedor_id` INT(11),
+  PRIMARY KEY (`idtipo`) NOT NULL DEFAULT 0,
 )
 ENGINE = InnoDB;

@@ -12,7 +12,7 @@ $result = $conex->conex();
 	$genero		=	$_POST['genero'];
 
 
-	$query = mysqli_query($result,"INSERT INTO productos (idtipo, nombre, familia, descripcion, marca, genero) VALUES ('$tipo','$nombre', '$familia', '$descripcion', '$marca', '$genero');");
+	$query = mysqli_query($result,"INSERT INTO productos (idtipo, nombres, familia, descripcion, marca, genero) VALUES ('$tipo','$nombre', '$familia', '$descripcion', '$marca', '$genero');");
 	
 	if($query > 0){
 		$msg = 'El producto fue agregado';

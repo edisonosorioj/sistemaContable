@@ -27,24 +27,19 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-$query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
+$query = mysqli_query($result,'select p.idproductos as pidproductos, p.nombres as pnombres, tp.nombre as tnombre, p.familia as pfamilia, p.marca as pmarca, p.genero as pgenero from productos p inner join tipoProducto tp on p.idtipo = tp.idtipo order by idproductos');
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
-
-	// $sumtotal=$row['disponible']*$row['valor'];
-	// . number_format($row['valor'], 0, ",", ".") 		. 
-	//. number_format($sumtotal, 0, ",", ".") 	. 
-
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['nombres'] 			. "</td>
-				<td>" . $row['idtipo'] 				. "</td>
-				<td>" . $row['familia'] 			. "</td>
-				<td>" . $row['marca'] 				. "</td>
-				<td>" . $row['genero'] 				. "</td>
-				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
+				<td>" . $row['pnombres'] 			. "</td>
+				<td>" . $row['tnombre'] 				. "</td>
+				<td>" . $row['pfamilia'] 			. "</td>
+				<td>" . $row['pmarca'] 				. "</td>
+				<td>" . $row['pgenero'] 				. "</td>
+				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['pidproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['pidproductos'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
@@ -121,7 +116,7 @@ else return false;
 					<h2>Inventario</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.php\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -132,8 +127,8 @@ else return false;
 							<th>Nombre</th>
 							<th>Tipo</th>
 							<th>Familia</th>
+							<th>Marca</th>
 							<th>Genero</th>
-							<th>Valor</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

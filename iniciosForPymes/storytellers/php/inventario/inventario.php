@@ -18,7 +18,7 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
-$total = '';
+$total = 0;
 $sumtotal = '';
 
 if ($idrol == 0) {
@@ -33,13 +33,9 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
 
-	$sumtotal=$row['disponible']*$row['valor'];
+	$sumtotal = $row['disponible'] * $row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>
-				<input type='checkbox' value='" . $row['idproductos'] . "' name='ids[]' />
-				</td>
-				<td>" . $row['idproductos'] 		. "</td>
 				<td>" . $row['fecha'] 				. "</td>
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
@@ -138,8 +134,6 @@ else return false;
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
-							<th>ID</th>
 							<th>Fecha</th>
 							<th>Producto</th>
 							<th>Cantidad</th>

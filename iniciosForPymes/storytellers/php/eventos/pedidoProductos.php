@@ -188,24 +188,32 @@ else return false;
 								</form>
 							</div>
 							<div class='col-md-1'>
+							<label>Cuenta Cobro # $id_pedido</label>
+							</div>
+							<div class='col-md-2'>
+								<form class='form-horizontal' action='cotizacion.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
+									<div class='form-group'> <label></label>
+									</div>
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<button type='submit' class='btn btn-primary'>Cotizacion</button> 
+								</form>
+								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+										<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<button type='submit' class='btn btn-primary'>Cuenta Cobro</button>
+								</form>
 							</div>
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<div class='form-group'> <label>Cobrado: </label> 
-										<input type='text' name='cobrado' class='form-control'>
+									<div class='form-group'><label></label> 
 									</div> 
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
 									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
 								</form> 
-							</div>
-							<div class='col-md-2'>
-								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-									<div class='form-group'> <label>Cuenta Cobro #</label>
-										<input type='hidden' name='pedido_id' value='$id_pedido'>
-										<input type='text' name='nuevo_pedido_id' class='form-control' value='$id_pedido' disabled/>
-									</div>
-									<button type='submit' class='btn btn-danger'>Generar</button>
-								</form>
+								<form class='form-horizontal' action='cancelarPedido.php' method='post'>
+									<label></label>
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<button type='submit' class='btn btn-danger'>Cancelar Pedido</button> 
+								</form> 
 							</div>
 						</div>
 					</div>
@@ -233,18 +241,6 @@ else return false;
 				</div>
 				<!-- //tables -->
 				<div class='col-md-2'>
-					<form class='form-horizontal' action='cotizacion.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
-						<label></label>
-						<input type='hidden' name='pedido_id' value='$id_pedido'>
-						<button type='submit' class='btn btn-primary'>Cotizacion</button> 
-					</form> 
-				</div>
-				<div class='col-md-2'>
-					<form class='form-horizontal' action='cancelarPedido.php' method='post'>
-						<label></label>
-						<input type='hidden' name='pedido_id' value='$id_pedido'>
-						<button type='submit' class='btn btn-primary'>Cancelar Pedido</button> 
-					</form> 
 				</div>
 			</div>
 		</div>

@@ -31,10 +31,10 @@ if ($idrol == 0) {
 $query3 = mysqli_query($result,'select * from pedidos where fecha = NOW()');
 
 $row3 = $query3->num_rows;
-$show = ($row3 == '0')?"":"hidden";
+$show = ($row3 >= '0')?"":"hidden";
 
 
-$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha = CURDATE()');
+$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha = CURDATE()');
 
 $tr2 = '';
 
@@ -43,12 +43,11 @@ $tr2 = '';
  	$estado = ($row2['estado'] == '0')?"Pendiente":"Realizado";
 
  	$tr2 .=	"<tr class='rows' id='rows'>
-				<td>" . $row2['nombres'] 		. "</td>
-				<td>" . $row2['nombre_pedido'] 	. "</td>
+				<td>" . $row2['nombres'] 					. "</td>
+				<td>" . $row2['nombre_pedido'] 				. "</td>
 				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
-				<td  align='right'>$ " . $row2['t_cobrado'] 	. "</td>
-				<td>" . $row2['fecha']	. "</td>
-				<td>" . $estado	. "</td>
+				<td>" . $row2['fecha']						. "</td>
+				<td>" . $estado								. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Productos'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
@@ -60,7 +59,7 @@ $tr2 = '';
  }
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha > NOW() ORDER BY p.fecha ASC;');
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha > NOW() ORDER BY p.fecha ASC;');
 
 $tr = '';
 
@@ -72,13 +71,37 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['nombre_pedido'] 	. "</td>
 				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
-				<td  align='right'>$ " . $row['t_cobrado'] 	. "</td>
 				<td>" . $row['fecha']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
+					<i class='fa icon-off'></i></a>
+				</td>
+			</tr>";
+
+ }
+
+// Consulta y por medio de un while muestra la lista de los pedidos
+$query4 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha < CURDATE() ORDER BY p.fecha DESC;');
+
+$tr3 = '';
+
+ while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
+
+ 	$estado = ($row4['estado'] == '0')?"Pendiente":"Realizado";
+
+ 	$tr3 .=	"<tr class='rows' id='rows'>
+				<td>" . $row4['nombres'] 		. "</td>
+				<td>" . $row4['nombre_pedido'] 	. "</td>
+				<td  align='right'>$ " . $row4['t_costo'] 	. "</td>
+				<td>" . $row4['fecha']	. "</td>
+				<td>" . $estado	. "</td>
+				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row4['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a href='pedidoProductos.php?id=" . $row4['pedido_id'] . "'><span data-tooltip='Productos'>
+					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row4['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>
 			</tr>";
@@ -157,11 +180,11 @@ else return false;
 			<div class='agile-grids'>	
 				<!-- tables -->
 				
-				<div class='table-heading'>
-					<h2>Próximos Eventos</h2>
-				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nuevo Evento</button>
+				</div>
+				<div class='footer col-md-12' $show>
+					<h2>Eventos de hoy</h2>
 				</div>
 				<div class='agile-tables' $show>
 					<div class='w3l-table-info'>
@@ -170,8 +193,7 @@ else return false;
 						  <tr>
 							<th>Cliente</th>
 							<th>Nombre Evento</th>
-							<th>Costo</th>
-							<th>Cobrado</th>
+							<th>Valor</th>
 							<th>Fecha</th>
 							<th>Estado</th>
 							<th>Acciones</th>
@@ -185,6 +207,11 @@ else return false;
 					  </table>
 					</div>
 				</div>
+
+				<div class='footer'>
+					<h2>Próximos Eventos</h2>
+				</div>
+
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
@@ -192,8 +219,7 @@ else return false;
 						  <tr>
 							<th>Cliente</th>
 							<th>Nombre Evento</th>
-							<th>Costo</th>
-							<th>Cobrado</th>
+							<th>Valor</th>
 							<th>Fecha</th>
 							<th>Estado</th>
 							<th>Acciones</th>
@@ -202,6 +228,32 @@ else return false;
 						<tbody>
 						  " 
 						  . $tr . 
+						  "
+						</tbody>
+					  </table>
+					</div>
+				</div>
+
+				<div class='footer'>
+					<h2>Eventos Pasados</h2>
+				</div>
+
+				<div class='agile-tables'>
+					<div class='w3l-table-info'>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>Cliente</th>
+							<th>Nombre Evento</th>
+							<th>Valor</th>
+							<th>Fecha</th>
+							<th>Estado</th>
+							<th>Acciones</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  " 
+						  . $tr3 . 
 						  "
 						</tbody>
 					  </table>
