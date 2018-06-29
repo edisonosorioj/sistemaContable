@@ -61,7 +61,9 @@ CREATE TABLE `productos` (
   `cliente_id` INT NOT NULL,
   `nombre_pedido` VARCHAR(45) NULL,
   `t_costo` VARCHAR(45) NULL,
-  `fecha` DATE NULL,
+  `fecha_inicio` DATETIME NULL,
+  `fecha_fin` DATETIME NULL,
+  `color` VARCHAR(45) NULL,
   `estado` INT NOT NULL,
   PRIMARY KEY (`pedido_id`, `cliente_id`));
 
@@ -81,6 +83,17 @@ CREATE TABLE `variables` (
   `nombre` VARCHAR(45) NOT NULL,
   `detalle` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`variable_id`));
+
+CREATE TABLE `proveedores` (
+  `proveedor_id` INT(10) NOT NULL AUTO_INCREMENT,
+  `documento` VARCHAR(45) NOT NULL,
+  `empresa` VARCHAR(100) NULL,
+  `nombres` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(45) NOT NULL,
+  `correo` VARCHAR(45) NULL,
+  `direccion` VARCHAR(45) NULL,
+  PRIMARY KEY (`proveedor_id`));
+  
 
 //Configuracion Básica para Cuenta de Cobro
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'MI EMPRESA');

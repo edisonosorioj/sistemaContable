@@ -28,13 +28,7 @@ if ($idrol == 0) {
 
 // Consulta y por medio de un while muestra la lista de los pedidos
 
-$query3 = mysqli_query($result,'select * from pedidos where fecha = NOW()');
-
-$row3 = $query3->num_rows;
-$show = ($row3 >= '0')?"":"hidden";
-
-
-$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha = CURDATE()');
+$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start BETWEEN CURDATE() AND NOW()');
 
 $tr2 = '';
 
@@ -46,7 +40,8 @@ $tr2 = '';
 				<td>" . $row2['nombres'] 					. "</td>
 				<td>" . $row2['nombre_pedido'] 				. "</td>
 				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
-				<td>" . $row2['fecha']						. "</td>
+				<td>" . $row2['start']						. "</td>
+				<td>" . $row2['end']						. "</td>
 				<td>" . $estado								. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Productos'>
@@ -59,7 +54,7 @@ $tr2 = '';
  }
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha > NOW() ORDER BY p.fecha ASC;');
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start > NOW() ORDER BY p.start ASC;');
 
 $tr = '';
 
@@ -71,7 +66,8 @@ $tr = '';
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['nombre_pedido'] 	. "</td>
 				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
-				<td>" . $row['fecha']	. "</td>
+				<td>" . $row['start']	. "</td>
+				<td>" . $row['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
@@ -84,7 +80,7 @@ $tr = '';
  }
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query4 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.fecha < CURDATE() ORDER BY p.fecha DESC;');
+$query4 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start < CURDATE() ORDER BY p.start DESC limit 10;');
 
 $tr3 = '';
 
@@ -96,7 +92,8 @@ $tr3 = '';
 				<td>" . $row4['nombres'] 		. "</td>
 				<td>" . $row4['nombre_pedido'] 	. "</td>
 				<td  align='right'>$ " . $row4['t_costo'] 	. "</td>
-				<td>" . $row4['fecha']	. "</td>
+				<td>" . $row4['start']	. "</td>
+				<td>" . $row4['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row4['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row4['pedido_id'] . "'><span data-tooltip='Productos'>
@@ -194,7 +191,8 @@ else return false;
 							<th>Cliente</th>
 							<th>Nombre Evento</th>
 							<th>Valor</th>
-							<th>Fecha</th>
+							<th>Inicia</th>
+							<th>Finaliza</th>
 							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
@@ -220,7 +218,8 @@ else return false;
 							<th>Cliente</th>
 							<th>Nombre Evento</th>
 							<th>Valor</th>
-							<th>Fecha</th>
+							<th>Inicia</th>
+							<th>Finaliza</th>
 							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
@@ -246,7 +245,8 @@ else return false;
 							<th>Cliente</th>
 							<th>Nombre Evento</th>
 							<th>Valor</th>
-							<th>Fecha</th>
+							<th>Inicia</th>
+							<th>Finaliza</th>
 							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>

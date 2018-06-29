@@ -26,22 +26,22 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-$query = mysqli_query($result,'select * from compras order by fecha desc');
+$query = mysqli_query($result,"SELECT * FROM compras ORDER BY fecha DESC");
 
-$query2 = mysqli_query($result,"select SUM(valor) as total from compras");
+$query2 = mysqli_query($result,"SELECT SUM(valor) AS total FROM compras");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td></td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
 				<td><a onclick='javascript:abrir(\"editarEgreso.php?id=" . $row['idcompras'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarEgreso.php?id=" . $row['idcompras'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarEgreso.php?id=" . $row['idcompras'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>&nbsp;&nbsp;
+				<a onclick='javascript:abrir(\"agregarComprobante.php?id=" . $row['idcompras'] . "\")'><span data-tooltip='Adjunto'><i class='fa fa-file-text-o'></i></spam></a></td>
 			</tr>";
 
  }
@@ -134,7 +134,6 @@ else return false;
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
 							<th>Fecha</th>
 							<th>Can.</th>
 							<th>Producto</th>

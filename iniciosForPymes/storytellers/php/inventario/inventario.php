@@ -27,7 +27,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-$query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
+$query = mysqli_query($result,'select * from productos p inner join proveedores pr on p.proveedor_id = pr.proveedor_id where idproductos order by nombre');
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -36,9 +36,10 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 	$sumtotal = $row['disponible'] * $row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['fecha'] 				. "</td>
-				<td>" . $row['nombre'] 				. "</td>
-				<td>" . $row['disponible'] 			. "</td>
+				<td>" 	. $row['fecha'] 				. "</td>
+				<td>" 	. $row['empresa'] 				. "</td>
+				<td>" 	. $row['nombre'] 				. "</td>
+				<td>" 	. $row['disponible'] 			. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
 				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
@@ -126,7 +127,7 @@ else return false;
 					<h2>Inventario</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.php\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -135,6 +136,7 @@ else return false;
 						<thead>
 						  <tr>
 							<th>Fecha</th>
+							<th>Proveedor</th>
 							<th>Producto</th>
 							<th>Cantidad</th>
 							<th>Valor</th>

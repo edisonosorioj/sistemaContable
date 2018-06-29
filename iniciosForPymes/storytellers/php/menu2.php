@@ -19,6 +19,14 @@ $menu = "
 					</span>
 				</a>
 			</li>
+			<li>
+				<a href='../agenda/agenda.php'>
+					<i class='icon-table nav-icon'></i>
+					<span class='nav-text'>
+					Agenda
+					</span>
+				</a>
+			</li>
 			<li class='has-subnav'>
 				<a href='../cliente/cliente.php'>
 				<i class='icon-user nav-icon'></i>
@@ -33,6 +41,14 @@ $menu = "
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
 					Eventos
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href='../proveedores/proveedores.php'>
+					<i class='icon-user nav-icon'></i>
+					<span class='nav-text'>
+					Proveedores
 					</span>
 				</a>
 			</li>

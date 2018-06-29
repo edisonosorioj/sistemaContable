@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select p.nombre_pedido, p.fecha, c.nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
+$query = mysqli_query($result, "select p.nombre_pedido, p.fecha, c.nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 
 $row=$query->fetch_assoc();
 
@@ -19,7 +19,7 @@ $query2 = mysqli_query($result,'select * from clientes order by id');
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['nombres'] . "'>" . $row2['nombres'] . "</option>";
+	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['nombres'] . "</option>";
 	}
 	
 ?>
@@ -94,11 +94,12 @@ $(function () {
 										</div>
 										<div class="form-group"> 
 											<label>Cliente Actual</label> 
-											<input type="text" name="cliente_actual" class="form-control" value="<?php echo $row['nombres']; ?>" disabled> 
+											<input type="text" name="cliente" class="form-control" value="<?php echo $row['nombres']; ?>" disabled> 
 										</div> 
 										<div class="form-group"> 
-											<label>Cliente</label> 
-											<select name='cliente' class='form-control1'>
+											<label>Cliente - (Seleccione solo si es necesario)</label>
+											<select name='newCliente' class='form-control1'>
+												<option value="Seleccionar">Seleccionar</option>
 												"<?php echo $option; ?>"
 											</select>
 										</div> 

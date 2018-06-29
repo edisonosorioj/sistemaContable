@@ -3,19 +3,6 @@ if( !session_id() )
 {
     session_start();
 }
-require_once '../../php/conexion.php';
-
-$conex = new conection();
-$result = $conex->conex();
-
-$option='';
-
-$query = mysqli_query($result,'select * from tipoProducto order by nombre');
-
-while ($row = $query->fetch_array()){
-
-	 	$option .=	"<option value='" . $row['idtipo'] . "'>" . $row['nombre'] . "</option>";
-	}
 
 $html = "<!DOCTYPE html>
 <head>
@@ -83,12 +70,6 @@ $html = "<!DOCTYPE html>
 										<div class='form-group'> 
 											<label>Nombre</label> 
 											<input type='text' name='nombre' class='form-control' placeholder='Nombre'> 
-										</div>
-										<div class='form-group'> 
-											<label>Tipo</label> 
-											<select name='tipo' class='form-control1'>
-												" . $option . "
-											</select>
 										</div>
 										<div class='form-group'> 
 											<label>Familia</label> 

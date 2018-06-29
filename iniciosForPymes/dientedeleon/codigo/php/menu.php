@@ -59,6 +59,14 @@ $menu = "
 					</span>
 				</a>
 			</li>
+			<li>
+				<a href='../inventario/tipos.php'>
+					<i class='fa fa-list-ul'></i>
+					<span class='nav-text'>
+					Tipos de Productos
+					</span>
+				</a>
+			</li>
 		<ul class='logout'>
 			<li>
 			<a href='../logout.php'>

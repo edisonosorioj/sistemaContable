@@ -5,12 +5,13 @@ $conex = new conection();
 $result = $conex->conex();
 
 	$fecha 		= 	date("Y-m-d");
+	$proveedor	=	$_POST['proveedor'];
 	$nombre		=	$_POST['nombre'];
 	$disponible	=	$_POST['disponible'];
 	$valor		=	$_POST['valor'];
 
 
-	$query = mysqli_query($result,"INSERT INTO productos (fecha, nombre, disponible, valor) VALUES ('$fecha','$nombre', '$disponible', '$valor');");
+	$query = mysqli_query($result,"INSERT INTO productos (fecha, nombre, disponible, valor, porveedor_id) VALUES ('$fecha','$nombre', '$disponible', '$valor', '$proveedor');");
 	
 	if($query > 0){
 		$msg = 'El producto fue agregado';

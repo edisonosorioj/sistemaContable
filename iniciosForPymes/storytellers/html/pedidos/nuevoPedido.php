@@ -87,8 +87,14 @@ $html = "<!DOCTYPE html>
 												<div class='form-body'>
 													<form action='../../php/eventos/addPedido.php' method='post'> 
 														<div class='form-group'> 
-															<label>Fecha</label> 
-															<input type='date' name='fecha' class='form-control'> 
+															<label>Fecha Inicio</label> 
+															<input type='date' name='star'> 
+															<input type='time' name='hora_i' value='06:00:00' step='1'> 
+														</div>
+														<div class='form-group'> 
+															<label>Fecha Final</label> 
+															<input type='date' name='end'> 
+															<input type='time' name='hora_f' value='06:00:00' step='1'> 
 														</div>
 														<div class='form-group'> 
 															<label>Cliente</label> 

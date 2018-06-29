@@ -10,12 +10,11 @@ $result = $conex->conex();
 
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select p.idproductos as pidproductos, p.nombres as pnombres, tp.nombre as tnombre, p.familia as pfamilia, p.marca as pmarca, p.genero as pgenero, p.descripcion as pdescripcion from productos p inner join tipoProducto tp on p.idtipo = tp.idtipo where p.idproductos = '$id'");
+$query = mysqli_query($result, "select p.idproductos as pidproductos, p.nombres as pnombres, p.familia as pfamilia, p.marca as pmarca, p.genero as pgenero, p.descripcion as pdescripcion from productos p where p.idproductos = '$id'");
 
 $row=$query->fetch_assoc();
 
 $nombre 	= $row['pnombres'];
-$tipo 		= $row['tnombre'];
 $familia 	= $row['pfamilia'];
 $marca 		= $row['pmarca'];
 $genero 	= $row['pgenero'];
@@ -29,7 +28,7 @@ $query2 = mysqli_query($result,'select * from tipoProducto order by nombre');
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
+	 	$option .=	"<option value='" . $row2['idtipo'] . "'>" . $row2['nombre'] . "</option>";
 	}
 
 
@@ -103,16 +102,6 @@ $html="
 										<div class='form-group'> 
 											<label>Nombres</label> 
 											<input type='text' name='nombres' class='form-control' placeholder='Nombres' value='$nombre'> 
-										</div>
-										<div class='form-group'> 
-											<label>Tipo</label> 
-											<input type='text' name='tipo' class='form-control' placeholder='Tipo' value='$tipo' disabled> 
-										</div>
-										<div class='form-group'> 
-											<label>Cambiar Tipo</label> 
-											<select name='newTipo' class='form-control1'>
-												" . $option . "
-											</select>
 										</div>
 										<div class='form-group'> 
 											<label>Familia</label> 

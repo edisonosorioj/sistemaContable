@@ -78,7 +78,19 @@ $query4 = mysqli_query($result,'select * from productos order by idproductos');
 
 while ($row = $query4->fetch_array()){
 
-	 	$option .=	"<option value='" . $row['nombre'] . "'>" . $row['nombre'] . "</option>";
+	 	$option .=	"<option value='" . $row['idproductos'] . "'>" . $row['nombres'] . "</option>";
+	}
+
+
+//Sale la lista de los tipos de productos disponibles.
+
+$tipos='';
+
+$query5 = mysqli_query($result,'select * from tipoProducto order by idtipo');
+
+while ($row5 = $query5->fetch_array()){
+
+	 	$tipos .=	"<option value='" . $row5['idtipo'] . "'>" . $row5['nombre'] . "</option>";
 	}
 
 
@@ -164,20 +176,27 @@ else return false;
 									<div class='form-group'> 
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
 										<input type='hidden' name='cliente_id' value='$id_cliente'>
-										<label>Producto:</label> 
+										<label>Producto: </label> 
 										<select name='producto' class='form-control'>" . $option . "</select>
+										<label>Tipos: </label> 
+										<select name='tipo' class='form-control'>" . $tipos . "</select>
 									</div>
 							</div>
 							<div class='col-md-1'>
 									<div class='form-group'> <label>Cantidad: </label> 
 										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
+										<label>Distribuidor: </label> 
+										<select name='distribuidor' class='form-control'>
+											<option value='No'>No</option>
+											<option value='Si'>Si</option>
+										</select>
 									</div> 
-									<button type='submit' class='btn btn-primary'>Agregar</button> 
 							</div>
 							<div class='col-md-2'>
 									<div class='form-group'> <label>Detalles: </label> 
 										<input type='text' name='detalles' class='form-control'>
 									</div> 
+									<button type='submit' class='btn btn-primary'>Agregar</button> 
 								</form>
 							</div>
 							<div class='col-md-1'>

@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select p.nombre_pedido, p.fecha, c.nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
+$query = mysqli_query($result, "select p.nombre_pedido, p.start, p.end, c.nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
 
 $row=$query->fetch_assoc();
 
@@ -19,7 +19,7 @@ $query2 = mysqli_query($result,'select * from clientes order by id');
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['nombres'] . "'>" . $row2['nombres'] . "</option>";
+	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['nombres'] . "</option>";
 	}
 	
 ?>
@@ -85,8 +85,12 @@ $(function () {
 											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
-											<label>Fecha</label> 
-											<input type="text" name="fecha" class="form-control" placeholder="Fecha" value="<?php echo $row['fecha']; ?>"> 
+											<label>Inicia</label> 
+											<input type="text" name="start" class="form-control" placeholder="Inicia" value="<?php echo $row['start']; ?>"> 
+										</div>
+										<div class="form-group"> 
+											<label>Finaliza</label> 
+											<input type="text" name="end" class="form-control" placeholder="Finaliza" value="<?php echo $row['end']; ?>"> 
 										</div>
 										<div class="form-group"> 
 											<label>Nombre Pedido</label> 
@@ -99,6 +103,7 @@ $(function () {
 										<div class="form-group"> 
 											<label>Cliente</label> 
 											<select name='cliente' class='form-control1'>
+												<option value="Seleccione">Seleccione</option>
 												"<?php echo $option; ?>"
 											</select>
 										</div> 

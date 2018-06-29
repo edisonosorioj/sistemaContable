@@ -15,11 +15,13 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$producto	=	$_POST['producto'];
-	$cantidad 	=	$_POST['cantidad'];
-	$detalles 	=	$_POST['detalles'];
-	$pedido_id 	=	$_POST['pedido_id'];
-	$cliente_id =	$_POST['cliente_id'];
+	$producto		=	$_POST['producto'];
+	$tipo			=	$_POST['tipo'];
+	$cantidad 		=	$_POST['cantidad'];
+	$detalles 		=	$_POST['detalles'];
+	$distribuidor 	=	$_POST['distribuidor'];
+	$pedido_id 		=	$_POST['pedido_id'];
+	$cliente_id 	=	$_POST['cliente_id'];
 
 $query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
 
@@ -41,20 +43,39 @@ if ($estado == 1) {
 }else{
 
 // Consulta para que aparezca la información de los productos disponibles
-	$query2 = mysqli_query($result,"SELECT * FROM productos WHERE nombre = '$producto';");
+	$query2 = mysqli_query($result,"SELECT * FROM productos WHERE idproductos = '$producto';");
 
 	$row = $query2->fetch_assoc();
 
- 	$producto_id = $row['idproductos'];
- 	$valor = $row['valor'];
- 	$disponible = $row['disponible'];
+ 	$nombres = $row['nombres'];
 
- 	$valort = $valor * $cantidad;
+ 	
+// Consulta para que aparezca la información de los tipos de productos disponibles
+
+	$query3 = mysqli_query($result,"SELECT * FROM tipoProducto WHERE idtipo = '$tipo';");
+	
+	$row2 = $query3->fetch_assoc();
+ 	
+ 	$nombre 	= $row2['nombre'];
+ 	$precio		= $row2['precio'];
+ 	$precio_d	= $row2['precio_d'];
+ 	
+ 	$valort 	= $precio 	* $cantidad;
+ 	$valort_d 	= $precio_d * $cantidad;
 
 // Agrega producto a la tabla pedidoProductos
- 	if ($disponible > 0) {
-		$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
-									VALUES ( CONCAT('$producto', ' - ' ,'$detalles'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
+ 	if ($disponible >= 0) {
+		
+ 		if ($distribuidor == 'No') {
+ 			
+			$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
+										VALUES ( CONCAT('$nombres', ' - ' ,'$nombre', ' - ' ,'$detalles'), '$precio', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
+ 		}else{
+
+ 			$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
+										VALUES ( CONCAT('$nombres', ' - ' ,'$nombre', ' - ' ,'$detalles'), '$precio_d', '$cantidad', '$valort_d', '$pedido_id', '$cliente_id', '$producto_id');");
+ 		}
+
 		$html = "<script>
 			javascript:history.back();
 		</script>";

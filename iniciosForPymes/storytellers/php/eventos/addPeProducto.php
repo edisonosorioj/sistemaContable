@@ -25,6 +25,7 @@ $query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedid
 $row3 = $query3->fetch_assoc();
 
 $estado = $row3['estado'];
+$fecha 	= $row3['fecha']; 
 
 if ($estado == 1) {
 	 
@@ -44,25 +45,25 @@ if ($estado == 1) {
 
 	$row = $query2->fetch_assoc();
 
- 	$producto_id = $row['idproductos'];
- 	$valor = $row['valor'];
- 	$disponible = $row['disponible'];
+ 	$producto_id 	= $row['idproductos'];
+ 	$valor 			= $row['valor'];
+ 	$disponible 	= $row['disponible'];
 
  	$valort = $valor * $cantidad;
 
 // Consulta para Verificar la disponibilidad por fecha segun pedidos
-	$query3 = mysqli_query($result,"SELECT * FROM pedidos p INNER JOIN pedidoproductos pp INNER JOIN productos pr on p.pedido_id = pp.pedido_id and pp.producto_id = pr.idproductos WHERE pr.idproductos = '$producto_id';");
+	$query3 = mysqli_query($result,"SELECT * FROM pedidos p INNER JOIN pedidoproductos pp INNER JOIN productos pr on p.pedido_id = pp.pedido_id and pp.producto_id = pr.idproductos WHERE p.fecha = '$fecha' and pr.idproductos = '$producto_id';");
 
 	$row3 = $query3->fetch_assoc();
 
- 	$producto_id = $row3['idproductos'];
- 	$valor = $row3['valor'];
- 	$disponible = $row3['disponible'];
+ 	$cantidad2 = $row3['cantidad'];
 
- 	$valort = $valor * $cantidad;
+ 	$disponibles = $disponible - $cantidad2;
+
+ 	$disponibles2 = $disponibles - $cantidad;
 
 // Agrega producto a la tabla pedidoProductos
- 	if ($disponible > 0) {
+ 	if ($disponibles2 > 0) {
 		$query = mysqli_query($result,"INSERT INTO pedidoproductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) 
 									VALUES ( CONCAT('$producto', ' - ' ,'$detalles'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
 		$html = "<script>
@@ -72,7 +73,7 @@ if ($estado == 1) {
  	}else{
 
 		$html = "<script>
-					window.alert('No hay disponibilidad del producto. Actualice desde el Módulo de Inventarios');
+					window.alert('No hay disponibilidad del producto en esta Fecha o en el Inventario. Revisa el módulo inventario o Pedidos');
 					javascript:history.back();
 				</script>";
 

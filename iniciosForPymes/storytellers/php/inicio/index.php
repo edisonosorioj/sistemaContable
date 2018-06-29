@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -8,90 +7,78 @@ if (!isset($_SESSION['login'])) {
 	exit();
 	
 }
-
 if (isset($_SESSION['idrol'])){
 
 	$idrol = $_SESSION['idrol'];
 	
 }
 
-
 require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
 
-
-include "graficas.php";
+$show = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
-	$caja = $ingmes - $egrmes;
-	$graficas = "<div class='col-md-6 charts-right'>
-					<div class='area-grids-heading'>
-						<h3>Saldo este mes: $ " . number_format($caja, 0, ",", ".") . "</h3>
-					</div>
-					<!-- area-chart -->
-					<div class='area-grids'>
-						<div class='area-grids-heading'>
-							<h3>Balance General</h3>
-						</div>
-						<div id='graph4'></div>
-						<script>
-							Morris.Donut({
-							  element: 'graph4',
-							  data: [
-								{value: " . $porcIng . ", label: 'Ingresos', formatted: '$ " . $ingr . "' },
-								{value: " . $porcEgr . ", label: 'Egresos', formatted: '$ " . number_format((float)$egr, 0, ",", ".") . "' }
-							  ],
-							  formatter: function (x, data) { return data.formatted; }
-							});
-						</script>
-
-					</div>
-				</div>
-				<div class='col-md-6 charts-right'>
-					<div class='agile-last-grid'>
-						<div class='area-grids-heading'>
-							<h3>Balance últimos 7 Días</h3>
-						</div>
-						<div id='graph8'></div>
-						<script>
-						/* data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type */
-						var day_data = [
-		  					{'period': '" . $dia6 . "', 'ingreso': " . $ingr6 . ", 'egreso': " . $egr6 . "},
-		  					{'period': '" . $dia5 . "', 'ingreso': " . $ingr5 . ", 'egreso': " . $egr5 . "},
-		  					{'period': '" . $dia4 . "', 'ingreso': " . $ingr4 . ", 'egreso': " . $egr4 . "},
-		  					{'period': '" . $dia3 . "', 'ingreso': " . $ingr3 . ", 'egreso': " . $egr3 . "},
-		  					{'period': '" . $dia2 . "', 'ingreso': " . $ingr2 . ", 'egreso': " . $egr2 . "},
-		  					{'period': '" . $dia1 . "', 'ingreso': " . $ingr1 . ", 'egreso': " . $egr1 . "},
-		  					{'period': '" . $dia . "', 'ingreso': " . $ingr0 . ", 'egreso': " . $egr0 . "}
-						];
-						Morris.Bar({
-						  element: 'graph8',
-						  data: day_data,
-						  xkey: 'period',
-						  ykeys: ['ingreso', 'egreso'],
-						  labels: ['INGRESO', 'EGRESO'],
-						  xLabelAngle: 60
-						});
-						</script>
-					</div>
-				</div>";
-} else {
+}else{
 	include "../menu2.php";
-	$graficas = "<div class='col-md-6 charts-right'>
-					<div class='area-grids-heading'>
-						<h3>Bienvenidos</h3>
-					</div>
-				</div>";
 }
 
+// Consulta y por medio de un while muestra la lista de los pedidos
+
+$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start BETWEEN CURDATE() AND NOW()');
+
+$tr2 = '';
+
+ while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
+
+ 	$estado = ($row2['estado'] == '0')?"Pendiente":"Realizado";
+
+ 	$tr2 .=	"<tr class='rows' id='rows'>
+				<td>" . $row2['nombres'] 					. "</td>
+				<td>" . $row2['nombre_pedido'] 				. "</td>
+				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
+				<td>" . $row2['start']						. "</td>
+				<td>" . $row2['end']						. "</td>
+				<td>" . $estado								. "</td>
+				<td>&nbsp;&nbsp;
+				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
+					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				</td>
+			</tr>";
+
+ }
+
+// Consulta y por medio de un while muestra la lista de los pedidos
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start > NOW() ORDER BY p.start ASC;');
+
+$tr = '';
+
+ while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+ 	$estado = ($row['estado'] == '0')?"Pendiente":"Realizado";
+
+ 	$tr .=	"<tr class='rows' id='rows'>
+				<td>" . $row['nombres'] 		. "</td>
+				<td>" . $row['nombre_pedido'] 	. "</td>
+				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
+				<td>" . $row['start']	. "</td>
+				<td>" . $row['end']	. "</td>
+				<td>" . $estado	. "</td>
+				<td>&nbsp;&nbsp;
+				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
+					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				</td>
+			</tr>";
+
+ }
 
 
-$html= "<!DOCTYPE html>
+$html="<!DOCTYPE html>
 <head>
-<title>Inicio</title>
+<title>Eventos</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -139,44 +126,87 @@ $html= "<!DOCTYPE html>
     $(document).ready(function() {
       $('#table').basictable();
     }); 
-	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
-	}
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- //tables -->
-<!-- charts -->
-<script src='../../js/raphael-min.js'></script>
-<script src='../../js/morris.js'></script>
-<link rel='../../stylesheet' href='../../css/morris.css'>
-<!-- //charts -->
-<!--skycons-icons-->
-<script src='../../js/skycons.js'></script>
-<!--//skycons-icons-->
 </head>
-	<body class='dashboard-page'>
-			<div class='agile-grids'>
-				
-				" . $graficas . "
+<body class='dashboard-page'>
 
+		<div class='main-grid'>
+			<div class='agile-grids'>	
+				<!-- tables -->
 				
-			
-			<div class='agile-bottom-grids'>
+				<div class='footer col-md-12' $show>
+					<h2>Eventos de hoy</h2>
+				</div>
+				<div class='agile-tables' $show>
+					<div class='w3l-table-info'>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>Cliente</th>
+							<th>Nombre Evento</th>
+							<th>Valor</th>
+							<th>Inicia</th>
+							<th>Finaliza</th>
+							<th>Estado</th>
+							<th>Acciones</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  " 
+						  . $tr2 . 
+						  "
+						</tbody>
+					  </table>
+					</div>
+				</div>
 
-				<div class='clearfix'> </div>
-			</div>
-		</div>
+				<div class='footer'>
+					<h2>Próximos Eventos</h2>
+				</div>
+
+				<div class='agile-tables'>
+					<div class='w3l-table-info'>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>Cliente</th>
+							<th>Nombre Evento</th>
+							<th>Valor</th>
+							<th>Inicia</th>
+							<th>Finaliza</th>
+							<th>Estado</th>
+							<th>Acciones</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  " 
+						  . $tr . 
+						  "
+						</tbody>
+					  </table>
+					</div>
+				</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 Forpymes . All Rights Reserved . Design by <a href=''>Forpymes</a></p>
+			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
+	<script src='../../js/acciones.js'></script>
 </body>
-</html>
-";
+</html>";
 
 echo $html;
-
-?>

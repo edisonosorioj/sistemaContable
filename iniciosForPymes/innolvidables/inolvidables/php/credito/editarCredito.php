@@ -1,10 +1,25 @@
+<?php
+	
+require_once "../conexion.php";
+
+$conex = new conection();
+$result = $conex->conex();
+	
+// Con el ID nos abre otro HTML correspondiente al Editar para organizarlo
+	$id=$_GET['id'];
+	
+	$query = mysqli_query($result, "select * from creditos where idcreditos='$id'");
+
+	$row=$query->fetch_assoc();
+	
+?>
+<!-- Se crea el HTML con la información del credito -->
 <!DOCTYPE html>
 <head>
-<title>Nuevo Producto</title>
+<title>Edición Abono/Crédito</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -58,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- input-forms -->
 				<div class="grids">
 					<div class="progressbar-heading grids-heading">
-						<h2>Nuevo Producto</h2>
+						<h2>Editar Abono/Crédito</h2>
 					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
@@ -67,19 +82,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class="form-body">
-									<form action="../../php/inventario/addProducto.php" method="post"> 
+									<form action="actCredito.php" method="post"> 
 										<div class="form-group"> 
-											<label>Nombre</label> 
-											<input type="text" name="nombre" class="form-control" placeholder="Nombre"> 
+											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
-											<label>Disponible</label> 
-											<input type="text" name="disponible" class="form-control" placeholder="Disponible" required="true"> 
+											<label>Fecha</label> 
+											<input type="date" name="fecha" class="form-control" placeholder="Fecha" value="<?php echo $row['fecha']; ?>"> 
 										</div>
+										<div class="form-group"> 
+											<label>Detalles</label> 
+											<input type="text" name="detalles" class="form-control" placeholder="Detalles" value="<?php echo $row['detalles']; ?>"> 
+										</div> 
 										<div class="form-group"> 
 											<label>Valor</label> 
-											<input type="number" name="valor" class="form-control" placeholder="Valor"> 
+											<input type="text" name="valor" class="form-control" placeholder="Valor" value="<?php echo $row['valor']; ?>"> 
 										</div> 
+
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 
 									</form> 

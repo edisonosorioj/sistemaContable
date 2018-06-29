@@ -35,13 +35,23 @@ if ($estado == 1) {
 
 $option='';
 
-$query2 = mysqli_query($result,'select * from productos order by idproductos');
+$query2 = mysqli_query($result,'select * from productos order by nombres ASC');
 
 $producto = $row['producto'];
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
+	 	$option .=	"<option value='" . $row2['idproducto'] . "'>" . $row2['nombres'] . "</option>";
+	}
+
+
+$option2='';
+
+$query2 = mysqli_query($result,'select * from tipoProducto order by nombre ASC');
+
+while ($row2 = $query2->fetch_array()){
+
+	 	$option2 .=	"<option value='" . $row3['idtipo'] . "'>" . $row3['nombre'] . "</option>";
 	}
 	
 $html = "
@@ -114,8 +124,20 @@ $html = "
 										<div class='form-group'> 
 											<label>Producto</label> 
 											<select name='nuevo_producto' class='form-control1'>
+												<option value='Seleccionar'>Seleccionar</option>
 												$option
 											</select>
+										</div> 
+										<div class='form-group'> 
+											<label>Tipo Producto</label> 
+											<select name='nuevo_tipo' class='form-control1'>
+												<option value='Seleccionar'>Seleccionar</option>
+												$option2
+											</select>
+										</div> 
+										<div class='form-group'> 
+											<label>Detalles</label> 
+											<input type='text' name='detalles' class='form-control' placeholder='Nuevos detalles'> 
 										</div> 
 										<div class='form-group'> 
 											<label>Cantidad</label> 

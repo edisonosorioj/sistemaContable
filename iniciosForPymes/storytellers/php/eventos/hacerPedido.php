@@ -50,24 +50,20 @@ if ($estado == 1) {
 
 //Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
 
- $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
+ // $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
 
 
- while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
+ // while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
 
- 	$cantidadPedido = $row4['cantidadPedido'];
- 	$disponibleProducto = $row4['disponibleProducto'];
- 	$producto_id = $row4['producto_id'];
+ // 	$cantidadPedido = $row4['cantidadPedido'];
+ // 	$disponibleProducto = $row4['disponibleProducto'];
+ // 	$producto_id = $row4['producto_id'];
 
- 	$total = $disponibleProducto - $cantidadPedido;
+ // 	$total = $disponibleProducto - $cantidadPedido;
 
-	$query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
+	// $query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
 
- }
-
-// echo "Hola Mundo";
-
-// die();
+ // }
 
 //Agrega un registro al resumen del cliente
 
@@ -79,7 +75,7 @@ if ($estado == 1) {
 
 
 // Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' where pedido_id = '$pedido_id';");
+	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', estado = '1' where pedido_id = '$pedido_id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
@@ -92,7 +88,7 @@ if ($estado == 1) {
 		
 	$html = "<script>
 		window.alert('$msg');
-		self.location='pedido.php';
+		self.location='eventos.php';
 		opener.location.reload();
 	</script>";
 	

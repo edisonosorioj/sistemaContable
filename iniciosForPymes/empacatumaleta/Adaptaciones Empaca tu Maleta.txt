@@ -1,0 +1,13 @@
+- Identificador por Usuario Vendedor
+- Información Adicional para faturación. (Esperar datos).
+- Desarrollar Super Usuario Marinilla Rionegro
+- Redes
+- Fecha de viaje y fecha de reserva
+	Condición de 30% o 50% inicial y numero de cuotas
+- Valor cuota Inicial
+- Recibo de caja en Cliente
+
+- Ingresos Percibidos a tercero
+- Ingresos Gravados (propios) - IVA
+
+- Historial de facturas

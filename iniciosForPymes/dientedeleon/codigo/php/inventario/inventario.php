@@ -27,14 +27,13 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-$query = mysqli_query($result,'select p.idproductos as pidproductos, p.nombres as pnombres, tp.nombre as tnombre, p.familia as pfamilia, p.marca as pmarca, p.genero as pgenero from productos p inner join tipoProducto tp on p.idtipo = tp.idtipo order by idproductos');
+$query = mysqli_query($result,'select p.idproductos as pidproductos, p.nombres as pnombres, p.familia as pfamilia, p.marca as pmarca, p.genero as pgenero from productos p order by idproductos');
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['pnombres'] 			. "</td>
-				<td>" . $row['tnombre'] 				. "</td>
 				<td>" . $row['pfamilia'] 			. "</td>
 				<td>" . $row['pmarca'] 				. "</td>
 				<td>" . $row['pgenero'] 				. "</td>
@@ -43,7 +42,6 @@ $query = mysqli_query($result,'select p.idproductos as pidproductos, p.nombres a
 				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
- 	// $total = ((int)$total+(int)$sumtotal);
  }
 
 
@@ -125,7 +123,6 @@ else return false;
 						<thead>
 						  <tr>
 							<th>Nombre</th>
-							<th>Tipo</th>
 							<th>Familia</th>
 							<th>Marca</th>
 							<th>Genero</th>
