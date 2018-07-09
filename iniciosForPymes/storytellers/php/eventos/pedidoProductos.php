@@ -62,7 +62,6 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
 
  }
 
-
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
 $query3 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
 
@@ -179,7 +178,7 @@ else return false;
 									<div class='form-group'> <label>Cantidad: </label> 
 										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
 									</div> 
-									<button type='submit' class='btn btn-primary'>Agregar</button> 
+									<button type='submit' class='btn btn-xs btn-primary'>Agregar</button> 
 							</div>
 							<div class='col-md-2'>
 									<div class='form-group'> <label>Detalles: </label> 
@@ -187,7 +186,7 @@ else return false;
 									</div> 
 								</form>
 							</div>
-							<div class='col-md-1'>
+							<div class='col-md-2'>
 							<label>Cuenta Cobro # $id_pedido</label>
 							</div>
 							<div class='col-md-2'>
@@ -195,11 +194,11 @@ else return false;
 									<div class='form-group'> <label></label>
 									</div>
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-primary'>Cotizacion</button> 
+									<button type='submit' class='btn btn-xs btn-block btn-primary'>Cotizacion</button> 
 								</form>
 								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-primary'>Cuenta Cobro</button>
+									<button type='submit' class='btn btn-xs btn-block btn-primary'>Cuenta Cobro</button>
 								</form>
 							</div>
 							<div class='col-md-2'>
@@ -207,12 +206,12 @@ else return false;
 									<div class='form-group'><label></label> 
 									</div> 
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
+									<button type='submit' class='btn btn-xs btn-block btn-primary'>Hacer Pedido</button> 
 								</form> 
 								<form class='form-horizontal' action='cancelarPedido.php' method='post'>
 									<label></label>
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-danger'>Cancelar Pedido</button> 
+									<button type='submit' class='btn btn-xs btn-block btn-danger'>Cancelar Pedido</button> 
 								</form> 
 							</div>
 						</div>

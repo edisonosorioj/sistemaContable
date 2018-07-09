@@ -25,7 +25,7 @@ $query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedid
 $row3 = $query3->fetch_assoc();
 
 $estado = $row3['estado'];
-$fecha 	= $row3['fecha']; 
+$fecha 	= $row3['start']; 
 
 if ($estado == 1) {
 	 
@@ -52,7 +52,7 @@ if ($estado == 1) {
  	$valort = $valor * $cantidad;
 
 // Consulta para Verificar la disponibilidad por fecha segun pedidos
-	$query3 = mysqli_query($result,"SELECT * FROM pedidos p INNER JOIN pedidoproductos pp INNER JOIN productos pr on p.pedido_id = pp.pedido_id and pp.producto_id = pr.idproductos WHERE p.fecha = '$fecha' and pr.idproductos = '$producto_id';");
+	$query3 = mysqli_query($result,"SELECT * FROM pedidos p INNER JOIN pedidoproductos pp INNER JOIN productos pr on p.pedido_id = pp.pedido_id and pp.producto_id = pr.idproductos WHERE p.start = '$start' and pr.idproductos = '$producto_id';");
 
 	$row3 = $query3->fetch_assoc();
 

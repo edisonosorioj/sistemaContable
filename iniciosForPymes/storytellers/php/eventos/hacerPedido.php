@@ -9,8 +9,6 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
-
-
 require_once "../conexion.php";
 
 $conex = new conection();
@@ -18,7 +16,6 @@ $result = $conex->conex();
 
 
 	$pedido_id		=	$_POST['pedido_id'];
-	$cobrado		=	$_POST['cobrado'];
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
 	$query5 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");
@@ -48,28 +45,10 @@ if ($estado == 1) {
 
 }else{
 
-//Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
-
- // $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
-
-
- // while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
-
- // 	$cantidadPedido = $row4['cantidadPedido'];
- // 	$disponibleProducto = $row4['disponibleProducto'];
- // 	$producto_id = $row4['producto_id'];
-
- // 	$total = $disponibleProducto - $cantidadPedido;
-
-	// $query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
-
- // }
-
-//Agrega un registro al resumen del cliente
-
  $fecha 		= date('y-m-d');
  $detalles 		= "Pedido No. " . $pedido_id . " - " . $nombre_pedido;
- $valorcredito 	= $cobrado;
+
+ $valorcredito 	= $valor;
 
  $query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valorcredito'), '$cliente_id');");
 

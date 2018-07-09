@@ -135,6 +135,14 @@ $html= "<!DOCTYPE html>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/consecutivo.php\")'>Actualizar</button>
 												</td>	
 											</tr>
+											<tr>
+												<td>
+													<h4>3. Revisar el estado de tu plan.</h4>
+												</td>
+												<td class='type-info'>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/pagos.php\")'>Revisar</button>
+												</td>	
+											</tr>
 										</tbody>
 									</table>
 								</div>

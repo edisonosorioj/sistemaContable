@@ -9,15 +9,18 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
+	$query1 = mysqli_query($result, "select * from clientes where id = '$id'");
+	$row=$query1->fetch_assoc();
+
+	$nombreCliente = $row['nombres'];
+
+
 // Realiza la inserción de un nuevo abono en la tabla creditos sin el "-"
 $query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', '$valor', '$id');");
 
-// Realiza la consulta para que al realizar la acción se devuelva al cliente que se estaba trabajando
-$query2 = mysqli_query($result, "SELECT * FROM clientes where id = '$id';");
 
-$row=$query2->fetch_assoc();
+$query2 = mysqli_query($result,"INSERT INTO ingresos (cantidad, producto, detalles, valor, fecha) VALUES ('1', CONCAT('$id',' $detalles'), '$nombreCliente', '$valor', '$fecha');");
 
-$idcliente = $row['id'];
 
 // Acción que determina si la acción fue realizada con exito o no.
 if($query > 0){

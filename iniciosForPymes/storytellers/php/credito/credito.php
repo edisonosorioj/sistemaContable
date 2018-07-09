@@ -39,15 +39,22 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	if ($row['valor'] < 0) {
+ 		$td = "&nbsp;&nbsp;";
+ 	}else{
+ 		$td = "&nbsp;&nbsp;
+			<a class='botonTab' onclick='javascript:abrir(\"comprobante.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Recibo'><i
+			class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;";
+ 	}
+
  	$tr .=	"<tr class='rows' id='rows'>
  				<td></td>
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
-				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='copiarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Copiar a Ingreso'><i class='fa fa-check-square-o'></i></spam></a>&nbsp;&nbsp;
+				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
 				</td>
 			</tr>";
@@ -154,9 +161,9 @@ else return false;
 				</div>
 				<div class='bs-component mb20 col-md-8'>
 					<form action='eliminarVarios.php' method='post'>
-					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
+					<button type='button' class='btn btn-xs btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
+					<button type='button' class='btn btn-xs btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
+					<button type='button' class='btn btn-xs btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>

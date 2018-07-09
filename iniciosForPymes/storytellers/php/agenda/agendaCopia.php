@@ -55,21 +55,9 @@
         events: 'http://localhost/sistemaContable/iniciosForPymes/storytellers/php/agenda/eventos.php',
 
         eventClick:function(calEvent,jsEvent,view){
-          // h2
           $('#tituloEvento').html(calEvent.title);
-
-          // Mostrar la informacion del evento en los input
-          $('#txtDescripcion').val(calEvent.empresa);
-          $('#txtID').val(calEvent.id);
-          $('#txtTitulo').val(calEvent.title);
-          $('#txtColor').val(calEvent.color);
-
-          FechaHora= calEvent.start._i.split(" ");
-          $('#txtFecha').val(FechaHora[0]);
-          $('#txtHora').val(FechaHora[1]);
-          
-
-          $('#ModalEventos').modal();
+          $('#descripcionEvento').html(calEvent.empresa);
+          $('#exampleModal').modal();
         }
 
 
@@ -80,6 +68,26 @@
 
 
   </script>
+
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="tituloEvento"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="descripcionEvento"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Listo</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Modal (Agregar, modificar, eliminar) -->
 <div class="modal fade" id="ModalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -92,6 +100,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <div id="descripcionEvento"></div>
         Id:           <input type="text" id="txtID" name="txtID" />
         Fecha:        <input type="text" id="txtFecha" name="txtFecha" /><br />
         Título:       <input type="text" id="txtTitulo" /><br />
@@ -112,7 +121,6 @@
 </div>
 
 <script>
-  var NuevoEvento;
   $('#btnAgregar').click(function(){
 
 
@@ -129,8 +137,6 @@
     $("#ModalEventos").modal('toggle');
 
   });
-
-  function
 
 </script>
 

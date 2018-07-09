@@ -83,6 +83,14 @@ CREATE TABLE `variables` (
   `detalle` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`variable_id`));
 
+  CREATE TABLE `pagos` (
+  `pago_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `cliente` VARCHAR(45) NOT NULL,
+  `fecha_pago` VARCHAR(45) NOT NULL,
+  `valor` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`pago_id`));
+
 //Configuracion Básica para Cuenta de Cobro
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'MI EMPRESA');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'tipo_identificacion', 'CC');
