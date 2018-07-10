@@ -172,7 +172,7 @@ else return false;
 				</div>
 
 				<div class='footer'>
-					<h2>Próximos Eventos</h2>
+					<h2>Pr&oacute;ximos Eventos</h2>
 				</div>
 
 				<div class='agile-tables'>

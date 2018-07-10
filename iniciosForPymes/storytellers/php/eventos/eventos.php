@@ -28,30 +28,30 @@ if ($idrol == 0) {
 
 // Consulta y por medio de un while muestra la lista de los pedidos de HOY
 
-// $query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start BETWEEN CURDATE() AND NOW() and estado = 1');
+$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 1 and p.start < NOW() ORDER BY p.start ASC');
 
-// $tr2 = '';
+$tr2 = '';
 
-//  while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
+ while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
 
-//  	$estado = ($row2['estado'] == '0')?"Pendiente":"Realizado";
+ 	$estado = ($row2['estado'] == '0')?"Pendiente":"Realizado";
 
-//  	$tr2 .=	"<tr class='rows' id='rows'>
-// 				<td>" . $row2['nombres'] 					. "</td>
-// 				<td>" . $row2['nombre_pedido'] 				. "</td>
-// 				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
-// 				<td>" . $row2['start']						. "</td>
-// 				<td>" . $row2['end']						. "</td>
-// 				<td>" . $estado								. "</td>
-// 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-// 				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Productos'>
-// 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-// 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Eliminar'>
-// 					<i class='fa icon-off'></i></a>
-// 				</td>
-// 			</tr>";
+ 	$tr2 .=	"<tr class='rows' id='rows'>
+				<td>" . $row2['nombres'] 					. "</td>
+				<td>" . $row2['nombre_pedido'] 				. "</td>
+				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
+				<td>" . $row2['start']						. "</td>
+				<td>" . $row2['end']						. "</td>
+				<td>" . $estado								. "</td>
+				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Productos'>
+					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Eliminar'>
+					<i class='fa icon-off'></i></a>
+				</td>
+			</tr>";
 
-//  }
+ }
 
 // Consulta y por medio de un while muestra la lista de los pedidos
 $query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 1 and p.start > NOW() ORDER BY p.start ASC;');
@@ -178,10 +178,11 @@ else return false;
 				<!-- tables -->
 				
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nuevo Evento</button>
+					<button type='button' class='btn btn-xs btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nueva Cotizaci&oacute;n</button>
 				</div>
-				<div class='footer col-md-12' $show>
-					<h2>Próximos Eventos</h2>
+
+				<div class='footer col-md-12'>
+					<h2>Cotizaciones</h2>
 				</div>
 
 				<div class='agile-tables'>
@@ -190,7 +191,35 @@ else return false;
 						<thead>
 						  <tr>
 							<th>Cliente</th>
-							<th>Nombre Evento</th>
+							<th>Tipo de Evento</th>
+							<th>Valor</th>
+							<th>Inicia</th>
+							<th>Finaliza</th>
+							<th>Estado</th>
+							<th>Acciones</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  " 
+						  . $tr3 . 
+						  "
+						</tbody>
+					  </table>
+					</div>
+				</div>
+
+				
+				<div class='footer col-md-12'>
+					<h2>Eventos Confirmados</h2>
+				</div>
+
+				<div class='agile-tables'>
+					<div class='w3l-table-info'>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>Cliente</th>
+							<th>Tipo de Evento</th>
 							<th>Valor</th>
 							<th>Inicia</th>
 							<th>Finaliza</th>
@@ -207,8 +236,8 @@ else return false;
 					</div>
 				</div>
 
-				<div class='footer'>
-					<h2>Otros Eventos</h2>
+				<div class='footer col-md-12'>
+					<h2>Eventos Finalizados</h2>
 				</div>
 
 				<div class='agile-tables'>
@@ -217,22 +246,24 @@ else return false;
 						<thead>
 						  <tr>
 							<th>Cliente</th>
-							<th>Nombre Evento</th>
+							<th>Tipo de Evento</th>
 							<th>Valor</th>
-							<th>Inicia</th>
-							<th>Finaliza</th>
+							<th>Inicio</th>
+							<th>Finalizo</th>
 							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
 						<tbody>
 						  " 
-						  . $tr3 . 
+						  . $tr2 . 
 						  "
 						</tbody>
 					  </table>
 					</div>
 				</div>
+
+				
 				<!-- //tables -->
 			</div>
 		</div>

@@ -20,7 +20,7 @@ while ($row = $query->fetch_array()){
 
 $html = "<!DOCTYPE html>
 <head>
-<title>Nuevo Evento</title>
+<title>Nueva Cotizaci&oacute;</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='' />
@@ -76,7 +76,7 @@ $html = "<!DOCTYPE html>
 								<!-- input-forms -->
 								<div class='grids'>
 									<div class='progressbar-heading grids-heading'>
-										<h2>Nuevo Evento</h2>
+										<h2>Nueva Cotizaci&oacute;n</h2>
 									</div>
 									<div class='panel panel-widget forms-panel'>
 										<div class='forms'>
@@ -97,14 +97,22 @@ $html = "<!DOCTYPE html>
 															<input type='time' name='hora_f' value='06:00:00' step='1'> 
 														</div>
 														<div class='form-group'> 
-															<label>Cliente</label> 
+															<label>Nombre</label> 
 															<select name='cliente' class='form-control1'>
 																" . $option . "
 															</select>
 														</div>
 														<div class='form-group'> 
-															<label>Nombre</label> 
-															<input type='text' name='nombre' class='form-control' placeholder='Nombre'> 
+															<label>Sede</label> 
+															<input type='text' name='sede' class='form-control' placeholder='Tipo de Sede'> 
+														</div>
+														<div class='form-group'> 
+															<label>Tipo de Evento</label> 
+															<input type='text' name='evento' class='form-control' placeholder='Tipo de Evento'> 
+														</div>
+														<div class='form-group'> 
+															<label>Numero de Invitados</label> 
+															<input type='text' name='invitados' class='form-control' placeholder='Invitados'> 
 														</div>
 
 														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 

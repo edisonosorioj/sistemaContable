@@ -64,9 +64,6 @@ $(function () {
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
-					<div class="progressbar-heading grids-heading">
-						<h2>Editar Cliente</h2>
-					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
 							<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
@@ -79,28 +76,28 @@ $(function () {
 											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
-											<label>Documento</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
-										</div>
+											<label>Nombres</label> 
+											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>"> 
+										</div> 
 										<div class="form-group"> 
 											<label>Empresa</label> 
 											<input type="text" name="empresa" class="form-control" placeholder="Empresa" value="<?php echo $row['empresa']; ?>"> 
 										</div> 
 										<div class="form-group"> 
-											<label>Nombres</label> 
-											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>"> 
-										</div> 
+											<label>CC / NIT</label> 
+											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
+										</div>
 										<div class="form-group"> 
 											<label>Telefono</label> 
 											<input type="text" name="telefono" class="form-control" placeholder="Telefono" value="<?php echo $row['telefono']; ?>"> 
 										</div>
 										<div class="form-group"> 
-											<label>Correo</label> 
-											<input type="text" name="correo" class="form-control" placeholder="Correo" value="<?php echo $row['correo']; ?>"> 
-										</div> 
-										<div class="form-group"> 
 											<label>Dirección</label> 
 											<input type="text" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $row['direccion']; ?>"> 
+										</div> 
+										<div class="form-group"> 
+											<label>Email</label> 
+											<input type="text" name="correo" class="form-control" placeholder="Correo" value="<?php echo $row['correo']; ?>"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

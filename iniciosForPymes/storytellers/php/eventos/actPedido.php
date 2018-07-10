@@ -9,20 +9,25 @@ $result = $conex->conex();
 	$cliente		=	$_POST['cliente'];
 	$start			=	$_POST['start'];
 	$end			=	$_POST['end'];
-
-// Agrega nuevos usuarios según el formulario recibido
-	$query2 = mysqli_query($result,"SELECT * FROM clientes WHERE nombres = '$cliente';");
-
-	$row = $query2->fetch_assoc();
- 	$cliente_id = $row['id'];
+	$sede			=	$_POST['sede'];
+	$invitados		=	$_POST['invitados'];
 
 // Consulta para actualizar el cliente
- 	if ($cliente = 'Seleccione') {
-			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end' where pedido_id ='$id';");
+ 	if ($cliente != 'Cambiar') {
+		elseif ($sede != 'Cambiar') {
+			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', sede_id = '$sede', invitados = '$invitados' where pedido_id ='$id';");
+		}else{
+
+			$paso = 1;
+			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
+		}
  	}else{
 
-			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end' where pedido_id ='$id';");
+			$paso = 1 + $paso;
+			echo $paso;die();
+			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
  	}
+
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){

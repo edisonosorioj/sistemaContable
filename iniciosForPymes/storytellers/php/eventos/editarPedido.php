@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select p.nombre_pedido, p.start, p.end, c.nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
+$query = mysqli_query($result, "select p.nombre_pedido, p.start, p.end, p.invitados, c.nombres, s.nombre from pedidos p inner join clientes c inner join sede s on p.cliente_id = c.id and p.sede_id = s.sede_id where pedido_id='$id'");
 
 $row=$query->fetch_assoc();
 
@@ -21,12 +21,21 @@ while ($row2 = $query2->fetch_array()){
 
 	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['nombres'] . "</option>";
 	}
+
+$option2='';
+
+$query3 = mysqli_query($result,'select * from sede order by sede_id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$option2 .=	"<option value='" . $row3['sede_id'] . "'>" . $row3['nombre'] . "</option>";
+	}
 	
 ?>
 <!-- Se crea el HTML con la información del Pedido -->
 <!DOCTYPE html>
 <head>
-<title>Editar Pedido</title>
+<title>Editar Cotizaci&oacute;n</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
@@ -70,14 +79,11 @@ $(function () {
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
-					<div class="progressbar-heading grids-heading">
-						<h2>Editar Pedido</h2>
-					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
 							<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
 								<div class="form-title">
-									<h4>Datos Básicos :</h4>
+									<h4>Editar Cotizaci&oacute;n</h4>
 								</div>
 								<div class="form-body">
 									<form action="actPedido.php" method="post"> 
@@ -86,26 +92,33 @@ $(function () {
 										</div>
 										<div class="form-group"> 
 											<label>Inicia</label> 
-											<input type="text" name="start" class="form-control" placeholder="Inicia" value="<?php echo $row['start']; ?>"> 
+											<input type="text" name="start" class="form-control" value="<?php echo $row['start']; ?>"> 
 										</div>
 										<div class="form-group"> 
 											<label>Finaliza</label> 
-											<input type="text" name="end" class="form-control" placeholder="Finaliza" value="<?php echo $row['end']; ?>"> 
+											<input type="text" name="end" class="form-control" value="<?php echo $row['end']; ?>"> 
 										</div>
 										<div class="form-group"> 
-											<label>Nombre Pedido</label> 
-											<input type="text" name="nombre_pedido" class="form-control" placeholder="Nombre Pedido" value="<?php echo $row['nombre_pedido']; ?>"> 
-										</div>
-										<div class="form-group"> 
-											<label>Cliente Actual</label> 
-											<input type="text" name="cliente_actual" class="form-control" value="<?php echo $row['nombres']; ?>" disabled> 
-										</div> 
-										<div class="form-group"> 
-											<label>Cliente</label> 
+											<label>Cliente Actual: <?php echo $row['nombres']; ?></label> 
 											<select name='cliente' class='form-control1'>
-												<option value="Seleccione">Seleccione</option>
+												<option value="Seleccione">Cambiar</option>
 												"<?php echo $option; ?>"
 											</select>
+										</div> 
+										<div class="form-group"> 
+											<label>Tipo de Evento</label>
+											<input type="text" name="nombre_pedido" class="form-control" value="<?php echo $row['nombre_pedido']; ?>"> 
+										</div>
+										<div class="form-group"> 
+											<label>Sede Actual: <?php echo $row['nombre']; ?></label> 
+											<select name='sede' class='form-control1'>
+												<option value="Seleccione">Cambiar</option>
+												"<?php echo $option2; ?>"
+											</select>
+										</div> 
+										<div class="form-group"> 
+											<label>Invitados</label> 
+											<input type="text" name="invitados" class="form-control" value="<?php echo $row['invitados']; ?>"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

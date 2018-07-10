@@ -32,7 +32,7 @@ $menu = "
 				<a href='../eventos/eventos.php'>
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
-					Eventos
+					Cotizaciones
 					</span>
 				</a>
 			</li>
@@ -87,7 +87,7 @@ $menu = "
 		</nav>
 		<section class='title-bar'>
 			<div class='logo'>
-				<h1><a href='index.html'><img src='../../images/logo.png' alt='' />Forpymes</a></h1>
+				<h1><a href='index.html'><img src='../../images/logo.png' alt='' /></a></h1>
 			</div>
 			<div class='full-screen'>
 				<section class='full-top'>

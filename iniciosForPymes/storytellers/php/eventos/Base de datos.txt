@@ -20,6 +20,7 @@ CREATE TABLE `clientes` (
   `telefono` VARCHAR(45) NOT NULL,
   `correo` VARCHAR(45) NULL,
   `direccion` VARCHAR(45) NULL,
+  `ciudad` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE `compras` (
@@ -65,6 +66,8 @@ CREATE TABLE `productos` (
   `fecha_fin` DATETIME NULL,
   `color` VARCHAR(45) NULL,
   `estado` INT NOT NULL,
+  `sede_id` INT NULL,
+  `invitados` VARCHAR(45) NULL,
   PRIMARY KEY (`pedido_id`, `cliente_id`));
 
 CREATE TABLE `pedidoProductos` (
@@ -93,6 +96,13 @@ CREATE TABLE `proveedores` (
   `correo` VARCHAR(45) NULL,
   `direccion` VARCHAR(45) NULL,
   PRIMARY KEY (`proveedor_id`));
+
+
+CREATE TABLE `sede` (
+  `sede_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `estado` VARCHAR(45) NULL DEFAULT 1,
+  PRIMARY KEY (`sede_id`));
   
 
 //Configuracion Básica para Cuenta de Cobro

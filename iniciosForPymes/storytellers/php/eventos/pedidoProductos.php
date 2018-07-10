@@ -187,7 +187,11 @@ else return false;
 								</form>
 							</div>
 							<div class='col-md-2'>
-							<label>Cuenta Cobro # $id_pedido</label>
+								<label>Cotizaci&oacute;n # $id_pedido</label>
+								<label>No. de Cuotas</label>
+								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
+								<label>Deposito</label>
+								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1000000' required/>
 							</div>
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='cotizacion.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
