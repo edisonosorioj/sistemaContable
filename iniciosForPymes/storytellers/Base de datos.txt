@@ -55,6 +55,7 @@ CREATE TABLE `productos` (
   `nombre` VARCHAR(100) NOT NULL,
   `disponible` MEDIUMINT(10) NULL DEFAULT 0,
   `valor` varchar(45) NULL,
+  `proveedor_id` INT NOT NULL,
   PRIMARY KEY (`idproductos`));
 
   CREATE TABLE `pedidos` (
@@ -62,8 +63,8 @@ CREATE TABLE `productos` (
   `cliente_id` INT NOT NULL,
   `nombre_pedido` VARCHAR(45) NULL,
   `t_costo` VARCHAR(45) NULL,
-  `fecha_inicio` DATETIME NULL,
-  `fecha_fin` DATETIME NULL,
+  `start` DATETIME NULL,
+  `end` DATETIME NULL,
   `color` VARCHAR(45) NULL,
   `estado` INT NOT NULL,
   `sede_id` INT NULL,

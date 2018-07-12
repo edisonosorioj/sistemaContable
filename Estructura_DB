@@ -1,6 +1,6 @@
-CREATE DATABASE empacatumaleta;
+CREATE DATABASE storytellers;
 
-USE empacatumaleta;
+USE storytellers;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
