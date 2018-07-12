@@ -27,7 +27,6 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" 	. 	$row['idproducto'] 	. "</td>
 				<td>" 	. 	$row['producto'] 	. "</td>
 				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
@@ -99,7 +98,6 @@ $html="<!DOCTYPE html>
 		<div class='table'>
 			<table class='table-fill'>
 				<tr>
-					<th></th>
 					<th>PRODUCTO</th>
 					<th>CANTIDAD</th>
 					<th width='80'>VALOR</th>

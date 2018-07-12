@@ -192,7 +192,7 @@ else return false;
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<div class='form-group'> <label>Cobrado: </label> 
+									<div class='form-group'> <label>Valor a Cobrar: </label> 
 										<input type='text' name='cobrado' class='form-control'>
 									</div> 
 									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 

@@ -13,20 +13,25 @@ $result = $conex->conex();
 	$invitados		=	$_POST['invitados'];
 
 // Consulta para actualizar el cliente
- 	if ($cliente != 'Cambiar') {
-		elseif ($sede != 'Cambiar') {
-			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', sede_id = '$sede', invitados = '$invitados' where pedido_id ='$id';");
+ 	if ($cliente = 'Cambiar') {
+		
+		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
+		
 		}else{
 
-			$paso = 1;
-			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
+		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
 		}
- 	}else{
+	
+	if ($sede = 'Cambiar') {
+		
+		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
+ 		
+ 		}else{
 
-			$paso = 1 + $paso;
-			echo $paso;die();
-			$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
- 	}
+		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', sede_id = '$sede', invitados = '$invitados' where pedido_id ='$id';");
+ 		}
+
+
 
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
