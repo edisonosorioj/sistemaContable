@@ -20,6 +20,12 @@ $result = $conex->conex();
 	$end		=	$_POST['end'];
 	$time2		=	$_POST['hora_f'];
 	$cliente 	=	$_POST['cliente'];
+	$empresa 	=	$_POST['empresa'];
+	$documento 	=	$_POST['documento'];
+	$telefono 	=	$_POST['telefono'];
+	$direccion 	=	$_POST['direccion'];
+	$ciudad 	=	$_POST['ciudad'];
+	$correo 	=	$_POST['correo'];
 	$sede		=	$_POST['sede'];
 	$evento		=	$_POST['evento'];
 	$invitado	=	$_POST['invitados'];
@@ -34,9 +40,15 @@ $result = $conex->conex();
 $fecha_i = $start . " " . $time1;
 $fecha_f = $end . " " . $time2;
 
+// Agrega nuevos usuarios según el formulario recibido
+	$query4 = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo, empresa, direccion, ciudad) VALUES ('$documento', '$cliente', '$telefono', '$correo', '$empresa', '$direccion', '$ciudad');");
 
-// Agrega pedido según el formulario recibido
+// COnsulta el ultipo ID ingresado a la tabla
+	$cliente = mysqli_insert_id($result);
+
+// Agrega nuevos usuarios según el formulario recibido
 	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado');");
+
 	
 // COnsulta el ultipo ID ingresado a la tabla
 	$consecutivo = mysqli_insert_id($result);
@@ -45,7 +57,7 @@ $fecha_f = $end . " " . $time2;
 	$query3 = mysqli_query($result,"UPDATE variables SET detalle = '$consecutivo' WHERE variable_id = 8;");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
-	if($query > 0){
+	if(($query > 0)){
 		$msg = "El pedido " . $evento . " fue agregado";
 	}else{
 		$msg = 'Error al agregar el cliente. Intente nuevamente';

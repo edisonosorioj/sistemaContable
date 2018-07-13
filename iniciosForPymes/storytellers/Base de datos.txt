@@ -117,3 +117,12 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'cel', '321123
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo', '0');
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
+
+
+NOVEDADES BASES DE DATOS
+
+//Cambio en la tabla SEDE. Se agrega el campo Color
+ALTER TABLE `sede` 
+ADD COLUMN `color` VARCHAR(45) NULL AFTER `estado`;
+
+
