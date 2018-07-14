@@ -170,8 +170,8 @@ else return false;
 									<div class='form-group'> 
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
 										<input type='hidden' name='cliente_id' value='$id_cliente'>
-										<label>Tipo de Evento:</label> 
-										<input type='input' name='tipoEvento' value='$nombre_pedido' disabled/>
+										<label>Producto:</label> 
+										<select name='producto' class='form-control'>" . $option . "</select>
 									</div>
 							</div>
 							<div class='col-md-1'>
@@ -187,13 +187,13 @@ else return false;
 								</form>
 							</div>
 							<div class='col-md-2'>
+								<label>Cotizaci&oacute;n # $id_pedido</label>
 								<label>No. de Cuotas</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
 								<label>Deposito</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1000000' required/>
 							</div>
 							<div class='col-md-2'>
-								<label>Cotizaci&oacute;n # $id_pedido</label>
 								<form class='form-horizontal' action='cotizacion.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 									<div class='form-group'> <label></label>
 									</div>
@@ -206,7 +206,6 @@ else return false;
 								</form>
 							</div>
 							<div class='col-md-2'>
-								<label>Acciones de Cierre</label>
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>
 									<div class='form-group'><label></label> 
 									</div> 

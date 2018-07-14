@@ -20,19 +20,17 @@ $result = $conex->conex();
 $tr = '';
 
 
-$query = mysqli_query($result,'select * from administradores');
+$query = mysqli_query($result,'select * from sede');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td>" . $row['idadmin']			. "</td>
-				<td>" . $row['documento'] 		. "</td>
-				<td>" . $row['nombre'] 			. "</td>
-				<td>" . $row['apellido'] 		. "</td>
-				<td>" . $row['idrol'] 			. "</td>
-				<td>" . $row['login'] 			. "</td>
-				<td><a onclick='javascript:abrir(\"editarUsuario.php?id=" . $row['idadmin'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarUsuario.php?id=" 	. $row['idadmin'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
+ 				<td>" . $row['sede_id']			. "</td>
+				<td>" . $row['nombre'] 		. "</td>
+				<td>" . $row['estado'] 			. "</td>
+				<td>" . $row['color'] 		. "</td>
+				<td><a onclick='javascript:abrir(\"editarSede.php?id=" . $row['sede_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarSede.php?id=" 	. $row['sede_id'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
  }
@@ -124,11 +122,9 @@ else return false;
 						<thead>
 						  <tr>
 							<th>Id</th>
-							<th>Documento</th>
 							<th>Nombres</th>
-							<th>Apellidos</th>
-							<th>Rol</th>
-							<th>Login</th>
+							<th>Estado</th>
+							<th>Color</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

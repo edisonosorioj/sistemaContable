@@ -113,7 +113,7 @@ $html= "<!DOCTYPE html>
 										<tbody>
 											<tr>
 												<td>
-													<h4>1. Crear nuevo usuario Administrador. Existen<b> $user </b> Usuarios. <a href='verUsuarios.php'> Ver</a></h4>
+													<h4>2. Crear nuevo usuario Administrador. Existen<b> $user </b> Usuarios. <a href='verUsuarios.php'> Ver</a></h4>
 												</td>
 												<td class='type-info'>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearUsuario.html\")'>Crear</button>
@@ -121,7 +121,15 @@ $html= "<!DOCTYPE html>
 											</tr>
 											<tr>
 												<td>
-													<h4>2. Datos Básicos de la Empresa o Persona</h4>
+													<h4>1. Crear nueva Sede<a href='verSedes.php'> Ver</a></h4>
+												</td>
+												<td class='type-info'>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/crearSede.html\")'>Crear</button>
+												</td>	
+											</tr>
+											<tr>
+												<td>
+													<h4>3. Datos Básicos de la Empresa o Persona</h4>
 												</td>
 												<td class='type-info'>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/datosEmpresa.php\")'>Actualizar</button>
@@ -129,7 +137,7 @@ $html= "<!DOCTYPE html>
 											</tr>
 											<tr>
 												<td>
-													<h4>3. Consecutivo Cuenta de Cobros</h4>
+													<h4>4. Consecutivo Cuenta de Cobros</h4>
 												</td>
 												<td class='type-info'>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/consecutivo.php\")'>Actualizar</button>
