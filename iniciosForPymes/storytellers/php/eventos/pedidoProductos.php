@@ -1,5 +1,5 @@
 <?php
-// Version 2.0 of Edison Osorio
+// Version 2.2 of Edison Osorio
 session_start();
 
 
@@ -34,13 +34,14 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row3=$query3->fetch_assoc();
 $id_pedido = $row3['pedido_id'];
 $nombre_pedido = $row3['nombre_pedido'];
 $nombre_cliente = $row3['nombres'];
 $id_cliente = $row3['id'];
 $estado = $row3['estado'];
+$invitados = $row3['invitados'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
 $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
@@ -159,31 +160,25 @@ else return false;
 				</div>
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
-						<div class='form-title'>
-							<h4>" . $valorPedido . "</h4>
-						</div>
+						
 						<div class='row mb40'>
-							<div class='col-md-1'>
-							</div>	
-							<div class='col-md-2'>
-								<form class='form-horizontal' action='addPeProducto.php' method='post'> 
-									<div class='form-group'> 
-										<input type='hidden' name='pedido_id' value='$id_pedido'>
-										<input type='hidden' name='cliente_id' value='$id_cliente'>
-										<label>Tipo de Evento:</label> 
-										<input type='input' name='tipoEvento' value='$nombre_pedido' disabled/>
-									</div>
-							</div>
-							<div class='col-md-1'>
-									<div class='form-group'> <label>Cantidad: </label> 
-										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
-									</div> 
-									<button type='submit' class='btn btn-xs btn-primary'>Agregar</button> 
+							<div class='col-md-4'>
+								<div class='form-group'> 
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<input type='hidden' name='cliente_id' value='$id_cliente'>
+									<label>Tipo de Evento:</label> 
+									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
+									<label>Instalaciones:</label> 
+									<input type='input' name='instalaciones' class='form-control'> 
+								</div>
 							</div>
 							<div class='col-md-2'>
-									<div class='form-group'> <label>Detalles: </label> 
-										<input type='text' name='detalles' class='form-control'>
+									<div class='form-group'> <label>Invitados: </label> 
+										<input type='text' name='cantidad' class='form-control' value='$invitados' disabled/>
 									</div> 
+								<form class='form-horizontal' action='addPeProducto.php' method='post'>
+									
+									<button type='submit' class='btn btn-xs btn-primary'>Seleccionar</button> 
 								</form>
 							</div>
 							<div class='col-md-2'>
@@ -222,27 +217,52 @@ else return false;
 						</div>
 					</div>
 				</div>
-				<div class='agile-tables'>
-					<div class='w3l-table-info'>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>Cod.</th>
-							<th>Producto</th>
-							<th>V.Unitario</th>
-							<th>Cantidad</th>
-							<th>V.Total</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  " 
-						  . $tr . 
-						  "
-						</tbody>
-					  </table>
+
+				<div class='forms'>
+					<div class='form-two widget-shadow'>
+						<div class='row mb40'>
+							<div class='col-md-4'>
+								<div class='form-group'> 
+									<label>Entrada:</label> 
+									<input type='input' name='entrada' class='form-control'>
+									<h5>-</h5> 
+									<label>Plato fuerte:</label> 
+									<input type='input' name='platoFuerte' class='form-control'>
+									<h5>-</h5> 
+									<label>Mezcladores:</label> 
+									<input type='input' name='mezcladores' class='form-control'>
+
+									
+									
+								</div>
+							</div>
+							<div class='col-md-4'>
+									
+									<label>Menaje:</label> 
+									<input type='input' name='menaje' class='form-control'>
+									<h5>-</h5>
+									<label>Personal de Servicios:</label> 
+									<input type='input' name='personalServicio' class='form-control'>
+									<h5>-</h5> 
+									<label>Direccionamiento del Evento:</label> 
+									<input type='input' name='direccionamiento' class='form-control'>
+
+							</div>
+							<div class='col-md-4'>
+								<label>Rustico:</label> 
+								<input type='input' name='rustico' class='form-control'>
+								<h5>-</h5> 
+								<label>Licor:</label> 
+								<input type='input' name='licor' class='form-control'>
+								<h5>-</h5> 
+								<label>Observaciones:</label> 
+								<textarea name='observaciones' class='form-control'></textarea>
+							</div>
+							
+						</div>
 					</div>
 				</div>
+
 				<!-- //tables -->
 				<div class='col-md-2'>
 				</div>

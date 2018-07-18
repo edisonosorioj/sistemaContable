@@ -125,4 +125,26 @@ NOVEDADES BASES DE DATOS
 ALTER TABLE `sede` 
 ADD COLUMN `color` VARCHAR(45) NULL AFTER `estado`;
 
+CREATE TABLE `lista_precios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `item_id` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
 
+insert into item set nombre = 'Instalaciones';
+insert into item set nombre = 'Entrada';
+insert into item set nombre = 'Plato Fuerte';
+insert into item set nombre = 'Mezcladores';
+insert into item set nombre = 'Menaje';
+insert into item set nombre = 'Direccionamiento del Evento';
+insert into item set nombre = 'Rustico';
+insert into item set nombre = 'Licor';
+
+insert into lista_precios set item_id = 1, descripcion = 'Salón, mobiliario, parqueadero, iluminación decorativa, espacio al aire libre y energía';
+insert into lista_precios set item_id = 1, descripcion = 'Sólo salón, mobiliario, parqueadero, iluminación decorativa, espacio al aire libre, seguridad, aseo, administrador y energía';
+
+
+CREATE TABLE `item` (
+  `item_id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  PRIMARY KEY (`item_id`));
