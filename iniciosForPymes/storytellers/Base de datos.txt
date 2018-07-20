@@ -148,3 +148,24 @@ CREATE TABLE `item` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   PRIMARY KEY (`item_id`));
+
+CREATE TABLE `cotizacion` (
+  `cotizacion_id` INT NOT NULL AUTO_INCREMENT,
+  `tipo_evento` VARCHAR(45) NULL,
+  `invitados` VARCHAR(45) NULL,
+  `instalaciones` VARCHAR(45) NULL,
+  `entrada` VARCHAR(45) NULL,
+  `plato_fuerte` VARCHAR(45) NULL,
+  `mezcladores` VARCHAR(45) NULL,
+  `menaje` VARCHAR(45) NULL,
+  `personal` VARCHAR(45) NULL,
+  `direccionamiento` VARCHAR(45) NULL,
+  `rustico` VARCHAR(45) NULL,
+  `licor` VARCHAR(45) NULL,
+  `observaciones` VARCHAR(45) NULL,
+  `pedido_id` VARCHAR(45) NULL,
+  `cliente_id` VARCHAR(45) NULL,
+  PRIMARY KEY (`cotizacion_id`));
+
+
+

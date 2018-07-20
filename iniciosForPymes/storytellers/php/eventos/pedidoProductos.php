@@ -34,52 +34,128 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
-$row3=$query3->fetch_assoc();
-$id_pedido = $row3['pedido_id'];
-$nombre_pedido = $row3['nombre_pedido'];
-$nombre_cliente = $row3['nombres'];
-$id_cliente = $row3['id'];
-$estado = $row3['estado'];
-$invitados = $row3['invitados'];
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$row = $query->fetch_assoc();
+$id_pedido = $row['pedido_id'];
+$nombre_pedido = $row['nombre_pedido'];
+$nombre_cliente = $row['nombres'];
+$id_cliente = $row['id'];
+$estado = $row['estado'];
+$invitados = $row['invitados'];
 
-// Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
-
-
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
-
- 	$tr .=	"<tr class='rows' id='rows'>
-				<td>" 	. 	$row['idproducto'] 	. "</td>
-				<td>" 	. 	$row['producto'] 	. "</td>
-				<td align='right'>$ " . number_format($row['valoru'], 0, ",", ".") 	. "</td>
-				<td>" 	. 	$row['cantidad'] 	. "</td>
-				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
-				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarPeProducto.php?id=" . $row['idproducto'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
-				</td>
-			</tr>";
-
- }
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query3 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
+$query1 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
 
-$row3 = $query3->fetch_assoc();
+$row1 = $query1->fetch_assoc();
 
-$valorPedido = "Valor Pedido: $ " . number_format($row3['valor'], 0, ",", ".") . "";
+$valorPedido = "Valor Pedido: $ " . number_format($row1['valor'], 0, ",", ".") . "";
 
 //Sale la lista de productos disponibles.
 
 $option='';
 
-$query4 = mysqli_query($result,'select * from productos order by idproductos');
+$query2 = mysqli_query($result,'select * from lista_precios where item_id = 1 order by id');
 
-while ($row = $query4->fetch_array()){
+while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row['nombre'] . "'>" . $row['nombre'] . "</option>";
+	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['descripcion'] . "</option>";
 	}
+
+//Sale la lista de productos disponibles.
+
+$entrada='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 2 order by id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$entrada .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+
+//Sale la lista de productos disponibles.
+
+$platoFuerte='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 3 order by id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$platoFuerte .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+
+//Sale la lista de productos disponibles.
+
+$mezcladores='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 4 order by id DESC');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$mezcladores .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+
+//Sale la lista de productos disponibles.
+
+$menaje='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 5 order by id DESC');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$menaje .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+
+//Sale la lista de productos disponibles.
+
+$personalServicio='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 6 order by id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$personalServicio .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+//Sale la lista de productos disponibles.
+
+$direccionamiento='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 8 order by id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$direccionamiento .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+
+//Sale la lista de productos disponibles.
+
+$rustico='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 9 order by id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$rustico .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+//Sale la lista de productos disponibles.
+
+$licor='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 7 order by id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$licor .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	}
+
+
 
 
 // Se contruye el HTML para imprimirlo mas adelante.
@@ -168,17 +244,17 @@ else return false;
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<label>Tipo de Evento:</label> 
 									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
-									<label>Instalaciones:</label> 
-									<input type='input' name='instalaciones' class='form-control'> 
+								<form class='form-horizontal' action='instalaciones.php' method='post'>
+									<label>Instalaciones:</label>
+									<select name='instalaciones' class='form-control'>" . $option . "</select>
 								</div>
 							</div>
 							<div class='col-md-2'>
 									<div class='form-group'> <label>Invitados: </label> 
-										<input type='text' name='cantidad' class='form-control' value='$invitados' disabled/>
-									</div> 
-								<form class='form-horizontal' action='addPeProducto.php' method='post'>
+										<input type='text' name='invitados' class='form-control' value='$invitados' disabled/>
+									</div>
 									
-									<button type='submit' class='btn btn-xs btn-primary'>Seleccionar</button> 
+									<button type='submit' class='btn btn-primary btn-block'>Seleccionar</button> 
 								</form>
 							</div>
 							<div class='col-md-2'>
@@ -189,12 +265,10 @@ else return false;
 							</div>
 							<div class='col-md-2'>
 								<label>Cotizaci&oacute;n # $id_pedido</label>
-								<form class='form-horizontal' action='cotizacion.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
+								
 									<div class='form-group'> <label></label>
 									</div>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-primary'>Cotizacion</button> 
-								</form>
+									
 								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
 									<button type='submit' class='btn btn-xs btn-block btn-primary'>Cuenta Cobro</button>
@@ -220,46 +294,49 @@ else return false;
 
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
+								<form class='form-horizontal' action='addCotización.php' method='post'>
 						<div class='row mb40'>
 							<div class='col-md-4'>
-								<div class='form-group'> 
-									<label>Entrada:</label> 
-									<input type='input' name='entrada' class='form-control'>
+								<div class='form-group'>
+									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<input type='hidden' name='cliente_id' value='$id_cliente'>
+									<input type='hidden' name='invitados' value='$invitados'>
+									<label>Entrada:</label>
+									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
 									<label>Plato fuerte:</label> 
-									<input type='input' name='platoFuerte' class='form-control'>
+									<select name='platoFuerte' class='form-control'>" . $platoFuerte . "</select>
 									<h5>-</h5> 
 									<label>Mezcladores:</label> 
-									<input type='input' name='mezcladores' class='form-control'>
+									<select name='mezcladores' class='form-control'>" . $mezcladores . "</select>
 
-									
-									
 								</div>
 							</div>
 							<div class='col-md-4'>
 									
 									<label>Menaje:</label> 
-									<input type='input' name='menaje' class='form-control'>
+									<select name='menaje' class='form-control'>" . $menaje . "</select>
 									<h5>-</h5>
 									<label>Personal de Servicios:</label> 
-									<input type='input' name='personalServicio' class='form-control'>
+									<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
 									<h5>-</h5> 
 									<label>Direccionamiento del Evento:</label> 
-									<input type='input' name='direccionamiento' class='form-control'>
+									<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
 
 							</div>
 							<div class='col-md-4'>
 								<label>Rustico:</label> 
-								<input type='input' name='rustico' class='form-control'>
+								<select name='rustico' class='form-control'>" . $rustico . "</select>
 								<h5>-</h5> 
 								<label>Licor:</label> 
-								<input type='input' name='licor' class='form-control'>
+								<select name='licor' class='form-control'>" . $licor . "</select>
 								<h5>-</h5> 
 								<label>Observaciones:</label> 
 								<textarea name='observaciones' class='form-control'></textarea>
 							</div>
-							
 						</div>
+							<button type='submit' class='btn btn-primary btn-block'> Generar Cotización</button> 
+							</form>
 					</div>
 				</div>
 

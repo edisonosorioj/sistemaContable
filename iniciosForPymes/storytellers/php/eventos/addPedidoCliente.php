@@ -30,7 +30,7 @@ $result = $conex->conex();
 	$evento		=	$_POST['evento'];
 	$invitado	=	$_POST['invitados'];
 
-// Realiza una primera consulta que suma el total que deben todos los clientes
+// Realiza una primera consulta para sacar el color de la sede
  $query2 = mysqli_query($result,"SELECT * FROM sede WHERE sede_id = '$sede';");
 
  $row = $query2->fetch_array(MYSQLI_BOTH);
