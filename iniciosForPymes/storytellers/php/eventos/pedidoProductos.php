@@ -155,9 +155,6 @@ while ($row3 = $query3->fetch_array()){
 	 	$licor .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
 	}
 
-
-
-
 // Se contruye el HTML para imprimirlo mas adelante.
 
 $html="<!DOCTYPE html>
@@ -294,7 +291,7 @@ else return false;
 
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
-								<form class='form-horizontal' action='addCotización.php' method='post'>
+								<form class='form-horizontal' action='addCotizacion.php' method='post'>
 						<div class='row mb40'>
 							<div class='col-md-4'>
 								<div class='form-group'>
@@ -326,6 +323,7 @@ else return false;
 							</div>
 							<div class='col-md-4'>
 								<label>Rustico:</label> 
+								<input type='number' name='canRustico' class='' placeholder = 'Cant. si aplica'>
 								<select name='rustico' class='form-control'>" . $rustico . "</select>
 								<h5>-</h5> 
 								<label>Licor:</label> 

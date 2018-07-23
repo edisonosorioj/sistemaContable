@@ -54,6 +54,7 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
  	$total = ((int)$total+(int)$sumtotal);
  }
 
+$total = ($total > 0) ? $total = $total : $total = 0;
 
 $html="<!DOCTYPE html>
 <head>

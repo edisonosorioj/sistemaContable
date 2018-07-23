@@ -1,13 +1,26 @@
-- Identificador por Usuario Vendedor
+- Identificador por Usuario Vendedor - Listo, falta listado por vendedor
 - Información Adicional para faturación. (Esperar datos).
-- Desarrollar Super Usuario Marinilla Rionegro
-- Redes
-- Fecha de viaje y fecha de reserva
+- Recibo de caja en Cliente. Listo
+- Fecha de viaje y fecha de reserva. Listo
+
 	Condición de 30% o 50% inicial y numero de cuotas
+
 - Valor cuota Inicial
-- Recibo de caja en Cliente
 
 - Ingresos Percibidos a tercero
 - Ingresos Gravados (propios) - IVA
 
 - Historial de facturas
+
+// PARA DESPUES
+- Desarrollar Super Usuario Marinilla Rionegro
+- Redes
+
+
+// Cambios en Tablas
+
+ALTER TABLE `pedidoProductos` 
+ADD COLUMN `cuotas` INT NOT NULL DEFAULT 1 AFTER `producto_id`;
+
+ALTER TABLE `empacatumaleta`.`pedidos` 
+DROP COLUMN `t_cobrado`;
