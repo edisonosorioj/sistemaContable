@@ -69,6 +69,7 @@ CREATE TABLE `productos` (
   `estado` INT NOT NULL,
   `sede_id` INT NULL,
   `invitados` VARCHAR(45) NULL,
+  `instalacion_id` INT NULL,
   PRIMARY KEY (`pedido_id`, `cliente_id`));
 
 CREATE TABLE `pedidoProductos` (
@@ -167,6 +168,17 @@ CREATE TABLE `cotizacion` (
   `cliente_id` INT NULL,
   `valor` VARCHAR(45) NULL,
   PRIMARY KEY (`cotizacion_id`));
+
+ALTER TABLE `pedidos` 
+ADD COLUMN `instalacion_id` INT NULL AFTER `invitados`;
+
+CREATE TABLE `precio_x_dia` (
+  `pxd_id` INT NOT NULL AUTO_INCREMENT,
+  `dia` VARCHAR(45) NULL,
+  `precio` VARCHAR(45) NULL,
+  `sede_id` VARCHAR(45) NULL,
+  `item_id` VARCHAR(45) NULL,
+  PRIMARY KEY (`pxd_id`));
 
 
 

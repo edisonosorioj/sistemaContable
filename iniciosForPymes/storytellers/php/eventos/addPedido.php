@@ -15,14 +15,15 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$start		=	$_POST['start'];
-	$time1		=	$_POST['hora_i'];
-	$end		=	$_POST['end'];
-	$time2		=	$_POST['hora_f'];
-	$cliente 	=	$_POST['cliente'];
-	$sede		=	$_POST['sede'];
-	$evento		=	$_POST['evento'];
-	$invitado	=	$_POST['invitados'];
+	$start			=	$_POST['start'];
+	$time1			=	$_POST['hora_i'];
+	$end			=	$_POST['end'];
+	$time2			=	$_POST['hora_f'];
+	$cliente 		=	$_POST['cliente'];
+	$sede			=	$_POST['sede'];
+	$evento			=	$_POST['evento'];
+	$invitado		=	$_POST['invitados'];
+	$instalaciones	=	$_POST['instalaciones'];
 
 // Realiza una primera consulta que suma el total que deben todos los clientes
  $query2 = mysqli_query($result,"SELECT * FROM sede WHERE sede_id = '$sede';");
@@ -36,7 +37,7 @@ $fecha_f = $end . " " . $time2;
 
 
 // Agrega pedido según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado');");
+	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados, instalacion_id) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado', '$instalaciones');");
 	
 // COnsulta el ultipo ID ingresado a la tabla
 	$consecutivo = mysqli_insert_id($result);

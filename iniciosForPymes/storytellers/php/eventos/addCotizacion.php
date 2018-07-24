@@ -5,10 +5,11 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$tipo_evento		=	'Aun no se lleva';
+	$tipo_evento		=	$_POST['nombre_pedido'];
 	$pedido_id			=	$_POST['pedido_id'];
 	$cliente_id			=	$_POST['cliente_id'];
 	$invitados			=	$_POST['invitados'];
+	$instalaciones		=	'Pendiente de llamar';
 	$entrada			=	$_POST['entrada'];
 	$platoFuerte		=	$_POST['platoFuerte'];
 	$mezcladores		=	$_POST['mezcladores'];
@@ -83,7 +84,8 @@ $result = $conex->conex();
  $valorCotiza = ($preEntrada + $prePlaFuerte + $preMezcla + $preMenaje + $prePerServicio + $preDireccion + $preLicor + $totalRustico) * $invitados;
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query8 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, instalaciones, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, rustico, licor, observaciones, pedido_id, cliente_id, valor) VALUES ('$tipo_evento', '$invitados', '$desEntrada', '$desPlaFuerte', '$desMezcla', '$desMenaje', '$desPerServicio', '$desDireccion', '$desRustico', '$desLicor', '$observaciones', '$pedido_id', '$cliente_id', '$valorCotiza');");
+ 
+	$query8 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, instalaciones, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, rustico, licor, observaciones, pedido_id, cliente_id, valor) VALUES ('$tipo_evento', '$invitados', '$instalaciones','$desEntrada', '$desPlaFuerte', '$desMezcla', '$desMenaje', '$desPerServicio', '$desDireccion', CONCAT('$canRustico'+'$desRustico'), '$desLicor', '$observaciones', '$pedido_id', '$cliente_id', '$valorCotiza');");
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query8 > 0){
@@ -98,4 +100,4 @@ $result = $conex->conex();
 		opener.location.reload();
 	</script>";
 	
-echo $html;	
+echo $html;

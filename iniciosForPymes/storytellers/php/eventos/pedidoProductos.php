@@ -34,7 +34,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row = $query->fetch_assoc();
 $id_pedido = $row['pedido_id'];
 $nombre_pedido = $row['nombre_pedido'];
@@ -42,6 +42,7 @@ $nombre_cliente = $row['nombres'];
 $id_cliente = $row['id'];
 $estado = $row['estado'];
 $invitados = $row['invitados'];
+$insta = $row['instalacion_id'];
 
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
@@ -53,14 +54,11 @@ $valorPedido = "Valor Pedido: $ " . number_format($row1['valor'], 0, ",", ".") .
 
 //Sale la lista de productos disponibles.
 
-$option='';
+$query2 = mysqli_query($result,'select * from lista_precios where id = $insta');
 
-$query2 = mysqli_query($result,'select * from lista_precios where item_id = 1 order by id');
+$row2 = $query2->fetch_assoc();
 
-while ($row2 = $query2->fetch_array()){
-
-	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['descripcion'] . "</option>";
-	}
+$instalacion = $row2['descripcion'];
 
 //Sale la lista de productos disponibles.
 
@@ -298,6 +296,7 @@ else return false;
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<input type='hidden' name='invitados' value='$invitados'>
+									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
 									<label>Entrada:</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
