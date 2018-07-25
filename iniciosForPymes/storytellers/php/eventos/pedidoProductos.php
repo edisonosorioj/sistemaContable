@@ -42,7 +42,7 @@ $nombre_cliente = $row['nombres'];
 $id_cliente = $row['id'];
 $estado = $row['estado'];
 $invitados = $row['invitados'];
-$insta = $row['instalacion_id'];
+$inst_id = $row['instalacion_id'];
 
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
@@ -54,11 +54,12 @@ $valorPedido = "Valor Pedido: $ " . number_format($row1['valor'], 0, ",", ".") .
 
 //Sale la lista de productos disponibles.
 
-$query2 = mysqli_query($result,'select * from lista_precios where id = $insta');
+$query2 = mysqli_query($result,"select * from lista_precios where id = '$inst_id'");
 
 $row2 = $query2->fetch_assoc();
 
 $instalacion = $row2['descripcion'];
+
 
 //Sale la lista de productos disponibles.
 
@@ -239,9 +240,9 @@ else return false;
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<label>Tipo de Evento:</label> 
 									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
-								<form class='form-horizontal' action='instalaciones.php' method='post'>
+								<form class='form-horizontal' action='editarPedido.php' method='post'>
 									<label>Instalaciones:</label>
-									<select name='instalaciones' class='form-control'>" . $option . "</select>
+									<input type='input' name='instalaciones' class='form-control' value='$instalacion' disabled/>
 								</div>
 							</div>
 							<div class='col-md-2'>
@@ -249,39 +250,16 @@ else return false;
 										<input type='text' name='invitados' class='form-control' value='$invitados' disabled/>
 									</div>
 									
-									<button type='submit' class='btn btn-primary btn-block'>Seleccionar</button> 
+									<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 								</form>
 							</div>
 							<div class='col-md-2'>
 								<label>No. de Cuotas</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
+							</div>
+							<div class='col-md-2'>
 								<label>Deposito</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1000000' required/>
-							</div>
-							<div class='col-md-2'>
-								<label>Cotizaci&oacute;n # $id_pedido</label>
-								
-									<div class='form-group'> <label></label>
-									</div>
-									
-								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-										<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-primary'>Cuenta Cobro</button>
-								</form>
-							</div>
-							<div class='col-md-2'>
-								<label>Acciones de Cierre</label>
-								<form class='form-horizontal' action='hacerPedido.php' method='post'>
-									<div class='form-group'><label></label> 
-									</div> 
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-primary'>Hacer Pedido</button> 
-								</form> 
-								<form class='form-horizontal' action='cancelarPedido.php' method='post'>
-									<label></label>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-danger'>Cancelar Pedido</button> 
-								</form> 
 							</div>
 						</div>
 					</div>
@@ -289,7 +267,7 @@ else return false;
 
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
-								<form class='form-horizontal' action='addCotizacion.php' method='post'>
+								<form class='form-horizontal' action='addCotizacion.php' method='post' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 						<div class='row mb40'>
 							<div class='col-md-4'>
 								<div class='form-group'>
@@ -297,6 +275,7 @@ else return false;
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<input type='hidden' name='invitados' value='$invitados'>
 									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
+									<input type='hidden' name='instalacion' value='$inst_id'>
 									<label>Entrada:</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
@@ -305,20 +284,17 @@ else return false;
 									<h5>-</h5> 
 									<label>Mezcladores:</label> 
 									<select name='mezcladores' class='form-control'>" . $mezcladores . "</select>
-
 								</div>
 							</div>
 							<div class='col-md-4'>
-									
-									<label>Menaje:</label> 
-									<select name='menaje' class='form-control'>" . $menaje . "</select>
-									<h5>-</h5>
-									<label>Personal de Servicios:</label> 
-									<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
-									<h5>-</h5> 
-									<label>Direccionamiento del Evento:</label> 
-									<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
-
+								<label>Menaje:</label> 
+								<select name='menaje' class='form-control'>" . $menaje . "</select>
+								<h5>-</h5>
+								<label>Personal de Servicios:</label> 
+								<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
+								<h5>-</h5> 
+								<label>Direccionamiento del Evento:</label> 
+								<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
 							</div>
 							<div class='col-md-4'>
 								<label>Rustico:</label> 
@@ -332,8 +308,21 @@ else return false;
 								<textarea name='observaciones' class='form-control'></textarea>
 							</div>
 						</div>
-							<button type='submit' class='btn btn-primary btn-block'> Generar Cotización</button> 
-							</form>
+						<button type='submit' class='btn btn-primary btn-block'> Generar Cotización</button> 
+						</form>
+						<form class='form-horizontal' action='hacerPedido.php' method='post'>
+							<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-primary'>Confirmar Pedido</button> 
+						</form> 
+						<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+								<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-primary'>Cuenta Cobro / Factura</button>
+						</form>
+						<form class='form-horizontal' action='cancelarPedido.php' method='post'>
+							<label></label>
+							<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-danger'>Cancelar Pedido</button> 
+						</form>
 					</div>
 				</div>
 
