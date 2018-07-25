@@ -298,6 +298,7 @@ else return false;
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<input type='hidden' name='invitados' value='$invitados'>
+									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
 									<label>Entrada:</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 

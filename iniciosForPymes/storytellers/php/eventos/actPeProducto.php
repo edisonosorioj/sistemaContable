@@ -21,7 +21,6 @@ $result = $conex->conex();
 
  	$proDetalles = $producto . ' - ' . $detalles;
 
- 	// echo $proDetalles;die();
 
 // Consulta para actualizar el cliente
 	$query = mysqli_query($result, "UPDATE pedidoproductos set producto = '$proDetalles', valoru = '$valor', cantidad = '$cantidad', valort = '$valort' where peproducto_id ='$id';");

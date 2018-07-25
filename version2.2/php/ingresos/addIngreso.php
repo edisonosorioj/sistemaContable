@@ -11,8 +11,8 @@ $result = $conex->conex();
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
 
-	$query = mysqli_query($result,"INSERT INTO ingresos (cantidad, producto, detalles, valor, fecha) 
-				VALUES ('$cantidad', '$producto', '$detalles', '$valor', '$fecha');");
+	$query = mysqli_query($result,"INSERT INTO ingresos (fecha, cantidad, producto, detalles, valor) 
+				VALUES ('$fecha', '$cantidad', '$producto', '$detalles', '$valor');");
 	
 	
 if($query > 0){

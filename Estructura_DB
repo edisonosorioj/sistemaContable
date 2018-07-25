@@ -100,6 +100,9 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('5', 'forma_de_pago
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'tel', '9876543');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'cel', '3211234567');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo', '0');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('9', 'plan', '25000');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('10', 'fecha_contrato', '2018-05-20');
+
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 

@@ -36,11 +36,7 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 	$sumtotal=$row['disponible']*$row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>
-				<input type='checkbox' value='" . $row['idproductos'] . "' name='ids[]' />
-				</td>
 				<td>" . $row['idproductos'] 		. "</td>
-				<td><img src='../../images/01.jpg'></td>
 				<td>" . $row['fecha'] 				. "</td>
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
@@ -140,9 +136,7 @@ else return false;
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
 							<th>ID</th>
-							<th>Imagen</th>
 							<th>Fecha</th>
 							<th>Producto</th>
 							<th>Cantidad</th>

@@ -29,7 +29,6 @@ $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td></td>
 				<td>" . $row['fecha'] 				. "</td>
 				<td>" . $row['cantidad'] 			. "</td>
 				<td>" . $row['producto'] 			. "</td>
@@ -128,7 +127,6 @@ else return false;
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
 							<th>Fecha</th>
 							<th>Can.</th>
 							<th>Producto</th>

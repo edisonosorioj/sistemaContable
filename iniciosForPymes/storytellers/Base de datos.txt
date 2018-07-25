@@ -103,6 +103,7 @@ CREATE TABLE `sede` (
   `sede_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   `estado` VARCHAR(45) NULL DEFAULT 1,
+  `color` VARCHAR(45) NULL AFTER `estado`,
   PRIMARY KEY (`sede_id`));
   
 
@@ -128,7 +129,7 @@ ADD COLUMN `color` VARCHAR(45) NULL AFTER `estado`;
 CREATE TABLE `lista_precios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `item_id` VARCHAR(45) NULL,
-  `descripcion` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`));
 
 insert into item set nombre = 'Instalaciones';
@@ -146,7 +147,7 @@ insert into lista_precios set item_id = 1, descripcion = 'Sólo salón, mobiliar
 
 CREATE TABLE `item` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL,
+  `nombre` VARCHAR(200) NULL,
   PRIMARY KEY (`item_id`));
 
 CREATE TABLE `cotizacion` (

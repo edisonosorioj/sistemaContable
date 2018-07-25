@@ -19,7 +19,7 @@ $result = $conex->conex();
 $query = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', '$valor', '$id');");
 
 
-$query2 = mysqli_query($result,"INSERT INTO ingresos (cantidad, producto, detalles, valor, fecha) VALUES ('1', CONCAT('$id',' $detalles'), '$nombreCliente', '$valor', '$fecha');");
+$query2 = mysqli_query($result,"INSERT INTO ingresos (fecha, cantidad, producto, detalles, valor) VALUES ('$fecha', '1', CONCAT('$id',' $detalles'), '$nombreCliente', '$valor');");
 
 
 // Acción que determina si la acción fue realizada con exito o no.
