@@ -26,6 +26,15 @@ while ($row3 = $query3->fetch_array()){
 	 	$option2 .=	"<option value='" . $row3['sede_id'] . "'>" . $row3['nombre'] . "</option>";
 	}
 
+$instalaciones='';
+
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 1');
+
+while ($row4 = $query3->fetch_array()){
+
+	 	$instalaciones .=	"<option value='" . $row4['id'] . "'>" . $row4['descripcion'] . "</option>";
+	}
+
 
 $html = "<!DOCTYPE html>
 <head>
@@ -131,6 +140,13 @@ $html = "<!DOCTYPE html>
 															<label>Numero de Invitados</label> 
 															<input type='text' name='invitados' class='form-control' placeholder='Invitados'> 
 														</div>
+														<div class='form-group'> 
+															<label>Instalaciones:</label>
+															<select name='instalaciones' class='form-control1'>
+																<option value='Seleccione'>Seleccione instalaciones</option>
+																" . $instalaciones . "
+															</select>
+														</div>
 
 														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
 														<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
@@ -214,6 +230,13 @@ $html = "<!DOCTYPE html>
 														<div class='form-group'> 
 															<label>Numero de Invitados</label> 
 															<input type='text' name='invitados' class='form-control' placeholder='Invitados'> 
+														</div>
+														<div class='form-group'> 
+															<label>Instalaciones:</label>
+															<select name='instalaciones' class='form-control1'>
+																<option value='Seleccione'>Seleccione instalaciones</option>
+																" . $instalaciones . "
+															</select>
 														</div>
 
 														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
