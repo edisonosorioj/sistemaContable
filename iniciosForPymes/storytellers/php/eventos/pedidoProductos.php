@@ -34,7 +34,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row = $query->fetch_assoc();
 $id_pedido = $row['pedido_id'];
 $nombre_pedido = $row['nombre_pedido'];
@@ -43,6 +43,7 @@ $id_cliente = $row['id'];
 $estado = $row['estado'];
 $invitados = $row['invitados'];
 $inst_id = $row['instalacion_id'];
+$sede_id = $row['sede_id'];
 
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
@@ -51,6 +52,16 @@ $query1 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner
 $row1 = $query1->fetch_assoc();
 
 $valorPedido = "Valor Pedido: $ " . number_format($row1['valor'], 0, ",", ".") . "";
+
+
+// Consulta el nombre de la sede
+
+$query11 = mysqli_query($result,"select * from sede where sede_id = '$sede_id'");
+
+$sede = $query11->fetch_assoc();
+
+$nombre_sede = $sede['nombre'];
+
 
 //Sale la lista de productos disponibles.
 
@@ -236,9 +247,7 @@ else return false;
 						<div class='row mb40'>
 							<div class='col-md-4'>
 								<div class='form-group'> 
-								<form class='form-horizontal' action='editarPedido.php' method='post'>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<input type='hidden' name='cliente_id' value='$id_cliente'>
+								<form class='form-horizontal' action='editarPedido.php?id=$id' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 									<label>Tipo de Evento:</label> 
 									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
 									<label>Instalaciones:</label>
@@ -246,16 +255,20 @@ else return false;
 								</div>
 							</div>
 							<div class='col-md-2'>
-									<div class='form-group'> <label>Invitados: </label> 
+									<div class='form-group'> 
+									<label>Invitados: </label> 
 										<input type='text' name='invitados' class='form-control' value='$invitados' disabled/>
+									<label>Sede: </label> 
+										<input type='text' name='sede' class='form-control' value='$nombre_sede' disabled/>
 									</div>
 									
-									<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 								</form>
 							</div>
 							<div class='col-md-2'>
 								<label>No. de Cuotas</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
+								<label>-</label> 
+								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 							</div>
 							<div class='col-md-2'>
 								<label>Deposito</label>
@@ -312,8 +325,12 @@ else return false;
 						</form>
 						<form class='form-horizontal' action='hacerPedido.php' method='post'>
 							<input type='hidden' name='pedido_id' value='$id_pedido'>
-							<button type='submit' class='btn btn-block btn-primary'>Confirmar Pedido</button> 
+							<button type='submit' class='btn btn-block btn-primary'>Confirmar Evento</button> 
 						</form> 
+						<form class='form-horizontal' action='contrato.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+								<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-primary'>Generar Contrato</button>
+						</form>
 						<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
 								<input type='hidden' name='pedido_id' value='$id_pedido'>
 							<button type='submit' class='btn btn-block btn-primary'>Cuenta Cobro / Factura</button>

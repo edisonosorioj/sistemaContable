@@ -33,6 +33,22 @@ html, body{
 	margin-top: 5%;
 }
 
+.titulo{
+  margin-top: 20%;
+  text-align: center;
+}
+
+.parrafo{
+  margin-top: 1em;
+  text-align: justify;
+}
+
+.parrafo2{
+  margin-left: 1em;
+  margin-top: 1em;
+  text-align: justify;
+}
+
 .encabezado{
 	margin-top: 5%;
 }
