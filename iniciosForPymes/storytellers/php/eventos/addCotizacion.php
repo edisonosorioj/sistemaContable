@@ -9,11 +9,7 @@ $result = $conex->conex();
 	$pedido_id			=	$_POST['pedido_id'];
 	$cliente_id			=	$_POST['cliente_id'];
 	$invitados			=	$_POST['invitados'];
-<<<<<<< Updated upstream
-	$instalaciones		=	'Pendiente de llamar';
-=======
 	$instalaciones		=	$_POST['instalaciones'];
->>>>>>> Stashed changes
 	$entrada			=	$_POST['entrada'];
 	$platoFuerte		=	$_POST['platoFuerte'];
 	$mezcladores		=	$_POST['mezcladores'];
@@ -26,8 +22,6 @@ $result = $conex->conex();
 	$observaciones		=	$_POST['observaciones'];
 
 // Realiza una primera consulta
-<<<<<<< Updated upstream
-=======
  $query = mysqli_query($result,"SELECT * FROM clientes where id = $cliente_id");
 
  $row = $query->fetch_array(MYSQLI_BOTH);
@@ -59,12 +53,13 @@ $result = $conex->conex();
  $preInstala 	= $row['precio'];
 
 // Realiza una primera consulta
->>>>>>> Stashed changes
  $query = mysqli_query($result,"SELECT * FROM lista_precios where id = $entrada");
 
  $row = $query->fetch_array(MYSQLI_BOTH);
  $desEntrada 	= $row['descripcion'];
- $preEntrada 	= $row['precio'] * $invitados;
+ $preEntrada 	= $row['precio'];
+
+ $totalEntrada = $preEntrada * $invitados;
  
 // Realiza una primera consulta
  $query1 = mysqli_query($result,"SELECT * FROM lista_precios where id = $platoFuerte");
@@ -72,20 +67,26 @@ $result = $conex->conex();
  $row1 = $query1->fetch_array(MYSQLI_BOTH);
  $desPlaFuerte 	= $row1['descripcion'];
  $prePlaFuerte 	= $row1['precio'];
+
+ $totalPlaFuerte = $prePlaFuerte * $invitados;
  
 // Realiza una primera consulta
  $query2 = mysqli_query($result,"SELECT * FROM lista_precios where id = $mezcladores");
 
  $row2 = $query2->fetch_array(MYSQLI_BOTH);
  $desMezcla 	= $row2['descripcion'];
- $preMezcla 	= $row2['precio'] * $invitados;
+ $preMezcla 	= $row2['precio'];
+
+ $totalMezcla = $preMezcla * $invitados;
 
 // Realiza una primera consulta
  $query3 = mysqli_query($result,"SELECT * FROM lista_precios where id = $menaje");
 
  $row3 = $query3->fetch_array(MYSQLI_BOTH);
  $desMenaje 	= $row3['descripcion'];
- $preMenaje 	= $row3['precio'] * $invitados;
+ $preMenaje 	= $row3['precio'];
+
+ $totalMenaje = $preMenaje * $invitados;
 
 // Realiza una primera consulta
  $query4 = mysqli_query($result,"SELECT * FROM lista_precios where id = $personalServicio");
@@ -108,21 +109,23 @@ $result = $conex->conex();
  $desRustico 	= $row6['descripcion'];
  $preRustico 	= $row6['precio'];
 
+ $totalRustico = $preRustico * $canRustico;
+
 // Realiza una primera consulta
  $query7 = mysqli_query($result,"SELECT * FROM lista_precios where id = $licor");
 
  $row7 = $query7->fetch_array(MYSQLI_BOTH);
  $desLicor 	= $row7['descripcion'];
- $preLicor 	= $row7['precio'] * $invitados;
+ $preLicor 	= $row7['precio'];
+
+ $totalLicor = $preLicor * $invitados;
 
 // Calculo de precios para Pedido
 
  // $canRustico = ($canRustico > 0) ? $totalRustico = $preRustico * $canRustico : $totalRustico = 0 ;
 
- $valorCotiza = ($preEntrada + $prePlaFuerte + $preMezcla + $preMenaje + $prePerServicio + $preDireccion + $preLicor + $totalRustico) * $invitados;
+ $valorCotiza = $preEntrada + $prePlaFuerte + $preMezcla + $preMenaje + $prePerServicio + $preDireccion;
 
-<<<<<<< Updated upstream
-=======
 
 $html="<!DOCTYPE html>
 <html>
@@ -200,37 +203,32 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>Entrada</td>
 					<td class='text-center'>$desEntrada</td>
 					<td class='text-center' rowspan='6'>$invitados</td>
-					<td class='text-center'>" . $preEntrada / $invitados . "</td>
-					<td class='text-center'>$preEntrada</td>
+					<td class='text-center' rowspan='6'>$valorCotiza</td>
+					<td class='text-center'>$totalEntrada</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Plato fuerte</td>
 					<td class='text-center'>$desPlaFuerte</td>
-					<td class='text-center'>" . $prePlaFuerte / $invitados . "</td>
-					<td class='text-center'>$prePlaFuerte</td>
+					<td class='text-center'>$totalPlaFuerte</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Mezcladores</td>
 					<td class='text-center'>$desMezcla</td>
-					<td class='text-center'>" . $preMezcla / $invitados . "</td>
-					<td class='text-center'>$preMezcla</td>
+					<td class='text-center'>$totalMezcla</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Menaje</td>
 					<td class='text-center'>$desMenaje</td>
-					<td class='text-center'>" . $preMenaje / $invitados . "</td>
-					<td class='text-center'>$preMenaje</td>
+					<td class='text-center'>$totalMenaje</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Personal Servicio</td>
 					<td class='text-center'>$desPerServicio</td>
 					<td class='text-center'>$prePerServicio</td>
-					<td class='text-center'>$prePerServicio</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Direccionamiento del evento</td>
 					<td class='text-center'>$desDireccion</td>
-					<td class='text-center'>$preDireccion</td>
 					<td class='text-center'>$preDireccion</td>
 				</tr>
 				<tr>
@@ -238,24 +236,32 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>$desRustico</td>
 					<td class='text-center'>$canRustico</td>
 					<td class='text-center'>$preRustico</td>
-					<td class='text-center'>" . $preRustico * $canRustico. "</td>
+					<td class='text-center'>$totalRustico</td>
 				</tr>
+				<tr>
 					<td class='text-center'>Licor</td>
 					<td class='text-center'>$desLicor</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'>" . $preLicor / $invitados . "</td>
 					<td class='text-center'>$preLicor</td>
+					<td class='text-center'>$totalLicor</td>
+				</tr>
+				<tr>
+					<td colspan='2' rowspan='2'>Observaciones: $observaciones</td>
+					<th class='text-center' colspan='2'>Total</th>
+					<td class='text-center'>" . number_format($preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $desPerServicio + $desDireccion + $totalRustico + $totalLicor, 0, ",", ".") . "</td>
+				</tr>
+				<tr>
+					<td colspan='3'>Precios Válidos por 15 días después de la fecha de elaboración.</td>
 				</tr>
 			</table>
 		</div>
-
+		<div class='firma'><p>Atentamente,<br /><br />CEL: <br />Tel: </p></div>
 	</div>
 </body>
 </html>";
 
 echo $html;
 
->>>>>>> Stashed changes
 // Agrega nuevos usuarios según el formulario recibido
  
 	// $query8 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, instalaciones, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, rustico, licor, observaciones, pedido_id, cliente_id, valor) VALUES ('$tipo_evento', '$invitados', '$instalaciones','$desEntrada', '$desPlaFuerte', '$desMezcla', '$desMenaje', '$desPerServicio', '$desDireccion', '$desRustico', '$desLicor', '$observaciones', '$pedido_id', '$cliente_id', '$valorCotiza');");

@@ -34,7 +34,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row = $query->fetch_assoc();
 $id_pedido = $row['pedido_id'];
 $nombre_pedido = $row['nombre_pedido'];
@@ -42,6 +42,7 @@ $nombre_cliente = $row['nombres'];
 $id_cliente = $row['id'];
 $estado = $row['estado'];
 $invitados = $row['invitados'];
+$inst_id = $row['instalacion_id'];
 
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
@@ -53,14 +54,12 @@ $valorPedido = "Valor Pedido: $ " . number_format($row1['valor'], 0, ",", ".") .
 
 //Sale la lista de productos disponibles.
 
-$option='';
+$query2 = mysqli_query($result,"select * from lista_precios where id = '$inst_id'");
 
-$query2 = mysqli_query($result,'select * from lista_precios where item_id = 1 order by id');
+$row2 = $query2->fetch_assoc();
 
-while ($row2 = $query2->fetch_array()){
+$instalacion = $row2['descripcion'];
 
-	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['descripcion'] . "</option>";
-	}
 
 //Sale la lista de productos disponibles.
 
@@ -237,17 +236,13 @@ else return false;
 						<div class='row mb40'>
 							<div class='col-md-4'>
 								<div class='form-group'> 
+								<form class='form-horizontal' action='editarPedido.php' method='post'>
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<label>Tipo de Evento:</label> 
 									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
-								<form class='form-horizontal' action='instalaciones.php' method='post'>
 									<label>Instalaciones:</label>
-<<<<<<< Updated upstream
-									<select name='instalaciones' class='form-control'>" . $option . "</select>
-=======
 									<input type='input' class='form-control' value='$instalacion' disabled/>
->>>>>>> Stashed changes
 								</div>
 							</div>
 							<div class='col-md-2'>
@@ -255,39 +250,16 @@ else return false;
 										<input type='text' name='invitados' class='form-control' value='$invitados' disabled/>
 									</div>
 									
-									<button type='submit' class='btn btn-primary btn-block'>Seleccionar</button> 
+									<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 								</form>
 							</div>
 							<div class='col-md-2'>
 								<label>No. de Cuotas</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
+							</div>
+							<div class='col-md-2'>
 								<label>Deposito</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1000000' required/>
-							</div>
-							<div class='col-md-2'>
-								<label>Cotizaci&oacute;n # $id_pedido</label>
-								
-									<div class='form-group'> <label></label>
-									</div>
-									
-								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-										<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-primary'>Cuenta Cobro</button>
-								</form>
-							</div>
-							<div class='col-md-2'>
-								<label>Acciones de Cierre</label>
-								<form class='form-horizontal' action='hacerPedido.php' method='post'>
-									<div class='form-group'><label></label> 
-									</div> 
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-primary'>Hacer Pedido</button> 
-								</form> 
-								<form class='form-horizontal' action='cancelarPedido.php' method='post'>
-									<label></label>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
-									<button type='submit' class='btn btn-xs btn-block btn-danger'>Cancelar Pedido</button> 
-								</form> 
 							</div>
 						</div>
 					</div>
@@ -295,7 +267,7 @@ else return false;
 
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
-								<form class='form-horizontal' action='addCotizacion.php' method='post'>
+								<form class='form-horizontal' action='addCotizacion.php' method='post' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 						<div class='row mb40'>
 							<div class='col-md-4'>
 								<div class='form-group'>
@@ -303,10 +275,7 @@ else return false;
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<input type='hidden' name='invitados' value='$invitados'>
 									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
-<<<<<<< Updated upstream
-=======
 									<input type='hidden' name='instalaciones' value='$inst_id'>
->>>>>>> Stashed changes
 									<label>Entrada:</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
@@ -315,20 +284,17 @@ else return false;
 									<h5>-</h5> 
 									<label>Mezcladores:</label> 
 									<select name='mezcladores' class='form-control'>" . $mezcladores . "</select>
-
 								</div>
 							</div>
 							<div class='col-md-4'>
-									
-									<label>Menaje:</label> 
-									<select name='menaje' class='form-control'>" . $menaje . "</select>
-									<h5>-</h5>
-									<label>Personal de Servicios:</label> 
-									<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
-									<h5>-</h5> 
-									<label>Direccionamiento del Evento:</label> 
-									<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
-
+								<label>Menaje:</label> 
+								<select name='menaje' class='form-control'>" . $menaje . "</select>
+								<h5>-</h5>
+								<label>Personal de Servicios:</label> 
+								<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
+								<h5>-</h5> 
+								<label>Direccionamiento del Evento:</label> 
+								<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
 							</div>
 							<div class='col-md-4'>
 								<label>Rustico:</label> 
@@ -342,10 +308,6 @@ else return false;
 								<textarea name='observaciones' class='form-control'></textarea>
 							</div>
 						</div>
-<<<<<<< Updated upstream
-							<button type='submit' class='btn btn-primary btn-block'> Generar Cotización</button> 
-							</form>
-=======
 						<button type='submit' class='btn btn-primary btn-block'>Generar Cotización</button> 
 						</form>
 						<form class='form-horizontal' action='hacerPedido.php' method='post'>
@@ -361,7 +323,6 @@ else return false;
 							<input type='hidden' name='pedido_id' value='$id_pedido'>
 							<button type='submit' class='btn btn-block btn-danger'>Cancelar Pedido</button> 
 						</form>
->>>>>>> Stashed changes
 					</div>
 				</div>
 
