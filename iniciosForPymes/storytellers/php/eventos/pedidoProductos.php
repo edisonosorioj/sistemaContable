@@ -243,7 +243,11 @@ else return false;
 									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
 								<form class='form-horizontal' action='instalaciones.php' method='post'>
 									<label>Instalaciones:</label>
+<<<<<<< Updated upstream
 									<select name='instalaciones' class='form-control'>" . $option . "</select>
+=======
+									<input type='input' class='form-control' value='$instalacion' disabled/>
+>>>>>>> Stashed changes
 								</div>
 							</div>
 							<div class='col-md-2'>
@@ -299,6 +303,10 @@ else return false;
 									<input type='hidden' name='cliente_id' value='$id_cliente'>
 									<input type='hidden' name='invitados' value='$invitados'>
 									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
+<<<<<<< Updated upstream
+=======
+									<input type='hidden' name='instalaciones' value='$inst_id'>
+>>>>>>> Stashed changes
 									<label>Entrada:</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
@@ -334,8 +342,26 @@ else return false;
 								<textarea name='observaciones' class='form-control'></textarea>
 							</div>
 						</div>
+<<<<<<< Updated upstream
 							<button type='submit' class='btn btn-primary btn-block'> Generar Cotización</button> 
 							</form>
+=======
+						<button type='submit' class='btn btn-primary btn-block'>Generar Cotización</button> 
+						</form>
+						<form class='form-horizontal' action='hacerPedido.php' method='post'>
+							<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-primary'>Confirmar Pedido</button> 
+						</form> 
+						<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+								<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-primary'>Cuenta Cobro / Factura</button>
+						</form>
+						<form class='form-horizontal' action='cancelarPedido.php' method='post'>
+							<label></label>
+							<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<button type='submit' class='btn btn-block btn-danger'>Cancelar Pedido</button> 
+						</form>
+>>>>>>> Stashed changes
 					</div>
 				</div>
 
