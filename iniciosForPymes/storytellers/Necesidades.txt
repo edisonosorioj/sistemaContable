@@ -1,0 +1,12 @@
+Horas extra. Minimo 6.
+Dia del evento. cantidad de horas.
+Cambiar Color Institucional. Revisar logo.
+Revisar estilo de la cotización.
+Quitar Rustico.
+No aparece boton de generar cotización sin haber hecho la reserva.
+No aparecen los eventos sino estan confirmados
+
+glyphicon glyphicon-plus - Para Ingresos
+glyphicon glyphicon-minus - Egresos
+glyphicon glyphicon-heart - Clientes
+glyphicon glyphicon-usd - Lista de Precios

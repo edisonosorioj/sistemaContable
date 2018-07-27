@@ -88,7 +88,7 @@ while ($row3 = $query3->fetch_array()){
 
 $platoFuerte='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 3 order by id');
+$query3 = mysqli_query($result,'select * from lista_precios where item_id = 3 order by id DESC');
 
 while ($row3 = $query3->fetch_array()){
 
@@ -310,10 +310,6 @@ else return false;
 								<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
 							</div>
 							<div class='col-md-4'>
-								<label>Rustico:</label> 
-								<input type='number' name='canRustico' class='' placeholder = 'Cant. si aplica'>
-								<select name='rustico' class='form-control'>" . $rustico . "</select>
-								<h5>-</h5> 
 								<label>Licor:</label> 
 								<select name='licor' class='form-control'>" . $licor . "</select>
 								<h5>-</h5> 

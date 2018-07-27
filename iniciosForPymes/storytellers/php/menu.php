@@ -30,7 +30,7 @@ $menu = "
 			</li>
 			<li>
 				<a href='../eventos/eventos.php'>
-					<i class='icon-table nav-icon'></i>
+					<i class='fa fa-file-text-o nav_icon'></i>
 					<span class='nav-text'>
 					Cotizaciones
 					</span>
@@ -42,21 +42,18 @@ $menu = "
 				<span class='nav-text'>
 				Egresos
 				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
-			<li class='has-subnav'>
+			<li>
 				<a href='../ingresos/ingresos.php'>
-					<i class='fa fa-file-text-o nav_icon'></i>
-						<span class='nav-text'>Ingresos</span>
+					<i class='fa fa-plus-square nav_icon'></i>
+					<span class='nav-text'>Ingresos</span>
 				</a>
 			</li>
 			<li>
 				<a href='../proveedores/proveedores.php'>
-					<i class='icon-user nav-icon'></i>
-					<span class='nav-text'>
-					Proveedores
-					</span>
+					<i class='fa fa-shopping-cart nav-icon'></i>
+					<span class='nav-text'>Proveedores</span>
 				</a>
 			</li>
 			<li>
@@ -64,6 +61,14 @@ $menu = "
 					<i class='fa fa-list-ul'></i>
 					<span class='nav-text'>
 					Inventario
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href='../proveedores/proveedores.php'>
+					<i class='fa fa-usd nav-icon'></i>
+					<span class='nav-text'>
+					Lista de Precios
 					</span>
 				</a>
 			</li>

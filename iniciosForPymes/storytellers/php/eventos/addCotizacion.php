@@ -16,8 +16,6 @@ $result = $conex->conex();
 	$menaje				=	$_POST['menaje'];
 	$personalServicio	=	$_POST['personalServicio'];
 	$direccionamiento	=	$_POST['direccionamiento'];
-	$rustico			=	$_POST['rustico'];
-	$canRustico			=	$_POST['canRustico'];
 	$licor				=	$_POST['licor'];
 	$observaciones		=	$_POST['observaciones'];
 
@@ -46,11 +44,14 @@ $result = $conex->conex();
  $dia = $dias[date("w")];
 
 // Realiza una primera consulta
- $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id where lp.id = '$instalaciones' and pd.dia = '$dia' and pd.sede_id = '$sede_id'");
+ $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id where lp.id = '$instalaciones' and pd.dia = '$dia' and pd.sede_id = '$sede_id'");
 
  $row = $query11->fetch_array(MYSQLI_BOTH);
  $desInstala 	= $row['descripcion'];
  $preInstala 	= $row['precio'];
+ $impuesto 		= $row['impuesto'];
+
+ $preInstala = $preInstala + $impuesto;
 
 // Realiza una primera consulta
  $query = mysqli_query($result,"SELECT * FROM lista_precios where id = $entrada");
@@ -95,21 +96,14 @@ $result = $conex->conex();
  $desPerServicio 	= $row4['descripcion'];
  $prePerServicio 	= $row4['precio'];
 
+ $totalPerServicio = $prePerServicio * $invitados;
+
 // Realiza una primera consulta
  $query5 = mysqli_query($result,"SELECT * FROM lista_precios where id = $direccionamiento");
 
  $row5 = $query5->fetch_array(MYSQLI_BOTH);
  $desDireccion 	= $row5['descripcion'];
  $preDireccion 	= $row5['precio'];
-
-// Realiza una primera consulta
- $query6 = mysqli_query($result,"SELECT * FROM lista_precios where id = $rustico");
-
- $row6 = $query6->fetch_array(MYSQLI_BOTH);
- $desRustico 	= $row6['descripcion'];
- $preRustico 	= $row6['precio'];
-
- $totalRustico = $preRustico * $canRustico;
 
 // Realiza una primera consulta
  $query7 = mysqli_query($result,"SELECT * FROM lista_precios where id = $licor");
@@ -122,9 +116,9 @@ $result = $conex->conex();
 
 // Calculo de precios para Pedido
 
- // $canRustico = ($canRustico > 0) ? $totalRustico = $preRustico * $canRustico : $totalRustico = 0 ;
-
  $valorCotiza = $preEntrada + $prePlaFuerte + $preMezcla + $preMenaje + $prePerServicio + $preDireccion;
+
+ $totalCotiza = $valorCotiza * $invitados;
 
 
 $html="<!DOCTYPE html>
@@ -204,51 +198,39 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>$desEntrada</td>
 					<td class='text-center' rowspan='6'>$invitados</td>
 					<td class='text-center' rowspan='6'>$valorCotiza</td>
-					<td class='text-center'>$totalEntrada</td>
+					<td class='text-center' rowspan='6'>$totalCotiza</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Plato fuerte</td>
 					<td class='text-center'>$desPlaFuerte</td>
-					<td class='text-center'>$totalPlaFuerte</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Mezcladores</td>
 					<td class='text-center'>$desMezcla</td>
-					<td class='text-center'>$totalMezcla</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Menaje</td>
 					<td class='text-center'>$desMenaje</td>
-					<td class='text-center'>$totalMenaje</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Personal Servicio</td>
 					<td class='text-center'>$desPerServicio</td>
-					<td class='text-center'>$prePerServicio</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Direccionamiento del evento</td>
 					<td class='text-center'>$desDireccion</td>
-					<td class='text-center'>$preDireccion</td>
-				</tr>
-				<tr>
-					<td class='text-center'>Rustico</td>
-					<td class='text-center'>$desRustico</td>
-					<td class='text-center'>$canRustico</td>
-					<td class='text-center'>$preRustico</td>
-					<td class='text-center'>$totalRustico</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Licor</td>
 					<td class='text-center'>$desLicor</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'>$preLicor</td>
-					<td class='text-center'>$totalLicor</td>
+					<td class='text-center'>" . number_format($preLicor, 0, ",", ".") . "</td>
+					<td class='text-center'>" . number_format($totalLicor, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td colspan='2' rowspan='2'>Observaciones: $observaciones</td>
 					<th class='text-center' colspan='2'>Total</th>
-					<td class='text-center'>" . number_format($preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $desPerServicio + $desDireccion + $totalRustico + $totalLicor, 0, ",", ".") . "</td>
+					<td class='text-center'>" . number_format($preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $totalPerServicio + $preDireccion + $totalLicor, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td colspan='3'>Precios Válidos por 15 días después de la fecha de elaboración.</td>

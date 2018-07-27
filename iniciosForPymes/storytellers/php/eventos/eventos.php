@@ -178,7 +178,7 @@ else return false;
 				<!-- tables -->
 				
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-xs btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nueva Cotizaci&oacute;n</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nueva Cotizaci&oacute;n</button>
 				</div>
 
 				<div class='footer col-md-12'>
