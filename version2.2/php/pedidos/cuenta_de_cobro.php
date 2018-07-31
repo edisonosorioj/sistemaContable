@@ -99,14 +99,14 @@ $html="<!DOCTYPE html>
 			<table class='table-fill'>
 				<tr>
 					<th>PRODUCTO</th>
-					<th>CANTIDAD</th>
+					<th width='15'>CANTIDAD</th>
 					<th width='80'>VALOR</th>
 				</tr>
 				" 
 				. $tr . 
 				"
 				<tr>
-					<td colspan='2'></td>
+					<td></td>
 					<th>TOTAL</th>
 					<td>$valorPedido</td>
 				</tr>

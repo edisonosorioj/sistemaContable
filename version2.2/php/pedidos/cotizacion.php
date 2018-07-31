@@ -29,7 +29,6 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" 	. 	$row['idproducto'] 	. "</td>
 				<td>" 	. 	$row['producto'] 	. "</td>
-				<td>" 	. 	$row['pfecha']		. "</td>
 				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 			</tr>";
@@ -109,15 +108,14 @@ $html="<!DOCTYPE html>
 				<tr>
 					<th></th>
 					<th>PRODUCTO</th>
-					<th>FECHA</th>
-					<th>CANTIDAD</th>
-					<th>VALOR</th>
+					<th width='15px'>CANTIDAD</th>
+					<th width='80px'>VALOR</th>
 				</tr>
 				" 
 				. $tr . 
 				"
 				<tr>
-					<td colspan='3'></td>
+					<td colspan='2'></td>
 					<th>TOTAL</th>
 					<td>$valorPedido</td>
 				</tr>
