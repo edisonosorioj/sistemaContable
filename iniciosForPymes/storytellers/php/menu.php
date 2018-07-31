@@ -19,13 +19,10 @@ $menu = "
 					</span>
 				</a>
 			</li>
-			<li class='has-subnav'>
+			<li>
 				<a href='../cliente/cliente.php'>
-				<i class='icon-user nav-icon'></i>
-				<span class='nav-text'>
-					Clientes
-				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
+					<i class='fa fa-heart nav-icon'></i>
+					<span class='nav-text'>Clientes</span>
 				</a>
 			</li>
 			<li>
@@ -35,18 +32,16 @@ $menu = "
 					Cotizaciones
 					</span>
 				</a>
-			</li>
-			<li class='has-subnav'>
+			</li>	
+			<li>
 				<a href='../egresos/egresos.php'>
-				<i class='fa fa-file-text-o nav_icon'></i>
-				<span class='nav-text'>
-				Egresos
-				</span>
+					<i class='fa fa-minus-square nav-icon'></i>
+					<span class='nav-text'>Egresos</span>
 				</a>
 			</li>
 			<li>
 				<a href='../ingresos/ingresos.php'>
-					<i class='fa fa-plus-square nav_icon'></i>
+					<i class='fa fa-plus-square nav-icon'></i>
 					<span class='nav-text'>Ingresos</span>
 				</a>
 			</li>

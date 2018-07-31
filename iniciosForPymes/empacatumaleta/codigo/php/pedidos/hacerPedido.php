@@ -72,7 +72,7 @@ if ($estado == 1) {
  $fecha 		= date('y-m-d');
  $detalles 		= "Pedido No. " . $pedido_id . " - " . $nombre_pedido . ". Cuotas totales: " . $cuotas;
  $valorAbonado 	= $cobrado;
- $valorcredito 	= $valorPedido - $cobrado;
+ $valorcredito 	= $valorPedido;
 
  $query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valorcredito'), '$cliente_id');");
 

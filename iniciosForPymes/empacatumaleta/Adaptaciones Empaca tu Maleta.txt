@@ -24,3 +24,17 @@ ADD COLUMN `cuotas` INT NOT NULL DEFAULT 1 AFTER `producto_id`;
 
 ALTER TABLE `empacatumaleta`.`pedidos` 
 DROP COLUMN `t_cobrado`;
+
+
+- Proveedores - Agencias
+- En pedidos mostrar Agencias
+
+// INFORMES
+ - Pedidos por Agencias
+ - Pedidos por Vendedor
+ - Informes generales
+ - Espacio para agregar menores - Dejar en Blanco Niño y valor.
+ - Adultos - Niños - Infantes
+
+ALTER TABLE `pedidos` 
+CHANGE COLUMN `nombre_pedido` `nombre_pedido` VARCHAR(1000) NULL DEFAULT NULL ;
