@@ -309,7 +309,7 @@ body a:hover{
 			-webkit-transition: width .05s linear;
 			transition: width .05s linear;
 			-webkit-transform: translateZ(0) scale(1,1);
-			background: #00bcd4;
+			background: #836e46;
 			z-index: 11;
 		}
 		nav.main-menu>ul{margin:7px 0}
@@ -351,9 +351,9 @@ body a:hover{
 			display:table-cell;vertical-align:middle;padding-left:20px;padding-right:40px
 		}
 		.no-touch nav.main-menu li li:hover a{
-			color:#fff;background-color:#00acc1;
+			color:#fff;background-color:#af9d66;
 		}
-		.no-touch nav.main-menu li:hover>a,nav.main-menu li.active>a{color:#fff;background-color:#00acc1;}
+		.no-touch nav.main-menu li:hover>a,nav.main-menu li.active>a{color:#fff;background-color:#af9d66;}
 		.no-touch nav.main-menu li:hover ul,nav.main-menu li.active ul{width:210px}
 		nav.main-menu .nav-icon,i.fa.fa-home.nav_icon,i.fa.fa-cogs,i.fa.fa-check-square-o.nav_icon,i.fa.fa-file-text-o.nav_icon,i.fa.fa-bar-chart.nav_icon,i.fa.fa-map-marker,i.fa.fa-exclamation-triangle,i.fa.fa-list-ul{
 			position:relative;display:table-cell;
@@ -553,7 +553,7 @@ button.btn.btn-default{
     width: 20%;
     position: relative;
     background: #00bcd4;
-    border: solid 1px #00bcd4;
+    border: solid 1px #836e46;
     border-radius: 0;
 }
 button.btn.btn-default i.fa.fa-search{
@@ -581,7 +581,7 @@ button.btn.btn-default{
     padding: 10px 0 9px;
     width: 15%;
     position: relative;
-    background: #00bcd4;
+    background: #836e46;
     border: solid 1px #00bcd4;
     border-radius: 0;
 }
@@ -1533,7 +1533,7 @@ code {
 }
 .btn-primary {
     color: #fff;
-    background-color: #00bcd4;
+    background-color: #836e46;
 }
 .btn-danger {
     color: #fff;

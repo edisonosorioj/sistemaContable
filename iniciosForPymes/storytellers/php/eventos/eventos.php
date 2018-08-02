@@ -177,7 +177,7 @@ else return false;
 			<div class='agile-grids'>	
 				<!-- tables -->
 				
-				<div class='bs-component mb20 col-md-2'>
+				<div class='bs-component mb20 col-md-4'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nueva Cotizaci&oacute;n</button>
 				</div>
 

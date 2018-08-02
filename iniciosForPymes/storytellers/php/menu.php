@@ -60,7 +60,7 @@ $menu = "
 				</a>
 			</li>
 			<li>
-				<a href='../proveedores/proveedores.php'>
+				<a href='../lista_precios/lista_precios.php'>
 					<i class='fa fa-usd nav-icon'></i>
 					<span class='nav-text'>
 					Lista de Precios

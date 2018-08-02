@@ -23,6 +23,7 @@ $result = $conex->conex();
 $tr = '';
 $option = '';
 $estado = '';
+$form = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -34,16 +35,17 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row = $query->fetch_assoc();
-$id_pedido = $row['pedido_id'];
-$nombre_pedido = $row['nombre_pedido'];
+$id_pedido 		= $row['pedido_id'];
+$nombre_pedido 	= $row['nombre_pedido'];
 $nombre_cliente = $row['nombres'];
-$id_cliente = $row['id'];
-$estado = $row['estado'];
-$invitados = $row['invitados'];
-$inst_id = $row['instalacion_id'];
-$sede_id = $row['sede_id'];
+$id_cliente 	= $row['id'];
+$estado 		= $row['estado'];
+$invitados 		= $row['invitados'];
+$inst_id 		= $row['instalacion_id'];
+$sede_id 		= $row['sede_id'];
+$dia 			= date($row['start']);
 
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
@@ -165,6 +167,16 @@ while ($row3 = $query3->fetch_array()){
 	 	$licor .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
 	}
 
+if ($estado == 1) {
+	$form .= "<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+		<input type='hidden' name='pedido_id' value='$id_pedido'>
+		<button type='submit' class='btn btn-block btn-primary'>Cuenta Cobro / Factura</button>
+	</form>";
+} else {
+	$form .= "";
+}
+
+
 // Se contruye el HTML para imprimirlo mas adelante.
 
 $html="<!DOCTYPE html>
@@ -255,25 +267,26 @@ else return false;
 								</div>
 							</div>
 							<div class='col-md-2'>
-									<div class='form-group'> 
-									<label>Invitados: </label> 
-										<input type='text' name='invitados' class='form-control' value='$invitados' disabled/>
-									<label>Sede: </label> 
-										<input type='text' name='sede' class='form-control' value='$nombre_sede' disabled/>
-									</div>
-									
-								</form>
+								<div class='form-group'> 
+								<label>Invitados: </label> 
+									<input type='text' name='invitados' class='form-control' value='$invitados' disabled/>
+								<label>Sede: </label> 
+									<input type='text' name='sede' class='form-control' value='$nombre_sede' disabled/>
+								</div>
 							</div>
 							<div class='col-md-2'>
 								<label>No. de Cuotas</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
-								<label>-</label> 
-								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
+								<label>Día del Evento</label>
+								<input type='text' name='diaEvento' class='form-control' value='$dia' disabled/>
 							</div>
 							<div class='col-md-2'>
 								<label>Deposito</label>
 								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1000000' required/>
+								<label>-</label> 
+								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -327,10 +340,7 @@ else return false;
 								<input type='hidden' name='pedido_id' value='$id_pedido'>
 							<button type='submit' class='btn btn-block btn-primary'>Generar Contrato</button>
 						</form>
-						<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-								<input type='hidden' name='pedido_id' value='$id_pedido'>
-							<button type='submit' class='btn btn-block btn-primary'>Cuenta Cobro / Factura</button>
-						</form>
+						" . $form . "
 						<form class='form-horizontal' action='cancelarPedido.php' method='post'>
 							<label></label>
 							<input type='hidden' name='pedido_id' value='$id_pedido'>
