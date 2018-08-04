@@ -38,9 +38,13 @@ $fecha_f = $end . " " . $time2;
 
 // Agrega pedido según el formulario recibido
 	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados, instalacion_id) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado', '$instalaciones');");
-	
+
 // COnsulta el ultipo ID ingresado a la tabla
 	$consecutivo = mysqli_insert_id($result);
+
+// Agrega Parametros Basicos de la cotización
+	$query2 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, licor, observaciones, pedido_id, valor) VALUES ('$evento', 'invitado', '3', '13', '17', '20', '21', '26', '23', '', '$consecutivo', '0');");
+	
 	
 // Toma el ID y lo actualiza en la tabla de configuración para conocer el concecutivo.
 	$query3 = mysqli_query($result,"UPDATE variables SET detalle = '$consecutivo' WHERE variable_id = 8;");

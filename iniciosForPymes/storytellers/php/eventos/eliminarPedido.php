@@ -33,7 +33,7 @@ $totalregistros = $query2->fetch_array(MYSQLI_BOTH);
 		
 	$html = "<script>
 		window.alert('$msg');
-		self.location='pedido.php';
+		self.location='eventos.php';
 		opener.location.reload();
 	</script>";
 	

@@ -24,6 +24,7 @@ $tr = '';
 $option = '';
 $estado = '';
 $form = '';
+$horas = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -35,7 +36,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start, end from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row = $query->fetch_assoc();
 $id_pedido 		= $row['pedido_id'];
 $nombre_pedido 	= $row['nombre_pedido'];
@@ -45,8 +46,74 @@ $estado 		= $row['estado'];
 $invitados 		= $row['invitados'];
 $inst_id 		= $row['instalacion_id'];
 $sede_id 		= $row['sede_id'];
-$dia 			= date($row['start']);
+$fecha_inicio 	= new DateTime($row['start']);
+$fecha_fin 		= new DateTime($row['end']);
 
+//Información de la tabla cotización
+
+$query12 = mysqli_query($result, "select * from cotizacion where pedido_id = '$id'");
+$row12 = $query12->fetch_assoc();
+
+$entrada_id			= $row12['entrada'];
+$plato_fuerte_id	= $row12['plato_fuerte'];
+$mezcladores_id		= $row12['mezcladores'];
+$menaje_id			= $row12['menaje'];
+$personal_id		= $row12['personal'];
+$direccionamiento_id= $row12['direccionamiento'];
+$licor_id			= $row12['licor'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$entrada_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_entrada	= $row13['descripcion'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$plato_fuerte_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_plato	= $row13['descripcion'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$mezcladores_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_mezcladores	= $row13['descripcion'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$menaje_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_menaje	= $row13['descripcion'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$personal_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_personal	= $row13['descripcion'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$direccionamiento_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_direccionamiento	= $row13['descripcion'];
+
+// Descripción del item de la lista de precios
+$query13 = mysqli_query($result, "select * from lista_precios where id = '$licor_id'");
+$row13 = $query13->fetch_assoc();
+
+$nombre_licor	= $row13['descripcion'];
+
+//Consultar la cantidad de horas que tiene el evento
+
+$horas = $fecha_inicio->diff($fecha_fin);
+
+$hora = $horas->format('%H');
+
+ // Consulta para saber el día de la semana
+$fecha_inicio 	= $row['start'];
+ $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+ $dia = $dias[date("w", strtotime($fecha_inicio))];
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
 $query1 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
@@ -286,6 +353,10 @@ else return false;
 								<label>-</label> 
 								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 							</div>
+							<div class='col-md-1'>
+								<label>Horas</label>
+								<input type='text' name='horas' class='form-control' value='$hora' disabled/>
+							</div>
 							</form>
 						</div>
 					</div>
@@ -302,35 +373,35 @@ else return false;
 									<input type='hidden' name='invitados' value='$invitados'>
 									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
 									<input type='hidden' name='instalaciones' value='$inst_id'>
-									<label>Entrada:</label>
+									<label>Entrada: $nombre_entrada</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
-									<label>Plato fuerte:</label> 
+									<label>Plato fuerte: $nombre_plato</label> 
 									<select name='platoFuerte' class='form-control'>" . $platoFuerte . "</select>
 									<h5>-</h5> 
-									<label>Mezcladores:</label> 
+									<label>Mezcladores: $nombre_mezcladores</label> 
 									<select name='mezcladores' class='form-control'>" . $mezcladores . "</select>
 								</div>
 							</div>
 							<div class='col-md-4'>
-								<label>Menaje:</label> 
+								<label>Menaje: $nombre_menaje</label> 
 								<select name='menaje' class='form-control'>" . $menaje . "</select>
 								<h5>-</h5>
-								<label>Personal de Servicios:</label> 
+								<label>Personal de Servicios: $nombre_personal</label> 
 								<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
 								<h5>-</h5> 
 								<label>Direccionamiento del Evento:</label> 
 								<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
 							</div>
 							<div class='col-md-4'>
-								<label>Licor:</label> 
+								<label>Licor: $nombre_licor</label> 
 								<select name='licor' class='form-control'>" . $licor . "</select>
 								<h5>-</h5> 
 								<label>Observaciones:</label> 
 								<textarea name='observaciones' class='form-control'></textarea>
 							</div>
 						</div>
-						<button type='submit' class='btn btn-primary btn-block'>Generar Cotización</button> 
+						<button type='submit' class='btn btn-primary btn-block'>Guardar y Generar Cotización</button> 
 						</form>
 						<form class='form-horizontal' action='hacerPedido.php' method='post'>
 							<input type='hidden' name='pedido_id' value='$id_pedido'>

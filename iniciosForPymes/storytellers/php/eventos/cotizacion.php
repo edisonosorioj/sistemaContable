@@ -50,13 +50,19 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 $fecha = $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, correo, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, correo, pedido_id, id, estado, start from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row2=$query2->fetch_assoc();
 
 $nombre_cliente = $row2['nombres'];
 $cliente_empresa = $row2['empresa'];
 $documento_cliente = $row2['documento'];
 $cliente_correo = $row2['correo'];
+$fecha_inicio 	= $row['start'];
+
+ // Consulta para saber el día de la semana
+ $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+ $dia = $dias[date("w", strtotime($fecha_inicio))];
+
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
 $query4 = mysqli_query($result, "select * from variables;");

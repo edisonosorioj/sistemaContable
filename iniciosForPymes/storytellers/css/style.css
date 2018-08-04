@@ -582,7 +582,6 @@ button.btn.btn-default{
     width: 15%;
     position: relative;
     background: #836e46;
-    border: solid 1px #00bcd4;
     border-radius: 0;
 }
 button.btn.btn-default i.fa.fa-search{
@@ -1001,7 +1000,7 @@ ul.nofitications-dropdown {
 }
 span.prfil-img i.fa.fa-user {
     color: #ffffff;
-    background: #00bcd4;
+    background: #836e46;
     height: 41px;
     width: 41px;
     padding: .7em 0 0 0;
@@ -1286,7 +1285,7 @@ svg#lol {
 /*-- //footer --*/
 /*-- buttons --*/
 .buttons-heading h2,.grids-heading h2,.chart-heading h2,.table-heading h2,.map-heading h2{
-	color: #00bcd4;
+	color: #000;
     font-size: 2.5em;
     margin: 0 0 1em 0;
     text-align: center;

@@ -155,18 +155,15 @@ CREATE TABLE `cotizacion` (
   `cotizacion_id` INT NOT NULL AUTO_INCREMENT,
   `tipo_evento` VARCHAR(1000) NULL,
   `invitados` VARCHAR(1000) NULL,
-  `instalaciones` VARCHAR(1000) NULL,
   `entrada` VARCHAR(1000) NULL,
   `plato_fuerte` VARCHAR(1000) NULL,
   `mezcladores` VARCHAR(1000) NULL,
   `menaje` VARCHAR(1000) NULL,
   `personal` VARCHAR(1000) NULL,
   `direccionamiento` VARCHAR(1000) NULL,
-  `rustico` VARCHAR(1000) NULL,
   `licor` VARCHAR(1000) NULL,
   `observaciones` VARCHAR(1000) NULL,
   `pedido_id` INT NULL,
-  `cliente_id` INT NULL,
   `valor` VARCHAR(45) NULL,
   PRIMARY KEY (`cotizacion_id`));
 

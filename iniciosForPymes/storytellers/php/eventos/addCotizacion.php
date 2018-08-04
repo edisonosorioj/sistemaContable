@@ -43,8 +43,13 @@ $result = $conex->conex();
  $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
  $dia = $dias[date("w")];
 
+//Revisar
+$horas = $fecha_i->diff($fecha_f);
+
+$hora = $horas->format('%H');
+
 // Realiza una primera consulta
- $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id where lp.id = '$instalaciones' and pd.dia = '$dia' and pd.sede_id = '$sede_id'");
+ $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id WHERE lp.id = '$instalaciones' AND pd.dia = '$dia' AND pd.sede_id = '$sede_id'");
 
  $row = $query11->fetch_array(MYSQLI_BOTH);
  $desInstala 	= $row['descripcion'];
@@ -159,17 +164,23 @@ $html="<!DOCTYPE html>
 		<div class='table'>
 			<table class='table-fill'>
 				<tr>
-					<th rowspan='2'>Información</th>
+					<th rowspan='3'>Información</th>
 					<td><b>Tipo de Evento</b></td>
 					<td>$tipo_evento</td>
-					<td><b>Inicia Evento</b></td>
-					<td>$fecha_i</td>
-				</tr>
-				<tr>
 					<td><b>Numero de Invitados</b></td>
 					<td>$invitados</td>
+				</tr>
+				<tr>
+					<td><b>Inicia Evento</b></td>
+					<td>$fecha_i</td>
 					<td><b>Termina Evento</b></td>
 					<td>$fecha_f</td>
+				</tr>
+				<tr>
+					<td><b>Día</b></td>
+					<td>$dia</td>
+					<td><b>Horas</b></td>
+					<td>$hora</td>
 				</tr>
 			</table>
 		</div>
@@ -190,15 +201,15 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>Instalaciones</td>
 					<td class='text-center'>$desInstala</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'>" . $preInstala / $invitados . "</td>
-					<td class='text-center'>$preInstala</td>
+					<td class='text-center'>" . number_format($preInstala / $invitados, 0, ",", ".") . "</td>
+					<td class='text-center'>" . number_format($preInstala, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Entrada</td>
 					<td class='text-center'>$desEntrada</td>
 					<td class='text-center' rowspan='6'>$invitados</td>
-					<td class='text-center' rowspan='6'>$valorCotiza</td>
-					<td class='text-center' rowspan='6'>$totalCotiza</td>
+					<td class='text-center' rowspan='6'>" . number_format($valorCotiza, 0, ",", ".") . "</td>
+					<td class='text-center' rowspan='6'>" . number_format($totalCotiza, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Plato fuerte</td>
