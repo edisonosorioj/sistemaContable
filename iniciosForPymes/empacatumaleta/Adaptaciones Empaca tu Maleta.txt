@@ -27,19 +27,6 @@ DROP COLUMN `t_cobrado`;
 
 // Cambios 4 de Agosto en la base de datos
 
-CREATE TABLE `proveedores` (
-  `proveedor_id` INT(10) NOT NULL AUTO_INCREMENT,
-  `documento` VARCHAR(45) NOT NULL,
-  `empresa` VARCHAR(100) NULL,
-  `nombres` VARCHAR(45) NOT NULL,
-  `telefono` VARCHAR(45) NOT NULL,
-  `correo` VARCHAR(45) NULL,
-  `direccion` VARCHAR(45) NULL,
-  PRIMARY KEY (`proveedor_id`));
-
-ALTER TABLE `empacatumaleta`.`productos` 
-ADD COLUMN `proveedor_id` VARCHAR(200) NULL AFTER `valor`;
-
 
 - Proveedores - Agenciass - LISTO
 - En pedidos mostrar Agencias
@@ -50,6 +37,3 @@ ADD COLUMN `proveedor_id` VARCHAR(200) NULL AFTER `valor`;
  - Informes generales
  - Espacio para agregar menores - Dejar en Blanco Niño y valor.
  - Adultos - Niños - Infantes
-
-ALTER TABLE `pedidos` 
-CHANGE COLUMN `nombre_pedido` `nombre_pedido` VARCHAR(1000) NULL DEFAULT NULL ;
