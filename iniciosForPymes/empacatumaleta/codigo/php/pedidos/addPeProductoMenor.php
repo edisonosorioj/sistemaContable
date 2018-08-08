@@ -15,11 +15,11 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$producto	=	$_POST['producto'];
-	$cantidad 	=	$_POST['cantidad'];
-	$detalles 	=	$_POST['detalles'];
+	$producto	=	$_POST['producto_menor'];
+	$cantidad 	=	$_POST['cantidad_menor'];
 	$pedido_id 	=	$_POST['pedido_id'];
 	$cliente_id =	$_POST['cliente_id'];
+	$precio	 	=	$_POST['valor_menor'];
 
 $query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
 
@@ -46,25 +46,15 @@ if ($estado == 1) {
 	$row = $query2->fetch_assoc();
 
  	$producto_id = $row['idproductos'];
- 	$valor = $row['valor'];
  	$disponible = $row['disponible'];
 
- 	$valort = $valor * $cantidad;
+ 	$valort = $precio * $cantidad;
 
 // Agrega producto a la tabla pedidoProductos
- 	if ($disponible > 0) {
-		$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) VALUES ( CONCAT('$producto', ' - ' ,'$detalles'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
-		$html = "<script>
-			javascript:history.back();
-		</script>";
-		echo $html;
- 	}else{
-
-		$html = "<script>
-					window.alert('No hay disponibilidad del producto. Actualice desde el Módulo de Inventarios');
-					javascript:history.back();
-				</script>";
-
-		echo $html;	
- 	}
+	$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) VALUES ( CONCAT('$producto', ' - Menores'), '$precio', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$producto_id');");
+	$html = "<script>
+		javascript:history.back();
+	</script>";
+	echo $html;
+ 	
 }

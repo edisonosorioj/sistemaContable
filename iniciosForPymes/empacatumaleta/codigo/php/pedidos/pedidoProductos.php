@@ -180,47 +180,68 @@ else return false;
 									<div class='form-group'> 
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
 										<input type='hidden' name='cliente_id' value='$id_cliente'>
-										<label>Producto:</label> 
-										<select name='producto' class='form-control'>" . $option . "</select>
-										<label>Abono 30%: $ $porce1</label> 
-										<label>Abono 50%: $ $porce2</label> 
+										<label>Adultos:</label> 
+										<select name='producto' class='form-control'>
+											<option value='Seleccione'>Seleccione</option>
+											" . $option . "
+										</select>
 									</div>
-							</div>
-							<div class='col-md-1'>
-									<div class='form-group'> <label>Cantidad: </label> 
-										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
+									<div class='form-group'> 
+										<input type='number' name='cantidad' class='form-control' id='cantidad' placeholder='Cantidad' required/>
+									</div>
+									<div class='form-group'> 
+										<input type='text' name='detalles' placeholder='Detalles' class='form-control'>
 									</div> 
 									<button type='submit' class='btn btn-primary'>Agregar</button> 
-							</div>
-							<div class='col-md-2'>
-									<div class='form-group'> <label>Detalles: </label> 
-										<input type='text' name='detalles' class='form-control'>
-									</div> 
 								</form>
 							</div>
-							<div class='col-md-1'>
-								<form class='form-horizontal' action='hacerPedido.php' method='post'>
-									<div class='form-group'> <label>Cuotas: </label> 
-										<input type='number' name='cuotas' class='form-control'>
+							<div class='col-md-3'>
+								<form class='form-horizontal' action='addPeProductoMenor.php' method='post'> 
+									<div class='form-group'> 
+										<input type='hidden' name='pedido_id' value='$id_pedido'>
+										<input type='hidden' name='cliente_id' value='$id_cliente'>
+										<label>Menores:</label> 
+										<select name='producto_menor' class='form-control'>
+											<option value='Seleccione'>Seleccione</option>
+											" . $option . "
+										</select>
 									</div>
+									<div class='form-group'>
+										<input type='number' placeholder='Cantidad' name='cantidad_menor' class='form-control' id='cantidad' required/>
+									</div> 
+									<div class='form-group'>
+										<input type='text' name='valor_menor' placeholder='Valor Menor' class='form-control'>
+									</div> 
+									<button type='submit' class='btn btn-primary'>Agregar</button> 
+								</form>
 							</div>
 							<div class='col-md-2'>
+								<form class='form-horizontal' action='hacerPedido.php' method='post'>
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
 									<input type='hidden' name='valorPedido' value='" . $row3['valor'] . "'>
 									<div class='form-group'> <label>Valor a Cobrar: </label> 
 										<input type='text' name='cobrado' class='form-control' value='" . $row3['valor'] . "'>
 									</div> 
+									<div class='form-group'>
+										<input type='number' name='cuotas' placeholder='Cuotas' class='form-control'>
+									</div>
 									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
 								</form> 
 							</div>
-							<div class='col-md-2'>
+							<div class='col-md-3'>
 								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
 									<div class='form-group'> <label>Cuenta Cobro #</label>
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
 										<input type='text' name='nuevo_pedido_id' class='form-control' value='$id_pedido' disabled/>
 									</div>
+									<div class='form-group'> 
+										<label>Abono 30%: $ $porce1</label> 
+										<label>Abono 50%: $ $porce2</label> 
+									</div>
 									<button type='submit' class='btn btn-danger'>Generar</button>
 								</form>
+							</div>
+							<div class='col-md-2'>
 							</div>
 						</div>
 					</div>

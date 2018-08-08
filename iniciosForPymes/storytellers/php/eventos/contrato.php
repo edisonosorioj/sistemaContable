@@ -4,6 +4,49 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
+// Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
+$id = $_POST['pedido_id'];
+
+// Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start, end, empresa, documento from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$row = $query->fetch_assoc();
+
+$nombre_pedido 	= $row['nombre_pedido'];
+$nombre_empresa = $row['empresa'];
+$nombre_cliente = $row['nombres'];
+$documento 	 	= $row['documento'];
+$id_cliente 	= $row['id'];
+$estado 		= $row['estado'];
+$invitados 		= $row['invitados'];
+$inst_id 		= $row['instalacion_id'];
+$sede_id 		= $row['sede_id'];
+$fecha_inicio 	= new DateTime($row['start']);
+$fecha_fin 		= new DateTime($row['end']);
+
+// Utilizamos esta consulta para obtener el datos de las variables de configuracion
+$query4 = mysqli_query($result, "select * from variables;");
+
+$rows = mysqli_num_rows ($query4);  
+          
+if ($rows > 0)  
+{  
+    for ($i=0; $i<$rows; $i++)  
+    {  
+        $row4 = mysqli_fetch_array($query4);  
+        $rows4[$i] = $row4["nombre"];  
+        $datos[$rows4[$i]] = $row4["detalle"];  
+    }  
+              
+}  
+
+$empresa 			= $datos['empresa'];
+$tipo 				= $datos['tipo_identificacion'];
+$identificacion		= $datos['identificacion'];
+$lugar_expedicion	= $datos['lugar_expedicion'];
+$forma_de_pago		= $datos['forma_de_pago'];
+$cel				= $datos['cel'];
+$tel				= $datos['tel'];
+
 
 $html="<!DOCTYPE html>
 <html>
@@ -19,9 +62,8 @@ $html="<!DOCTYPE html>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='titulo'><h3>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
 
-		<div class='parrafo'>Por una parte INVERSIONES TP S.A.S, sociedad identificada con NIT. No 900999387 representada legalmente por DAVID PINEDA DUQUE, mayor de edad,
-		identificado con Cédula	de Ciudadanía No 1.037.616.900 quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado MARIA ORTIZ, identificado con
-		Cedula de Ciudadanía No 43222252 persona igualmente mayor de edad quien en adelante se denominará EL CONTRATANTE. Han decidido celebrar el Presente Contrato de
+		<div class='parrafo'>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad,
+		identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificacion No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de
 		Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:</div>
 
 		<div class='parrafo'><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en

@@ -38,13 +38,15 @@ $result = $conex->conex();
  $fecha_i = $row9['start'];
  $fecha_f = $row9['end'];
  $sede_id = $row9['sede_id'];
+$fecha_inicial = new DateTime($row9['start']);
+$fecha_final = new DateTime($row9['end']);
 
  // Consulta para saber el día de la semana
  $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
  $dia = $dias[date("w")];
 
 //Revisar
-$horas = $fecha_i->diff($fecha_f);
+$horas = $fecha_inicial->diff($fecha_final);
 
 $hora = $horas->format('%H');
 

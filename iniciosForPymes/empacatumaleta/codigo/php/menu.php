@@ -25,7 +25,6 @@ $menu = "
 				<span class='nav-text'>
 					Clientes
 				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
 			<li class='has-subnav'>
@@ -34,7 +33,6 @@ $menu = "
 				<span class='nav-text'>
 				Egresos
 				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
 			<li class='has-subnav'>
@@ -56,6 +54,14 @@ $menu = "
 					<i class='fa fa-list-ul'></i>
 					<span class='nav-text'>
 					Inventario
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href='../proveedores/proveedores.php'>
+					<i class='fa fa-list-ul'></i>
+					<span class='nav-text'>
+					Proveedores / Agencias
 					</span>
 				</a>
 			</li>

@@ -15,13 +15,21 @@ require_once '../../php/conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 
-$option='';
+$option ='';
+$agencia ='';
 
 $query = mysqli_query($result,'select * from clientes order by id');
 
 while ($row = $query->fetch_array()){
 
 	 	$option .=	"<option value='" . $row['nombres'] . "'>" . $row['nombres'] . "</option>";
+	}
+
+$query2 = mysqli_query($result,'select * from proveedores order by proveedor_id');
+
+while ($row2 = $query2->fetch_array()){
+
+	 	$agencia .=	"<option value='" . $row2['proveedor_id'] . "'>" . $row2['nombres'] . "</option>";
 	}
 
 
@@ -106,6 +114,12 @@ $html = "<!DOCTYPE html>
 															<label>Cliente</label> 
 															<select name='cliente' class='form-control1'>
 																" . $option . "
+															</select>
+														</div>
+														<div class='form-group'> 
+															<label>Proveedor o Agencia</label> 
+															<select name='proveedor' class='form-control1'>
+																" . $agencia . "
 															</select>
 														</div>
 														<div class='form-group'> 

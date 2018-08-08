@@ -20,6 +20,7 @@ $result = $conex->conex();
 	$fecha		=	$_POST['fecha'];
 	$f_viaje	=	$_POST['f_viaje'];
 	$idadmin	=	$_POST['idadmin'];
+	$proveedor	=	$_POST['proveedor'];
 
 
 // Agrega nuevos usuarios según el formulario recibido
@@ -29,7 +30,7 @@ $result = $conex->conex();
  	$cliente_id = $row['id'];
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado, usuario_id, fecha_viaje) VALUES ('$cliente_id', '$nombre', '$fecha', '0', '$idadmin', '$f_viaje');");
+	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado, usuario_id, fecha_viaje, proveedor_id) VALUES ('$cliente_id', '$nombre', '$fecha', '0', '$idadmin', '$f_viaje', '$proveedor');");
 	
 	$consecutivo = mysqli_insert_id($result);
 

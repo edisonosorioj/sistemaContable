@@ -8,18 +8,35 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select p.nombre_pedido, p.fecha, c.nombres, p.fecha_viaje from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
+$query = mysqli_query($result, "select p.nombre_pedido, p.fecha, c.nombres, p.fecha_viaje, p.proveedor_id as proveedor_id from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
 
 $row=$query->fetch_assoc();
 
+$proveedor_id = $row['proveedor_id'];
+
+
+$query4 = mysqli_query($result, "select * from proveedores where proveedor_id = '$proveedor_id'");
+
+$row4=$query4->fetch_assoc();
+
+$nombre_proveedor = $row4['empresa'];
 
 $option='';
+$agencia='';
 
 $query2 = mysqli_query($result,'select * from clientes order by id');
 
 while ($row2 = $query2->fetch_array()){
 
 	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['nombres'] . "</option>";
+	}
+	
+
+$query3 = mysqli_query($result,'select * from proveedores order by proveedor_id');
+
+while ($row3 = $query3->fetch_array()){
+
+	 	$agencia .=	"<option value='" . $row3['proveedor_id'] . "'>" . $row3['empresa'] . "</option>";
 	}
 	
 ?>
@@ -95,6 +112,13 @@ $(function () {
 										<div class="form-group"> 
 											<label>Nombre Pedido</label> 
 											<input type="text" name="nombre_pedido" class="form-control" placeholder="Nombre Pedido" value="<?php echo $row['nombre_pedido']; ?>"> 
+										</div>
+										<div class="form-group"> 
+											<label>Agencia Actual: <?php echo $nombre_proveedor ?></label> 
+											<select name='proveedor' class='form-control1'>
+												<option value="Seleccione">Cambiar</option>
+												"<?php echo $agencia; ?>"
+											</select>
 										</div>
 										<div class="form-group"> 
 											<label>Cliente Actual: <?php echo $row['nombres']; ?></label> 
