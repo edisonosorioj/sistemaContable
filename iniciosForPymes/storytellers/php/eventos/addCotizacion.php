@@ -127,6 +127,7 @@ $hora = $horas->format('%H');
 
  $totalCotiza = $valorCotiza * $invitados;
 
+ $valorFinal = $preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $totalPerServicio + $preDireccion + $totalLicor;
 
 $html="<!DOCTYPE html>
 <html>
@@ -250,6 +251,22 @@ $html="<!DOCTYPE html>
 				</tr>
 			</table>
 		</div>
+		<form class='form-horizontal' action='guardarCotizacion.php' method='post'>
+			<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
+			<input type='hidden' name='tipo_evento' value='$tipo_evento'>
+			<input type='hidden' name='invitados' value='$invitados'>
+			<input type='hidden' name='entrada' value='$entrada'>
+			<input type='hidden' name='plato_fuerte' value='$platoFuerte'>
+			<input type='hidden' name='mezcladores' value='$mezcladores'>
+			<input type='hidden' name='menaje' value='$menaje'>
+			<input type='hidden' name='personal' value='$personal'>
+			<input type='hidden' name='direccionamiento' value='$direccionamiento'>
+			<input type='hidden' name='licor' value='$licor'>
+			<input type='hidden' name='observaciones' value='$observaciones'>
+			<input type='hidden' name='pedido_id' value='$pedido_id'>
+			<input type='hidden' name='valor' value='$valorFinal'>
+			<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
+		</form>
 		<div class='firma'><p>Atentamente,<br /><br />CEL: <br />Tel: </p></div>
 	</div>
 </body>
