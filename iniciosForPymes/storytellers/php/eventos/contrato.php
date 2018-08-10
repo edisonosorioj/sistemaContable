@@ -99,6 +99,8 @@ $tel				= $datos['tel'];
  $row7 = $query7->fetch_array(MYSQLI_BOTH);
  $desLicor 	= $row7['descripcion'];
 
+// https://www.tiny.cloud/
+ // https://www.sitepoint.com/10-best-html-wysiwyg-plugins/
 
 $html="<!DOCTYPE html>
 <html>
@@ -107,6 +109,8 @@ $html="<!DOCTYPE html>
 	<title>CONTRATO</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
+	<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+  	<script>tinymce.init({ selector:'textarea' });</script>
 </head>
 <body>
 	<div class='hoja'>
@@ -114,9 +118,10 @@ $html="<!DOCTYPE html>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='titulo'><h3>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
 
-		<div class='parrafo'>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad,
+		<div class='parrafo'>
+			<textarea>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad,
 		identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificacion No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de
-		Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:</div>
+		Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:</textarea></div>
 
 		<div class='parrafo'><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en
 		Rionegro, para lo cual dispondrádel todos los recursos necesarios para su desarrollo de acuerdo con la etiqueta del evento. Adicionalmente ofrecerá parqueadero para 50
