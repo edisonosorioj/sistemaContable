@@ -20,8 +20,24 @@ $estado 		= $row['estado'];
 $invitados 		= $row['invitados'];
 $inst_id 		= $row['instalacion_id'];
 $sede_id 		= $row['sede_id'];
-$fecha_inicio 	= new DateTime($row['start']);
-$fecha_fin 		= new DateTime($row['end']);
+$fecha_inicio 	= $row['start'];
+$fecha_fin 		= $row['end'];
+
+// Utilizamos esta consulta para obtener los datos de la cotización
+$query = mysqli_query($result, "select * from cotizacion where pedido_id = '$id'");
+$row = $query->fetch_assoc();
+
+$tipo_evento 		= $row['tipo_evento'];
+$entrada 			= $row['entrada'];
+$plato_fuerte 		= $row['plato_fuerte'];
+$mezcladores 		= $row['mezcladores'];
+$menaje		 		= $row['menaje'];
+$personal	 		= $row['personal'];
+$direccionamiento	= $row['direccionamiento'];
+$licor		 		= $row['licor'];
+$observciones		= $row['observaciones'];
+$valor		 		= $row['valor'];
+
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
 $query4 = mysqli_query($result, "select * from variables;");
@@ -46,6 +62,42 @@ $lugar_expedicion	= $datos['lugar_expedicion'];
 $forma_de_pago		= $datos['forma_de_pago'];
 $cel				= $datos['cel'];
 $tel				= $datos['tel'];
+
+// Realiza una consultas a lista de precios
+ $query = mysqli_query($result,"SELECT * FROM lista_precios where id = $entrada");
+
+ $row = $query->fetch_array(MYSQLI_BOTH);
+ $desEntrada 	= $row['descripcion'];
+
+ $query1 = mysqli_query($result,"SELECT * FROM lista_precios where id = $platoFuerte");
+
+ $row1 = $query1->fetch_array(MYSQLI_BOTH);
+ $desPlaFuerte 	= $row1['descripcion'];
+ 
+ $query2 = mysqli_query($result,"SELECT * FROM lista_precios where id = $mezcladores");
+
+ $row2 = $query2->fetch_array(MYSQLI_BOTH);
+ $desMezcla 	= $row2['descripcion'];
+
+ $query3 = mysqli_query($result,"SELECT * FROM lista_precios where id = $menaje");
+
+ $row3 = $query3->fetch_array(MYSQLI_BOTH);
+ $desMenaje 	= $row3['descripcion'];
+
+ $query4 = mysqli_query($result,"SELECT * FROM lista_precios where id = $personalServicio");
+
+ $row4 = $query4->fetch_array(MYSQLI_BOTH);
+ $desPerServicio 	= $row4['descripcion'];
+
+ $query5 = mysqli_query($result,"SELECT * FROM lista_precios where id = $direccionamiento");
+
+ $row5 = $query5->fetch_array(MYSQLI_BOTH);
+ $desDireccion 	= $row5['descripcion'];
+
+ $query7 = mysqli_query($result,"SELECT * FROM lista_precios where id = $licor");
+
+ $row7 = $query7->fetch_array(MYSQLI_BOTH);
+ $desLicor 	= $row7['descripcion'];
 
 
 $html="<!DOCTYPE html>
@@ -75,7 +127,52 @@ $html="<!DOCTYPE html>
 
 		<div class='parrafo'><b>TERCERA. SERVICIOS.</b> El servicio ofrecido por el CONTRATISTA consta de:</div>
 		
-		// INGRESAR TABLA
+		<div>
+			<table class='table-fill'>
+				<tr>
+					<th class='text-center' colspan='5'>Cotizaci&oacute;n</th>
+				</tr>
+				<tr>
+					<th class='text-center'>Item</th>
+					<th class='text-center'>Descripción</th>
+				</tr>
+				<tr>
+					<td class='text-center'>Instalaciones</td>
+					<td class='text-center'>$desInstala</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Entrada</td>
+					<td class='text-center'>$desEntrada</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Plato fuerte</td>
+					<td class='text-center'>$desPlaFuerte</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Mezcladores</td>
+					<td class='text-center'>$desMezcla</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Menaje</td>
+					<td class='text-center'>$desMenaje</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Personal Servicio</td>
+					<td class='text-center'>$desPerServicio</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Direccionamiento del evento</td>
+					<td class='text-center'>$desDireccion</td>
+				</tr>
+				<tr>
+					<td class='text-center'>Licor</td>
+					<td class='text-center'>$desLicor</td>
+				</tr>
+				<tr>
+					<td colspan='2' rowspan='2'>Observaciones: $observaciones</td>
+				</tr>
+			</table>
+		</div>
 
 
 		<div class='parrafo2'>PARAGRAFO 1. El menú a ofrecer será acordado previamente, según las opciones ofrecidas por el CONTRATISTA, incluyendo la prueba del mismo.</div>

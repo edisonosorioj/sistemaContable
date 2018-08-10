@@ -15,19 +15,23 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$evento			=	$_POST['tipo_evento'];
-	$start			=	$_POST['start'];
-	$time1			=	$_POST['hora_i'];
-	$end			=	$_POST['end'];
-	$time2			=	$_POST['hora_f'];
-	$cliente 		=	$_POST['cliente'];
-	$sede			=	$_POST['sede'];
-	$invitado		=	$_POST['invitados'];
-	$instalaciones	=	$_POST['instalaciones'];
+	$cotizacion_id		=	$_POST['cotizacion_id'];
+	$pedido_id			=	$_POST['pedido_id'];
+	$evento				=	$_POST['tipo_evento'];
+	$invitado			=	$_POST['invitados'];
+	$entrada			=	$_POST['entrada'];
+	$plato_fuerte		=	$_POST['plato_fuerte'];
+	$mezcladores		=	$_POST['mezcladores'];
+	$menaje				=	$_POST['menaje'];
+	$personal 			=	$_POST['personal'];
+	$direccionamiento	=	$_POST['direccionamiento'];
+	$licor				=	$_POST['licor'];
+	$observaciones		=	$_POST['observaciones'];
+	$valor				=	$_POST['valor'];
 
 
 // Agrega Parametros Basicos de la cotización
-	$query2 = mysqli_query($result,"UPDATE cotizacion SET tipo_evento = '$evento', invitados = '$invitado', entrada = '$entrada', plato_fuerte = '$plato_fuerte', mezcladores = '$mezcladores', menaje = '$menaje', personal = '$personal', direccionamiento = '$direccionamiento', licor = '$licor', observaciones = 'observaciones', pedido_id = '$pedido_id', valor = '$valor'");
+	$query2 = mysqli_query($result,"UPDATE cotizacion SET tipo_evento = '$evento', invitados = '$invitado', entrada = '$entrada', plato_fuerte = '$plato_fuerte', mezcladores = '$mezcladores', menaje = '$menaje', personal = '$personal', direccionamiento = '$direccionamiento', licor = '$licor', observaciones = 'observaciones', pedido_id = '$pedido_id', valor = '$valor' WHERE cotizacion_id = '$cotizacion_id'");
 	
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
