@@ -6,6 +6,7 @@ $result = $conex->conex();
 
 
 	$tipo_evento		=	$_POST['nombre_pedido'];
+	$cotizacion_id		=	$_POST['cotizacion_id'];
 	$pedido_id			=	$_POST['pedido_id'];
 	$cliente_id			=	$_POST['cliente_id'];
 	$invitados			=	$_POST['invitados'];
@@ -136,6 +137,8 @@ $html="<!DOCTYPE html>
 	<title>Cotización</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
+	<!-- bootstrap-css -->
+	<link rel='stylesheet' href='../../css/bootstrap.css'>
 </head>
 <body>
 	<div class='hoja'>
@@ -251,44 +254,26 @@ $html="<!DOCTYPE html>
 				</tr>
 			</table>
 		</div>
-		<form class='form-horizontal' action='guardarCotizacion.php' method='post'>
-			<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
-			<input type='hidden' name='tipo_evento' value='$tipo_evento'>
-			<input type='hidden' name='invitados' value='$invitados'>
-			<input type='hidden' name='entrada' value='$entrada'>
-			<input type='hidden' name='plato_fuerte' value='$platoFuerte'>
-			<input type='hidden' name='mezcladores' value='$mezcladores'>
-			<input type='hidden' name='menaje' value='$menaje'>
-			<input type='hidden' name='personal' value='$personal'>
-			<input type='hidden' name='direccionamiento' value='$direccionamiento'>
-			<input type='hidden' name='licor' value='$licor'>
-			<input type='hidden' name='observaciones' value='$observaciones'>
-			<input type='hidden' name='pedido_id' value='$pedido_id'>
-			<input type='hidden' name='valor' value='$valorFinal'>
-			<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
-		</form>
-		<div class='firma'><p>Atentamente,<br /><br />CEL: <br />Tel: </p></div>
+		<div class='firma'>
+			<form class='form-horizontal' action='guardarCotizacion.php' method='post'>
+				<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
+				<input type='hidden' name='tipo_evento' value='$tipo_evento'>
+				<input type='hidden' name='invitados' value='$invitados'>
+				<input type='hidden' name='entrada' value='$entrada'>
+				<input type='hidden' name='plato_fuerte' value='$platoFuerte'>
+				<input type='hidden' name='mezcladores' value='$mezcladores'>
+				<input type='hidden' name='menaje' value='$menaje'>
+				<input type='hidden' name='personal' value='$personalServicio'>
+				<input type='hidden' name='direccionamiento' value='$direccionamiento'>
+				<input type='hidden' name='licor' value='$licor'>
+				<input type='hidden' name='observaciones' value='$observaciones'>
+				<input type='hidden' name='pedido_id' value='$pedido_id'>
+				<input type='hidden' name='valor' value='$valorFinal'>
+				<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>";
 
 echo $html;
-
-// Agrega nuevos usuarios según el formulario recibido
- 
-	// $query8 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, instalaciones, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, rustico, licor, observaciones, pedido_id, cliente_id, valor) VALUES ('$tipo_evento', '$invitados', '$instalaciones','$desEntrada', '$desPlaFuerte', '$desMezcla', '$desMenaje', '$desPerServicio', '$desDireccion', '$desRustico', '$desLicor', '$observaciones', '$pedido_id', '$cliente_id', '$valorCotiza');");
-
-// Según la respuesta de la consulta se da una respuesta en una Alert
-	// if($query8 > 0){
-	// 	$msg = "La cotización fue agregada correctamente";
-	// }else{
-	// 	$msg = 'Error al agregar la cotización. Contacte al Administrador';
-	// }
-		
-	// $html = "<script>
-	// 	window.alert('$msg');
-	// 	self.location='Cotizacion.php';
-	// 	opener.location.reload();
-	// </script>";
-	
-// echo $html;	

@@ -61,6 +61,7 @@ $menaje_id			= $row12['menaje'];
 $personal_id		= $row12['personal'];
 $direccionamiento_id= $row12['direccionamiento'];
 $licor_id			= $row12['licor'];
+$cotizacion_id		= $row12['cotizacion_id'];
 
 // Descripción del item de la lista de precios
 $query13 = mysqli_query($result, "select * from lista_precios where id = '$entrada_id'");
@@ -373,6 +374,7 @@ else return false;
 									<input type='hidden' name='invitados' value='$invitados'>
 									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
 									<input type='hidden' name='instalaciones' value='$inst_id'>
+									<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
 									<label>Entrada: $nombre_entrada</label>
 									<select name='entrada' class='form-control'>" . $entrada . "</select>
 									<h5>-</h5> 
