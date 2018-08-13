@@ -50,7 +50,7 @@ $tr = '';
 
 $html="<!DOCTYPE html>
 <head>
-<title>Proveedores</title>
+<title>Agencias</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -112,7 +112,7 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Proveedores</h2>
+					<h2>Proveedores / Agencias</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/proveedores/nuevoProveedor.html\")'>Nuevo</button>

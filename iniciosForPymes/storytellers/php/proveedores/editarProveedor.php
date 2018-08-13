@@ -13,32 +13,16 @@ $result = $conex->conex();
 $id=$_GET['id'];
 
 // Se hace la consulta con el fin de sacar la informacion completa del producto
-$query = mysqli_query($result, "select * from productos where idproductos = '$id'");
+$query = mysqli_query($result, "select * from proveedores where proveedor_id = '$id'");
 
 $row=$query->fetch_assoc();
 
-$fecha 		= $row['fecha'];
-$nombre 	= $row['nombre'];
-$disponible = $row['disponible'];
-$valor 		= $row['valor'];
-$proveedor 	= $row['proveedor_id'];
-
-// Se hace la consulta del proveedor por medio del proveedor_id que esta registrado en la tabla de productos
-$query2 = mysqli_query($result, "select * from proveedores where proveedor_id = '$proveedor'");
-
-$row3=$query2->fetch_assoc();
-
-$empresa = $row3['empresa'];
-
-// Se hace una consulta a la tabla de proveedores con el nombre de la empresa para sacarla en un Option y mostrarla en caso de querer cambiar el proveedor
-$option='';
-
-$query3 = mysqli_query($result,'select * from proveedores order by empresa');
-
-while ($row3 = $query3->fetch_array()){
-
-	 	$option .=	"<option value='" . $row3['proveedor_id'] . "'>" . $row3['empresa'] . "</option>";
-	}	
+$documento 	= $row['documento'];
+$empresa 	= $row['empresa'];
+$nombre 	= $row['nombres'];
+$telefono 	= $row['telefono'];
+$correo		= $row['correo'];
+$direccion 	= $row['direccion'];
 
 // Se construye el html que se muestra al cliente
 $html = "<!DOCTYPE html>
@@ -103,36 +87,33 @@ $html = "<!DOCTYPE html>
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class='form-body'>
-									<form action='actProductos.php' method='post'> 
+									<form action='actProveedor.php' method='post'> 
 										<div class='form-group'> 
 											<input type='hidden' name='id' value='$id' class='form-control'> 
 										</div>
 										<div class='form-group'> 
-											<label>Fecha</label> 
-											<input type='text' name='fecha' class='form-control' placeholder='Fecha' value='$fecha'> 
+											<label>Documento</label> 
+											<input type='text' name='documento' class='form-control' placeholder='Documento' value='$documento'> 
 										</div>
+										<div class='form-group'> 
+											<label>Empresa</label> 
+											<input type='text' name='empresa' class='form-control' placeholder='Empresa' value='$empresa'> 
+										</div> 
 										<div class='form-group'> 
 											<label>Nombre</label> 
 											<input type='text' name='nombre' class='form-control' placeholder='Nombre' value='$nombre'> 
 										</div> 
 										<div class='form-group'> 
-											<label>Proveedor Actual</label> 
-											<input type='text' name='proveedor' class='form-control' placeholder='proveedor' value='$empresa' disabled /> 
+											<label>Teléfono</label> 
+											<input type='text' name='telefono' class='form-control' placeholder='Teléfono' value='$telefono'> 
 										</div> 
 										<div class='form-group'> 
-											<label>Proveedores - (Seleccione solo si es necesario)</label> 
-											<select name='newProveedor' class='form-control1'>
-												<option value='Seleccionar'>Seleccionar</option>
-												" . $option . "
-											</select>
+											<label>Correo</label> 
+											<input type='text' name='correo' class='form-control' placeholder='Correo' value='$correo'> 
 										</div>
 										<div class='form-group'> 
-											<label>Disponible</label> 
-											<input type='text' name='disponible' class='form-control' placeholder='Disponible' value='$disponible'> 
-										</div>
-										<div class='form-group'> 
-											<label>Valor</label> 
-											<input type='number' name='valor' class='form-control' placeholder='Valor' value='$valor'> 
+											<label>Dirección</label> 
+											<input type='text' name='direccion' class='form-control' placeholder='Dirección' value='$direccion'> 
 										</div> 
 
 										<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 

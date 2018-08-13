@@ -6,12 +6,12 @@ $result = $conex->conex();
 	
 	$id=$_GET['id'];
 	
-	$query = mysqli_query($result,"delete from productos where idproductos='$id'");
+	$query = mysqli_query($result,"delete from proveedores where proveedor_id ='$id'");
 	
 	if($query > 0){
-		$msg = 'El producto fue eliminado con exito';
+		$msg = 'El proveedor fue eliminado con exito';
 	}else{
-		$msg = 'Error al eliminar el producto. Intente de nuevo!';
+		$msg = 'Error al eliminar el proveedor. Intente de nuevo!';
 	}
 		
 	$html = "<script>

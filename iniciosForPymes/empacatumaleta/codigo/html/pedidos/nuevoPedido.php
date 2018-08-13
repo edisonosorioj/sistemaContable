@@ -29,7 +29,7 @@ $query2 = mysqli_query($result,'select * from proveedores order by proveedor_id'
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$agencia .=	"<option value='" . $row2['proveedor_id'] . "'>" . $row2['nombres'] . "</option>";
+	 	$agencia .=	"<option value='" . $row2['proveedor_id'] . "'>" . $row2['empresa'] . "</option>";
 	}
 
 
