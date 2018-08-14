@@ -26,15 +26,18 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-$query = mysqli_query($result,"SELECT * FROM lista_precios");
+$query = mysqli_query($result,"SELECT * FROM lista_precios ORDER BY item_id");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
+				<td>" . $row['item_id'] 	. "</td>
 				<td>" . $row['descripcion'] 	. "</td>
-				<td>$0</td>
+				<td>" . $row['precio'] 			. "</td>
 				<td><a onclick='javascript:abrir(\"editarListaPrecios.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarLista_precios.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
+				<i class='fa icon-off'></i></spam></a>
 				</td>
 			</tr>";
 
@@ -43,7 +46,7 @@ $query = mysqli_query($result,"SELECT * FROM lista_precios");
 
 $html="<!DOCTYPE html>
 <head>
-<title>Egresos</title>
+<title>Lista de Precios</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -117,13 +120,14 @@ else return false;
 					<h2>Lista de Precios</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/egreso/nuevoEgreso.php\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/lista_precios/nuevoProducto.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
 						<thead>
 						  <tr>
+							<th>Grupo</th>
 							<th>Detalles</th>
 							<th>Valor</th>
 							<th>Acciones</th>
@@ -142,7 +146,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 ForPymes . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>

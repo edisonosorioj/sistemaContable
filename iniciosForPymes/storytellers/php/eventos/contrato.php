@@ -197,7 +197,7 @@ $html="<!DOCTYPE html>
 			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de Ochenta y Tres Mil Trescientos Treinta y Cuatro Pesos Con Cero Centavos($ 83334) por persona. Para un total de Diez Millones Un Pesos Con Cero Centavos ($ 10000001) para 120 personas. Los cuáles serán cancelados de la siguiente manera:</div>
 
 			//LISTADO DE ABONO Y PAGOS<br /><br />
-			1.	Abono de $ 500000<br />
+			1.	Abono de $ " . $ . "<br />
 			2.	Julio $ 1357143<br />
 			3.	Agosto $ 1357143<br />
 			4.	Septiembre$ Septiembre<br />

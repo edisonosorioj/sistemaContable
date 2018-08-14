@@ -257,6 +257,7 @@ $html="<!DOCTYPE html>
 		<div class='firma'>
 			<form class='form-horizontal' action='guardarCotizacion.php' method='post'>
 				<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
+				<input type='hidden' name='pedido_id' value='$pedido_id'>
 				<input type='hidden' name='tipo_evento' value='$tipo_evento'>
 				<input type='hidden' name='invitados' value='$invitados'>
 				<input type='hidden' name='entrada' value='$entrada'>
@@ -267,7 +268,6 @@ $html="<!DOCTYPE html>
 				<input type='hidden' name='direccionamiento' value='$direccionamiento'>
 				<input type='hidden' name='licor' value='$licor'>
 				<input type='hidden' name='observaciones' value='$observaciones'>
-				<input type='hidden' name='pedido_id' value='$pedido_id'>
 				<input type='hidden' name='valor' value='$valorFinal'>
 				<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
 			</form>

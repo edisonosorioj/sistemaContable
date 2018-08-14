@@ -59,9 +59,11 @@ $plato_fuerte_id	= $row12['plato_fuerte'];
 $mezcladores_id		= $row12['mezcladores'];
 $menaje_id			= $row12['menaje'];
 $personal_id		= $row12['personal'];
-$direccionamiento_id= $row12['direccionamiento'];
+$direccionamiento_id = $row12['direccionamiento'];
 $licor_id			= $row12['licor'];
 $cotizacion_id		= $row12['cotizacion_id'];
+$observaciones		= $row12['observaciones'];
+$valorCotiza		= $row12['valor'];
 
 // Descripción del item de la lista de precios
 $query13 = mysqli_query($result, "select * from lista_precios where id = '$entrada_id'");
@@ -354,9 +356,11 @@ else return false;
 								<label>-</label> 
 								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 							</div>
-							<div class='col-md-1'>
+							<div class='col-md-2'>
 								<label>Horas</label>
 								<input type='text' name='horas' class='form-control' value='$hora' disabled/>
+								<label>Valor Cotización</label>
+								<input type='text' class='form-control' value='$ " . number_format($valorCotiza, 0, ",", ".") . "' disabled/>
 							</div>
 							</form>
 						</div>
@@ -375,32 +379,46 @@ else return false;
 									<input type='hidden' name='nombre_pedido' value='$nombre_pedido'>
 									<input type='hidden' name='instalaciones' value='$inst_id'>
 									<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
-									<label>Entrada: $nombre_entrada</label>
-									<select name='entrada' class='form-control'>" . $entrada . "</select>
+									<label>Entrada</label>
+									<select name='entrada' class='form-control'>
+									<option value='".$entrada_id."'>" . $nombre_entrada . "</option>
+									" . $entrada . "</select>
 									<h5>-</h5> 
-									<label>Plato fuerte: $nombre_plato</label> 
-									<select name='platoFuerte' class='form-control'>" . $platoFuerte . "</select>
+									<label>Plato fuerte</label> 
+									<select name='platoFuerte' class='form-control'>
+									<option value='".$plato_fuerte_id."'>" . $nombre_plato . "</option>
+									" . $platoFuerte . "</select>
 									<h5>-</h5> 
-									<label>Mezcladores: $nombre_mezcladores</label> 
-									<select name='mezcladores' class='form-control'>" . $mezcladores . "</select>
+									<label>Mezcladores</label> 
+									<select name='mezcladores' class='form-control'>
+									<option value='".$mezcladores_id."'>" . $nombre_mezcladores . "</option>
+									" . $mezcladores . "</select>
 								</div>
 							</div>
 							<div class='col-md-4'>
-								<label>Menaje: $nombre_menaje</label> 
-								<select name='menaje' class='form-control'>" . $menaje . "</select>
+								<label>Menaje</label> 
+								<select name='menaje' class='form-control'>
+								<option value='".$menaje_id."'>" . $nombre_menaje . "</option>
+								" . $menaje . "</select>
 								<h5>-</h5>
-								<label>Personal de Servicios: $nombre_personal</label> 
-								<select name='personalServicio' class='form-control'>" . $personalServicio . "</select>
+								<label>Personal de Servicios</label>
+								<select name='personalServicio' class='form-control'>
+								<option value='".$personal_id."'>" . $nombre_personal . "</option>
+								" . $personalServicio . "</select>
 								<h5>-</h5> 
-								<label>Direccionamiento del Evento:</label> 
-								<select name='direccionamiento' class='form-control'>" . $direccionamiento . "</select>
+								<label>Direccionamiento del Evento</label> 
+								<select name='direccionamiento' class='form-control'>
+								<option value='".$direccionamiento_id."'>" . $nombre_direccionamiento . "</option>
+								" . $direccionamiento . "</select>
 							</div>
 							<div class='col-md-4'>
-								<label>Licor: $nombre_licor</label> 
-								<select name='licor' class='form-control'>" . $licor . "</select>
+								<label>Licor</label> 
+								<select name='licor' class='form-control'>
+								<option value='".$licor_id."'>" . $nombre_licor . "</option>
+								" . $licor . "</select>
 								<h5>-</h5> 
 								<label>Observaciones:</label> 
-								<textarea name='observaciones' class='form-control'></textarea>
+								<textarea name='observaciones' class='form-control'>" . $observaciones . "</textarea>
 							</div>
 						</div>
 						<button type='submit' class='btn btn-primary btn-block'>Guardar y Generar Cotización</button> 
