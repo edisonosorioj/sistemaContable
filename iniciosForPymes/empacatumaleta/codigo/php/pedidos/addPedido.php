@@ -15,22 +15,15 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$nombre		=	$_POST['nombre'];
 	$cliente 	=	$_POST['cliente'];
+	$nombre		=	$_POST['nombre'];
 	$fecha		=	$_POST['fecha'];
 	$f_viaje	=	$_POST['f_viaje'];
 	$idadmin	=	$_POST['idadmin'];
 	$proveedor	=	$_POST['proveedor'];
 
-
 // Agrega nuevos usuarios según el formulario recibido
-	$query2 = mysqli_query($result,"SELECT * FROM clientes WHERE nombres = '$cliente';");
-
-	$row = $query2->fetch_assoc();
- 	$cliente_id = $row['id'];
-
-// Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado, usuario_id, fecha_viaje, proveedor_id) VALUES ('$cliente_id', '$nombre', '$fecha', '0', '$idadmin', '$f_viaje', '$proveedor');");
+	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado, usuario_id, fecha_viaje, proveedor_id) VALUES ('$cliente', '$nombre', '$fecha', '0', '$idadmin', '$f_viaje', '$proveedor');");
 	
 	$consecutivo = mysqli_insert_id($result);
 

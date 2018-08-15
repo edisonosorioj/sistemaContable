@@ -22,7 +22,7 @@
 ALTER TABLE `pedidoProductos` 
 ADD COLUMN `cuotas` INT NOT NULL DEFAULT 1 AFTER `producto_id`;
 
-ALTER TABLE `empacatumaleta`.`pedidos` 
+ALTER TABLE `pedidos` 
 DROP COLUMN `t_cobrado`;
 
 // Cambios 4 de Agosto en la base de datos
@@ -37,3 +37,8 @@ DROP COLUMN `t_cobrado`;
  - Informes generales
  - Espacio para agregar menores - Dejar en Blanco Niño y valor.
  - Adultos - Niños - Infantes
+
+ALTER TABLE `pedidos` 
+ADD COLUMN `proveedor_id` INT NOT NULL AFTER `fecha_viaje`;
+
+ALTER TABLE `pedidos` CHANGE COLUMN `preveedor_id` `proveedor_id` INT(11) NOT NULL;

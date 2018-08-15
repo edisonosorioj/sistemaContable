@@ -22,7 +22,7 @@ $query = mysqli_query($result,'select * from clientes order by id');
 
 while ($row = $query->fetch_array()){
 
-	 	$option .=	"<option value='" . $row['nombres'] . "'>" . $row['nombres'] . "</option>";
+	 	$option .=	"<option value='" . $row['id'] . "'>" . $row['nombres'] . "</option>";
 	}
 
 $query2 = mysqli_query($result,'select * from proveedores order by proveedor_id');
