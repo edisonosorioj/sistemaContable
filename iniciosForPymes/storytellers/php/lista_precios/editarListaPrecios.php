@@ -17,6 +17,7 @@ $query = mysqli_query($result, "select * from lista_precios where id = '$id'");
 
 $row=$query->fetch_assoc();
 
+$item 			= $row['item_id'];
 $descripcion 	= $row['descripcion'];
 $precio 		= $row['precio'];
 	
@@ -87,6 +88,10 @@ $html = "<!DOCTYPE html>
 									<form action='actLista_precios.php' method='post'> 
 										<div class='form-group'> 
 											<input type='hidden' name='id' value='$id' class='form-control'> 
+										</div>
+										<div class='form-group'> 
+											<label>Grupo</label> 
+											<input type='text' name='item' class='form-control' placeholder='Grupo' value='$item'> 
 										</div>
 										<div class='form-group'> 
 											<label>Descripción</label> 
