@@ -6,6 +6,8 @@ $result = $conex->conex();
 
 
 	$tipo_evento		=	$_POST['nombre_pedido'];
+	$cuotas				=	$_POST['cuotas'];
+	$abono				=	$_POST['abono'];
 	$cotizacion_id		=	$_POST['cotizacion_id'];
 	$pedido_id			=	$_POST['pedido_id'];
 	$cliente_id			=	$_POST['cliente_id'];
@@ -269,6 +271,8 @@ $html="<!DOCTYPE html>
 				<input type='hidden' name='licor' value='$licor'>
 				<input type='hidden' name='observaciones' value='$observaciones'>
 				<input type='hidden' name='valor' value='$valorFinal'>
+				<input type='hidden' name='cuotas' value='$cuotas'>
+				<input type='hidden' name='abono' value='$abono'>
 				<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
 			</form>
 		</div>

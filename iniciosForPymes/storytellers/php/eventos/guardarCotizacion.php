@@ -28,10 +28,12 @@ $result = $conex->conex();
 	$licor				=	$_POST['licor'];
 	$observaciones		=	$_POST['observaciones'];
 	$valor				=	$_POST['valor'];
+	$cuotas				=	$_POST['cuotas'];
+	$abono				=	$_POST['abono'];
 
 
 // Agrega Parametros Basicos de la cotización
-	$query = mysqli_query($result,"UPDATE cotizacion SET tipo_evento = '$evento', invitados = '$invitado', entrada = '$entrada', plato_fuerte = '$plato_fuerte', mezcladores = '$mezcladores', menaje = '$menaje', personal = '$personal', direccionamiento = '$direccionamiento', licor = '$licor', observaciones = '$observaciones', pedido_id = '$pedido_id', valor = '$valor' WHERE '$cotizacion_id'");
+	$query = mysqli_query($result,"UPDATE cotizacion SET tipo_evento = '$evento', invitados = '$invitado', entrada = '$entrada', plato_fuerte = '$plato_fuerte', mezcladores = '$mezcladores', menaje = '$menaje', personal = '$personal', direccionamiento = '$direccionamiento', licor = '$licor', observaciones = '$observaciones', pedido_id = '$pedido_id', valor = '$valor', abono = '$abono', cuotas = '$cuotas' WHERE '$cotizacion_id'");
 	
 
 //Según la respuesta de la inserción se da una respuesta en un alert 

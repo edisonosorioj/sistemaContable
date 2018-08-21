@@ -64,6 +64,8 @@ $licor_id			= $row12['licor'];
 $cotizacion_id		= $row12['cotizacion_id'];
 $observaciones		= $row12['observaciones'];
 $valorCotiza		= $row12['valor'];
+$abono				= $row12['abono'];
+$cuotas				= $row12['cuotas'];
 
 // Descripción del item de la lista de precios
 $query13 = mysqli_query($result, "select * from lista_precios where id = '$entrada_id'");
@@ -345,31 +347,31 @@ else return false;
 								</div>
 							</div>
 							<div class='col-md-2'>
-								<label>No. de Cuotas</label>
-								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1' required/>
+								<label>Horas</label>
+								<input type='text' name='horas' class='form-control' value='$hora' disabled/>
 								<label>Día del Evento</label>
 								<input type='text' name='diaEvento' class='form-control' value='$dia' disabled/>
 							</div>
+							</form>
 							<div class='col-md-2'>
-								<label>Deposito</label>
-								<input type='number' name='cuotas' class='form-control' id='cuotas' value='1000000' required/>
+								<label>Valor Cotización</label>
+								<input type='text' class='form-control' value='$ " . number_format($valorCotiza, 0, ",", ".") . "' disabled/>
 								<label>-</label> 
 								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 							</div>
+						<form class='form-horizontal' action='addCotizacion.php' method='post' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 							<div class='col-md-2'>
-								<label>Horas</label>
-								<input type='text' name='horas' class='form-control' value='$hora' disabled/>
-								<label>Valor Cotización</label>
-								<input type='text' class='form-control' value='$ " . number_format($valorCotiza, 0, ",", ".") . "' disabled/>
+								<label>No. de Cuotas</label>
+								<input type='number' name='cuotas' class='form-control' value='$cuotas' placeholder='1' required/>
+								<label>Deposito / Abono</label>
+								<input type='text' name='abono' class='form-control' placeholder='" . number_format($valorCotiza, 0, ",", ".") . "' value='$abono' required/>
 							</div>
-							</form>
 						</div>
 					</div>
 				</div>
 
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
-								<form class='form-horizontal' action='addCotizacion.php' method='post' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 						<div class='row mb40'>
 							<div class='col-md-4'>
 								<div class='form-group'>
@@ -423,6 +425,7 @@ else return false;
 						</div>
 						<button type='submit' class='btn btn-primary btn-block'>Guardar y Generar Cotización</button> 
 						</form>
+						<h5>-</h5>
 						<form class='form-horizontal' action='hacerPedido.php' method='post'>
 							<input type='hidden' name='pedido_id' value='$id_pedido'>
 							<button type='submit' class='btn btn-block btn-primary'>Confirmar Evento</button> 

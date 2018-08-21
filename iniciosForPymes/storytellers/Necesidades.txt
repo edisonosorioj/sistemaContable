@@ -1,6 +1,6 @@
 Horas extra. Minimo 6.
 Dia del evento. cantidad de horas.  LISTO
-Cambiar Color Institucional. Revisar logo.
-Revisar estilo de la cotización.
+Cambiar Color Institucional. Revisar logo. LISTO
+Revisar estilo de la cotización. LISTO
 No aparece boton de generar cotización sin haber hecho la reserva. LISTO
-No aparecen los eventos sino estan confirmados
+No aparecen los eventos sino estan confirmados LISTO
