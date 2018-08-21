@@ -7,6 +7,10 @@ $result = $conex->conex();
 // Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
 $id = $_POST['pedido_id'];
 
+//Se definen variables
+$meses = ''; 
+$count = ''; 
+
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
 $query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start, end, empresa, documento from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row = $query->fetch_assoc();
@@ -37,6 +41,8 @@ $direccionamiento	= $row['direccionamiento'];
 $licor		 		= $row['licor'];
 $observaciones		= $row['observaciones'];
 $valor		 		= $row['valor'];
+$abono		 		= $row['abono'];
+$cuotas		 		= $row['cuotas'];
 
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
@@ -103,6 +109,29 @@ $tel				= $datos['tel'];
 
  $row7 = $query7->fetch_array(MYSQLI_BOTH);
  $desLicor 	= $row7['descripcion'];
+
+
+//Toma en cuenta el abono total y lo divide por la cantidad de cuotas
+
+ $subtotal = $valor - $abono;
+
+ $cuota_mensual = $subtotal / $cuotas;
+
+// Realiza una lista de cada fecha con su valor según su numero de cuotas.
+
+ $count = 1;
+
+ $i = 1;
+
+ while ($count <= $cuotas){
+
+ $mes = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+ 	$meses .=	"Cuota $count. 15 de " . $mes[date('n')-$i] . " - $ " . number_format($cuota_mensual, 0, ",", ".") . "<br />";
+	
+	$count++;
+	$i--;
+ }
 
 // https://www.tiny.cloud/
 // https://www.sitepoint.com/10-best-html-wysiwyg-plugins/
@@ -197,20 +226,15 @@ $html="<!DOCTYPE html>
 			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de Ochenta y Tres Mil Trescientos Treinta y Cuatro Pesos Con Cero Centavos($ 83334) por persona. Para un total de Diez Millones Un Pesos Con Cero Centavos ($ 10000001) para 120 personas. Los cuáles serán cancelados de la siguiente manera:</div>
 
 			//LISTADO DE ABONO Y PAGOS<br /><br />
-			1.	Abono de $ " . $ . "<br />
-			2.	Julio $ 1357143<br />
-			3.	Agosto $ 1357143<br />
-			4.	Septiembre$ Septiembre<br />
-			5.	Octubre$ Octubre<br />
-			6.	Noviembre$ 1.357.143<br />
-			7.	Diciembre$ 1.357.143`<br />
-			8.	Enero$ 1.357.143<br />
-			9.	$ <br />
+			Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
+			Numero de Cuotas " . $cuotas . "<br /><br />
+			
+			" . $meses . "
 
 
 			<div class='parrafo2'>PARAGRAFO. El costo por persona adicional será de Cincuenta y Seis Mil Cuatrocientos Treinta y Siete Pesos Con Treinta y Tres Centavos ($ 56437,3333).</div>
 
-			<div class='parrafo'><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de Maria & Humberto, para un mínimo de Ciento veinte (120) personas, dicho servicio se prestará el día 2/2/2019 a las 6:00:00 PM. Hasta las 2:00:00 AM. Del 2/3/2019.</div>
+			<div class='parrafo'><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de Maria & Humberto, para un mínimo de Ciento veinte (120) personas, dicho servicio se prestará el día $fecha_inicio a las 6:00:00 PM. Hasta las 2:00:00 AM. Del $fecha_fin.</div>
 			<div class='parrafo2'>PARAGRAFO 1. El número total de personas a participar del evento, será confirmado por <b>EL CONTRATANTE</b> a más tardar un mes antes del evento.</div>
 			<div class='parrafo2'>PARAGRAFO 2. El valor de la hora adicional es de $ 6.000 por persona según la cantidad de invitados en la confirmación final, basados en el parágrafo anterior.</div>
 
@@ -284,7 +308,3 @@ $html="<!DOCTYPE html>
 </html>";
 
 echo $html;
-
-
- 
-
