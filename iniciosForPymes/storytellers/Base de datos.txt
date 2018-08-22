@@ -99,16 +99,13 @@ CREATE TABLE `proveedores` (
   `direccion` VARCHAR(45) NULL,
   PRIMARY KEY (`proveedor_id`));
 
-
 CREATE TABLE `sede` (
   `sede_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   `estado` VARCHAR(45) NULL DEFAULT 1,
-  `color` VARCHAR(45) NULL AFTER `estado`,
+  `color` VARCHAR(45) NULL,
   PRIMARY KEY (`sede_id`));
   
-
-//Configuracion Básica para Cuenta de Cobro
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'MI EMPRESA');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'tipo_identificacion', 'CC');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('3', 'identificacion', '1.123.456.789');
@@ -120,13 +117,6 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo',
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
-
-NOVEDADES BASES DE DATOS
-
-//Cambio en la tabla SEDE. Se agrega el campo Color
-ALTER TABLE `sede` 
-ADD COLUMN `color` VARCHAR(45) NULL AFTER `estado`;
-
 CREATE TABLE `lista_precios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `item_id` VARCHAR(45) NULL,
@@ -134,10 +124,8 @@ CREATE TABLE `lista_precios` (
   `precio` VARCHAR(50) NULL,
   PRIMARY KEY (`id`));
 
-
 insert into lista_precios set item_id = 1, descripcion = 'Salón, mobiliario, parqueadero, iluminación decorativa, espacio al aire libre y energía';
 insert into lista_precios set item_id = 1, descripcion = 'Sólo salón, mobiliario, parqueadero, iluminación decorativa, espacio al aire libre, seguridad, aseo, administrador y energía';
-
 
 CREATE TABLE `item` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
@@ -152,7 +140,6 @@ insert into item set nombre = 'Menaje';
 insert into item set nombre = 'Direccionamiento del Evento';
 insert into item set nombre = 'Rustico';
 insert into item set nombre = 'Licor';
-
 
 CREATE TABLE `cotizacion` (
   `cotizacion_id` INT NOT NULL AUTO_INCREMENT,
@@ -170,9 +157,6 @@ CREATE TABLE `cotizacion` (
   `valor` VARCHAR(45) NULL,
   PRIMARY KEY (`cotizacion_id`));
 
-ALTER TABLE `pedidos` 
-ADD COLUMN `instalacion_id` INT NULL AFTER `invitados`;
-
 CREATE TABLE `precio_x_dia` (
   `pxd_id` INT NOT NULL AUTO_INCREMENT,
   `dia` VARCHAR(45) NULL,
@@ -181,5 +165,5 @@ CREATE TABLE `precio_x_dia` (
   `item_id` VARCHAR(45) NULL,
   PRIMARY KEY (`pxd_id`));
 
-
-
+  ALTER TABLE `cotizacion` ADD COLUMN `abono` VARCHAR(45) AFTER `valor`,
+ ADD COLUMN `cuotas` VARCHAR(45) AFTER `abono`;

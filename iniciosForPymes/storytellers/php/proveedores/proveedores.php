@@ -50,7 +50,7 @@ $tr = '';
 
 $html="<!DOCTYPE html>
 <head>
-<title>Agencias</title>
+<title>Proveedores</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -112,7 +112,7 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Proveedores / Agencias</h2>
+					<h2>Proveedores</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/proveedores/nuevoProveedor.html\")'>Nuevo</button>
@@ -144,7 +144,7 @@ $html="<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 Forpymes . All Rights Reserved</p>
 		</div>
 		<!-- //footer -->
 	</section>

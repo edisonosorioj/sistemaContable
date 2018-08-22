@@ -119,9 +119,11 @@ else return false;
 				<div class='table-heading'>
 					<h2>Lista de Precios</h2>
 				</div>
+
+				<!--
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/lista_precios/nuevoProducto.html\")'>Nuevo</button>
-				</div>
+				</div> -->
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
@@ -146,7 +148,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 ForPymes . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 ForPymes . All Rights Reserved</p>
 		</div>
 		<!-- //footer -->
 	</section>

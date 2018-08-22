@@ -46,15 +46,15 @@ $estado 		= $row['estado'];
 $invitados 		= $row['invitados'];
 $inst_id 		= $row['instalacion_id'];
 $sede_id 		= $row['sede_id'];
-$fecha_inicio 	= new DateTime($row['start']);
-$fecha_fin 		= new DateTime($row['end']);
+$fecha_inicio 	= $row['start'];
+$fecha_fin 		= $row['end'];
 
 //Información de la tabla cotización
 
 $query12 = mysqli_query($result, "select * from cotizacion where pedido_id = '$id'");
 $row12 = $query12->fetch_assoc();
-
-$entrada_id			= $row12['entrada'];
+ 
+$entrada_id 	 	= $row12['entrada'];
 $plato_fuerte_id	= $row12['plato_fuerte'];
 $mezcladores_id		= $row12['mezcladores'];
 $menaje_id			= $row12['menaje'];
@@ -67,94 +67,92 @@ $valorCotiza		= $row12['valor'];
 $abono				= $row12['abono'];
 $cuotas				= $row12['cuotas'];
 
-// Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$entrada_id'");
-$row13 = $query13->fetch_assoc();
-
-$nombre_entrada	= $row13['descripcion'];
 
 // Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$plato_fuerte_id'");
-$row13 = $query13->fetch_assoc();
+$query1 = mysqli_query($result, "select * from lista_precios where id =  ' $entrada_id ' ");
+$row1 = $query1->fetch_assoc();
 
-$nombre_plato	= $row13['descripcion'];
-
-// Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$mezcladores_id'");
-$row13 = $query13->fetch_assoc();
-
-$nombre_mezcladores	= $row13['descripcion'];
+$nombre_entrada	= $row1['descripcion'];
 
 // Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$menaje_id'");
-$row13 = $query13->fetch_assoc();
+$query2 = mysqli_query($result, "select * from lista_precios where id = '$plato_fuerte_id'");
+$row2 = $query2->fetch_assoc();
 
-$nombre_menaje	= $row13['descripcion'];
-
-// Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$personal_id'");
-$row13 = $query13->fetch_assoc();
-
-$nombre_personal	= $row13['descripcion'];
+$nombre_plato	= $row2['descripcion'];
 
 // Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$direccionamiento_id'");
-$row13 = $query13->fetch_assoc();
+$query3 = mysqli_query($result, "select * from lista_precios where id = '$mezcladores_id'");
+$row3 = $query3->fetch_assoc();
 
-$nombre_direccionamiento	= $row13['descripcion'];
+$nombre_mezcladores	= $row3['descripcion'];
 
 // Descripción del item de la lista de precios
-$query13 = mysqli_query($result, "select * from lista_precios where id = '$licor_id'");
-$row13 = $query13->fetch_assoc();
+$query4 = mysqli_query($result, "select * from lista_precios where id = '$menaje_id'");
+$row4 = $query4->fetch_assoc();
 
-$nombre_licor	= $row13['descripcion'];
+$nombre_menaje	= $row4['descripcion'];
+
+// Descripción del item de la lista de precios
+$query5 = mysqli_query($result, "select * from lista_precios where id = '$personal_id'");
+$row5 = $query5->fetch_assoc();
+
+$nombre_personal	= $row5['descripcion'];
+
+// Descripción del item de la lista de precios
+$query6 = mysqli_query($result, "select * from lista_precios where id = '$direccionamiento_id'");
+$row6 = $query6->fetch_assoc();
+
+$nombre_direccionamiento	= $row6['descripcion'];
+
+// Descripción del item de la lista de precios
+$query7 = mysqli_query($result, "select * from lista_precios where id = '$licor_id'");
+$row7 = $query7->fetch_assoc();
+
+$nombre_licor	= $row7['descripcion'];
 
 //Consultar la cantidad de horas que tiene el evento
 
-$horas = $fecha_inicio->diff($fecha_fin);
+// $fecha1 = new DateTime('$fecha_inicio');
+// $fecha2 = new DateTime('$fecha_fin');
 
-$hora = $horas->format('%H');
+// $horas = $fecha1->diff($fecha2);
+
+// $hora = $horas->format('%H');
+
+// echo $hora;
 
  // Consulta para saber el día de la semana
-$fecha_inicio 	= $row['start'];
- $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
+$fecha_inicio = $row['start'];
+ $dias = array("Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado");
  $dia = $dias[date("w", strtotime($fecha_inicio))];
-
-// Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query1 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
-
-$row1 = $query1->fetch_assoc();
-
-$valorPedido = "Valor Pedido: $ " . number_format($row1['valor'], 0, ",", ".") . "";
-
 
 // Consulta el nombre de la sede
 
-$query11 = mysqli_query($result,"select * from sede where sede_id = '$sede_id'");
+$query8 = mysqli_query($result,"select * from sede where sede_id = '$sede_id'");
 
-$sede = $query11->fetch_assoc();
+$sede = $query8->fetch_assoc();
 
 $nombre_sede = $sede['nombre'];
 
 
 //Sale la lista de productos disponibles.
 
-$query2 = mysqli_query($result,"select * from lista_precios where id = '$inst_id'");
+$query9 = mysqli_query($result,"select * from lista_precios where id = '$inst_id'");
 
-$row2 = $query2->fetch_assoc();
+$row9 = $query9->fetch_assoc();
 
-$instalacion = $row2['descripcion'];
+$instalacion = $row9['descripcion'];
 
 
 //Sale la lista de productos disponibles.
 
 $entrada='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 2 order by id');
+$query10 = mysqli_query($result,'select * from lista_precios where item_id = 2 order by id');
 
-while ($row3 = $query3->fetch_array()){
+while ($row10 = $query10->fetch_array()){
 
-	 	$entrada .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$entrada .=	"<option value='" . $row10['id'] . "'>" . $row10['descripcion'] . "</option>";
 	}
 
 
@@ -162,11 +160,11 @@ while ($row3 = $query3->fetch_array()){
 
 $platoFuerte='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 3 order by id DESC');
+$query11 = mysqli_query($result,'select * from lista_precios where item_id = 3 order by id DESC');
 
-while ($row3 = $query3->fetch_array()){
+while ($row11 = $query11->fetch_array()){
 
-	 	$platoFuerte .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$platoFuerte .=	"<option value='" . $row11['id'] . "'>" . $row11['descripcion'] . "</option>";
 	}
 
 
@@ -174,11 +172,11 @@ while ($row3 = $query3->fetch_array()){
 
 $mezcladores='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 4 order by id DESC');
+$query12 = mysqli_query($result,'select * from lista_precios where item_id = 4 order by id DESC');
 
-while ($row3 = $query3->fetch_array()){
+while ($row12 = $query12->fetch_array()){
 
-	 	$mezcladores .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$mezcladores .=	"<option value='" . $row12['id'] . "'>" . $row12['descripcion'] . "</option>";
 	}
 
 
@@ -186,11 +184,11 @@ while ($row3 = $query3->fetch_array()){
 
 $menaje='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 5 order by id DESC');
+$query13 = mysqli_query($result,'select * from lista_precios where item_id = 5 order by id DESC');
 
-while ($row3 = $query3->fetch_array()){
+while ($row13 = $query13->fetch_array()){
 
-	 	$menaje .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$menaje .=	"<option value='" . $row13['id'] . "'>" . $row13['descripcion'] . "</option>";
 	}
 
 
@@ -198,45 +196,34 @@ while ($row3 = $query3->fetch_array()){
 
 $personalServicio='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 6 order by id');
+$query14 = mysqli_query($result,'select * from lista_precios where item_id = 6 order by id');
 
-while ($row3 = $query3->fetch_array()){
+while ($row14 = $query14->fetch_array()){
 
-	 	$personalServicio .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$personalServicio .=	"<option value='" . $row14['id'] . "'>" . $row14['descripcion'] . "</option>";
 	}
 
 //Sale la lista de productos disponibles.
 
 $direccionamiento='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 8 order by id');
+$query15 = mysqli_query($result,'select * from lista_precios where item_id = 8 order by id');
 
-while ($row3 = $query3->fetch_array()){
+while ($row15 = $query15->fetch_array()){
 
-	 	$direccionamiento .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$direccionamiento .=	"<option value='" . $row15['id'] . "'>" . $row15['descripcion'] . "</option>";
 	}
 
-
-//Sale la lista de productos disponibles.
-
-$rustico='';
-
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 9 order by id');
-
-while ($row3 = $query3->fetch_array()){
-
-	 	$rustico .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
-	}
 
 //Sale la lista de productos disponibles.
 
 $licor='';
 
-$query3 = mysqli_query($result,'select * from lista_precios where item_id = 7 order by id');
+$query16 = mysqli_query($result,'select * from lista_precios where item_id = 7 order by id');
 
-while ($row3 = $query3->fetch_array()){
+while ($row16 = $query16->fetch_array()){
 
-	 	$licor .=	"<option value='" . $row3['id'] . "'>" . $row3['descripcion'] . "</option>";
+	 	$licor .=	"<option value='" . $row16['id'] . "'>" . $row16['descripcion'] . "</option>";
 	}
 
 if ($estado == 1) {
@@ -383,7 +370,7 @@ else return false;
 									<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
 									<label>Entrada</label>
 									<select name='entrada' class='form-control'>
-									<option value='".$entrada_id."'>" . $nombre_entrada . "</option>
+									<option value='" . $entrada_id . "'>" . $nombre_entrada . "</option>
 									" . $entrada . "</select>
 									<h5>-</h5> 
 									<label>Plato fuerte</label> 
@@ -450,7 +437,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 ForPymes. All Rights Reserved. Design by <a href='edisonosorioj.com'></a>Edison Osorio</p>
+			<p>© 2018 ForPymes. All Rights Reserved</p>
 		</div>
 		<!-- //footer -->
 	</section>
