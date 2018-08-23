@@ -112,14 +112,14 @@ $nombre_licor	= $row7['descripcion'];
 
 //Consultar la cantidad de horas que tiene el evento
 
-// $fecha1 = new DateTime('$fecha_inicio');
-// $fecha2 = new DateTime('$fecha_fin');
+$fecha1 = new DateTime($fecha_inicio);
+$fecha2 = new DateTime($fecha_fin);
 
-// $horas = $fecha1->diff($fecha2);
+$horas = $fecha1->diff($fecha2);
 
-// $hora = $horas->format('%H');
+$hora = $horas->format('%H');
 
-// echo $hora;
+// echo $hora;die();
 
  // Consulta para saber el día de la semana
 $fecha_inicio = $row['start'];

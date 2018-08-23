@@ -133,6 +133,10 @@ $tel				= $datos['tel'];
 	$i--;
  }
 
+ $valorPersona = $valor / $invitados;
+
+ $hoy = date("d-m-Y");
+
 // https://www.tiny.cloud/
 // https://www.sitepoint.com/10-best-html-wysiwyg-plugins/
 
@@ -163,15 +167,14 @@ $html="<!DOCTYPE html>
 			</div>
 
 			<div class='parrafo'><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en
-			Rionegro, para lo cual dispondrádel todos los recursos necesarios para su desarrollo de acuerdo con la etiqueta del evento. Adicionalmente ofrecerá parqueadero para 50
-			carros y espacio al aire libre.</div>
+			Rionegro, para lo cual dispondrádel todos los recursos necesarios para su desarrollo de acuerdo con la etiqueta del evento. Adicionalmente ofrecerá parqueadero para 50 carros y espacio al aire libre.</div>
 
 			<div class='parrafo'><b>SEGUNDA. PERSONAL. El CONTRATISTA</b> tendrá su propio personal bajo su exclusiva subordinación y dependencia laboral, salarial y de seguridad
 			social, quien será personal	idóneo para cumplir con el objeto de este contrato.</div>
 
 			<div class='parrafo'><b>TERCERA. SERVICIOS.</b> El servicio ofrecido por el CONTRATISTA consta de:</div>
 			
-			<div>
+			<div class='parrafo'>
 				<table class='table-fill'>
 					<tr>
 						<th class='text-center' colspan='5'>Cotizaci&oacute;n</th>
@@ -223,18 +226,18 @@ $html="<!DOCTYPE html>
 			<div class='parrafo2'>PARAGRAFO 2. El CONTRATANTE tendrá exclusividad con el CONTRATISTA para la prestación de servicios de alimentación mencionadas a continuación: entradas, plato fuerte, pasabocas y mesa de sal.</div>
 
 
-			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de Ochenta y Tres Mil Trescientos Treinta y Cuatro Pesos Con Cero Centavos($ 83334) por persona. Para un total de Diez Millones Un Pesos Con Cero Centavos ($ 10000001) para 120 personas. Los cuáles serán cancelados de la siguiente manera:</div>
+			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de Ochenta y Tres Mil Trescientos Treinta y Cuatro Pesos Con Cero Centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ") por persona. Para un total de Diez Millones Un Pesos Con Cero Centavos (\$ " . number_format($valor, 0, ",", ".") . " ) para $invitados personas. Los cuáles serán cancelados de la siguiente manera:</div>
 
-			//LISTADO DE ABONO Y PAGOS<br /><br />
-			Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
+			<div class='parrafo'>
+				Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
 			Numero de Cuotas " . $cuotas . "<br /><br />
 			
 			" . $meses . "
 
+			</div>
+			<div class='parrafo2'>PARAGRAFO. El costo por persona adicional será de Cincuenta y Seis Mil Cuatrocientos Treinta y Siete Pesos Con Treinta y Tres Centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ").</div>
 
-			<div class='parrafo2'>PARAGRAFO. El costo por persona adicional será de Cincuenta y Seis Mil Cuatrocientos Treinta y Siete Pesos Con Treinta y Tres Centavos ($ 56437,3333).</div>
-
-			<div class='parrafo'><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de Maria & Humberto, para un mínimo de Ciento veinte (120) personas, dicho servicio se prestará el día $fecha_inicio a las 6:00:00 PM. Hasta las 2:00:00 AM. Del $fecha_fin.</div>
+			<div class='parrafo'><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de Maria & Humberto, para un mínimo de Ciento veinte (120) personas, dicho servicio se prestará el día $fecha_inicio. Hasta el $fecha_fin.</div>
 			<div class='parrafo2'>PARAGRAFO 1. El número total de personas a participar del evento, será confirmado por <b>EL CONTRATANTE</b> a más tardar un mes antes del evento.</div>
 			<div class='parrafo2'>PARAGRAFO 2. El valor de la hora adicional es de $ 6.000 por persona según la cantidad de invitados en la confirmación final, basados en el parágrafo anterior.</div>
 
@@ -275,7 +278,7 @@ $html="<!DOCTYPE html>
 			 <div class='parrafo'><b>DECIMA. MÉRITO EJECUTIVO.</b></div>
 			<div class='parrafo'>El presente contrato presta mérito ejecutivo para el cobro de las obligaciones aquí consagradas. Las partes renuncian de forma previa a cualquier requerimiento en mora.</div>
 
-			<div class='parrafo'>Se firma en Rionegro - Antioquia, el __________.</div>
+			<div class='parrafo'>Se firma en Rionegro - Antioquia, el $hoy.</div>
 
 			<div class='table'>
 				<table class='table-fill'>
@@ -286,13 +289,13 @@ $html="<!DOCTYPE html>
 						Representante Legal de Inversiones</br>
 						TP S.A.S. NIT: 900999387-7</br>
 						DAVID PINEDA DUQUE</br>
-						Cedula de Ciudadanía 1.037.6169.00</b>
+						CC 1.037.6169.00</b>
 						</td>
 						<td class='text-center text-big'>
 						</br></br></br><b>___________________________</br>
 						EL CONTRATANTE </br>
-						MARIA ORTIZ</br>
-						Cedula de Ciudadanía 43222252</b>
+						$nombre_cliente</br>
+						CC $documento</b>
 						</td>
 					</tr>
 				</table>
