@@ -1,5 +1,6 @@
 <?php
 
+
 session_start();
 
 if (!isset($_SESSION['login'])) {
@@ -10,6 +11,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 require_once "../conexion.php";
+
 
 $conex = new conection();
 $result = $conex->conex();
@@ -43,7 +45,7 @@ $fecha_f = $end . " " . $time2;
 	$consecutivo = mysqli_insert_id($result);
 
 // Agrega Parametros Basicos de la cotización
-	$query2 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, licor, observaciones, pedido_id, valor) VALUES ('$evento', 'invitado', '3', '13', '17', '20', '21', '26', '23', '', '$consecutivo', '0');");
+	$query2 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, licor, observaciones, pedido_id, valor) VALUES ('$evento', '$invitado', '4', '15', '19', '22', '23', '28', '25', '', '$consecutivo', '0');");
 	
 	
 // Toma el ID y lo actualiza en la tabla de configuración para conocer el concecutivo.

@@ -163,7 +163,42 @@ CREATE TABLE `precio_x_dia` (
   `precio` VARCHAR(45) NULL,
   `sede_id` VARCHAR(45) NULL,
   `item_id` VARCHAR(45) NULL,
+  `impuesto` VARCHAR(45) NULL,
   PRIMARY KEY (`pxd_id`));
 
   ALTER TABLE `cotizacion` ADD COLUMN `abono` VARCHAR(45) AFTER `valor`,
  ADD COLUMN `cuotas` VARCHAR(45) AFTER `abono`;
+
+
+ insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Lunes ','1500000 ','1 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Martes ','1500000 ','1 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Miercoles ','1500000 ','1 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Jueves ','1500000 ','1 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Viernes ','2500000 ','1 ','1 ','718400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Sabado ','4000000 ','1 ','1 ','878400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo ','2000000 ','1 ','1 ','678400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo con Lunes Festivo ','3500000 ','1 ','1 ','768400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Lunes ','1500000 ','2 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Martes ','1500000 ','2 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Miércoles ','1500000 ','2 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Jueves ','1500000 ','2 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Viernes ','2500000 ','2 ','1 ','718400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Sábado ','4000000 ','2 ','1 ','878400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo ','2000000 ','2 ','1 ','678400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo con Lunes Festivo ','3500000 ','2 ','1 ','798400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Lunes ','2500000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Martes ','2500000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Miércoles ','2500000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Jueves ','2500000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Viernes ','3500000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Sábado ','6000000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo ','3500000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo con Lunes Festivo ','5000000 ','1 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Lunes ','2500000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Martes ','2500000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Miércoles ','2500000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Jueves ','2500000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Viernes ','3500000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Sábado ','5000000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo ','3500000 ','2 ','2 ','0 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo con Lunes Festivo ','4500000 ','2 ','2 ','0 ');

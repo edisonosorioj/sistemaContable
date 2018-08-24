@@ -17,6 +17,7 @@ if (isset($_SESSION['idrol'])){
 }
 
 require_once '../conexion.php';
+require('funcionesEspeciales.php');
 
 $conex = new conection();
 $result = $conex->conex();
@@ -112,12 +113,15 @@ $nombre_licor	= $row7['descripcion'];
 
 //Consultar la cantidad de horas que tiene el evento
 
-$fecha1 = new DateTime($fecha_inicio);
-$fecha2 = new DateTime($fecha_fin);
+// $fecha1 = new DateTime($fecha_inicio);
+// $fecha2 = new DateTime($fecha_fin);
 
-$horas = $fecha1->diff($fecha2);
+// $horas = $fecha1->diff($fecha2);
 
-$hora = $horas->format('%H');
+// $hora = $horas->format('%H');
+
+
+// $hora = consultas::tiempoTranscurridoFechas($fecha_inicio,$fecha_fin);
 
 // echo $hora;die();
 
@@ -335,7 +339,7 @@ else return false;
 							</div>
 							<div class='col-md-2'>
 								<label>Horas</label>
-								<input type='text' name='horas' class='form-control' value='$hora' disabled/>
+								<input type='text' name='horas' class='form-control' value='' disabled/>
 								<label>Día del Evento</label>
 								<input type='text' name='diaEvento' class='form-control' value='$dia' disabled/>
 							</div>

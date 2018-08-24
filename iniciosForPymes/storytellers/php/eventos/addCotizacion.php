@@ -1,5 +1,6 @@
 <?php
 require_once "../conexion.php";
+require('funcionesEspeciales.php');
 
 $conex = new conection();
 $result = $conex->conex();
@@ -22,6 +23,7 @@ $result = $conex->conex();
 	$licor				=	$_POST['licor'];
 	$observaciones		=	$_POST['observaciones'];
 
+
 // Realiza una primera consulta
  $query = mysqli_query($result,"SELECT * FROM clientes where id = $cliente_id");
 
@@ -41,25 +43,29 @@ $result = $conex->conex();
  $fecha_i = $row9['start'];
  $fecha_f = $row9['end'];
  $sede_id = $row9['sede_id'];
-$fecha_inicial = new DateTime($row9['start']);
-$fecha_final = new DateTime($row9['end']);
+ $fecha_inicial = $row9['start'];
+ $fecha_final = $row9['end'];
 
  // Consulta para saber el día de la semana
  $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
  $dia = $dias[date("w")];
 
-//Revisar
-$horas = $fecha_inicial->diff($fecha_final);
+//Calcular horas del evento
 
-$hora = $horas->format('%H');
+// $hora = consultas::tiempoTranscurridoFechas($fecha_inicial,$fecha_final);
+// $horas = $fecha_inicial->diff($fecha_final);
+
+// echo $hora;die();
+// $hora = $horas->format('%H');
+
 
 // Realiza una primera consulta
  $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id WHERE lp.id = '$instalaciones' AND pd.dia = '$dia' AND pd.sede_id = '$sede_id'");
 
- $row = $query11->fetch_array(MYSQLI_BOTH);
- $desInstala 	= $row['descripcion'];
- $preInstala 	= $row['precio'];
- $impuesto 		= $row['impuesto'];
+ $row11 = $query11->fetch_array(MYSQLI_BOTH);
+ $desInstala 	= $row11['descripcion'];
+ $preInstala 	= $row11['precio'];
+ $impuesto 		= $row11['impuesto'];
 
  $preInstala = $preInstala + $impuesto;
 
@@ -188,7 +194,7 @@ $html="<!DOCTYPE html>
 					<td><b>Día</b></td>
 					<td>$dia</td>
 					<td><b>Horas</b></td>
-					<td>$hora</td>
+					<td></td>
 				</tr>
 			</table>
 		</div>

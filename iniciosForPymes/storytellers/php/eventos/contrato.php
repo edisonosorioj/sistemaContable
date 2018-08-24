@@ -158,7 +158,8 @@ $html="<!DOCTYPE html>
 </head>
 <body>
 	<div class='hoja'>
-		<div id='summernote'>
+		<form method='post'>
+  		<textarea id='summernote' name='editordata'>
 		<div class='logo'><img src='../../images/logoInformes.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 			<div class='titulo'><h3>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
@@ -302,7 +303,9 @@ $html="<!DOCTYPE html>
 			</div>
 		</div>
 	</div>
-	<script>
+	</textarea>
+	</form>
+  <script>
     $(document).ready(function() {
         $('#summernote').summernote();
     });
