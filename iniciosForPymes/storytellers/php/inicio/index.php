@@ -28,7 +28,7 @@ if ($idrol == 0) {
 
 // Consulta y por medio de un while muestra la lista de los pedidos
 
-$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start BETWEEN CURDATE() AND NOW()');
+$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start BETWEEN CURDATE() AND NOW() and estado = 1');
 
 $tr2 = '';
 
@@ -52,7 +52,7 @@ $tr2 = '';
  }
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start > NOW() ORDER BY p.start ASC;');
+$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start > NOW() and estado = 1 ORDER BY p.start ASC;');
 
 $tr = '';
 
@@ -68,7 +68,7 @@ $tr = '';
 				<td>" . $row['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
+				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				</td>
 			</tr>";
@@ -199,7 +199,7 @@ else return false;
 				</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>
