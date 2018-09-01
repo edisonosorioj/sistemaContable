@@ -155,6 +155,8 @@ CREATE TABLE `cotizacion` (
   `observaciones` VARCHAR(1000) NULL,
   `pedido_id` INT NULL,
   `valor` VARCHAR(45) NULL,
+  `abono` VARCHAR(45) NULL,
+  `cuotas` VARCHAR(45) NULL,
   PRIMARY KEY (`cotizacion_id`));
 
 CREATE TABLE `precio_x_dia` (
@@ -166,11 +168,8 @@ CREATE TABLE `precio_x_dia` (
   `impuesto` VARCHAR(45) NULL,
   PRIMARY KEY (`pxd_id`));
 
-  ALTER TABLE `cotizacion` ADD COLUMN `abono` VARCHAR(45) AFTER `valor`,
- ADD COLUMN `cuotas` VARCHAR(45) AFTER `abono`;
 
-
- insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Lunes ','1500000 ','1 ','1 ','638400 ');
+insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Lunes ','1500000 ','1 ','1 ','638400 ');
 insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Martes ','1500000 ','1 ','1 ','638400 ');
 insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Miercoles ','1500000 ','1 ','1 ','638400 ');
 insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Jueves ','1500000 ','1 ','1 ','638400 ');

@@ -688,7 +688,7 @@ i.fa.fa-tasks{
     font-size: 11px;
     font-weight: bold;
     color: #ffffff;
-    background: #fcb216;
+    background: #b9a76d;
     line-height: 15px;
     width: 20px;
     height: 20px;
@@ -761,7 +761,7 @@ ul.nofitications-dropdown {
 	margin:0;
 }
 .notification_bottom {
-	background-color: #fcb216;
+	background-color: #b9a76d;
     padding: 4px 0;
     text-align: center;
     margin-top: 5px;
@@ -1252,11 +1252,11 @@ th {
 }
 .w3l-chart button:hover, .charts-left button:focus {
     outline: none;
-    background-color: #fcb216;
+    background-color: #b9a76d;
 }
 .w3l-chart1 button:hover, .charts-left button:focus {
     outline: none;
-    background-color: #fcb216;
+    background-color: #b9a76d;
 }
 svg#lol {
     width: 100% !important;
@@ -1536,8 +1536,8 @@ code {
 }
 .btn-danger {
     color: #fff;
-    background-color: #fcb216;
-    border-color: #fcb216;
+    background-color: #b9a76d;
+    border-color: #b9a76d;
 }
 .btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
     color: #fff;
@@ -3455,9 +3455,9 @@ button.note-color-btn {
     margin-top: 10px;
 }
 .forms button.btn.btn-default {
-    background-color: #fcb216;
-    color: #fff;
-    border: solid 2px #fcb216;
+    background-color: #b9a76d;
+    color: #000;
+    border: solid 2px #b9a76d;
     padding: .5em 1.5em;
     outline: none;
     border-radius: inherit;
@@ -3593,8 +3593,8 @@ button.note-color-btn {
 }
 .register {
     padding: 8px;
-    background-color: #fcb216;
-    border: solid 2px #fcb216;
+    background-color: #b9a76d;
+    border: solid 2px #b9a76d;
     width: 90%;
     cursor: pointer;
     color: #fff;
@@ -3606,7 +3606,7 @@ button.note-color-btn {
 }
 .signup-heading {
     padding: 2em 0;
-    background: #fcb216;
+    background: #b9a76d;
 }
 .register:hover {
     border: solid 2px #000;
@@ -3837,10 +3837,10 @@ div#vmap {
     text-align: center;
 }
 .go-back a {
-    background: #fcb216;
+    background: #b9a76d;
     color: #000;
     padding: .8em 1.5em;
-    border: solid 2px #fcb216;
+    border: solid 2px #b9a76d;
 }
 .go-back a:hover{
     border: solid 2px #000000;

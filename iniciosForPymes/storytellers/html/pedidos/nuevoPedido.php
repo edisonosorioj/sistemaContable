@@ -220,6 +220,7 @@ $html = "<!DOCTYPE html>
 														<div class='form-group'> 
 															<label>Sede</label> 
 															<select name='sede' class='form-control1'>
+																<option value='0'>Ninguna</option>
 																" . $option2 . "
 															</select>
 														</div>

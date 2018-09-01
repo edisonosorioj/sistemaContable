@@ -34,11 +34,9 @@ $tr = '';
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['documento'] 	. "</td>
-				<td>" . $row['empresa'] 	. "</td>
-				<td>" . $row['nombres'] 	. "</td>
+				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
+				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
 				<td>" . $row['telefono'] 	. "</td>
-				<td>" . $row['correo'] 		. "</td>
-				<td>" . $row['direccion'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
@@ -135,12 +133,10 @@ $html="<!DOCTYPE html>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>ID</th>
+							<th>Documento</th>
 							<th>Empresa</th>
 							<th>Nombre</th>
 							<th>Telefono</th>
-							<th>Correo</th>
-							<th>Dirección</th>
 							<th>Saldo</th>
 							<th>Acciones</th>
 						  </tr>
