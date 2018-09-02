@@ -82,12 +82,12 @@ tr {
 }
 
 th {
-  color:#D5DDE5;;
-  background:#063288;
+  color:#000;;
+  background:#b9a76d;
   border-bottom:4px solid #9ea7af;
   border-right: 1px solid #343a45;
   font-size:12px;
-  font-weight: 300;
+  font-weight: 500;
   padding:5px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
