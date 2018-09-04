@@ -1,5 +1,6 @@
 <?php
-require_once "../conexion.php";
+require_once('../conexion.php');
+require_once('CifrasEnLetras.php');
 
 $conex = new conection();
 $result = $conex->conex();
@@ -137,6 +138,13 @@ $tel				= $datos['tel'];
 
  $hoy = date("d-m-Y");
 
+
+$valorLetraPersona 	= CifrasEnLetras::convertirNumeroEnLetras($valorPersona,2);
+$valorLetras 		= CifrasEnLetras::convertirNumeroEnLetras($valor,2);
+$valorLetraPersona 	= CifrasEnLetras::convertirNumeroEnLetras($valorPersona,2);
+$LetraPersonas 	= CifrasEnLetras::convertirNumeroEnLetras($invitados,0);
+
+
 // https://www.tiny.cloud/
 // https://www.sitepoint.com/10-best-html-wysiwyg-plugins/
 
@@ -148,23 +156,15 @@ $html="<!DOCTYPE html>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' /> 
 
-	<!-- include summernote css/js -->
-	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>
-	    <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js'></script>
-	    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js'></script>
-	    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
-	    <link href='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css' rel='stylesheet'>
-	    <script src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js'></script>
 	</head>
 <body>
 	<div class='hoja'>
 		<form method='post'>
-  		<textarea id='summernote' name='editordata'>
 		<div class='logo'><img src='../../images/logoInformes.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 			<div class='titulo'><h3>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
 
-			<div class='parrafo'>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad,identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificacion No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:
+			<div class='parrafo'>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad, identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificacion No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:
 			</div>
 
 			<div class='parrafo'><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en
@@ -227,7 +227,7 @@ $html="<!DOCTYPE html>
 			<div class='parrafo2'>PARAGRAFO 2. El CONTRATANTE tendrá exclusividad con el CONTRATISTA para la prestación de servicios de alimentación mencionadas a continuación: entradas, plato fuerte, pasabocas y mesa de sal.</div>
 
 
-			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de Ochenta y Tres Mil Trescientos Treinta y Cuatro Pesos Con Cero Centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ") por persona. Para un total de Diez Millones Un Pesos Con Cero Centavos (\$ " . number_format($valor, 0, ",", ".") . " ) para $invitados personas. Los cuáles serán cancelados de la siguiente manera:</div>
+			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de " . $valorLetraPersona . " centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ") por persona. Para un total de " . $valorLetras . " centavos (\$ " . number_format($valor, 0, ",", ".") . " ) para $invitados personas. Los cuáles serán cancelados de la siguiente manera:</div>
 
 			<div class='parrafo'>
 				Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
@@ -236,9 +236,9 @@ $html="<!DOCTYPE html>
 			" . $meses . "
 
 			</div>
-			<div class='parrafo2'>PARAGRAFO. El costo por persona adicional será de Cincuenta y Seis Mil Cuatrocientos Treinta y Siete Pesos Con Treinta y Tres Centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ").</div>
+			<div class='parrafo2'>PARAGRAFO. El costo por persona adicional será de " . $valorLetraPersona . " centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ").</div>
 
-			<div class='parrafo'><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de Maria & Humberto, para un mínimo de Ciento veinte (120) personas, dicho servicio se prestará el día $fecha_inicio. Hasta el $fecha_fin.</div>
+			<div class='parrafo'><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de " . $tipo_evento . ", para un mínimo de $LetraPersonas ($invitados) personas, dicho servicio se prestará el día $fecha_inicio. Hasta el $fecha_fin.</div>
 			<div class='parrafo2'>PARAGRAFO 1. El número total de personas a participar del evento, será confirmado por <b>EL CONTRATANTE</b> a más tardar un mes antes del evento.</div>
 			<div class='parrafo2'>PARAGRAFO 2. El valor de la hora adicional es de $ 6.000 por persona según la cantidad de invitados en la confirmación final, basados en el parágrafo anterior.</div>
 
@@ -303,13 +303,8 @@ $html="<!DOCTYPE html>
 			</div>
 		</div>
 	</div>
-	</textarea>
 	</form>
-  <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-  </script>
+
 </body>
 </html>";
 

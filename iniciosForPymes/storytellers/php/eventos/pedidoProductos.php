@@ -113,17 +113,8 @@ $nombre_licor	= $row7['descripcion'];
 
 //Consultar la cantidad de horas que tiene el evento
 
-// $fecha1 = new DateTime($fecha_inicio);
-// $fecha2 = new DateTime($fecha_fin);
+$horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_fin) - strtotime($fecha_inicio));
 
-// $horas = $fecha1->diff($fecha2);
-
-// $hora = $horas->format('%H');
-
-
-// $hora = consultas::tiempoTranscurridoFechas($fecha_inicio,$fecha_fin);
-
-// echo $hora;die();
 
  // Consulta para saber el día de la semana
 $fecha_inicio = $row['start'];
@@ -339,7 +330,7 @@ else return false;
 							</div>
 							<div class='col-md-2'>
 								<label>Horas</label>
-								<input type='text' name='horas' class='form-control' value='' disabled/>
+								<input type='text' name='horas' class='form-control' value='$horas' disabled/>
 								<label>Día del Evento</label>
 								<input type='text' name='diaEvento' class='form-control' value='$dia' disabled/>
 							</div>

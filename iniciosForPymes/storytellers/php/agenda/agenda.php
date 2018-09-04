@@ -52,7 +52,7 @@
           $("#ModalEventos").modal();
         },
 
-        events: 'http://localhost/sistemaContable/iniciosForPymes/storytellers/php/agenda/eventos.php',
+        events: 'https://forpymes.co/wink/php/agenda/eventos.php',
 
         eventClick:function(calEvent,jsEvent,view){
           // h2

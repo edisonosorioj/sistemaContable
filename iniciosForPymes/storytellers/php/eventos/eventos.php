@@ -44,7 +44,7 @@ $tr2 = '';
 				<td>" . $row2['end']						. "</td>
 				<td>" . $estado								. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Productos'>
+				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Cotizar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
@@ -70,7 +70,7 @@ $tr = '';
 				<td>" . $row['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
+				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Cotizar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
@@ -96,7 +96,7 @@ $tr3 = '';
 				<td>" . $row4['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row4['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row4['pedido_id'] . "'><span data-tooltip='Productos'>
+				<a href='pedidoProductos.php?id=" . $row4['pedido_id'] . "'><span data-tooltip='Cotizar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row4['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>

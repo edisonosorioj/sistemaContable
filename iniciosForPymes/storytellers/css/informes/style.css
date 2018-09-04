@@ -1,35 +1,35 @@
 html, body{
-	padding: 10px, 20px;
-	font-family: 'Roboto', sans-serif;
+  padding: 10px, 20px;
+  font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
 }
 
 .hoja{
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 
 }
 
 .logo{
   margin-top: 5%;
-	padding-left: 5%;
+  padding-left: 5%;
 }
 
 .fecha{
-	margin-top: 5%;
-	text-align: center;
+  margin-top: 5%;
+  text-align: center;
 }
 
 .imprimir{
-	margin-left: 80%;
-	margin-top: -15%;
+  margin-left: 80%;
+  margin-top: -15%;
 }
 
 .numero{
-	margin-left: 70%;
-	margin-top: 5%;
+  margin-left: 70%;
+  margin-top: 5%;
 }
 
 .titulo{
@@ -49,7 +49,7 @@ html, body{
 }
 
 .encabezado{
-	margin-top: 5%;
+  margin-top: 5%;
 }
 
 .table{
@@ -62,29 +62,22 @@ html, body{
 }
 
 .table-fill {
-	background: white;
-  	border-radius:3px;
-  	border-collapse: collapse;
-  	margin: auto;
-  	max-width: 800px;
-  	padding:5px;
-  	width: 100%;
-  	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  	animation: float 5s infinite;
+  background: white;
+    border-radius:3px;
+    border-collapse: collapse;
+    margin: auto;
+    max-width: 800px;
+    padding:5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
 }
 
-tr {
-  border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
-  color:#666B85;
-  font-size:14px;
-  font-weight:normal;
-}
 
 th {
   color:#000;;
   background:#b9a76d;
-  border-bottom:4px solid #9ea7af;
+  border-bottom:2px solid #787c9a;
   border-right: 1px solid #343a45;
   font-size:12px;
   font-weight: 500;
@@ -105,7 +98,7 @@ th:last-child {
 
 tr {
   border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
   color:#666B85;
   font-size:10px;
   font-weight:normal;
@@ -174,15 +167,15 @@ td.text-right {
 
 /*Campo de informacion de pago*/
 .pago{
-	margin-top: 10%;
+  margin-top: 10%;
 }
 
 /*Campo de informacion Firma*/
 
 .firma{
-	margin-top: 15%;
+  margin-top: 15%;
 }
 
 p{
-	text-align: center;
+  text-align: center;
 }

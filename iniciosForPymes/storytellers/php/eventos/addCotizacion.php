@@ -52,11 +52,7 @@ $result = $conex->conex();
 
 //Calcular horas del evento
 
-// $hora = consultas::tiempoTranscurridoFechas($fecha_inicial,$fecha_final);
-// $horas = $fecha_inicial->diff($fecha_final);
-
-// echo $hora;die();
-// $hora = $horas->format('%H');
+$horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime($fecha_inicial));
 
 
 // Realiza una primera consulta
@@ -194,7 +190,7 @@ $html="<!DOCTYPE html>
 					<td><b>Día</b></td>
 					<td>$dia</td>
 					<td><b>Horas</b></td>
-					<td></td>
+					<td>$horas</td>
 				</tr>
 			</table>
 		</div>
