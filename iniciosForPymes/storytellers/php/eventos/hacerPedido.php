@@ -26,7 +26,7 @@ $result = $conex->conex();
 	$cliente_id		= $row5['cliente_id'];
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
-	$query2 = mysqli_query($result,"SELECT SUM(valort) as valor FROM pedidoProductos WHERE pedido_id = '$pedido_id';");
+	$query2 = mysqli_query($result,"SELECT valor FROM cotizacion WHERE pedido_id = '$pedido_id';");
 
 	$row 	= $query2->fetch_assoc();
  	$valor 	= $row['valor'];
