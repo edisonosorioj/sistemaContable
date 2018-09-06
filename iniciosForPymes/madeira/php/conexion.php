@@ -5,10 +5,10 @@ class conection{
 	function conex(){
 
     //Cambia por los detalles de tu base datos
-	  $dbserver = "localhost";
+	  $dbserver = "127.0.0.1";
 	  $dbuser = "root";
-	  $password = "";
-	  $dbname = "sistema_contable";
+	  $password = "qwer1234";
+	  $dbname = "madeira";
 	 
 	  $conex = new mysqli($dbserver, $dbuser, $password, $dbname);
 

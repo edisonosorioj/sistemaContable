@@ -64,12 +64,6 @@ $result = $conex->conex();
 			<i class="icon-reorder"></i>
 			</a>
 		</nav>
-<!-- 		<section class="title-bar">
-			<div class="logo">
-				<h1><a href="index.html"><img src="images/logo.png" alt="" />LOGO</a></h1>
-			</div>
-			<div class="clearfix"> </div>
-		</section> -->
 		<div class="main-grid">
 			<div class="agile-grids">	
 				<!-- input-forms -->
@@ -101,7 +95,11 @@ $result = $conex->conex();
 											<input type="text" name="disponible" class="form-control" placeholder="Disponible" value="<?php echo $row['disponible']; ?>"> 
 										</div>
 										<div class="form-group"> 
-											<label>Valor</label> 
+											<label>Valor Compra</label> 
+											<input type="number" name="costo" class="form-control" placeholder="Costo" value="<?php echo $row['costo']; ?>"> 
+										</div> 
+										<div class="form-group"> 
+											<label>Valor Venta</label> 
 											<input type="number" name="valor" class="form-control" placeholder="Valor" value="<?php echo $row['valor']; ?>"> 
 										</div> 
 

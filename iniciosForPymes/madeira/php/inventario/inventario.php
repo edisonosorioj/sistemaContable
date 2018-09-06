@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -17,6 +17,9 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+$tr = '';
+$total = 0;
+$sumtotal = 0;
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -24,37 +27,32 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id;');
+$query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');
 
-
-
-$tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$estado = ($row['estado'] == '0')?"Pendiente":"Realizado";
+
+	$sumtotal=$row['disponible']*$row['costo'];
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['nombres'] 		. "</td>
-				<td>" . $row['nombre_pedido'] 	. "</td>
-				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
-				<td  align='right'>$ " . $row['t_cobrado'] 	. "</td>
-				<td>" . $row['fecha']	. "</td>
-				<td>" . $estado	. "</td>
-				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off'></i></a>
-				</td>
+				<td>" . $row['nombre'] 				. "</td>
+				<td>" . $row['disponible'] 			. "</td>
+				<td>$ " . number_format($row['costo'], 0, ",", ".") 		. "</td>
+				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
+				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
+				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
+ 	$total = ((int)$total+(int)$sumtotal);
  }
+
 
 $html="<!DOCTYPE html>
 <head>
-<title>Pedidos</title>
+<title>Inventario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -96,7 +94,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=800,height=600') ; 
 	}
 </script>
 <script>
@@ -118,22 +116,22 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Cuentas Diarias</h2>
+					<h2>Inventario</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
+					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Cliente</th>
-							<th>Nombre Pedido</th>
-							<th>Costo</th>
-							<th>Cobrado</th>
-							<th>Fecha</th>
-							<th>Estado</th>
+							<th>Producto</th>
+							<th>Cantidad</th>
+							<th>V.Compra</th>
+							<th>Total Inventario</th>
+							<th>V.Venta</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
@@ -150,7 +148,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>
@@ -161,3 +159,4 @@ else return false;
 </html>";
 
 echo $html;
+

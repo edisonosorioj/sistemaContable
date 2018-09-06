@@ -38,7 +38,7 @@ $result = $conex->conex();
 	if($query > 0){
 		$msg = "El pedido " . $nombre . " fue agregado";
 	}else{
-		$msg = 'Error al agregar el cliente. Intente nuevamente';
+		$msg = 'Error al agregar el pedido. Intente nuevamente';
 	}
 		
 	$html = "<script>

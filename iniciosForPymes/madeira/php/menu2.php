@@ -28,26 +28,11 @@ $menu = "
 				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
-			<li class='has-subnav'>
-				<a href='../egresos/egresos.php'>
-				<i class='fa fa-file-text-o nav_icon'></i>
-				<span class='nav-text'>
-				Egresos
-				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
-				</a>
-			</li>
-			<li class='has-subnav'>
-				<a href='../ingresos/ingresos.php'>
-					<i class='fa fa-file-text-o nav_icon'></i>
-						<span class='nav-text'>Ingresos</span>
-				</a>
-			</li>
 			<li>
 				<a href='../pedidos/pedido.php'>
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
-					Pedidos
+					Descuento a Inventario
 					</span>
 				</a>
 			</li>
@@ -104,7 +89,6 @@ $menu = "
 									</div>	
 								</a>
 								<ul class='dropdown-menu drp-mnu'>
-									<li> <a href='../configuracion/configuracion.php'><i class='fa fa-cog'></i> Configuración</a> </li> 
 									<li> <a href='../perfil/perfil.php'><i class='fa fa-user'></i> Perfil</a> </li> 
 									<li> <a href='../logout.php'><i class='fa fa-sign-out'></i> Salir</a> </li>
 								</ul>

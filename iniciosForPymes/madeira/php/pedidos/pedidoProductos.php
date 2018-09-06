@@ -34,16 +34,13 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$id'");
 $row3=$query3->fetch_assoc();
-$id_pedido = $row3['pedido_id'];
 $nombre_pedido = $row3['nombre_pedido'];
-$nombre_cliente = $row3['nombres'];
-$id_cliente = $row3['id'];
 $estado = $row3['estado'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
+$query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp on p.pedido_id = pp.pedido_id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -86,7 +83,7 @@ while ($row = $query4->fetch_array()){
 
 $html="<!DOCTYPE html>
 <head>
-<title>Productos de Pedido</title>
+<title>Registro a descargar de Inventario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -149,7 +146,7 @@ else return false;
 			<div class='agile-grids'>	
 				
 				<div class='table-heading'>
-					<h2>$nombre_cliente - $nombre_pedido</h2>
+					<h2>$nombre_pedido</h2>
 				</div>
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
@@ -162,8 +159,7 @@ else return false;
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='addPeProducto.php' method='post'> 
 									<div class='form-group'> 
-										<input type='hidden' name='pedido_id' value='$id_pedido'>
-										<input type='hidden' name='cliente_id' value='$id_cliente'>
+										<input type='hidden' name='pedido_id' value='$id'>
 										<label>Producto:</label> 
 										<select name='producto' class='form-control'>" . $option . "</select>
 									</div>
@@ -179,21 +175,15 @@ else return false;
 							</div>
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>
-									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<input type='hidden' name='pedido_id' value='$id'>
 									<div class='form-group'> <label>Cobrado: </label> 
 										<input type='text' name='cobrado' class='form-control'>
 									</div> 
-									<button type='submit' class='btn btn-primary'>Hacer Pedido</button> 
+									<button type='submit' class='btn btn-primary'>Generar Registro</button> 
 								</form> 
 							</div>
 							<div class='col-md-2'>
-								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-									<div class='form-group'> <label>Cuenta Cobro #</label>
-										<input type='hidden' name='pedido_id' value='$id_pedido'>
-										<input type='text' name='nuevo_pedido_id' class='form-control' value='$id_pedido' disabled/>
-									</div>
-									<button type='submit' class='btn btn-danger'>Generar</button>
-								</form>
+								
 							</div>
 						</div>
 					</div>
@@ -222,7 +212,7 @@ else return false;
 				<!-- //tables -->
 				<div class='col-md-2'>
 					<form class='form-horizontal' action='cancelarPedido.php' method='post'>
-						<input type='hidden' name='pedido_id' value='$id_pedido'>
+						<input type='hidden' name='pedido_id' value='$id'>
 						<button type='submit' class='btn btn-primary'>Cancelar Pedido</button> 
 					</form> 
 				</div>

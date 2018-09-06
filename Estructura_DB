@@ -1,6 +1,6 @@
-CREATE DATABASE storytellers;
+CREATE DATABASE madeira;
 
-USE storytellers;
+USE madeira;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,

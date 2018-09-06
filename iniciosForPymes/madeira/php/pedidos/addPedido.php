@@ -16,19 +16,19 @@ $result = $conex->conex();
 
 
 	$nombre		=	$_POST['nombre'];
-	$cliente 	=	$_POST['cliente'];
+	$cliente 	=	'';
 	$fecha		=	$_POST['fecha'];
 
 
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query2 = mysqli_query($result,"SELECT * FROM clientes WHERE nombres = '$cliente';");
+	// $query2 = mysqli_query($result,"SELECT * FROM clientes WHERE nombres = '$cliente';");
 
-	$row = $query2->fetch_assoc();
- 	$cliente_id = $row['id'];
+	// $row = $query2->fetch_assoc();
+ // 	$cliente_id = $row['id'];
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado) VALUES ('$cliente_id', '$nombre', '$fecha', '0');");
+	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, fecha, estado) VALUES ('$cliente', '$nombre', '$fecha', '0');");
 	
 	$consecutivo = mysqli_insert_id($result);
 
@@ -36,9 +36,9 @@ $result = $conex->conex();
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
-		$msg = "El pedido " . $nombre . " fue agregado";
+		$msg = "El registro " . $nombre . " fue agregado";
 	}else{
-		$msg = 'Error al agregar el cliente. Intente nuevamente';
+		$msg = 'Error al agregar el registro. Intente nuevamente';
 	}
 		
 	$html = "<script>
@@ -47,6 +47,4 @@ $result = $conex->conex();
 		window.close();
 	</script>";
 
-	mysql_close($result);
-	
 echo $html;	

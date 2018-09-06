@@ -8,9 +8,10 @@ $result = $conex->conex();
 	$fecha		=	$_POST['fecha'];
 	$nombre		=	$_POST['nombre'];
 	$disponible	=	$_POST['disponible'];
-	$valor	=	$_POST['valor'];
+	$costo		=	$_POST['costo'];
+	$valor		=	$_POST['valor'];
 
-	$query = mysqli_query($result, "UPDATE productos set fecha = '$fecha', nombre = '$nombre', disponible = '$disponible', valor = '$valor' where idproductos ='$id';");
+	$query = mysqli_query($result, "UPDATE productos set fecha = '$fecha', nombre = '$nombre', disponible = '$disponible', costo = '$costo', valor = '$valor' where idproductos ='$id';");
 	
 	if($query > 0){
 		$msg = 'El producto fue actualizado con exito';

@@ -1,10 +1,35 @@
+<?php
+	
+require_once "../conexion.php";
+
+$conex = new conection();
+$result = $conex->conex();
+	
+// Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
+$id=$_GET['id'];
+
+$query = mysqli_query($result, "select * from pedidos where pedido_id = '$id'");
+
+$row=$query->fetch_assoc();
+
+
+// $option='';
+
+// $query2 = mysqli_query($result,'select * from clientes order by id');
+
+// while ($row2 = $query2->fetch_array()){
+
+// 	 	$option .=	"<option value='" . $row2['nombres'] . "'>" . $row2['nombres'] . "</option>";
+// 	}
+	
+?>
+<!-- Se crea el HTML con la información del Pedido -->
 <!DOCTYPE html>
 <head>
-<title>Nuevo Egreso</title>
+<title>Editar Pedido</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -21,44 +46,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../../js/modernizr.js"></script>
 <script src="../../js/jquery.cookie.js"></script>
 <script src="../../js/screenfull.js"></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+<script>
+$(function () {
+	$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-			if (!screenfull.enabled) {
-				return false;
-			}
+	if (!screenfull.enabled) {
+		return false;
+	}
 
-			
+	
 
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
+	$('#toggle').click(function () {
+		screenfull.toggle($('#container')[0]);
+	});	
+});
+</script>
 		
 </head>
 <body class="dashboard-page">
 
 	<section class="wrapper scrollable">
-		<nav class="user-menu">
-			<a href="javascript:;" class="main-menu-access">
-			<i class="icon-proton-logo"></i>
-			<i class="icon-reorder"></i>
-			</a>
-		</nav>
-<!-- 		<section class="title-bar">
-			<div class="logo">
-				<h1><a href="index.html"><img src="images/logo.png" alt="" />LOGO</a></h1>
-			</div>
-			<div class="clearfix"> </div>
-		</section> -->
 		<div class="main-grid">
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
 					<div class="progressbar-heading grids-heading">
-						<h2>Nuevo Producto</h2>
+						<h2>Editar Pedido</h2>
 					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
@@ -67,19 +80,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class="form-body">
-									<form action="../../php/inventario/addProducto.php" method="post"> 
+									<form action="actPedido.php" method="post"> 
 										<div class="form-group"> 
-											<label>Nombre</label> 
-											<input type="text" name="nombre" class="form-control" placeholder="Nombre"> 
+											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
-											<label>Disponible</label> 
-											<input type="text" name="disponible" class="form-control" placeholder="Disponible" required="true"> 
+											<label>Fecha</label> 
+											<input type="text" name="fecha" class="form-control" placeholder="Fecha" value="<?php echo $row['fecha']; ?>"> 
 										</div>
 										<div class="form-group"> 
-											<label>Valor</label> 
-											<input type="number" name="valor" class="form-control" placeholder="Valor"> 
-										</div> 
+											<label>Nombre Registro</label> 
+											<input type="text" name="nombre_pedido" class="form-control" placeholder="Nombre Pedido" value="<?php echo $row['nombre_pedido']; ?>"> 
+										</div>
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 
 									</form> 

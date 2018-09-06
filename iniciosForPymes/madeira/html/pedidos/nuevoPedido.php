@@ -8,19 +8,19 @@ require_once '../../php/conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 
-$option='';
+// $option='';
 
-$query = mysqli_query($result,'select * from clientes order by id');
+// $query = mysqli_query($result,'select * from clientes order by id');
 
-while ($row = $query->fetch_array()){
+// while ($row = $query->fetch_array()){
 
-	 	$option .=	"<option value='" . $row['nombres'] . "'>" . $row['nombres'] . "</option>";
-	}
+// 	 	$option .=	"<option value='" . $row['nombres'] . "'>" . $row['nombres'] . "</option>";
+// 	}
 
 
 $html = "<!DOCTYPE html>
 <head>
-<title>Nuevo Egreso</title>
+<title>Nuevo Registro</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='' />
@@ -76,7 +76,7 @@ $html = "<!DOCTYPE html>
 								<!-- input-forms -->
 								<div class='grids'>
 									<div class='progressbar-heading grids-heading'>
-										<h2>Nuevo Pedido</h2>
+										<h2>Nuevo Registro</h2>
 									</div>
 									<div class='panel panel-widget forms-panel'>
 										<div class='forms'>
@@ -89,12 +89,6 @@ $html = "<!DOCTYPE html>
 														<div class='form-group'> 
 															<label>Fecha</label> 
 															<input type='date' name='fecha' class='form-control'> 
-														</div>
-														<div class='form-group'> 
-															<label>Cliente</label> 
-															<select name='cliente' class='form-control1'>
-																" . $option . "
-															</select>
 														</div>
 														<div class='form-group'> 
 															<label>Nombre</label> 
