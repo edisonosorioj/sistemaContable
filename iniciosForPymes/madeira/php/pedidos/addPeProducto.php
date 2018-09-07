@@ -28,7 +28,7 @@ $estado = $row3['estado'];
 
 if ($estado == 1) {
 	 
-	$msg = "El pedido ya fue realizado, no es posible agregar mas productos. Si desea hacerlo debe cancelarlo primero el pedido y despues agregar el producto";
+	$msg = "El Registro ya fue realizado, no es posible agregar mas productos. Si desea hacerlo debe cancelarlo primero el Registro y despues agregar el producto";
 
 	$html = "<script>
 		window.alert('$msg');

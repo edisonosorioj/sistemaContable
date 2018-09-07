@@ -148,7 +148,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2018 ForPymes . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>Edison Osorio</p>
 		</div>
 		<!-- //footer -->
 	</section>

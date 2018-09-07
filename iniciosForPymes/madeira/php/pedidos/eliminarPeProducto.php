@@ -23,7 +23,7 @@ $id=$_GET['id'];
 
 if ($estado == 1) {
 
- 	$msg = "El producto no puede ser eliminado, debes cancelar primero el pedido";
+ 	$msg = "El producto no puede ser eliminado, debes cancelar primero el registro";
 
 	$html = "<script>
 		window.alert('$msg');

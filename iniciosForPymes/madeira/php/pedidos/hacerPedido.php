@@ -78,7 +78,7 @@ if ($estado == 1) {
  // $query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valorcredito'), '$cliente_id');");
 
 //Aqui VOY
- $query6 = mysqli_query($result,"INSERT INTO ingresos (fecha, cantidad, detalles, valor, idclientes) VALUES ('$fecha', '1', '$detalles', '$cliente_id');");
+ $query6 = mysqli_query($result,"INSERT INTO ingresos (fecha, cantidad, producto, detalles, valor) VALUES ('$fecha', '1', '$detalles','Ingreso desde Inventario', '$cobrado');");
 
 
 // Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado

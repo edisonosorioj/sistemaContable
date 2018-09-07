@@ -177,7 +177,7 @@ else return false;
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>
 									<input type='hidden' name='pedido_id' value='$id'>
 									<div class='form-group'> <label>Cobrado: </label> 
-										<input type='text' name='cobrado' class='form-control'>
+										<input type='text' name='cobrado' class='form-control' required>
 									</div> 
 									<button type='submit' class='btn btn-primary'>Generar Registro</button> 
 								</form> 
@@ -213,7 +213,7 @@ else return false;
 				<div class='col-md-2'>
 					<form class='form-horizontal' action='cancelarPedido.php' method='post'>
 						<input type='hidden' name='pedido_id' value='$id'>
-						<button type='submit' class='btn btn-primary'>Cancelar Pedido</button> 
+						<button type='submit' class='btn btn-primary'>Cancelar Registro</button> 
 					</form> 
 				</div>
 			</div>
