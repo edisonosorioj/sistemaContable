@@ -201,3 +201,15 @@ insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Vier
 insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Sábado ','5000000 ','2 ','2 ','0 ');
 insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo ','3500000 ','2 ','2 ','0 ');
 insert into precio_x_dia (dia, precio, sede_id, item_id, impuesto) values ('Domingo con Lunes Festivo ','4500000 ','2 ','2 ','0 ');
+
+
+CREATE TABLE `minuto_a_minuto` (
+  `minuto_id` INT NOT NULL AUTO_INCREMENT,
+  `hora` VARCHAR(45) NULL,
+  `actividad` VARCHAR(45) NULL,
+  `proveedor` VARCHAR(45) NOT NULL,
+  `pedido_id` VARCHAR(1000) NOT NULL,
+  `comentarios` VARCHAR(1000) NULL,
+  `orden` INT(11) NULL,
+  PRIMARY KEY (`minuto_id`));
+

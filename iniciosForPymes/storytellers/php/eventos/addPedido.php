@@ -32,6 +32,7 @@ $result = $conex->conex();
 
  $row = $query2->fetch_array(MYSQLI_BOTH);
  $color = $row['color'];
+ $nombre_sede = $row['nombre'];
 
 
 $fecha_i = $start . " " . $time1;
@@ -46,6 +47,18 @@ $fecha_f = $end . " " . $time2;
 
 // Agrega Parametros Basicos de la cotización
 	$query2 = mysqli_query($result,"INSERT INTO cotizacion (tipo_evento, invitados, entrada, plato_fuerte, mezcladores, menaje, personal, direccionamiento, licor, observaciones, pedido_id, valor) VALUES ('$evento', '$invitado', '4', '15', '19', '22', '23', '28', '25', '', '$consecutivo', '0');");
+
+
+// Agrega el registro para utilizar el minuto a minuto
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Dia antes', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Dia antes', 'Organizar Alimentacion', 'Encargado', 'Detalles de Alimentacion', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Organizar Sonido', 'Encargado', '', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Organizar Decoracion', 'Encargado', '', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Mezcladores ilimitados, implementos de aseo y ubicacion de la mesas', 'Encargado', '', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Llegan meseros y organizan mesas - Llega seguridad y aseo', '', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
+
 	
 	
 // Toma el ID y lo actualiza en la tabla de configuración para conocer el concecutivo.

@@ -17,15 +17,41 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-$tr = '';
-$tr2 = '';
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
+
+// Obtiene el ID enviado desde Pedido para visualizar El Minuto a Minuto de un Evento en especial
+$id = $_GET['id'];
+
+// Consulta y por medio de un while muestra la lista de los clientes
+$query = mysqli_query($result,"select * from minuto_a_minuto where pedido_id = '$id'");
+
+
+
+$tr = '';
+
+ while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+ 	$tr .=	"<tr class='rows' id='rows'>
+				<td></td>
+				<td>" . $row['hora'] 	. "</td>
+				<td><a onclick='javascript:abrir(\"editarActividad.php?id=" . $row['id'] . "\")'>" . $row['actividad'] . "</a></td>
+				<td><a onclick='javascript:abrir(\"editarProveedor.php?id=" . $row['id'] . "\")'>" . $row['proveedor_id'] . "</a></td>
+				<td>" . $row['pedido_id'] 	. "</td>
+				<td><a onclick='javascript:abrir(\"editarProveedor.php?id=" . $row['id'] . "\")'>" . $row['comentarios'] . "</a></td>
+				<td>" . $row['orden'] 		. "</td>
+			</tr>";
+
+ }
 
 
 $html="<!DOCTYPE html>
 <head>
-<title>Ingresos</title>
+<title>Minuto a minuto</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -40,12 +66,12 @@ $html="<!DOCTYPE html>
 <!-- font-awesome icons -->
 <link rel='stylesheet' href='../../css/font.css' type='text/css'/>
 <link href='../../css/font-awesome.css' rel='stylesheet'> 
+<link rel='icon' href='../../images/fav.png'>
 <!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
 <script src='../../js/screenfull.js'></script>
-<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
 <script>
 	$(function () {
 		$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
@@ -78,16 +104,6 @@ $html="<!DOCTYPE html>
 	open(url,'','top=100,left=100,width=900,height=700') ; 
 	}
 </script>
-<script>
-function confirmar(texto)
-{
-if (confirm(texto))
-{
-return true;
-}
-else return false;
-}
-</script>
 <!-- //tables -->
 </head>
 <body class='dashboard-page'>
@@ -97,12 +113,31 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Calendario de Eventos</h2>
+					<h2>Minuto a minuto</h2>
 				</div>
-				<div class='col-md-14 calendario'>
-					
+				<div class='agile-tables'>
+					<div class='w3l-table-info'>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>+</th>
+							<th>Hora</th>
+							<th>Actividad</th>
+							<th>Proveedor</th>
+							<th>Descripción</th>
+							<th>Comentarios</th>
+							<th>Contacto</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  " 
+						  . $tr . 
+						  "
+						</tbody>
+					  </table>
+					</div>
 				</div>
-				
+				<!-- //tables -->
 			</div>
 		</div>
 		<!-- footer -->
@@ -111,11 +146,6 @@ else return false;
 		</div>
 		<!-- //footer -->
 	</section>
-	<script>
-	    $(document).ready(function () {
-	      $('.calendario').load('calendario.php');
-	    });
-  	</script>
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 	<script src='../../js/acciones.js'></script>
