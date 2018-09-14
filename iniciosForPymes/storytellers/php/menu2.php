@@ -63,6 +63,7 @@ $menu = "
 					</span>
 				</a>
 			</li>
+		</ul>
 		<ul class='logout'>
 			<li>
 				<a href='../logout.php'>

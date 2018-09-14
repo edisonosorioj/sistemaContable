@@ -46,8 +46,7 @@ $tr2 = '';
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Cotizar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Min a Min'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>
@@ -74,6 +73,7 @@ $tr = '';
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Cotizar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+					<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>

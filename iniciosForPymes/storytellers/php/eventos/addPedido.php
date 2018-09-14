@@ -50,19 +50,40 @@ $fecha_f = $end . " " . $time2;
 
 
 // Agrega el registro para utilizar el minuto a minuto
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Dia antes', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Dia antes', 'Organizar Alimentacion', 'Encargado', 'Detalles de Alimentacion', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Organizar Sonido', 'Encargado', '', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Organizar Decoracion', 'Encargado', '', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Mezcladores ilimitados, implementos de aseo y ubicacion de la mesas', 'Encargado', '', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Llegan meseros y organizan mesas - Llega seguridad y aseo', '', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
+	$query3 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Dia antes', 'Organizar menaje', '$nombre_sede', '200 vasos de gaseosa<br/>160 Platos blancos de plato fuerte<br/>160 platos de torta 160 tenedores', '');");
+
+	$query4 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Dia antes', 'Organizar Alimentacion', 'Encargado', 'Detalles de Alimentacion', '');");
+
+	$query5 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Organizar Sonido', 'Encargado', '', '');");
+
+	$query6 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Organizar Decoracion', 'Encargado', '', '');");
+
+	$query7 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Antes del Evento', 'Mezcladores ilimitados, implementos de aseo y ubicacion de la mesas', 'Encargado', '', '');");
+
+	$query8 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Llegan meseros y organizan mesas - Llega seguridad y aseo', 'Encargado', '', '');");
+
+	$query9 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Coctel de Bienvenida ', 'Encargado', '', '');");
+
+	$query10 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Plato Fuerte', 'Encargado', '', '');");
+
+	$query11 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Torta', '$Encargado', '', '');");
+
+	$query12 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Alimentación personal', 'Encargado', '', '');");
+
+	$query13 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Inicia Fiesta', 'Encargado', '', '');");
+
+	$query14 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('11:30', 'Hora Loca', 'Encargado', '', '');");
+
+	$query15 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Se reparten las alimento', 'Encargado', '', '');");
+
+	$query16 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Fin de la fiesta', 'Encargado', '', '');");
+
+	$query17 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor_id, pedido_id, comentarios, orden) VALUES ('Hora', 'Organizar Menaje', '$nombre_sede', '', '');");
 
 	
 	
 // Toma el ID y lo actualiza en la tabla de configuración para conocer el concecutivo.
-	$query3 = mysqli_query($result,"UPDATE variables SET detalle = '$consecutivo' WHERE variable_id = 8;");
+	$query18 = mysqli_query($result,"UPDATE variables SET detalle = '$consecutivo' WHERE variable_id = 8;");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

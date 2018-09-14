@@ -17,7 +17,6 @@ $menu = "
 				<span class='nav-text'>
 					Clientes
 				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
 				</a>
 			</li>
 			<li class='has-subnav'>
@@ -51,6 +50,15 @@ $menu = "
 					</span>
 				</a>
 			</li>
+			<li>
+				<a href='../informes/informes.php'>
+					<i class='icon-folder-open nav-icon'></i>
+					<span class='nav-text'>
+					Informes
+					</span>
+				</a>
+			</li>
+		</ul>
 		<ul class='logout'>
 			<li>
 			<a href='../logout.php'>
