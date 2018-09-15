@@ -39,10 +39,9 @@ $tr = '';
  	$tr .=	"<tr class='rows' id='rows'>
 				<td></td>
 				<td>" . $row['hora'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarActividad.php?id=" . $row['id'] . "\")'>" . $row['actividad'] . "</a></td>
-				<td><a onclick='javascript:abrir(\"editarProveedor.php?id=" . $row['id'] . "\")'>" . $row['proveedor_id'] . "</a></td>
-				<td>" . $row['pedido_id'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarProveedor.php?id=" . $row['id'] . "\")'>" . $row['comentarios'] . "</a></td>
+				<td><a onclick='javascript:abrir(\"editarMinuto.php?id=" . $row['minuto_id'] . "\")'>" . $row['actividad'] . "</a></td>
+				<td><a onclick='javascript:abrir(\"editarMinuto.php?id=" . $row['minuto_id'] . "\")'>" . $row['proveedor'] . "</a></td>
+				<td><a onclick='javascript:abrir(\"editarMinuto.php?id=" . $row['minuto_id'] . "\")'>" . $row['comentarios'] . "</a></td>
 				<td>" . $row['orden'] 		. "</td>
 			</tr>";
 
@@ -124,9 +123,8 @@ $html="<!DOCTYPE html>
 							<th>Hora</th>
 							<th>Actividad</th>
 							<th>Proveedor</th>
-							<th>Descripción</th>
 							<th>Comentarios</th>
-							<th>Contacto</th>
+							<th>Orden</th>
 						  </tr>
 						</thead>
 						<tbody>

@@ -35,11 +35,12 @@ $tr2 = '';
  while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
 
  	$estado = ($row2['estado'] == '0')?"Pendiente":"Realizado";
+ 	$t_costo2 = ($row2['t_costo'] == '')?0:$row2['t_costo'];
 
  	$tr2 .=	"<tr class='rows' id='rows'>
 				<td>" . $row2['nombres'] 					. "</td>
 				<td>" . $row2['nombre_pedido'] 				. "</td>
-				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
+				<td  align='right'>$ " . number_format($t_costo2, 0, ",", ".")	. "</td>
 				<td>" . $row2['start']						. "</td>
 				<td>" . $row2['end']						. "</td>
 				<td>" . $estado								. "</td>
@@ -54,7 +55,7 @@ $tr2 = '';
 
  }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
+// Consulta y por medio de un while muestra la lista de los pedidos. EVENTOS CONFIRMADOS
 $query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 1 and p.start > NOW() ORDER BY p.start ASC;');
 
 $tr = '';
@@ -62,16 +63,17 @@ $tr = '';
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$estado = ($row['estado'] == '0')?"Pendiente":"Realizado";
+ 	$t_costo = ($row['t_costo'] == '')?0:$row['t_costo'];
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['nombre_pedido'] 	. "</td>
-				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
+				<td  align='right'>$ " . number_format($t_costo, 0, ",", ".") 	. "</td>
 				<td>" . $row['start']	. "</td>
 				<td>" . $row['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Cotizar'>
+				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Revisar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 					<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
@@ -81,7 +83,7 @@ $tr = '';
 
  }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
+// Consulta y por medio de un while muestra la lista de los pedidos. COTIZACIONES
 $query4 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 0 ORDER BY p.start DESC limit 10;');
 
 $tr3 = '';
@@ -89,11 +91,12 @@ $tr3 = '';
  while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
 
  	$estado = ($row4['estado'] == '0')?"Pendiente":"Realizado";
+ 	$t_costo4 = ($row4['t_costo'] == '')?0:$row4['t_costo'];
 
  	$tr3 .=	"<tr class='rows' id='rows'>
 				<td>" . $row4['nombres'] 		. "</td>
 				<td>" . $row4['nombre_pedido'] 	. "</td>
-				<td  align='right'>$ " . $row4['t_costo'] 	. "</td>
+				<td  align='right'>$ " . number_format($t_costo4, 0, ",", ".")	. "</td>
 				<td>" . $row4['start']	. "</td>
 				<td>" . $row4['end']	. "</td>
 				<td>" . $estado	. "</td>

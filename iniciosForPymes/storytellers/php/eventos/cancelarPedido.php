@@ -47,7 +47,6 @@ if ($estado == 0) {
 
 	 $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
 
-
 	 while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
 
 	 	$cantidadPedido = $row4['cantidadPedido'];
@@ -56,19 +55,23 @@ if ($estado == 0) {
 
 	 	$total = $disponibleProducto + $cantidadPedido;
 
-		$query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
-
 	 }
 
+	$query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
+
+
 	// Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-		$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', estado = '0' where pedido_id = '$pedido_id';");
+	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', estado = '0' where pedido_id = '$pedido_id';");
+	 
+	 // Elimina los datos del Minuto a Minuto
+	 $query5 = mysqli_query($result,"DELETE FROM minuto_a_minuto WHERE pedido_id = '$pedido_id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
-		$msg = "El pedido se canceló correctamente";
+		$msg = "El Evento se canceló correctamente";
 	}else{
 
-		$msg = 'Error al cancelar el pedido. Intente nuevamente';
+		$msg = 'Error al cancelar el evento. Intente nuevamente';
 
 	}
 		

@@ -410,6 +410,7 @@ else return false;
 						<h5>-</h5>
 						<form class='form-horizontal' action='hacerPedido.php' method='post'>
 							<input type='hidden' name='pedido_id' value='$id_pedido'>
+							<input type='hidden' name='sede' value='$nombre_sede'>
 							<button type='submit' class='btn btn-block btn-primary'>Confirmar Evento</button> 
 						</form> 
 						<form class='form-horizontal' action='contrato.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
@@ -420,7 +421,7 @@ else return false;
 						<form class='form-horizontal' action='cancelarPedido.php' method='post'>
 							<label></label>
 							<input type='hidden' name='pedido_id' value='$id_pedido'>
-							<button type='submit' class='btn btn-block btn-danger'>Cancelar Pedido</button> 
+							<button type='submit' class='btn btn-block btn-danger'>Cancelar Evento</button> 
 						</form>
 					</div>
 				</div>
