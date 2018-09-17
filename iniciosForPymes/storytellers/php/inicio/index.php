@@ -26,7 +26,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
+// Consulta y por medio de un while muestra la lista de los pedidos. EVENTOS HOY
 
 $query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start BETWEEN CURDATE() AND NOW() and estado = 1');
 
@@ -39,7 +39,7 @@ $tr2 = '';
  	$tr2 .=	"<tr class='rows' id='rows'>
 				<td>" . $row2['nombres'] 					. "</td>
 				<td>" . $row2['nombre_pedido'] 				. "</td>
-				<td  align='right'>$ " . $row2['t_costo'] 	. "</td>
+				<td  align='right'>$ " . number_format($row2['t_costo'], 0, ",", ".")	. "</td>
 				<td>" . $row2['start']						. "</td>
 				<td>" . $row2['end']						. "</td>
 				<td>" . $estado								. "</td>
@@ -51,7 +51,7 @@ $tr2 = '';
 
  }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
+// Consulta y por medio de un while muestra la lista de los pedidos. PROXIMOS EVENTOS
 $query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.start > NOW() and estado = 1 ORDER BY p.start ASC;');
 
 $tr = '';
@@ -63,7 +63,7 @@ $tr = '';
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['nombre_pedido'] 	. "</td>
-				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
+				<td  align='right'>$ " . number_format($row['t_costo'], 0, ",", ".") 	. "</td>
 				<td>" . $row['start']	. "</td>
 				<td>" . $row['end']	. "</td>
 				<td>" . $estado	. "</td>

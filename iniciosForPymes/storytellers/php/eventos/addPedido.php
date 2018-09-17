@@ -55,9 +55,9 @@ $fecha_f = $end . " " . $time2;
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
-		$msg = "El pedido " . $evento . " fue agregado";
+		$msg = "El evento " . $evento . " fue agregado";
 	}else{
-		$msg = 'Error al agregar el cliente. Intente nuevamente';
+		$msg = 'Error al agregar el evento. Intente nuevamente';
 	}
 		
 	$html = "<script>

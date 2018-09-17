@@ -216,9 +216,6 @@ $html="<!DOCTYPE html>
 						<td class='text-center'>Licor</td>
 						<td class='text-center'>$desLicor</td>
 					</tr>
-					<tr>
-						<td colspan='2'>Observaciones: $observaciones</td>
-					</tr>
 				</table>
 			</div>
 

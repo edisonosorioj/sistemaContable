@@ -68,6 +68,7 @@ $html="<!DOCTYPE html>
 <link rel='icon' href='../../images/fav.png'>
 <!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
 <script src='../../js/screenfull.js'></script>
@@ -84,6 +85,7 @@ $html="<!DOCTYPE html>
 		});	
 	});
 </script>
+<script type='text/javascript' src='../../css/tabledit/jquery.tabledit.js'></script>
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
@@ -116,7 +118,7 @@ $html="<!DOCTYPE html>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					    <table id='table'>
+					    <table id='table_table' class='table table-striped'>
 						<thead>
 						  <tr>
 							<th>+</th>
@@ -144,6 +146,20 @@ $html="<!DOCTYPE html>
 		</div>
 		<!-- //footer -->
 	</section>
+	<script>
+		$(document).ready(function(){
+			$('#data_table').Tabledit({
+				deleteButton: false,
+				editButton: false,
+				columns: {
+				identifier: [0, 'id'],
+				editable: [[1, 'name'], [2, 'gender'], [3, 'age'], [4, 'designation'], [5, 'address']]
+			},
+			hideIdentifier: true,
+			url: 'live_edit.php'
+			});
+		});
+	</script>
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 	<script src='../../js/acciones.js'></script>
