@@ -138,7 +138,7 @@ else return false;
 					<h2>Inventario - $nombre </h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.php\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>

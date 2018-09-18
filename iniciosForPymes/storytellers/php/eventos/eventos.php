@@ -26,7 +26,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-// Consulta y por medio de un while muestra la lista de los pedidos de HOY
+// Consulta y por medio de un while muestra la lista de los pedidos de EVENTO FINALIZADOS
 
 $query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 1 and p.start < NOW() ORDER BY p.start ASC');
 
@@ -47,7 +47,7 @@ $tr2 = '';
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row2['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Cotizar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				
+				<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>
@@ -75,7 +75,7 @@ $tr = '';
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Revisar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-					<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>

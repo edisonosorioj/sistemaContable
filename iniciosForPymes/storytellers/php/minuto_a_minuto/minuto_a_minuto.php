@@ -28,7 +28,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,"select * from minuto_a_minuto where pedido_id = '$id'");
+$query = mysqli_query($result,"select * from minuto_a_minuto where pedido_id = '$id';");
 
 
 
@@ -36,19 +36,19 @@ $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$tr .=	"<tr class='rows' id='rows'>
+ 	$tr .=	"<tr class='rows' id='" . $row['minuto_id']. "'>
 				<td></td>
-				<td>" . $row['hora'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarMinuto.php?id=" . $row['minuto_id'] . "\")'>" . $row['actividad'] . "</a></td>
-				<td><a onclick='javascript:abrir(\"editarMinuto.php?id=" . $row['minuto_id'] . "\")'>" . $row['proveedor'] . "</a></td>
-				<td><a onclick='javascript:abrir(\"editarMinuto.php?id=" . $row['minuto_id'] . "\")'>" . $row['comentarios'] . "</a></td>
+				<td>" . $row['hora'] 		. "</td>
+				<td>" . $row['minuto_id'] 	. "</td>
+				<td>" . $row['minuto_id'] 	. "</td>
+				<td>" . $row['minuto_id'] 	. "</td>
 				<td>" . $row['orden'] 		. "</td>
 			</tr>";
 
  }
 
 
-$html="<!DOCTYPE html>
+$html = "<!DOCTYPE html>
 <head>
 <title>Minuto a minuto</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -152,8 +152,8 @@ $html="<!DOCTYPE html>
 				deleteButton: false,
 				editButton: false,
 				columns: {
-				identifier: [0, 'id'],
-				editable: [[1, 'name'], [2, 'gender'], [3, 'age'], [4, 'designation'], [5, 'address']]
+				identifier: [0, 'minuto_id'],
+				editable: [[1, 'hora'], [2, 'actividad'], [3, 'proveedor'], [4, 'comentarios'], [5, 'orden']]
 			},
 			hideIdentifier: true,
 			url: 'live_edit.php'

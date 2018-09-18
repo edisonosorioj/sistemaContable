@@ -17,6 +17,7 @@ $id=$_GET['id'];
 		
 $query = mysqli_query($result,"delete from pedidos where pedido_id = '$id'");
 $query2 = mysqli_query($result,"delete from cotizacion where pedido_id = '$id'");
+$query3 = mysqli_query($result,"delete from minuto_a_minuto where pedido_id = '$id'");
 
 if($query > 0){
 	$msg = 'El pedido fue eliminado';

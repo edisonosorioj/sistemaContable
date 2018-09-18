@@ -44,7 +44,7 @@ $tr2 = '';
 				<td>" . $row2['end']						. "</td>
 				<td>" . $estado								. "</td>
 				<td>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
+				<a href='../eventos/pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				</td>
 			</tr>";
@@ -68,7 +68,7 @@ $tr = '';
 				<td>" . $row['end']	. "</td>
 				<td>" . $estado	. "</td>
 				<td>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
+				<a href='../eventos/pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Ver Detalles'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				</td>
 			</tr>";
