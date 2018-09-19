@@ -210,6 +210,8 @@ CREATE TABLE `minuto_a_minuto` (
   `proveedor` VARCHAR(100) NOT NULL,
   `pedido_id` VARCHAR(1000) NOT NULL,
   `comentarios` VARCHAR(1000) NULL,
-  `orden` INT(11) NULL,
   PRIMARY KEY (`minuto_id`));
+
+  ALTER TABLE `minuto_a_minuto` DROP COLUMN `orden`;
+
 

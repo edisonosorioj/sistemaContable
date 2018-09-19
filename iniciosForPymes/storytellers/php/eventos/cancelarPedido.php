@@ -61,7 +61,7 @@ if ($estado == 0) {
 
 
 	// Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', estado = '0' where pedido_id = '$pedido_id';");
+	$query = mysqli_query($result,"UPDATE pedidos set estado = '0' where pedido_id = '$pedido_id';");
 	 
 	 // Elimina los datos del Minuto a Minuto
 	 $query5 = mysqli_query($result,"DELETE FROM minuto_a_minuto WHERE pedido_id = '$pedido_id';");
