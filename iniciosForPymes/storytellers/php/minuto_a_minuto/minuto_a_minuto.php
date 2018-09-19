@@ -28,21 +28,18 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,"select * from minuto_a_minuto where pedido_id = '$id';");
-
-
+$query = mysqli_query($result,"SELECT minuto_id, hora, actividad, proveedor, comentarios FROM minuto_a_minuto WHERE pedido_id = '$id' ORDER BY hora;");
 
 $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$tr .=	"<tr class='rows' id='" . $row['minuto_id']. "'>
-				<td></td>
+ 	$tr .=	"<tr id='" . $row['minuto_id']	. "'>
+				<td>" . $row['minuto_id']	. "</td>
 				<td>" . $row['hora'] 		. "</td>
-				<td>" . $row['minuto_id'] 	. "</td>
-				<td>" . $row['minuto_id'] 	. "</td>
-				<td>" . $row['minuto_id'] 	. "</td>
-				<td>" . $row['orden'] 		. "</td>
+				<td>" . $row['actividad'] 	. "</td>
+				<td>" . $row['proveedor'] 	. "</td>
+				<td>" . $row['comentarios'] . "</td>
 			</tr>";
 
  }
@@ -118,15 +115,14 @@ $html = "<!DOCTYPE html>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					    <table id='table_table' class='table table-striped'>
+					    <table id='data_table' class='table table-striped'>
 						<thead>
 						  <tr>
-							<th>+</th>
+							<th></th>
 							<th>Hora</th>
 							<th>Actividad</th>
 							<th>Proveedor</th>
 							<th>Comentarios</th>
-							<th>Orden</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -153,7 +149,7 @@ $html = "<!DOCTYPE html>
 				editButton: false,
 				columns: {
 				identifier: [0, 'minuto_id'],
-				editable: [[1, 'hora'], [2, 'actividad'], [3, 'proveedor'], [4, 'comentarios'], [5, 'orden']]
+				editable: [[1, 'hora'], [2, 'actividad'], [3, 'proveedor'], [4, 'comentarios']]
 			},
 			hideIdentifier: true,
 			url: 'live_edit.php'
