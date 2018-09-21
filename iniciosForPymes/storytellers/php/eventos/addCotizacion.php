@@ -146,7 +146,7 @@ $html="<!DOCTYPE html>
 </head>
 <body>
 	<div class='hoja'>
-		<div class='logo'><img src='../../images/logoInformes.png'></div>
+		<div class='logo'><img src='../../images/logoInformes.jpg'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='table_datos'>
 			<table class='table-fill'>
