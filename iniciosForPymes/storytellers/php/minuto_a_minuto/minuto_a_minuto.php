@@ -27,8 +27,13 @@ if ($idrol == 0) {
 // Obtiene el ID enviado desde Pedido para visualizar El Minuto a Minuto de un Evento en especial
 $id = $_GET['id'];
 
-// Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,"SELECT minuto_id, hora, actividad, proveedor, comentarios FROM minuto_a_minuto WHERE pedido_id = '$id' ORDER BY hora;");
+// Consulta para tener el nombre del evento
+$query = mysqli_query($result,"SELECT nombre_pedido FROM pedidos WHERE pedido_id = '$id';");
+$row = $query->fetch_assoc();
+$nombre_pedido 	= $row['nombre_pedido'];
+
+// Consulta y por medio de un while muestra la lista de minuto a minuto
+$query = mysqli_query($result,"SELECT minuto_id, hora, actividad, proveedor, descripcion, comentarios FROM minuto_a_minuto WHERE pedido_id = '$id' ORDER BY hora;");
 
 $tr = '';
 
@@ -39,11 +44,11 @@ $tr = '';
 				<td>" . $row['hora'] 		. "</td>
 				<td>" . $row['actividad'] 	. "</td>
 				<td>" . $row['proveedor'] 	. "</td>
+				<td>" . $row['descripcion'] . "</td>
 				<td>" . $row['comentarios'] . "</td>
 			</tr>";
 
  }
-
 
 $html = "<!DOCTYPE html>
 <head>
@@ -111,7 +116,13 @@ $html = "<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Minuto a minuto</h2>
+					<h2>Minuto a minuto - $nombre_pedido</h2>
+				</div>
+				<div class='bs-component mb20 col-md-2'>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/minuto_a_minuto/nuevoMinuto.php\")'>Nuevo</button>
+				</div>
+				<div class='bs-component mb20 col-md-2'>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:window.print();)'>Imprimir</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -122,6 +133,7 @@ $html = "<!DOCTYPE html>
 							<th>Hora</th>
 							<th>Actividad</th>
 							<th>Proveedor</th>
+							<th width='50%'>Descripción</th>
 							<th>Comentarios</th>
 						  </tr>
 						</thead>
@@ -149,7 +161,7 @@ $html = "<!DOCTYPE html>
 				editButton: false,
 				columns: {
 				identifier: [0, 'minuto_id'],
-				editable: [[1, 'hora'], [2, 'actividad'], [3, 'proveedor'], [4, 'comentarios']]
+				editable: [[1, 'hora'], [2, 'actividad'], [3, 'proveedor'], [4, 'descripcion'], [5, 'comentarios']]
 			},
 			hideIdentifier: true,
 			url: 'live_edit.php'

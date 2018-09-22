@@ -225,7 +225,12 @@ if ($estado == 1) {
 	$form .= "<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
 		<input type='hidden' name='pedido_id' value='$id_pedido'>
 		<button type='submit' class='btn btn-block btn-primary'>Cuenta Cobro / Factura</button>
-	</form>";
+	</form>
+	<form class='form-horizontal' action='lista_check.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=1000 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+		<input type='hidden' name='pedido_id' value='$id_pedido'>
+		<button type='submit' class='btn btn-block btn-primary'>Check List</button>
+	</form>"
+	;
 } else {
 	$form .= "";
 }

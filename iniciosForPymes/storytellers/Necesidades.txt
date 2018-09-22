@@ -3,18 +3,21 @@ Cambiar Color Institucional. Revisar logo. LISTO
 No aparece boton de generar cotización sin haber hecho la reserva. LISTO
 Revisar estilo de la cotización. LISTO - REVISAR NUEVAMENTE
 No aparecen los eventos sino estan confirmados LISTO
-Horas extra. Minimo 6.
+--
+Nombre del Evento en Minuto a Minuto - Listo
+Deshaparecer Color Azul - Listo en Cotizacion
+Editar mas facil el minuto a minuto. - Listo
+Organización automatica por hora minuto a minuto. - Listo
+Menaje por defecto Inicio y Final- Listo
+Botón de Imprimir - Listo
+Montar Check List. Listo.
 
 
+Agregar en Minuto a Minuto. Falta html
 Seleccionar clientes mucho mas fácil.
-Deshaparecer Color Azul
 Editar Valores Cotización
 Editar Contrato
-Nombre del Evento en Minuto a Minuto
-Contacto en Minuto
-Editar mas facil el minuto a minuto.
-Menaje por defecto, solo editar la cantidad. Muestra Melissa. Inicio y Final
-Botón de Imprimir y Agregar en Minuto a Minuto.
-Formato horas despúes de titulos. para dar orden y quitar orden.
-Montar Check List. Envia Melissa.
-Proveedor minuto a minuto seleccionar del modulo proveedores y el contacto se llene automaticamente.
+Proveedor minuto a minuto seleccionar del modulo proveedores y el contacto se llene automaticamente en el mismo campo.
+Horas extra. Minimo 6.
+Solo editar la cantidad en menaje. Muestra Melissa. Inicio y Final.
+Agregar nombre novios en Check List.
