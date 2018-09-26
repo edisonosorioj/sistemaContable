@@ -214,4 +214,6 @@ CREATE TABLE `minuto_a_minuto` (
 
   ALTER TABLE `minuto_a_minuto` DROP COLUMN `orden`;
 
+  ALTER TABLE `minuto_a_minuto` ADD COLUMN `cantidad` VARCHAR(45) NULL AFTER `descripcion`;
+
 

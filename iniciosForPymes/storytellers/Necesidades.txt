@@ -11,9 +11,9 @@ Organización automatica por hora minuto a minuto. - Listo
 Menaje por defecto Inicio y Final- Listo
 Botón de Imprimir - Listo
 Montar Check List. Listo.
+Agregar en Minuto a Minuto. Falta html - Listo
 
 
-Agregar en Minuto a Minuto. Falta html
 Seleccionar clientes mucho mas fácil.
 Editar Valores Cotización
 Editar Contrato
