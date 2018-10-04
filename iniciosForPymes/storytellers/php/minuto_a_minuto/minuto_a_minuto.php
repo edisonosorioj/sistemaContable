@@ -51,23 +51,6 @@ $tr = '';
 
  }
 
- // Consulta y por medio de un while muestra la lista de minuto a minuto
-$query2 = mysqli_query($result,"SELECT minuto_id, hora, actividad, proveedor, empresa, descripcion, comentarios, telefono, cantidad FROM minuto_a_minuto m INNER JOIN proveedores p ON m.proveedor = p.proveedor_id WHERE pedido_id = '$pedido_id' ORDER BY hora;");
-$tr2 = '';
-
- while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
-
- 	$tr .=	"<tr id='" . $row2['minuto_id']	. "'>
-				<td>" . $row2['minuto_id']	. "</td>
-				<td>" . $row2['hora'] . "</td>
-				<td>" . $row2['actividad'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"verProveedor.php?id=" . $row2['minuto_id'] . "\")'>" . $row2['empresa'] 	. "<br />Contacto: " 	. $row2['telefono'] 	. "</a></td>
-				<td>" . $row2['descripcion'] . "</td>
-				<td>" . $row2['comentarios'] . "</td>
-			</tr>";
-
- }
-
 $html = "<!DOCTYPE html>
 <head>
 <title>Minuto a minuto</title>
@@ -152,7 +135,7 @@ $html = "<!DOCTYPE html>
 							<th>Actividad</th>
 							<th>Proveedor</th>
 							<th>Cantidad</th>
-							<th width='50%'>Descripción</th>
+							<th width='20%'>Descripción</th>
 							<th>Comentarios</th>
 						  </tr>
 						</thead>
