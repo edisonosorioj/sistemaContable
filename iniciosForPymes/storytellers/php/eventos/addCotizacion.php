@@ -59,11 +59,21 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id WHERE lp.id = '$instalaciones' AND pd.dia = '$dia' AND pd.sede_id = '$sede_id'");
 
  $row11 = $query11->fetch_array(MYSQLI_BOTH);
- $desInstala 	= $row11['descripcion'];
- $preInstala 	= $row11['precio'];
- $impuesto 		= $row11['impuesto'];
+ $desInstala 		= $row11['descripcion'];
+ $preInstala 		= $row11['precio'];
+ $impuesto 			= $row11['impuesto'];
+ $preInstala 		= $preInstala + $impuesto;
 
- $preInstala = $preInstala + $impuesto;
+ $query11 = mysqli_query($result,"SELECT * FROM cotizacion WHERE pedido_id = $pedido_id");
+
+ $conteo = mysqli_num_rows($query11);
+
+ $row11 = $query11->fetch_array(MYSQLI_BOTH);
+ $preInstala2 		= $row11['precioInstalacion'];
+
+ $preInstala = ($conteo == 1) ? $preInstala2 : $preInstala ;
+
+ $preInstalaXuser 	= $preInstala/$invitados;
 
 // Realiza una primera consulta
  $query = mysqli_query($result,"SELECT * FROM lista_precios where id = $entrada");
@@ -196,6 +206,7 @@ $html="<!DOCTYPE html>
 		</div>
 
 		<div class='table'>
+			<form class='form-horizontal' action='guardarCotizacion.php' method='post'>
 			<table class='table-fill'>
 				<tr>
 					<th class='text-center' colspan='5'>Cotizaci&oacute;n</th>
@@ -211,14 +222,14 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>Instalaciones</td>
 					<td class='text-center'>$desInstala</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'>" . number_format($preInstala / $invitados, 0, ",", ".") . "</td>
+					<td class='text-center'><input type='text' name='precioInstala' value='$preInstalaXuser'/></td>
 					<td class='text-center'>" . number_format($preInstala, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Entrada</td>
 					<td class='text-center'>$desEntrada</td>
 					<td class='text-center' rowspan='6'>$invitados</td>
-					<td class='text-center' rowspan='6'>" . number_format($valorCotiza, 0, ",", ".") . "</td>
+					<td class='text-center' rowspan='6'><input type='text' value='" . number_format($valorCotiza, 0, ",", ".") . "'/></td>
 					<td class='text-center' rowspan='6'>" . number_format($totalCotiza, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
@@ -245,7 +256,7 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>Licor</td>
 					<td class='text-center'>$desLicor</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'>" . number_format($preLicor, 0, ",", ".") . "</td>
+					<td class='text-center'><input type='text' value='" . number_format($preLicor, 0, ",", ".") . "'/></td>
 					<td class='text-center'>" . number_format($totalLicor, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
@@ -258,8 +269,8 @@ $html="<!DOCTYPE html>
 				</tr>
 			</table>
 		</div>
+		<?php  $valorFinal = $preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $totalPerServicio + $preDireccion + $totalLicor;?>
 		<div class='firma'>
-			<form class='form-horizontal' action='guardarCotizacion.php' method='post'>
 				<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
 				<input type='hidden' name='pedido_id' value='$pedido_id'>
 				<input type='hidden' name='tipo_evento' value='$tipo_evento'>
@@ -275,7 +286,7 @@ $html="<!DOCTYPE html>
 				<input type='hidden' name='valor' value='$valorFinal'>
 				<input type='hidden' name='cuotas' value='$cuotas'>
 				<input type='hidden' name='abono' value='$abono'>
-				<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
+			<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
 			</form>
 		</div>
 	</div>

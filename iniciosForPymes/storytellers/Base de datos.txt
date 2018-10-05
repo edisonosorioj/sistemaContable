@@ -216,4 +216,7 @@ CREATE TABLE `minuto_a_minuto` (
 
   ALTER TABLE `minuto_a_minuto` ADD COLUMN `cantidad` VARCHAR(45) NULL AFTER `descripcion`;
 
+  ALTER TABLE `cotizacion` ADD COLUMN `precioInstalacion` VARCHAR(45) NULL AFTER `observaciones`;
+
+
 
