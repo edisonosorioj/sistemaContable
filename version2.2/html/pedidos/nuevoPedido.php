@@ -14,7 +14,7 @@ $query = mysqli_query($result,'select * from clientes order by id');
 
 while ($row = $query->fetch_array()){
 
-	 	$option .=	"<option value='" . $row['nombres'] . "'>" . $row['nombres'] . "</option>";
+	 	$option .=	"<option value='" . $row['id'] . "'>" . $row['nombres'] . "</option>";
 	}
 
 
@@ -98,7 +98,7 @@ $html = "<!DOCTYPE html>
 														</div>
 														<div class='form-group'> 
 															<label>Nombre</label> 
-															<input type='text' name='nombre' class='form-control' placeholder='Nombre'> 
+															<input type='text' name='nombre' class='form-control' placeholder='Nombre Pedido'> 
 														</div>
 
 														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 

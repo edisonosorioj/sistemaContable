@@ -9,8 +9,6 @@ if (!isset($_SESSION['login'])) {
 	
 }
 
-
-
 require_once "../conexion.php";
 
 $conex = new conection();

@@ -50,18 +50,19 @@ $result = $conex->conex();
  $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado");
  $dia = $dias[date("w")];
 
+
 //Calcular horas del evento
 
 $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime($fecha_inicial));
 
 
 // Realiza una primera consulta
- $query11 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id WHERE lp.id = '$instalaciones' AND pd.dia = '$dia' AND pd.sede_id = '$sede_id'");
+ $query40 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id WHERE lp.id = '$instalaciones' AND pd.dia = '$dia' AND pd.sede_id = '$sede_id'");
 
- $row11 = $query11->fetch_array(MYSQLI_BOTH);
- $desInstala 		= $row11['descripcion'];
- $preInstala 		= $row11['precio'];
- $impuesto 			= $row11['impuesto'];
+ $row40 = $query40->fetch_array(MYSQLI_BOTH);
+ $desInstala 		= $row40['descripcion'];
+ $preInstala 		= $row40['precio'];
+ $impuesto 			= $row40['impuesto'];
  $preInstala 		= $preInstala + $impuesto;
 
  $query11 = mysqli_query($result,"SELECT * FROM cotizacion WHERE pedido_id = $pedido_id");
@@ -69,11 +70,15 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $conteo = mysqli_num_rows($query11);
 
  $row11 = $query11->fetch_array(MYSQLI_BOTH);
- $preInstala2 		= $row11['precioInstalacion'];
+ $preInstala2 	= $row11['precioInstalacion'];
+ $preCotiza 	= $row11['precioCotiza'];
+ $preLicor2 		= $row11['precioLicor'];
 
- $preInstala = ($conteo == 1) ? $preInstala2 : $preInstala ;
-
- $preInstalaXuser 	= $preInstala/$invitados;
+ $preInstala = ($conteo == 0) ? $preInstala : $preInstala2;
+ 
+ $preInstala = ($preInstala == 0) ? $preInstala2 : $preInstala;
+ 
+ $preInstalaXuser = $preInstala/$invitados;
 
 // Realiza una primera consulta
  $query = mysqli_query($result,"SELECT * FROM lista_precios where id = $entrada");
@@ -134,7 +139,14 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $desLicor 	= $row7['descripcion'];
  $preLicor 	= $row7['precio'];
 
- $totalLicor = $preLicor * $invitados;
+ // Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
+ $preLicor = ($conteo == 1) ? $preLicor2 : $preLicor;
+
+ $preLicor = ($preLicor > 0) ? $preLicor2 : $preLicor;
+
+ $preLicorXuser = $preLicor/$invitados;
+
+ $totalLicor = $preLicor;
 
 // Calculo de precios para Pedido
 
@@ -142,7 +154,16 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
 
  $totalCotiza = $valorCotiza * $invitados;
 
- $valorFinal = $preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $totalPerServicio + $preDireccion + $totalLicor;
+
+// Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
+ $preCotiza = ($conteo == 1) ? $preCotiza : $totalCotiza;
+
+ $preCotiza = ($preCotiza > 0) ? $preCotiza : $totalCotiza;
+
+ $preCotizaXuser = $preCotiza/$invitados;
+ 
+
+ $valorFinal = $preInstala + $preCotiza + $totalLicor;
 
 $html="<!DOCTYPE html>
 <html>
@@ -222,15 +243,15 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>Instalaciones</td>
 					<td class='text-center'>$desInstala</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'><input type='text' name='precioInstala' value='$preInstalaXuser'/></td>
+					<td class='text-center'><input type='text' name='precioInstala' value='" . number_format($preInstalaXuser, 0, ",", ".") . "'/></td>
 					<td class='text-center'>" . number_format($preInstala, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Entrada</td>
 					<td class='text-center'>$desEntrada</td>
 					<td class='text-center' rowspan='6'>$invitados</td>
-					<td class='text-center' rowspan='6'><input type='text' value='" . number_format($valorCotiza, 0, ",", ".") . "'/></td>
-					<td class='text-center' rowspan='6'>" . number_format($totalCotiza, 0, ",", ".") . "</td>
+					<td class='text-center' rowspan='6'><input type='text' name='precioCotiza' value='" . number_format($preCotizaXuser, 0, ",", ".") . "'/></td>
+					<td class='text-center' rowspan='6'>" . number_format($preCotiza, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Plato fuerte</td>
@@ -256,21 +277,20 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>Licor</td>
 					<td class='text-center'>$desLicor</td>
 					<td class='text-center'>$invitados</td>
-					<td class='text-center'><input type='text' value='" . number_format($preLicor, 0, ",", ".") . "'/></td>
+					<td class='text-center'><input type='text' name='precioLicor' value='" . number_format($preLicorXuser, 0, ",", ".") . "'/></td>
 					<td class='text-center'>" . number_format($totalLicor, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td colspan='2' rowspan='2'>Observaciones: $observaciones</td>
 					<th class='text-center' colspan='2'>Total</th>
-					<td class='text-center'>" . number_format($preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $totalPerServicio + $preDireccion + $totalLicor, 0, ",", ".") . "</td>
+					<td class='text-center'>" . number_format($valorFinal, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td colspan='3'>Precios Válidos por 15 días después de la fecha de elaboración.</td>
 				</tr>
 			</table>
 		</div>
-		<?php  $valorFinal = $preInstala + $totalEntrada + $totalPlaFuerte + $totalMezcla + $totalMenaje + $totalPerServicio + $preDireccion + $totalLicor;?>
-		<div class='firma'>
+		<div>
 				<input type='hidden' name='cotizacion_id' value='$cotizacion_id'>
 				<input type='hidden' name='pedido_id' value='$pedido_id'>
 				<input type='hidden' name='tipo_evento' value='$tipo_evento'>
@@ -286,10 +306,15 @@ $html="<!DOCTYPE html>
 				<input type='hidden' name='valor' value='$valorFinal'>
 				<input type='hidden' name='cuotas' value='$cuotas'>
 				<input type='hidden' name='abono' value='$abono'>
-			<div class='imprimir'><button type='submit' class='btn btn-primary btn-block'>Guardar Cotización</button> </div>
+			
+				<button type='submit' class='btn btn-primary'>Actualizar y Guardar</button>
+				<button type='button' class='btn btn-primary' onclick='window.close();'>Cerrar</button>
+				<button type='button' class='btn btn-primary' onclick='window.print();'>Imprimir</button>
 			</form>
 		</div>
 	</div>
+	<script src='../../js/bootstrap.js'></script>
+	<script src='../../js/proton.js'></script>
 </body>
 </html>";
 

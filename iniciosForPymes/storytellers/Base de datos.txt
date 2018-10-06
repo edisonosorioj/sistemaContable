@@ -218,5 +218,10 @@ CREATE TABLE `minuto_a_minuto` (
 
   ALTER TABLE `cotizacion` ADD COLUMN `precioInstalacion` VARCHAR(45) NULL AFTER `observaciones`;
 
+  ALTER TABLE `cotizacion` ADD COLUMN `precioCotiza` VARCHAR(45) NULL AFTER `precioInstalacion`;
+
+  ALTER TABLE `cotizacion` ADD COLUMN `precioLicor` VARCHAR(45) NULL AFTER `precioCotiza`;
+
+
 
 
