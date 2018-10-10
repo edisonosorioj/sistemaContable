@@ -178,7 +178,6 @@ $html="<!DOCTYPE html>
 <body>
 	<div class='hoja'>
 		<div class='logo'><img src='../../images/logoInformes.jpg'></div>
-		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='table_datos'>
 			<table class='table-fill'>
 				<tr>
@@ -307,14 +306,18 @@ $html="<!DOCTYPE html>
 				<input type='hidden' name='cuotas' value='$cuotas'>
 				<input type='hidden' name='abono' value='$abono'>
 			
-				<button type='submit' class='btn btn-primary'>Actualizar y Guardar</button>
-				<button type='button' class='btn btn-primary' onclick='window.close();'>Cerrar</button>
-				<button type='button' class='btn btn-primary' onclick='window.print();'>Imprimir</button>
+				<button type='submit' id='btn' class='btn btn-primary'>Guardar</button>
+				<button type='button' id='btn' class='btn btn-primary' onclick='window.location.reload();'>Actualizar</button>
+				<button type='button' id='btn' class='btn btn-primary' onclick='window.close();'>Cerrar</button>
+				<button type='button' id='btn' class='btn btn-primary' onclick='window.print();'>Imprimir</button>
 			</form>
 		</div>
 	</div>
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
+	<script>
+		window.setTimeout('functionName(window.location.reload())', 2000);
+	</script>
 </body>
 </html>";
 
