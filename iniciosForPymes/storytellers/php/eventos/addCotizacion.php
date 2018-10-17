@@ -72,13 +72,14 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $row11 = $query11->fetch_array(MYSQLI_BOTH);
  $preInstala2 	= $row11['precioInstalacion'];
  $preCotiza 	= $row11['precioCotiza'];
- $preLicor2 		= $row11['precioLicor'];
+ $preLicor2 	= $row11['precioLicor'];
 
- $preInstala = ($conteo == 0) ? $preInstala : $preInstala2;
+
+ $preInstalacion = ($conteo == 0) ? $preInstala : $preInstala2;
+
+ $preInstalacion = ($preInstalacion == 0) ? $preInstala : $preInstala2;
  
- $preInstala = ($preInstala == 0) ? $preInstala2 : $preInstala;
- 
- $preInstalaXuser = $preInstala/$invitados;
+ $preInstalaXuser = $preInstalacion/$invitados;
 
 // Realiza una primera consulta
  $query = mysqli_query($result,"SELECT * FROM lista_precios where id = $entrada");
@@ -140,13 +141,13 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $preLicor 	= $row7['precio'];
 
  // Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
- $preLicor = ($conteo == 1) ? $preLicor2 : $preLicor;
+ $precioLicor = ($conteo == 0) ? $preLicor : $preLicor2;
 
- $preLicor = ($preLicor > 0) ? $preLicor2 : $preLicor;
+ $precioLicor = ($precioLicor == 0) ? $preLicor : $preLicor2;
 
- $preLicorXuser = $preLicor/$invitados;
+ $preLicorXuser = $precioLicor;
 
- $totalLicor = $preLicor;
+ $totalLicor = $precioLicor*$invitados;
 
 // Calculo de precios para Pedido
 
@@ -156,9 +157,9 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
 
 
 // Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
- $preCotiza = ($conteo == 1) ? $preCotiza : $totalCotiza;
+ $preCotiza = ($conteo == 0) ? $preCotiza : $totalCotiza;
 
- $preCotiza = ($preCotiza > 0) ? $preCotiza : $totalCotiza;
+ $preCotiza = ($preCotiza == 0) ? $preCotiza : $totalCotiza;
 
  $preCotizaXuser = $preCotiza/$invitados;
  
@@ -243,7 +244,7 @@ $html="<!DOCTYPE html>
 					<td class='text-center'>$desInstala</td>
 					<td class='text-center'>$invitados</td>
 					<td class='text-center'><input type='text' name='precioInstala' value='" . number_format($preInstalaXuser, 0, ",", ".") . "'/></td>
-					<td class='text-center'>" . number_format($preInstala, 0, ",", ".") . "</td>
+					<td class='text-center'>" . number_format($preInstalacion, 0, ",", ".") . "</td>
 				</tr>
 				<tr>
 					<td class='text-center'>Entrada</td>

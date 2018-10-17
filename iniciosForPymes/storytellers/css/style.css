@@ -1541,8 +1541,8 @@ code {
 }
 .btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
     color: #fff;
-    background-color: #2d2d2d;
-    border-color: #2d2d2d;
+    background-color: #000;
+    border-color: #000;
 }
 .btn-xs, .btn-group-xs > .btn {
     padding: 3px 8px;
@@ -1562,7 +1562,7 @@ code {
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #2a3342;
+    background-color: #000;
     border-color: rgba(0, 0, 0, 0.05);
 }
 

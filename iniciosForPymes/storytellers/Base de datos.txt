@@ -222,6 +222,14 @@ CREATE TABLE `minuto_a_minuto` (
 
   ALTER TABLE `cotizacion` ADD COLUMN `precioLicor` VARCHAR(45) NULL AFTER `precioCotiza`;
 
+  CREATE TABLE `contrato` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `contenido` LONGTEXT NULL,
+  `pedido_id` INT(11) NULL,
+  `cliente_id` INT(11) NULL,
+  PRIMARY KEY (`id`));
+
+
 
 
 

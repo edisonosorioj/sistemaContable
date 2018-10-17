@@ -8,6 +8,37 @@ $result = $conex->conex();
 // Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
 $id = $_POST['pedido_id'];
 
+// Utilizamos esta consulta para obtener la información del contrato
+$query = mysqli_query($result, "select * from contrato where pedido_id = '$id'");
+
+ $conteo = mysqli_num_rows($query);
+
+$row = $query->fetch_assoc();
+$contenido = $row['contenido'];
+
+if ($conteo == 1) {
+	$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start, end, empresa, documento from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$row = $query->fetch_assoc();
+
+$nombre_pedido 	= $row['nombre_pedido'];
+$nombre_empresa = $row['empresa'];
+$nombre_cliente = $row['nombres'];
+$documento 	 	= $row['documento'];
+$id_cliente 	= $row['id'];
+$estado 		= $row['estado'];
+$invitados 		= $row['invitados'];
+$inst_id 		= $row['instalacion_id'];
+$sede_id 		= $row['sede_id'];
+$fecha_inicio 	= $row['start'];
+$fecha_fin 		= $row['end'];
+
+
+	$query = mysqli_query($result, "select * from contrato where pedido_id = '$id'");
+	$row = $query->fetch_assoc();
+	$contenido = $row['contenido'];
+
+} else {
+
 //Se definen variables
 $meses = ''; 
 $count = ''; 
@@ -126,7 +157,7 @@ $tel				= $datos['tel'];
 
  while ($count <= $cuotas){
 
- $mes = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+ $mes = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
  	$meses .=	"Cuota $count. 15 de " . $mes[date('n')-$i] . " - $ " . number_format($cuota_mensual, 0, ",", ".") . "<br />";
 	
@@ -142,36 +173,17 @@ $tel				= $datos['tel'];
 $valorLetraPersona 	= CifrasEnLetras::convertirNumeroEnLetras($valorPersona,2);
 $valorLetras 		= CifrasEnLetras::convertirNumeroEnLetras($valor,2);
 $valorLetraPersona 	= CifrasEnLetras::convertirNumeroEnLetras($valorPersona,2);
-$LetraPersonas 	= CifrasEnLetras::convertirNumeroEnLetras($invitados,0);
+$LetraPersonas 		= CifrasEnLetras::convertirNumeroEnLetras($invitados,0);
 
 
-// https://www.tiny.cloud/
-// https://www.sitepoint.com/10-best-html-wysiwyg-plugins/
+	$contenido .= "<div><h3 style='text-align: left;'><img style='width: 176px;' src='../../images/logoInformes.jpg'><br></h3><h3 style='text-align: center;'>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
 
-$html="<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>CONTRATO</title>
-	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
-	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' /> 
-
-	</head>
-<body>
-	<div class='hoja'>
-		<form method='post'>
-		<div class='logo'><img src='../../images/logoInformes.png'></div>
-		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
-			<div class='titulo'><h3>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
-
-			<div class='parrafo'>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad, identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificacion No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:
+			<div class='parrafo'>Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad, identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificación No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:
 			</div>
+			
+			<div class='parrafo'><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en Rionegro, para lo cual dispondrá de todos los recursos necesarios para su desarrollo de acuerdo con la etiqueta del evento. Adicionalmente ofrecerá parqueadero para 50 carros y espacio al aire libre.</div>
 
-			<div class='parrafo'><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en
-			Rionegro, para lo cual dispondrádel todos los recursos necesarios para su desarrollo de acuerdo con la etiqueta del evento. Adicionalmente ofrecerá parqueadero para 50 carros y espacio al aire libre.</div>
-
-			<div class='parrafo'><b>SEGUNDA. PERSONAL. El CONTRATISTA</b> tendrá su propio personal bajo su exclusiva subordinación y dependencia laboral, salarial y de seguridad
-			social, quien será personal	idóneo para cumplir con el objeto de este contrato.</div>
+			<div class='parrafo'><b>SEGUNDA. PERSONAL. El CONTRATISTA</b> tendrá su propio personal bajo su exclusiva subordinación y dependencia laboral, salarial y de seguridad social, quien será personal idóneo para cumplir con el objeto de este contrato.</div>
 
 			<div class='parrafo'><b>TERCERA. SERVICIOS.</b> El servicio ofrecido por el CONTRATISTA consta de:</div>
 			
@@ -227,10 +239,10 @@ $html="<!DOCTYPE html>
 			<div class='parrafo'><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de " . $valorLetraPersona . " centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ") por persona. Para un total de " . $valorLetras . " centavos (\$ " . number_format($valor, 0, ",", ".") . " ) para $invitados personas. Los cuáles serán cancelados de la siguiente manera:</div>
 
 			<div class='parrafo'>
-				Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
+				<br />Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
 			Numero de Cuotas " . $cuotas . "<br /><br />
 			
-			" . $meses . "
+			" . $meses . "<br />
 
 			</div>
 			<div class='parrafo2'>PARAGRAFO. El costo por persona adicional será de " . $valorLetraPersona . " centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ").</div>
@@ -282,7 +294,7 @@ $html="<!DOCTYPE html>
 				<table class='table-fill'>
 					<tr>
 						<td class='text-center text-big'>
-						</br></br></br></br><b>___________________________</br>	                               
+						</br></br></br></br><b>___________________________</br>
 						EL CONTRATISTA</br>
 						Representante Legal de Inversiones</br>
 						TP S.A.S. NIT: 900999387-7</br>
@@ -297,11 +309,45 @@ $html="<!DOCTYPE html>
 						</td>
 					</tr>
 				</table>
-			</div>
-		</div>
-	</div>
-	</form>
+			</div>";
+}
 
+
+
+$html="<!DOCTYPE html>
+<html lang='es'
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<title>CONTRATO</title>
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
+	<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet'>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
+	<script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
+
+	<link href='../../asset/summernote.css' rel='stylesheet'>
+	<script src='../../asset/summernote.js'></script>
+
+	</head>
+<body>
+	<div class='hoja' style='margin-top: 50px !important;'>
+		<form action='guardarContrato.php' method='post'>
+			<textarea id='summernote' name='contenido'>
+			" . $contenido . "
+			</textarea>
+		</div>
+		<div class='parrafo'>
+			<input type='hidden' name='pedido_id' value='$id'>
+			<input type='hidden' name='cliente_id' value='$id_cliente'>
+			<button type='submit' id='btn' class='btn btn-primary'>Guardar</button>
+		</div>
+	</form>
+	</div>
+<script type='text/javascript'>
+	$(document).ready(function() {
+	  $('#summernote').summernote();
+	});
+</script>
 </body>
 </html>";
 
