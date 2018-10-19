@@ -320,9 +320,9 @@ else return false;
 								<div class='form-group'> 
 								<form class='form-horizontal' action='editarPedido.php?id=$id' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 									<label>Tipo de Evento:</label> 
-									<input type='input' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
+									<input type='text' name='tipoEvento' class='form-control' value='$nombre_pedido' disabled/>
 									<label>Instalaciones:</label>
-									<input type='input' class='form-control' value='$instalacion' disabled/>
+									<input type='text' class='form-control' value='$instalacion' disabled/>
 								</div>
 							</div>
 							<div class='col-md-2'>
@@ -339,13 +339,13 @@ else return false;
 								<label>Día del Evento</label>
 								<input type='text' name='diaEvento' class='form-control' value='$dia' disabled/>
 							</div>
-							</form>
 							<div class='col-md-2'>
 								<label>Valor Cotización</label>
 								<input type='text' class='form-control' value='$ " . number_format($valorCotiza, 0, ",", ".") . "' disabled/>
 								<label>-</label> 
 								<button type='submit' class='btn btn-primary btn-block'>Cambiar</button> 
 							</div>
+							</form>
 						<form class='form-horizontal' action='addCotizacion.php' method='post' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 							<div class='col-md-2'>
 								<label>No. de Cuotas</label>
