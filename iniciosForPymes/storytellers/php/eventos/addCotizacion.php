@@ -5,7 +5,6 @@ require('funcionesEspeciales.php');
 $conex = new conection();
 $result = $conex->conex();
 
-
 	$tipo_evento		=	$_POST['nombre_pedido'];
 	$cuotas				=	$_POST['cuotas'];
 	$abono				=	$_POST['abono'];
