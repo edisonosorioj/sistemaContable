@@ -183,3 +183,19 @@ td.text-right {
 p{
   text-align: center;
 }
+
+.botones{
+  margin-left: 10%;
+}
+
+.btn-primary {
+    outline: none;
+    border: solid 1px #836e46;
+    color: #fff;
+    background-color: #836e46;
+}
+
+.btn-primary:hover {
+  background-color: #000;
+  border: solid 1px #000;
+}

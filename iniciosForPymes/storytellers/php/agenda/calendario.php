@@ -36,15 +36,6 @@
               right: 'month,basicWeek, basicDay,agendaWeek,agendaDay',
 
           },
-         
-          customButtons:{
-            miBoton:{
-              text:"Boton 1",
-              click:function(){
-                alert("Haz hecho click");
-            }
-          }
-        },
 
         dayClick:function(date,jsEvent,view){
 
@@ -52,7 +43,7 @@
           $("#ModalEventos").modal();
         },
 
-        events: 'https://forpymes.co/wink/php/agenda/eventos.php',
+        events: 'eventos.php',
 
         eventClick:function(calEvent,jsEvent,view){
           $('#tituloEvento').html(calEvent.title);

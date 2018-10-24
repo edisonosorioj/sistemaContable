@@ -319,14 +319,14 @@ $html="<!DOCTYPE html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<title>CONTRATO</title>
-	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
-	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
 	<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet'>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
 	<script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
 
 	<link href='../../asset/summernote.css' rel='stylesheet'>
 	<link href='../../asset/summernote-ext-print.js' rel='stylesheet'>
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
 	<script src='../../asset/summernote.js'></script>
 	<script type='text/javascript'>
 	    $(document).ready(function() {
@@ -345,7 +345,7 @@ $html="<!DOCTYPE html>
 			" . $contenido . "
 			</textarea>
 		</div>
-		<div class='parrafo'>
+		<div class='botones'>
 			<input type='hidden' name='pedido_id' value='$id'>
 			<input type='hidden' name='cliente_id' value='$id_cliente'>
 			<button type='submit' id='btn' class='btn btn-primary'>Guardar</button>

@@ -71,7 +71,7 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $row11 = $query11->fetch_array(MYSQLI_BOTH);
  $preInstala2 	= $row11['precioInstalacion'];
  $preCotiza 	= $row11['precioCotiza'];
- $preLicor2 	= $row11['precioLicor'];
+ $preLicor2 	= $row11['precioLicor']/$invitados;
 
 
  $preInstalacion = ($conteo == 0) ? $preInstala : $preInstala2;
@@ -156,9 +156,9 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
 
 
 // Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
- $preCotiza = ($conteo == 0) ? $preCotiza : $totalCotiza;
+ $preCotiza = ($conteo == 0) ? $totalCotiza : $preCotiza;
 
- $preCotiza = ($preCotiza == 0) ? $preCotiza : $totalCotiza;
+ $preCotiza = ($preCotiza == 0) ? $totalCotiza : $preCotiza;
 
  $preCotizaXuser = $preCotiza/$invitados;
  
