@@ -17,7 +17,7 @@ $result = $conex->conex();
 		
 		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
 		
-		}else{
+	}else{
 
 		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
 		}
@@ -26,9 +26,9 @@ $result = $conex->conex();
 		
 		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
  		
- 		}else{
+ 	}else{
 
-		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', sede_id = '$sede', invitados = '$invitados' where pedido_id ='$id';");
+		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', sede_id = '$sede', invitados = '$invitados' where pedido_id = '$id';");
  		}
 
 

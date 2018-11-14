@@ -11,16 +11,18 @@ $id = $_GET['id'];
 // Realiza la eliminacion del credito enviado. Y genera un mensaje seg[un las respuesta mySql
 $query = mysqli_query($result, "delete from creditos where idcreditos = '$id'");
 
-if($query > 0){
-	$msg = 'El registro fue eliminado';
+// Si hay algun error en la eliminación genera una alerta con un mensaje. Sino simplemente recarga la pagina
+if($query == 0){
+	$html = "<script>
+				window.alert('Error al eliminar el registro. Intentalo de nuevo);
+				javascript:history.back();
+			</script>";
 }else{
-	$msg = 'Error al eliminar el registro. Intentalo de nuevo';
+	$html = "<script>
+				javascript:history.back();
+			</script>";
 }
 
-// Se construye el Alert y vuelve al Credito
-$html = "<script>
-	window.alert('$msg');
-	javascript:history.back();
-</script>";
+
 	
 echo $html;

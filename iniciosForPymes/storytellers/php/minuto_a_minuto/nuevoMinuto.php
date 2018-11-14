@@ -17,7 +17,7 @@ $conex = new conection();
 $result = $conex->conex();
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('00:00', 'Nueva Actividad', 'Wink', '$id', 'Descripción', '');");
+	$query = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, cantidad, comentarios) VALUES ('00:00', 'Nueva Actividad', '1', '$id', 'Descripción', '', '');");
 		
 	$html = "<script>
 		opener.location.reload();

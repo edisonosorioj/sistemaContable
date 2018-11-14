@@ -8,10 +8,11 @@ $result = $conex->conex();
 	$proveedor	=	$_POST['proveedor'];
 	$nombre		=	$_POST['nombre'];
 	$disponible	=	$_POST['disponible'];
+	$costo		=	$_POST['costo'];
 	$valor		=	$_POST['valor'];
 
 
-	$query = mysqli_query($result,"INSERT INTO productos (fecha, nombre, disponible, valor, porveedor_id) VALUES ('$fecha','$nombre', '$disponible', '$valor', '$proveedor');");
+	$query = mysqli_query($result,"INSERT INTO productos (fecha, nombre, disponible, costo, valor, proveedor_id) VALUES ('$fecha','$nombre', '$disponible', '$costo', '$valor', '$proveedor');");
 	
 	if($query > 0){
 		$msg = 'El producto fue agregado';

@@ -36,11 +36,11 @@ $query = mysqli_query($result,'select * from productos p inner join proveedores 
 	$sumtotal = $row['disponible'] * $row['valor'];
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" 	. $row['fecha'] 				. "</td>
 				<td>" 	. $row['empresa'] 				. "</td>
 				<td>" 	. $row['nombre'] 				. "</td>
 				<td>" 	. $row['disponible'] 			. "</td>
-				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td>$ " . number_format($row['costo'], 0, ",", ".")	. "</td>
+				<td>$ " . number_format($row['valor'], 0, ",", ".") . "</td>
 				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
@@ -135,10 +135,10 @@ else return false;
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Fecha</th>
 							<th>Proveedor</th>
 							<th>Producto</th>
 							<th>Cantidad</th>
+							<th>Costo</th>
 							<th>Valor</th>
 							<th>Total</th>
 							<th>Acciones</th>

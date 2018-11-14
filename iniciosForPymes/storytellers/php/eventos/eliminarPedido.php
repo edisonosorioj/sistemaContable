@@ -20,9 +20,9 @@ $query2 = mysqli_query($result,"delete from cotizacion where pedido_id = '$id'")
 $query3 = mysqli_query($result,"delete from minuto_a_minuto where pedido_id = '$id'");
 
 if($query > 0){
-	$msg = 'El pedido fue eliminado';
+	$msg = 'La cotización fue eliminada';
 }else{
-	$msg = 'Error al eliminar pedido. Intentelo de nuevo';
+	$msg = 'Error al eliminar la cotización. Intentelo de nuevo';
 }
 	
 	// }else{

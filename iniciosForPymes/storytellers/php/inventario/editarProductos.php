@@ -20,6 +20,7 @@ $row=$query->fetch_assoc();
 $fecha 		= $row['fecha'];
 $nombre 	= $row['nombre'];
 $disponible = $row['disponible'];
+$costo 		= $row['costo'];
 $valor 		= $row['valor'];
 $proveedor 	= $row['proveedor_id'];
 
@@ -71,8 +72,6 @@ $html = "<!DOCTYPE html>
 				return false;
 			}
 
-			
-
 			$('#toggle').click(function () {
 				screenfull.toggle($('#container')[0]);
 			});	
@@ -93,9 +92,6 @@ $html = "<!DOCTYPE html>
 			<div class='agile-grids'>	
 				<!-- input-forms -->
 				<div class='grids'>
-					<div class='progressbar-heading grids-heading'>
-						<h2>Editar Producto</h2>
-					</div>
 					<div class='panel panel-widget forms-panel'>
 						<div class='forms'>
 							<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
@@ -106,10 +102,6 @@ $html = "<!DOCTYPE html>
 									<form action='actProductos.php' method='post'> 
 										<div class='form-group'> 
 											<input type='hidden' name='id' value='$id' class='form-control'> 
-										</div>
-										<div class='form-group'> 
-											<label>Fecha</label> 
-											<input type='text' name='fecha' class='form-control' placeholder='Fecha' value='$fecha'> 
 										</div>
 										<div class='form-group'> 
 											<label>Nombre</label> 
@@ -129,6 +121,10 @@ $html = "<!DOCTYPE html>
 										<div class='form-group'> 
 											<label>Disponible</label> 
 											<input type='text' name='disponible' class='form-control' placeholder='Disponible' value='$disponible'> 
+										</div>
+										<div class='form-group'> 
+											<label>Costo</label> 
+											<input type='text' name='costo' class='form-control' placeholder='Costo' value='$costo'> 
 										</div>
 										<div class='form-group'> 
 											<label>Valor</label> 

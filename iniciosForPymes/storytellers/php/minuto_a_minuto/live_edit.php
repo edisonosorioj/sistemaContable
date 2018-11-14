@@ -12,6 +12,8 @@ if ($input['action'] == 'edit') {
 		$update_field.= "hora='".$input['hora']."'";
 	} else if(isset($input['actividad'])) {
 		$update_field.= "actividad='".$input['actividad']."'";
+	} else if(isset($input['cantidad'])) {
+		$update_field.= "cantidad='".$input['cantidad']."'";
 	} else if(isset($input['descripcion'])) {
 		$update_field.= "descripcion='".$input['descripcion']."'";
 	} else if(isset($input['comentarios'])) {

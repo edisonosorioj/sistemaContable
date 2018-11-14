@@ -38,7 +38,7 @@ $tr2 = '';
 
  	$tr2 .=	"<tr class='rows' id='rows'>
 				<td>" . $row2['nombres'] 					. "</td>
-				<td>" . $row2['nombre_pedido'] 				. "</td>
+				<td><a href='../eventos/pedidoProductos.php?id=" . $row2['pedido_id'] . "'>" . $row2['nombre_pedido'] 				. "</a></td>
 				<td  align='right'>$ " . number_format($row2['t_costo'], 0, ",", ".")	. "</td>
 				<td>" . $row2['start']						. "</td>
 				<td>" . $row2['end']						. "</td>
@@ -62,7 +62,7 @@ $tr = '';
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['nombres'] 		. "</td>
-				<td>" . $row['nombre_pedido'] 	. "</td>
+				<td><a href='../eventos/pedidoProductos.php?id=" . $row['pedido_id'] . "'>" . $row['nombre_pedido'] 				. "</a></td>
 				<td  align='right'>$ " . number_format($row['t_costo'], 0, ",", ".") 	. "</td>
 				<td>" . $row['start']	. "</td>
 				<td>" . $row['end']	. "</td>

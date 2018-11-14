@@ -41,6 +41,8 @@ $row3 = $query3->fetch_assoc();
 
 $valorPedido = "$ " . number_format($row3['valor'], 0, ",", ".") . "";
 
+// $valorPedido = "$ " . number_format($row3['t_cobrado'], 0, ",", ".") . "";
+
 // Obtenemos la fecha
 $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
 $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");

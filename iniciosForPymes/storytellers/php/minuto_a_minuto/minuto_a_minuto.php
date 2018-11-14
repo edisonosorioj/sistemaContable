@@ -32,8 +32,8 @@ $query = mysqli_query($result,"SELECT nombre_pedido FROM pedidos WHERE pedido_id
 $row = $query->fetch_assoc();
 $nombre_pedido 	= $row['nombre_pedido'];
 
-// Consulta y por medio de un while muestra la lista de minuto a minuto
-$query = mysqli_query($result,"SELECT minuto_id, hora, actividad, proveedor, empresa, descripcion, comentarios, telefono, cantidad FROM minuto_a_minuto m INNER JOIN proveedores p ON m.proveedor = p.proveedor_id WHERE pedido_id = '$pedido_id' ORDER BY hora;");
+// Consulta y por medio de un while y muestra la lista de minuto a minuto
+$query = mysqli_query($result,"SELECT minuto_id, hora, actividad, proveedor, empresa, nombres, descripcion, comentarios, telefono, cantidad FROM minuto_a_minuto m INNER JOIN proveedores p ON m.proveedor = p.proveedor_id WHERE pedido_id = '$pedido_id' ORDER BY hora;");
 
 $tr = '';
 
@@ -43,7 +43,8 @@ $tr = '';
 				<td>" . $row['minuto_id']	. "</td>
 				<td>" . $row['hora'] . "</td>
 				<td>" . $row['actividad'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"verProveedor.php?id=" . $row['minuto_id'] . "\")'>" . $row['empresa'] 	. "<br />Contacto: " 	. $row['telefono'] 	. "</a></td>
+				<td><a onclick='javascript:abrir(\"verProveedor.php?id=" . $row['minuto_id'] . "\")'>" . $row['empresa'] 	. "	 <br />Nombre: " 	. $row['nombres'] 	. "
+							<br />Contacto: " 	. $row['telefono'] 	. "</a></td>
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['descripcion'] . "</td>
 				<td>" . $row['comentarios'] . "</td>
@@ -63,6 +64,7 @@ $html = "<!DOCTYPE html>
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
 <link href='../../css/style.css' rel='stylesheet' type='text/css' />
+<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
 <!-- font CSS -->
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
@@ -123,7 +125,7 @@ $html = "<!DOCTYPE html>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"nuevoMinuto.php?id=$pedido_id\")'>Nuevo</button>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:window.print();)'>Imprimir</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:window.print();'>Imprimir</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -132,9 +134,9 @@ $html = "<!DOCTYPE html>
 						  <tr>
 							<th></th>
 							<th>Hora</th>
-							<th>Actividad</th>
+							<th width='15%'>Actividad</th>
 							<th>Proveedor</th>
-							<th>Cantidad</th>
+							<th width='5%'>Cantidad</th>
 							<th width='20%'>Descripción</th>
 							<th>Comentarios</th>
 						  </tr>
@@ -163,7 +165,7 @@ $html = "<!DOCTYPE html>
 				editButton: false,
 				columns: {
 				identifier: [0, 'minuto_id'],
-				editable: [[1, 'hora'], [2, 'actividad'], [4, 'descripcion'], [5, 'comentarios']]
+				editable: [[1, 'hora'], [2, 'actividad'], [4, 'cantidad'], [5, 'descripcion'], [6, 'comentarios']]
 			},
 			hideIdentifier: true,
 			url: 'live_edit.php'

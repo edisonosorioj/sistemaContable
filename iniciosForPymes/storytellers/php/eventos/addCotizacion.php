@@ -50,10 +50,10 @@ $result = $conex->conex();
  $dia = $dias[date("w")];
 
 
+
 //Calcular horas del evento
 
 $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime($fecha_inicial));
-
 
 // Realiza una primera consulta
  $query40 = mysqli_query($result,"SELECT lp.id, lp.descripcion as descripcion, pd.precio as precio, pd.item_id, pd.impuesto FROM lista_precios lp inner join precio_x_dia pd on lp.id = pd.item_id WHERE lp.id = '$instalaciones' AND pd.dia = '$dia' AND pd.sede_id = '$sede_id'");
@@ -63,6 +63,7 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $preInstala 		= $row40['precio'];
  $impuesto 			= $row40['impuesto'];
  $preInstala 		= $preInstala + $impuesto;
+
 
  $query11 = mysqli_query($result,"SELECT * FROM cotizacion WHERE pedido_id = $pedido_id");
 

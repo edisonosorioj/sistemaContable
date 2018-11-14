@@ -5,19 +5,19 @@ $conex = new conection();
 $result = $conex->conex();
 
 	$id				=	$_POST['id'];
-	$fecha			=	$_POST['fecha'];
 	$nombre			=	$_POST['nombre'];
 	$newProveedor	=	$_POST['newProveedor'];
 	$disponible		=	$_POST['disponible'];
+	$costo			=	$_POST['costo'];
 	$valor			=	$_POST['valor'];
 
 if ($newProveedor == 'Seleccionar') {
 
-	$query = mysqli_query($result, "UPDATE productos set fecha = '$fecha', nombre = '$nombre', disponible = '$disponible', valor = '$valor' where idproductos ='$id';");
+	$query = mysqli_query($result, "UPDATE productos set nombre = '$nombre', disponible = '$disponible', costo = '$costo', valor = '$valor' where idproductos ='$id';");
 
 }else{
 
-	$query = mysqli_query($result, "UPDATE productos set fecha = '$fecha', nombre = '$nombre', disponible = '$disponible', valor = '$valor', proveedor_id = '$newProveedor' where idproductos ='$id';");
+	$query = mysqli_query($result, "UPDATE productos set nombre = '$nombre', disponible = '$disponible', costo = '$costo', valor = '$valor', proveedor_id = '$newProveedor' where idproductos ='$id';");
 	
 }
 	

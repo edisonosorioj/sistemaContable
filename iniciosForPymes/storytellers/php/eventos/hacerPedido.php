@@ -16,7 +16,7 @@ $result = $conex->conex();
 
 
 	$pedido_id		=	$_POST['pedido_id'];
-	$nombre_sede	=	$_POST['sede'];
+	$sede_id		=	$_POST['sede'];
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
 	$query5 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");
@@ -47,7 +47,7 @@ if ($estado == 1) {
 }else{
 
  $fecha 		= date('y-m-d');
- $detalles 		= "Pedido No. " . $pedido_id . " - " . $nombre_pedido;
+ $detalles 		= "Evento No. " . $pedido_id . " - " . $nombre_pedido;
 
  $valorcredito 	= $valor;
 
@@ -56,42 +56,51 @@ if ($estado == 1) {
 
 
 
-// Agrega el registro para utilizar el minuto a minuto
-	// $query3 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('01:00', 'Organizar menaje', '1', '$pedido_id','- 000 Platos Fuerte - 000 Plato Tortero - 000 Vaso Gaseosa - 000 Vaso Roquero - 000 Copa de Agua - 000 Copa Coctel - 000 Copa Champaña - 000 Decanter - 000 Tenedor Fuerte - 000 Tenedor Tortero - 000 Cuchara Fuerte - 000 Cuchillo Fuerte - 000 Bandejas - 000 Jarras Aluminio - 000 Jarras de Vidrio - 000 Hieleras - 000 Pinzas - 000 Charoles - 000 Platos Decorativos - 000 Servilletas Papel - 000 Bolsas de Basura - 000 Bandejas - 000 Cocas Madera - 000 Platos Grandes de Cobre - 000 Platos Pequeños de Cobre - 000 Baldes Metalicos - 000 Salseras Cristal Grandes - 000 Salseras Cristal Pequeñas', '');");
-	
-	$query3a = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, cantidad, descripcion, comentarios) VALUES ('01:00', 'Organizar menaje', '1', '$pedido_id', '000', 'Platos Fuerte', '');");	
-	$query3b = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, cantidad, descripcion, comentarios) VALUES ('01:00', 'Organizar menaje', '1', '$pedido_id', '000', 'Plato Tortero', '');");	
-	$query3c = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, cantidad, descripcion, comentarios) VALUES ('01:00', 'Organizar menaje', '1', '$pedido_id', '000', 'Vaso Gaseosa', '');");
-		
-	$query3d = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, cantidad, descripcion, comentarios) VALUES ('01:00', 'Organizar menaje', '1', '$pedido_id', '000', 'Vaso Roquero', '');");
+// Inserción Datos Minuto a Minuto
 
-	$query4 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('02:00', 'Organizar Alimentacion', '1', '$pedido_id','Detalles de Alimentacion', '');");
-
-	$query5 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('03:00', 'Organizar Sonido', '1', '$pedido_id', '', '');");
-
-	$query6 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('04:00', 'Organizar Decoracion', '1', '$pedido_id', '', '');");
-
-	$query7 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('05:00', 'Mezcladores ilimitados, implementos de aseo y ubicacion de la mesas', '1', '$pedido_id', '', '');");
-
-	$query8 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('06:00', 'Llegan meseros y organizan mesas - Llega seguridad y aseo', '1', $pedido_id, '', '');");
-
-	$query9 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('07:00', 'Coctel de Bienvenida ', '1', '$pedido_id', '', '');");
-
-	$query10 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('08:00', 'Plato Fuerte', '1', '$pedido_id', '', '');");
-
-	$query11 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('09:00', 'Torta', '$1', '$pedido_id', '', '');");
-
-	$query12 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('10:00', 'Alimentación personal', '1', '$pedido_id', '', '');");
-
-	$query13 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('11:00', 'Inicia Fiesta', '1', '$pedido_id', '', '');");
-
-	$query14 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('11:30', 'Hora Loca', '1', '$pedido_id', '', '');");
-
-	$query15 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('12:00', 'Se reparten las alimento', '1', '$pedido_id', '', '');");
-
-	$query16 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('13:00', 'Fin de la fiesta', '1', '$pedido_id', '', '');");
-
-	$query17 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, comentarios) VALUES ('14:00', 'Organizar Menaje', '1', '$pedido_id', '- 000 Platos Fuerte - 000 Plato Tortero - 000 Vaso Gaseosa - 000 Vaso Roquero - 000 Copa de Agua - 000 Copa Coctel - 000 Copa Champaña - 000 Decanter - 000 Tenedor Fuerte - 000 Tenedor Tortero - 000 Cuchara Fuerte - 000 Cuchillo Fuerte - 000 Bandejas - 000 Jarras Aluminio - 000 Jarras de Vidrio - 000 Hieleras - 000 Pinzas - 000 Charoles - 000 Platos Decorativos - 000 Servilletas Papel - 000 Bolsas de Basura - 000 Bandejas - 000 Cocas Madera - 000 Platos Grandes de Cobre - 000 Platos Pequeños de Cobre - 000 Baldes Metalicos - 000 Salseras Cristal Grandes - 000 Salseras Cristal Pequeñas', '');");
+ $query3 = mysqli_query($result,"INSERT INTO minuto_a_minuto (hora, actividad, proveedor, pedido_id, descripcion, cantidad, comentarios) VALUES 
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Platos Fuerte', '000', ''), 
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Plato Tortero', '000', ''), 
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Vaso Gaseosa', '000', ''), 
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Vaso Roquero', '000', ''), 
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Copa de Agua', '000', ''),  
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Copa Coctel', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Copa Champaña', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Decanter', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Tenedor Fuerte', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Tenedor Tortero', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Cuchara Fuerte', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Cuchillo Fuerte', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Bandejas', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Jarras Aluminio', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Jarras de Vidrio', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Hieleras', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Pinzas', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Charoles', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Platos Decorativos', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Servilletas Papel', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Bolsas de Basura', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Servilletas Papel', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Cocas Madera', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Platos Grandes de Cobre', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Platos Pequeños de Cobre', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Baldes Metalicos', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Salseras Cristal Grandes', '000', ''),
+ 		('01:00', 'Organizar menaje', '1', '$pedido_id', 'Salseras Cristal Pequeñas', '000', ''),
+ 		('02:00', 'Organizar Alimentacion', '1', '$pedido_id', '', '', ''),
+ 		('03:00', 'Organizar Sonido', '1', '$pedido_id', '', '', ''),
+ 		('04:00', 'Organizar Decoración', '1', '$pedido_id', '', '', ''),
+ 		('05:00', 'Mezcladores ilimitados, implementos de aseo y ubicación de las mesas', '1', '$pedido_id', '', '', ''),
+ 		('06:00', 'Llegan meseros y organizan mesas - Llega seguridad y aseo', '1', '$pedido_id', '', '', ''),
+ 		('07:00', 'Coctel Bienvenida', '1', '$pedido_id', '', '', ''),
+ 		('08:00', 'Plato Fuerte', '1', '$pedido_id', '', '', ''),
+ 		('09:00', 'Torta', '1', '$pedido_id', '', '', ''),
+ 		('10:00', 'Alimentación Personal', '1', '$pedido_id', '', '', ''),
+ 		('11:00', 'Inicia Fiesta', '1', '$pedido_id', '', '', ''),
+ 		('12:00', 'Hora Loca', '1', '$pedido_id', '', '', ''),
+ 		('13:00', 'Se reparte Alimentación', '1', '$pedido_id', '', '', ''),
+ 		('14:00', 'Fin de la Fiesta', '1', '$pedido_id', '', '', '');
+ 		");
 
 
 // Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado

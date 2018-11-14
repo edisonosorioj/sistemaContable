@@ -8,6 +8,22 @@
   display: none;
 }
 
+button {
+  display: none;
+}
+
+a {
+  display: none;
+}
+
+.main-menu {
+  display: none; 
+}
+
+section .litle-bar{
+  display: none;  
+}
+
 /*Estilos de impresion*/
 
 html, body{
@@ -26,7 +42,7 @@ html, body{
 
 .logo{
   margin-top: 2%;
-  width: 150px;
+  width: 120px;
 }
 
 .fecha{

@@ -26,10 +26,18 @@ $menu = "
 				</a>
 			</li>
 			<li>
-				<a href='../eventos/eventos.php'>
+				<a href='../eventos/cotizacion.php'>
 					<i class='fa fa-file-text-o nav_icon'></i>
 					<span class='nav-text'>
 					Cotizaciones
+					</span>
+				</a>
+			</li>	
+			<li>
+				<a href='../eventos/eventos.php'>
+					<i class='fa fa-file-text-o nav_icon'></i>
+					<span class='nav-text'>
+					Eventos
 					</span>
 				</a>
 			</li>	

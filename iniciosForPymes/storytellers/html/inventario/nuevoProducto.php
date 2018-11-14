@@ -69,9 +69,6 @@ $html = "<!DOCTYPE html>
 			<div class='agile-grids'>	
 				<!-- input-forms -->
 				<div class='grids'>
-					<div class='progressbar-heading grids-heading'>
-						<h2>Nuevo Producto</h2>
-					</div>
 					<div class='panel panel-widget forms-panel'>
 						<div class='forms'>
 							<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
@@ -93,6 +90,10 @@ $html = "<!DOCTYPE html>
 										<div class='form-group'> 
 											<label>Disponible</label> 
 											<input type='text' name='disponible' class='form-control' placeholder='Disponible'> 
+										</div>
+										<div class='form-group'> 
+											<label>Costo</label> 
+											<input type='text' name='costo' class='form-control' placeholder='Costo'> 
 										</div>
 										<div class='form-group'> 
 											<label>Valor</label> 

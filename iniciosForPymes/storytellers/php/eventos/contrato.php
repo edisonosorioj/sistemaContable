@@ -319,15 +319,15 @@ $html="<!DOCTYPE html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<title>CONTRATO</title>
-	<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet'>
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
-	<script src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
-
-	<link href='../../asset/summernote.css' rel='stylesheet'>
-	<link href='../../asset/summernote-ext-print.js' rel='stylesheet'>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
-	<script src='../../asset/summernote.js'></script>
+	<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet'>
+	<link href='../../asset/summernote.css' rel='stylesheet'>
+
+	<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
+	<script type='text/javascript' src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
+	<script type='text/javascript' src='../../asset/summernote.js'></script>
+	<script type='text/javascript' src='../../asset/summernote-ext-print.js'></script>
 	<script type='text/javascript'>
 	    $(document).ready(function() {
 	      $('#table').basictable();
@@ -351,15 +351,14 @@ $html="<!DOCTYPE html>
 			<button type='submit' id='btn' class='btn btn-primary'>Guardar</button>
 			<button type='button' id='btn' class='btn btn-primary' onclick='window.location.reload();'>Actualizar</button>
 			<button type='button' id='btn' class='btn btn-primary' onclick='window.close();'>Cerrar</button>
-			<button type='button' class='btn btn-primary' onclick='javascript:abrir(\"contratoPrevio.php?id=" . $id . "\")'>Vista Previa</button>
 		</div>
 	</form>
 	</div>
-<script type='text/javascript'>
-	$(document).ready(function() {
-	  $('#summernote').summernote();
-	});
-</script>
+	<script type='text/javascript'>
+		$(document).ready(function() {
+		  $('#summernote').summernote();
+		});
+	</script>
 </body>
 </html>";
 

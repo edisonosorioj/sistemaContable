@@ -63,10 +63,6 @@ if ($estado == 1) {
 
  }
 
-// echo "Hola Mundo";
-
-// die();
-
 //Agrega un registro al resumen del cliente
 
  $fecha 		= date('y-m-d');

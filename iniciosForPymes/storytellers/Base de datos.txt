@@ -229,7 +229,8 @@ CREATE TABLE `minuto_a_minuto` (
   `cliente_id` INT(11) NULL,
   PRIMARY KEY (`id`));
 
-
-
+___
+ALTER TABLE `productos` 
+ADD COLUMN `costo` VARCHAR(45) NULL AFTER `disponible`;
 
 

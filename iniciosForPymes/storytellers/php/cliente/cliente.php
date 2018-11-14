@@ -34,8 +34,8 @@ $tr = '';
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['documento'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
-				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
+				<td><a href='#' onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
+				<td><a href='#' onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
 				<td>" . $row['telefono'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;

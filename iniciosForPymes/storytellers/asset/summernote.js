@@ -7097,7 +7097,7 @@ $$1.summernote = $$1.extend($$1.summernote, {
             'airPopover': AirPopover
         },
         buttons: {},
-        lang: 'en-US',
+        lang: 'en-CO',
         followingToolbar: true,
         otherStaticBar: '',
         // toolbar
@@ -7108,9 +7108,9 @@ $$1.summernote = $$1.extend($$1.summernote, {
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
+            ['misc', ['print']],
             ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']],
-            ['misc', ['print']]
+            ['view', ['fullscreen', 'codeview', 'help']]
         ],
         // popover
         popatmouse: true,

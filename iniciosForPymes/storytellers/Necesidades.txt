@@ -12,12 +12,27 @@ Menaje por defecto Inicio y Final- Listo
 Botón de Imprimir - Listo
 Montar Check List. Listo.
 Agregar en Minuto a Minuto. Falta html - Listo
+--
+Seleccionar clientes mucho mas fácil. - Listo
+Editar Valores Cotización - Listo
+Editar Contrato - Listo
+Proveedor minuto a minuto seleccionar del modulo proveedores y el contacto se llene automaticamente en el mismo campo. - Listo
+Solo editar la cantidad en menaje. Muestra Melissa. Inicio y Final. Listo
+--
 
+Agregar campo Valor Compra en Inventario - Listo
+Revisar Ingreso Inventario - Listo
+Interfaz inicial detalles cotizaciòn se active cuando presione el boton - Listo
+clic en el nombre para abrir detalles de cotizaciòn - Listo
+Separar Evento de Cotizaciones - Listo
+no permite cambiar proveedor - Listo
+Eliminar menaje parte inferior - Listo
+Nuevo minuto a minuto - Listo
+Manito a la hora de dar clic en el cliente - Listo
+Eliminar doble confirmaciòn a la hora de eliminar pago o abono creditos - Listo
 
-Seleccionar clientes mucho mas fácil.
-Editar Valores Cotización
-Editar Contrato
-Proveedor minuto a minuto seleccionar del modulo proveedores y el contacto se llene automaticamente en el mismo campo.
+Click en Evento Agenda ver evento o cerrar.
+Resta de cantidad de Inventario - modulo nuevo de historial
+Organizar horario 24. Antes de los numeros, despues de los numeros
 Horas extra. Minimo 6.
-Solo editar la cantidad en menaje. Muestra Melissa. Inicio y Final.
 Agregar nombre novios en Check List.
