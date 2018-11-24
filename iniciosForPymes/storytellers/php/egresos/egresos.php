@@ -33,12 +33,14 @@ $query2 = mysqli_query($result,"SELECT SUM(valor) AS total FROM compras");
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	$valor = ($row['valor'] == '')?0:(int)$row['valor'];
+
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['cantidad'] 	. "</td>
 				<td>" . $row['producto'] 	. "</td>
 				<td>" . $row['detalles'] 	. "</td>
-				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+				<td align='right'>$ " . number_format($valor, 0, ",", ".") 		. "</td>
 				<td><a onclick='javascript:abrir(\"editarEgreso.php?id=" . $row['idcompras'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarEgreso.php?id=" . $row['idcompras'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>&nbsp;&nbsp;
 				<a onclick='javascript:abrir(\"agregarComprobante.php?id=" . $row['idcompras'] . "\")'><span data-tooltip='Adjunto'><i class='fa fa-file-text-o'></i></spam></a></td>

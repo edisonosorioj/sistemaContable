@@ -50,12 +50,19 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 $fecha = $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado, fecha from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row2=$query2->fetch_assoc();
 
 $nombre_cliente = $row2['nombres'];
 $cliente_empresa = $row2['empresa'];
 $documento_cliente = $row2['documento'];
+$fecha_pedido = $row2['fecha'];
+
+$fecha_pedido = explode('-', $fecha_pedido);
+
+$mes = $meses[$fecha_pedido[1]-1];
+
+$fecha_pedido = $fecha_pedido[2] . " de " . $mes . " del " . $fecha_pedido[0];
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
 $query4 = mysqli_query($result, "select * from variables;");
@@ -94,7 +101,7 @@ $html="<!DOCTYPE html>
 	<div class='hoja'>
 		<div class='logo'><img src='../../images/logoInformes.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
-		<div class='fecha'>Rionegro, $fecha</div>
+		<div class='fecha'>Rionegro, $fecha_pedido</div>
 		<div class='numero'>Cuenta de Cobro No. $id</div>
 		<div class='encabezado'>$cliente_empresa con Identificador $documento_cliente debe a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor contemplado al final de la tabla por concepto de:</div>
 		<div class='table'>

@@ -36,13 +36,12 @@ html, body{
 .hoja{
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 90%;
 
 }
 
 .logo{
   margin-top: 2%;
-  width: 120px;
 }
 
 .fecha{
@@ -85,35 +84,47 @@ html, body{
 }
 
 .table_datos{
-  margin-top: -9%;
-  margin-left: 25%;
-  width: 70%;
+  margin-top: -125px;
+  margin-left: 345px;
+  width: 450px;
 }
 
 .table-fill {
   background: white;
-    border-radius:3px;
-    border-collapse: collapse;
-    margin: auto;
-    max-width: 800px;
-    padding:5px;
-    width: 100%;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    animation: float 5s infinite;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 5px;
+  margin: auto;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.esp{
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  width: 200px;
+}
+
+.esp2{
+  font-size: 12px;
+  text-align: center;
+  width: 200px;
 }
 
 
 th {
-  color:#FFF;
-  background:#000;
-  border-bottom:2px solid #FFF;
+  color: #FFF;
+  background: #2f2f2f;
+  border-bottom: 2px solid #FFF;
   border-right: 1px solid #000;
-  font-size:14px;
   font-weight: 500;
-  padding:5px;
+  font-size: 14px;
+  padding: 1px;
   text-align:left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 th:first-child {
@@ -211,4 +222,20 @@ td.text-right {
 
 p{
   text-align: center;
+}
+
+.botones{
+  margin-left: 10%;
+}
+
+.btn-primary {
+    outline: none;
+    border: solid 1px #836e46;
+    color: #fff;
+    background-color: #836e46;
+}
+
+.btn-primary:hover {
+  background-color: #000;
+  border: solid 1px #000;
 }

@@ -171,33 +171,38 @@ $html="<!DOCTYPE html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<title>Cotización</title>
+	<!-- bootstrap-css -->
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
-	<!-- bootstrap-css -->
-	<link rel='stylesheet' href='../../css/bootstrap.css'>
 </head>
 <body>
 	<div class='hoja'>
-		<div class='logo'><img src='../../images/logoInformes.jpg'></div>
+		<div class='logo'><img width='340px' src='../../images/logoInformes.jpg'></div>
 		<div class='table_datos'>
 			<table class='table-fill'>
 				<tr>
-					<th>Cliente</th>
-					<td>$nombre_cliente</td>
-					<th>Teléfono</th>
-					<td>$telefono</td>
+					<th class='esp'>Cliente</th>
+					<td class='esp2'>$nombre_cliente</td>
 				</tr>
 				<tr>
-					<th>Correo</th>
-					<td>$correo</td>
-					<th>CC/NIT</th>
-					<td>$documento</td>
+					<th class='esp'>Teléfono</th>
+					<td class='esp2'>$telefono</td>
 				</tr>
 				<tr>
-					<th>Dirección</th>
-					<td>$direccion</td>
-					<th>Fecha</th>
-					<td>$fecha</td>
+					<th class='esp'>Email</th>
+					<td class='esp2'>$correo</td>
+				</tr>
+				<tr>
+					<th class='esp'>CC / NIT</th>
+					<td class='esp2'>$documento</td>
+				</tr>
+				<tr>
+					<th class='esp'>Dirección</th>
+					<td class='esp2'>$direccion</td>
+				</tr>
+				<tr>
+					<th class='esp'>Fecha</th>
+					<td class='esp2'>$fecha</td>
 				</tr>
 			</table>
 		</div>

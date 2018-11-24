@@ -31,8 +31,22 @@ Nuevo minuto a minuto - Listo
 Manito a la hora de dar clic en el cliente - Listo
 Eliminar doble confirmaciòn a la hora de eliminar pago o abono creditos - Listo
 
-Click en Evento Agenda ver evento o cerrar.
 Resta de cantidad de Inventario - modulo nuevo de historial
+Mejorar carga css quitando de los archivos principales
+	"
+		<!-- bootstrap-css -->
+		<link rel='stylesheet' href='../../css/bootstrap.css'>
+		<!-- //bootstrap-css -->
+		<!-- Custom CSS -->
+		<link href='../../css/style.css' rel='stylesheet' type='text/css' />
+		<!-- font CSS -->
+		<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<!-- font-awesome icons -->
+		<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
+		<link href='../../css/font-awesome.css' rel='stylesheet'> 
+	"
+Diseño de cotización
+Click en Evento Agenda ver evento o cerrar.
 Organizar horario 24. Antes de los numeros, despues de los numeros
 Horas extra. Minimo 6.
 Agregar nombre novios en Check List.

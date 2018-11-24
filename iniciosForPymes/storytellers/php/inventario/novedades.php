@@ -1,6 +1,9 @@
 <?php
+// Version 2.0 of Edison Osorio
 session_start();
 
+
+// Verifica que la sesion este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
 	header("Location: ../inicio/session.php");
@@ -13,42 +16,56 @@ if (isset($_SESSION['idrol'])){
 	
 }
 
-require_once "../conexion.php";
+require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
-$tr2 = '';
 
-include "../menu.php";
 
-$query = mysqli_query($result,'select * from ingresos order by fecha desc');
+// Obtiene el ID enviado desde Productos para visualizar su historial
+$id = $_GET['id'];
 
-$query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
+// Realiza la consulta para ser visualizada en un tabla por medio de un While
+$query = mysqli_query($result,"SELECT np.id as id, np.detalles as detalles, np.cantidad as cantidad, np.fecha as fecha FROM novedadProducto np INNER JOIN productos p ON np.productoId = p.idproductos WHERE p.idproductos = '$id' ORDER BY id;");
+                  
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$valor = ($row['valor'] == '')?0:(int)$row['valor'];
-
- 	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['fecha'] 				. "</td>
-				<td>" . $row['cantidad'] 			. "</td>
-				<td>" . $row['producto'] 			. "</td>
-				<td>" . $row['detalles'] 			. "</td>
-				<td align='right'>" . number_format($valor, 0, ",", ".") . "</td>
-				<td><a onclick='javascript:abrir(\"editarIngreso.php?id=" . $row['idingresos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>&nbsp;&nbsp;
-				<a onclick='javascript:abrir(\"agregarComprobante.php?id=" . $row['idingresos'] . "\")'><span data-tooltip='Adjunto'><i class='fa fa-file-text-o'></i></spam></a></td>
+ 	$tr .=	"<tr class='rows'>
+ 				<td></td>
+				<td>" 	. $row['fecha'] 	. "</td>
+				<td>" 	. $row['detalles'] 	. "</td>
+				<td>$ " . $row['cantidad'] 	. "</td>
+				<td>
+				<a class='botonTab' onclick='javascript:abrir(\"editarNovedad.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarNovedad.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
+				</td>
 			</tr>";
 
  }
 
- 	$row2 = $query2->fetch_assoc();
- 	$ing = $row2['total'];
+// Utilizamos esta consulta para obtener el nombre del cliente en su historial 
+$query2 = mysqli_query($result, "SELECT nombre FROM productos WHERE idproductos = '$id'");
+
+$row2=$query2->fetch_assoc();
+
+$nombre = $row2['nombre'];
+
+
+// Según su rol habilita el rol correspondiente
+if ($idrol == 0) {
+	include "../menu.php";
+}else{
+	include "../menu2.php";
+}
+
+
+// Se contruye el HTML para imprimirlo mas adelante.
 
 $html="<!DOCTYPE html>
 <head>
-<title>Ingresos</title>
+<title>Novedades</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -97,7 +114,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=800,height=400') ; 
 	}
 </script>
 <script>
@@ -119,22 +136,22 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Ingresos</h2>
+					<h2>$nombre</h2>
 				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/ingreso/nuevoIngreso.php\")'>Nuevo</button>
+				<div class='bs-component mb20 col-md-8'>
+					<button type='button' class='btn btn-primary hvr-icon-pulse' onClick=' window.location.href=\"inventario.php\"'>Volver</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/agregarProducto.php?id=" . $id . "\")'>Agregar</button>
+					<button type='button' class='btn btn-primary hvr-icon-sink-away' onclick='javascript:abrir(\"../../html/inventario/restarProducto.php?id=" . $id . "\")'>Restar</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Ingresos: $ " . number_format($row2['total'], 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
+							<th></th>
 							<th>Fecha</th>
-							<th>Can.</th>
-							<th>Producto</th>
-							<th>Detalles</th>
-							<th>Valor</th>
+							<th width='30%'>Detalles</th>
+							<th>Cantidad</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
@@ -144,6 +161,7 @@ else return false;
 						  "
 						</tbody>
 					  </table>
+					  </form>
 					</div>
 				</div>
 				<!-- //tables -->
@@ -158,6 +176,11 @@ else return false;
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 	<script src='../../js/acciones.js'></script>
+	<script>
+		$('#checkTodos').change(function () {
+  		$('input:checkbox').prop('checked', $(this).prop('checked'));
+		});
+	</script>
 </body>
 </html>";
 

@@ -233,4 +233,11 @@ ___
 ALTER TABLE `productos` 
 ADD COLUMN `costo` VARCHAR(45) NULL AFTER `disponible`;
 
+CREATE TABLE `storytellers`.`novedadProducto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `productoId` INT NULL,
+  `detalles` VARCHAR(1000) NULL,
+  `cantidad` INT NULL,
+  `fecha` VARCHAR(45) NULL
+  PRIMARY KEY (`id`));
 
