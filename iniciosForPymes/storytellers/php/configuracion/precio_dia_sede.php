@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.html");
+	header("Location: ../inicio/session.php");
 	exit();
 	
 }
@@ -17,9 +17,35 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+
+
+// Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
+$sede_id = $_GET['id'];
+
 $tr = '';
-$total = 0;
-$sumtotal = '';
+
+
+$query = mysqli_query($result,"SELECT pd.pxd_id as pxd_id, pd.dia as dia, pd.precio as precio, pd.impuesto as impuesto, pd.item_id as item_id, s.nombre as nombre_sede FROM sede s INNER JOIN precio_x_dia pd ON s.sede_id = pd.sede_id WHERE pd.sede_id = '$sede_id';");
+
+ while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+ 	$item = ($row['item_id'] == '1')?"Salón, mobiliario, parqueadero, iluminación decorativa, espacio al aire libre y energía":"Solo salón, mobiliario, parqueadero, iluminación decorativa, espacio al aire libre, seguridad, aseo, administrador y energía";
+
+ 	$tr .=	"<tr class='rows' id='rows'>
+ 				<td>" . $row['dia']			. "</td>
+				<td>" . $row['precio'] 		. "</td>
+				<td>" . $row['impuesto'] 	. "</td>
+				<td>" . $item				. "</td>
+				<td><a onclick='javascript:abrir(\"editarPrecioSede.php?id=" . $row['pxd_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPrecioSede.php?id=" 	. $row['pxd_id'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
+			</tr>";
+
+ }
+
+ $query2 = mysqli_query($result,"select * from sede where sede_id = '$sede_id'");
+
+ $row2 = $query2->fetch_assoc();
+ $nombre_sede = $row2['nombre'];
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -27,61 +53,13 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 
-$query = mysqli_query($result,'SELECT * FROM productos p 
-	INNER JOIN proveedores pr 
-	-- INNER JOIN novedadProducto np 
-	ON p.proveedor_id = pr.proveedor_id 
-	-- AND p.idproductos = np.productoId 
-	-- GROUP BY np.id;
-	');
-
-
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
-
-
-	$sumtotal = $row['disponible'] * $row['valor'];
-
-	// $totproducto = $row['disponible'] + $row['cantidad'];
-
- 	$tr .=	"<tr class='rows' id='rows'>
-				<td>" 	. $row['empresa'] . "</td>
-				<td>" 	. $row['nombre'] . 	"</td>
-				<td>			 </td>
-				<td>$ " . number_format($row['costo'], 0, ",", ".")	. "</td>
-				<td>$ " . number_format($row['valor'], 0, ",", ".") . "</td>
-				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
-				<td>
-					<a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'>
-						<span data-tooltip='Editar'>
-							<i class='fa fa-pencil'></i>
-						</spam>
-					</a>
-					&nbsp;&nbsp;
-					<a href='novedades.php?id=" . $row['idproductos'] . "'>
-						<span data-tooltip='Novedad'>
-							<i class='fa fa-file-text-o'></i>
-						</spam>
-					</a>
-					&nbsp;&nbsp;
-					<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'>
-						<span data-tooltip='Eliminar'>
-							<i class='fa icon-off'></i>
-						</spam>
-					</a>
-				</td>
-			</tr>";
-
- 	$total = ((int)$total+(int)$sumtotal);
- }
-
-
 $html="<!DOCTYPE html>
 <head>
-<title>Inventario</title>
+<title>Precio de Sede</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
-<script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> 
 <!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
@@ -116,7 +94,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=500') ; 
+	open(url,'','top=100,left=100,width=600,height=500') ; 
 	}
 </script>
 <script>
@@ -138,23 +116,17 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Inventario</h2>
-				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.php\")'>Nuevo</button>
+					<h2>Precios " . $nombre_sede . "</h2>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Proveedor</th>
-							<th>Producto</th>
-							<th>Cantidad</th>
-							<th>Costo</th>
-							<th>Valor</th>
-							<th>Total</th>
+							<th>Día</th>
+							<th>Precio</th>
+							<th>Impuesto</th>
+							<th>Item</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
@@ -171,7 +143,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2018 ForPymes. All Rights Reserved</p>
+			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>
@@ -182,4 +154,3 @@ else return false;
 </html>";
 
 echo $html;
-

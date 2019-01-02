@@ -30,9 +30,10 @@ Eliminar menaje parte inferior - Listo
 Nuevo minuto a minuto - Listo
 Manito a la hora de dar clic en el cliente - Listo
 Eliminar doble confirmaciòn a la hora de eliminar pago o abono creditos - Listo
+Eliminar doble confirmación a la hora de eliminar producto - Listo
 
 Resta de cantidad de Inventario - modulo nuevo de historial
-Mejorar carga css quitando de los archivos principales
+Mejorar carga css quitando de los archivos principales - Listo a Verificar
 	"
 		<!-- bootstrap-css -->
 		<link rel='stylesheet' href='../../css/bootstrap.css'>
@@ -45,6 +46,35 @@ Mejorar carga css quitando de los archivos principales
 		<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
 		<link href='../../css/font-awesome.css' rel='stylesheet'> 
 	"
+
+___
+
+Revisar los colores de Sedes No actualizan. - Listo
+Se corrigio la opción de editar cotización - Listo
+Se agreguen cuotas y abono cuando se genere el contrato - Listo
+Mostrar lista de precios de la sede por dia - Listo
+ - Implico
+ 	Vista, Editor y controles de edición.
+Al agreguar nueva sede inmediatamente se agregue el esquema de precios para ser agregado por el Administrador - Listo
+Precios de nueva sede - Listo
+
+Recibo de pago - Ingreso en Clientes
+Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
+Quitar forma de pago.
+
+Modificar contrato general
+
+Mostrar cantidad de inventario disponible
+Mejorar margenes en Print y quitar numeración y URL
+Actualizar Seleccionar rol en Configuraciòn y sedes.
+Revisar fecha eventos realizados
+Lista de botones en Inicio
+Evento mas grande en Calendario
+Marco con colores empresarioales de calendario
+
+
+
+
 Diseño de cotización
 Click en Evento Agenda ver evento o cerrar.
 Organizar horario 24. Antes de los numeros, despues de los numeros

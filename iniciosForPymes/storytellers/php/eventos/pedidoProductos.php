@@ -286,6 +286,7 @@ else return false;
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
 <script>
     var theme = $.cookie('protonTheme') || 'default';
@@ -349,9 +350,9 @@ else return false;
 						<form class='form-horizontal' action='addCotizacion.php' method='post' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 							<div class='col-md-2'>
 								<label>No. de Cuotas</label>
-								<input type='number' name='cuotas' class='form-control' value='$cuotas' placeholder='1' required/>
+								<input type='number' name='cuotas' id='cuotas' class='form-control' value='$cuotas' placeholder='1'/>
 								<label>Deposito / Abono</label>
-								<input type='text' name='abono' class='form-control' placeholder='" . number_format($valorCotiza, 0, ",", ".") . "' value='$abono' required/>
+								<input type='text' name='abono' id='abono' class='form-control' placeholder='" . number_format($valorCotiza, 0, ",", ".") . "' value='$abono'/>
 							</div>
 						</div>
 					</div>
@@ -419,6 +420,8 @@ else return false;
 							<button type='submit' class='btn btn-block btn-primary'>Confirmar Evento</button> 
 						</form> 
 						<form class='form-horizontal' action='contrato.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
+								<input type='hidden' id='copy-cuotas' name='copy-cuotas'>
+								<input type='hidden' id='copy-abono' name='copy-abono'>
 								<input type='hidden' name='pedido_id' value='$id_pedido'>
 							<button type='submit' class='btn btn-block btn-primary'>Generar Contrato</button>
 						</form>
@@ -449,6 +452,20 @@ else return false;
 		$('#checkTodos').change(function () {
   		$('input:checkbox').prop('checked', $(this).prop('checked'));
 		});
+	</script>
+	<script type='text/javascript'>
+		document.getElementById('cuotas').addEventListener('keyup', autoCompleteNew);
+		function autoCompleteNew(e) {            
+		    var value = $(this).val();         
+		    $('#copy-cuotas').val(value.replace(/\s/g, '').toLowerCase()); 
+	}
+	</script>
+	<script type='text/javascript'>
+		document.getElementById('abono').addEventListener('keyup', autoCompleteNew);
+		function autoCompleteNew(e) {            
+		    var value = $(this).val();         
+		    $('#copy-abono').val(value.replace(/\s/g, '').toLowerCase()); 
+	}
 	</script>
 </body>
 </html>";

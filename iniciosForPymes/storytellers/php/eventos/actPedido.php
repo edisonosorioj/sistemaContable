@@ -12,8 +12,9 @@ $result = $conex->conex();
 	$sede			=	$_POST['sede'];
 	$invitados		=	$_POST['invitados'];
 
+
 // Consulta para actualizar el cliente
- 	if ($cliente = 'Cambiar') {
+ 	if ($cliente == 'Seleccione') {
 		
 		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
 		
@@ -22,7 +23,7 @@ $result = $conex->conex();
 		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', cliente_id = '$cliente', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
 		}
 	
-	if ($sede = 'Cambiar') {
+	if ($sede == 'Seleccione') {
 		
 		$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', start = '$start', end = '$end', invitados = '$invitados' where pedido_id ='$id';");
  		

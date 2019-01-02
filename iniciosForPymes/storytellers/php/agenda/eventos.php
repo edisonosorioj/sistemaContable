@@ -10,7 +10,7 @@ $result = $conex->conex();
 
 // $query = mysqli_query($result, "select pedido_id as id, empresa, nombre_pedido as title, start, end, color, estado from pedidos p inner join clientes c on p.cliente_id = c.id");
 
-$query = mysqli_query($result, 'select tipo_evento as descripcion, start, end, color, cl.empresa as title from pedidos p inner join cotizacion c inner join clientes cl on p.pedido_id = c.pedido_id and p.cliente_id = cl.id');
+$query = mysqli_query($result, 'select tipo_evento as descripcion, start, end, s.color as color, cl.empresa as title from pedidos p inner join cotizacion c inner join clientes cl inner join sede s on p.pedido_id = c.pedido_id and p.cliente_id = cl.id and p.sede_id = s.sede_id');
 
 while($row = mysqli_fetch_assoc($query)){
 	

@@ -23,7 +23,7 @@ $menu = "
 				<a href='../agenda/agenda.php'>
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
-					Agenda
+					Calendario
 					</span>
 				</a>
 			</li>

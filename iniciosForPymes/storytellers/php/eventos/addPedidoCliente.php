@@ -15,20 +15,21 @@ $conex = new conection();
 $result = $conex->conex();
 
 
-	$start		=	$_POST['start'];
-	$time1		=	$_POST['hora_i'];
-	$end		=	$_POST['end'];
-	$time2		=	$_POST['hora_f'];
-	$cliente 	=	$_POST['cliente'];
-	$empresa 	=	$_POST['empresa'];
-	$documento 	=	$_POST['documento'];
-	$telefono 	=	$_POST['telefono'];
-	$direccion 	=	$_POST['direccion'];
-	$ciudad 	=	$_POST['ciudad'];
-	$correo 	=	$_POST['correo'];
-	$sede		=	$_POST['sede'];
-	$evento		=	$_POST['evento'];
-	$invitado	=	$_POST['invitados'];
+	$start			=	$_POST['start'];
+	$time1			=	$_POST['hora_i'];
+	$end			=	$_POST['end'];
+	$time2			=	$_POST['hora_f'];
+	$cliente 		=	$_POST['cliente'];
+	$empresa 		=	$_POST['empresa'];
+	$documento 		=	$_POST['documento'];
+	$telefono 		=	$_POST['telefono'];
+	$direccion 		=	$_POST['direccion'];
+	$ciudad 		=	$_POST['ciudad'];
+	$correo 		=	$_POST['correo'];
+	$sede			=	$_POST['sede'];
+	$evento			=	$_POST['evento'];
+	$invitado		=	$_POST['invitados'];
+	$instalaciones	=	$_POST['instalaciones'];
 
 // Realiza una primera consulta para sacar el color de la sede
  $query2 = mysqli_query($result,"SELECT * FROM sede WHERE sede_id = '$sede';");
@@ -47,7 +48,7 @@ $fecha_f = $end . " " . $time2;
 	$cliente = mysqli_insert_id($result);
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado');");
+	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados, instalacion_id) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado', '$instalaciones');");
 
 	
 // COnsulta el ultipo ID ingresado a la tabla

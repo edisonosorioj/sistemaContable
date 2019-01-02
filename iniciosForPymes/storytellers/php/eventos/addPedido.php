@@ -38,7 +38,6 @@ $result = $conex->conex();
 $fecha_i = $start . " " . $time1;
 $fecha_f = $end . " " . $time2;
 
-
 // Agrega pedido según el formulario recibido
 	$query = mysqli_query($result,"INSERT INTO pedidos (cliente_id, nombre_pedido, start, end, color, estado, sede_id, invitados, instalacion_id) VALUES ('$cliente', '$evento', '$fecha_i', '$fecha_f', '$color', '0', '$sede', '$invitado', '$instalaciones');");
 

@@ -35,11 +35,12 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
  }
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query3 = mysqli_query($result,"select SUM(valort) as valor from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
+$query3 = mysqli_query($result,"select SUM(valort) as valor, c.t_cobrado as cobrado from pedidos c inner join pedidoProductos cr on c.pedido_id = cr.pedido_id where c.pedido_id = '$id'");
 
 $row3 = $query3->fetch_assoc();
 
 $valorPedido = "$ " . number_format($row3['valor'], 0, ",", ".") . "";
+$cobraPedido = "$ " . number_format($row3['cobrado'], 0, ",", ".") . "";
 
 // $valorPedido = "$ " . number_format($row3['t_cobrado'], 0, ",", ".") . "";
 
@@ -107,17 +108,22 @@ $html="<!DOCTYPE html>
 		<div class='table'>
 			<table class='table-fill'>
 				<tr>
-					<th>PRODUCTO</th>
-					<th width='15'>CANTIDAD</th>
-					<th width='80'>VALOR</th>
+					<th width='70%'>PRODUCTO</th>
+					<th width='20'>CANTIDAD</th>
+					<th width='30'>VALOR</th>
 				</tr>
 				" 
 				. $tr . 
 				"
 				<tr>
 					<td></td>
-					<th>TOTAL</th>
+					<th>Subtotal</th>
 					<td>$valorPedido</td>
+				</tr>
+				<tr>
+					<td></td>
+					<th>Total Cobrado</th>
+					<td>$cobraPedido</td>
 				</tr>
 			</table>
 		</div>

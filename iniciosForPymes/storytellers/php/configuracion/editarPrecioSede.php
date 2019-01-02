@@ -8,34 +8,15 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "SELECT p.nombre_pedido, p.start, p.end, p.invitados, c.nombres, s.nombre FROM pedidos p INNER JOIN clientes c INNER JOIN sede s ON p.cliente_id = c.id AND p.sede_id = s.sede_id WHERE pedido_id = '$id';");
+$query = mysqli_query($result, "select * from precio_x_dia where pxd_id = '$id'");
 
 $row=$query->fetch_assoc();
-
-
-$option='';
-
-$query2 = mysqli_query($result,'select * from clientes order by id');
-
-while ($row2 = $query2->fetch_array()){
-
-	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['nombres'] . "</option>";
-	}
-
-$option2='';
-
-$query3 = mysqli_query($result,'select * from sede order by sede_id');
-
-while ($row3 = $query3->fetch_array()){
-
-	 	$option2 .=	"<option value='" . $row3['sede_id'] . "'>" . $row3['nombre'] . "</option>";
-	}
 	
 ?>
-<!-- Se crea el HTML con la información del Pedido -->
+<!-- Se crea el HTML con la información del Cliente -->
 <!DOCTYPE html>
 <head>
-<title>Editar Cotizaci&oacute;n</title>
+<title>Editar Precio por Sede</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
@@ -63,8 +44,6 @@ $(function () {
 		return false;
 	}
 
-	
-
 	$('#toggle').click(function () {
 		screenfull.toggle($('#container')[0]);
 	});	
@@ -75,50 +54,38 @@ $(function () {
 <body class="dashboard-page">
 
 	<section class="wrapper scrollable">
+		<nav class="user-menu">
+			<a href="javascript:;" class="main-menu-access">
+			<i class="icon-proton-logo"></i>
+			<i class="icon-reorder"></i>
+			</a>
+		</nav>
 		<div class="main-grid">
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
+					<div class="progressbar-heading grids-heading">
+					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
 							<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
-								<div class="form-title">
-									<h4>Editar Cotizaci&oacute;n</h4>
-								</div>
 								<div class="form-body">
-									<form action="actPedido.php" method="post"> 
+									<form action="actPrecioSede.php" method="post"> 
+										<h2>Editar Precio de Sede</h2>
 										<div class="form-group"> 
-											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
+											<input type="hidden" name="id" value="<?php echo $id; ?>" > 
 										</div>
 										<div class="form-group"> 
-											<label>Inicia</label> 
-											<input type="text" name="start" class="form-control" value="<?php echo $row['start']; ?>"> 
-										</div>
-										<div class="form-group"> 
-											<label>Finaliza</label> 
-											<input type="text" name="end" class="form-control" value="<?php echo $row['end']; ?>"> 
-										</div>
-										<div class="form-group"> 
-											<label>Cliente Actual: <?php echo $row['nombres']; ?></label> 
-											<select name='cliente' class='form-control1'>
-												<option value="Seleccione">Seleccione</option>
-												"<?php echo $option; ?>"
-											</select>
+											<label>Día</label> 
+											<input type="text" name="dia" class="form-control" placeholder="Dia" value="<?php echo $row['dia']; ?>"> 
 										</div> 
 										<div class="form-group"> 
-											<label>Tipo de Evento</label>
-											<input type="text" name="nombre_pedido" class="form-control" value="<?php echo $row['nombre_pedido']; ?>"> 
+											<label>Precio</label> 
+											<input type="text" name="precio" class="form-control" placeholder="Precio" value="<?php echo $row['precio']; ?>"> 
 										</div>
 										<div class="form-group"> 
-											<label>Sede Actual: <?php echo $row['nombre']; ?></label> 
-											<select name='sede' class='form-control1'>
-												<option value="Seleccione">Seleccione</option>
-												"<?php echo $option2; ?>"
-											</select>
-										</div> 
-										<div class="form-group"> 
-											<label>Invitados</label> 
-											<input type="text" name="invitados" class="form-control" value="<?php echo $row['invitados']; ?>"> 
+											<label>Impuesto</label> 
+											<input type="text" name="impuesto" class="form-control" placeholder="Impuesto" value="<?php echo $row['impuesto']; ?>"> 
 										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 

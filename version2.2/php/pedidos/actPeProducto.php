@@ -24,7 +24,7 @@ $result = $conex->conex();
  	// echo $proDetalles;die();
 
 // Consulta para actualizar el cliente
-	$query = mysqli_query($result, "UPDATE pedidoproductos set producto = '$proDetalles', valoru = '$valor', cantidad = '$cantidad', valort = '$valort' where peproducto_id ='$id';");
+	$query = mysqli_query($result, "UPDATE pedidoProductos set producto = '$proDetalles', valoru = '$valor', cantidad = '$cantidad', valort = '$valort' where peproducto_id ='$id';");
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){

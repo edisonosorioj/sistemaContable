@@ -31,14 +31,16 @@ $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$estado = ($row['estado'] == '0')?"Pendiente":"Realizado";
+ 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
+ 	$costo 		= ($row['t_costo'] 		== null)	?	0				:$row['t_costo'];
+ 	$cobrado 	= ($row['t_cobrado'] 	== null)	?	0				:$row['t_cobrado'];
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['pedido_id'] 		. "</td>
 				<td>" . $row['nombres'] 		. "</td>
 				<td>" . $row['nombre_pedido'] 	. "</td>
-				<td  align='right'>$ " . $row['t_costo'] 	. "</td>
-				<td  align='right'>$ " . $row['t_cobrado'] 	. "</td>
+				<td  align='right'>$ " . number_format($costo, 0, ",", ".") . "</td>
+				<td  align='right'>$ " . number_format($cobrado, 0, ",", ".") . "</td>
 				<td>" . $row['fecha']	. "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
@@ -58,16 +60,6 @@ $html="<!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel='stylesheet' href='../../css/bootstrap.css'>
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href='../../css/style.css' rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-<link href='../../css/font-awesome.css' rel='stylesheet'> 
 <!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>

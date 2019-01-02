@@ -62,7 +62,7 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  $desInstala 		= $row40['descripcion'];
  $preInstala 		= $row40['precio'];
  $impuesto 			= $row40['impuesto'];
- $preInstala 		= $preInstala + $impuesto;
+ // $preInstala 		= $preInstala + $impuesto;
 
 
  $query11 = mysqli_query($result,"SELECT * FROM cotizacion WHERE pedido_id = $pedido_id");
@@ -143,11 +143,13 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
  // Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
  $precioLicor = ($conteo == 0) ? $preLicor : $preLicor2;
 
- $precioLicor = ($precioLicor == 0) ? $preLicor : $preLicor2;
+ $precioLicor = ($preLicor == $preLicor2) ? $preLicor2 : $preLicor;
+
+ // $precioLicor = ($precioLicor == 0) ? $preLicor : $preLicor2;
 
  $preLicorXuser = $precioLicor;
 
- $totalLicor = $precioLicor*$invitados;
+ $totalLicor = $precioLicor * $invitados;
 
 // Calculo de precios para Pedido
 
@@ -159,7 +161,11 @@ $horas = date("H:i", strtotime("00:00:00") + strtotime($fecha_final) - strtotime
 // Valida si hay precio ya establecido en la cotización y sino lo calcula con base al modelo
  $preCotiza = ($conteo == 0) ? $totalCotiza : $preCotiza;
 
- $preCotiza = ($preCotiza == 0) ? $totalCotiza : $preCotiza;
+ $preCotiza = ($totalCotiza == $preCotiza) ? $preCotiza : $totalCotiza;
+
+ // $preCotiza = ($preCotiza == 0) ? $totalCotiza : $preCotiza;
+
+ $preCotiza = $preCotiza + $impuesto;
 
  $preCotizaXuser = $preCotiza/$invitados;
  

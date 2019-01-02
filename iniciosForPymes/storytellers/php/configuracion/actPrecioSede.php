@@ -15,19 +15,19 @@ $conex = new conection();
 $result = $conex->conex();
 
 	$id			=	$_POST['id'];
-	$nombre		=	$_POST['nombre'];
-	$estado		=	$_POST['estado'];
-	$color	 	=	$_POST['color'];
+	$dia		=	$_POST['dia'];
+	$precio		=	$_POST['precio'];
+	$impuesto	=	$_POST['impuesto'];
 
 
 // Editar sede según el formulario recibido
-	$query = mysqli_query($result,"UPDATE sede SET nombre = '$nombre', estado = '$estado', color = '$color' where sede_id = '$id';");
+	$query = mysqli_query($result,"UPDATE precio_x_dia SET dia = '$dia', precio = '$precio', impuesto = '$impuesto' WHERE pxd_id = '$id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){
-		$msg = "La sede " . $nombre . " fue actualizada";
+		$msg = "El valor de la sede fue actualizado";
 	}else{
-		$msg = 'Error al editar la sede. Intente nuevamente';
+		$msg = 'Error al actualizar el valor de la sede. Intente nuevamente o consulte con el Administrador del sistema';
 	}
 		
 	$html = "<script>

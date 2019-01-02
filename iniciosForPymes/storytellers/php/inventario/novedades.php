@@ -36,9 +36,9 @@ $query = mysqli_query($result,"SELECT np.id as id, np.detalles as detalles, np.c
  				<td></td>
 				<td>" 	. $row['fecha'] 	. "</td>
 				<td>" 	. $row['detalles'] 	. "</td>
-				<td>$ " . $row['cantidad'] 	. "</td>
+				<td>" 	. $row['cantidad'] 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarNovedad.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
+				<a class='botonTab' onclick='javascript:abrir(\"editarNovedad.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarNovedad.php?id=" . $row['id'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
 				</td>
 			</tr>";
@@ -114,7 +114,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=800,height=400') ; 
+	open(url,'','top=100,left=100,width=800,height=500') ; 
 	}
 </script>
 <script>

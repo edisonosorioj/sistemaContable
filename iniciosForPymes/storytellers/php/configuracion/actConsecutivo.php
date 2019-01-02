@@ -4,7 +4,7 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
-	$consecutivo	=	$_POST['consecutivo'];
+	$consecutivo = $_POST['consecutivo'];
 
 	$query = mysqli_query($result, "SELECT * FROM variables WHERE variable_id = 8");
 	$row=$query->fetch_assoc();

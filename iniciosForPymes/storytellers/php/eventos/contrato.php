@@ -6,7 +6,12 @@ $conex = new conection();
 $result = $conex->conex();
 
 // Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
-$id = $_POST['pedido_id'];
+$id 	= $_POST['pedido_id'];
+$cuotas = $_POST['copy-cuotas'];
+$abono 	= $_POST['copy-abono'];
+
+// Agrega Parametros Basicos de la cotización
+	$query = mysqli_query($result,"UPDATE cotizacion SET abono = '$abono', cuotas = '$cuotas' where pedido_id = '$id';");
 
 // Utilizamos esta consulta para obtener la información del contrato
 $query = mysqli_query($result, "select * from contrato where pedido_id = '$id'");

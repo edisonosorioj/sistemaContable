@@ -76,7 +76,7 @@ $(function () {
 								<div class="form-body">
 									<form action="actSede.php" method="post"> 
 										<div class="form-group"> 
-											<input type="hidden" name="id" value="<?php echo $sede_id; ?>" class="form-control"> 
+											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
 											<label>Nombre</label> 

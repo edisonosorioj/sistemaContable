@@ -12,9 +12,9 @@ $result = $conex->conex();
 	$query = mysqli_query($result,"INSERT INTO novedadProducto (productoId, detalles, cantidad, fecha) VALUES ('$producto', '$detalles', CONCAT('-','$cantidad'), '$fecha');");
 	
 	if($query > 0){
-		$msg = 'El producto fue agregado';
+		$msg = 'La novedad al producto fue agregado';
 	}else{
-		$msg = 'Error al agregar el producto. Intente de nuevo!';
+		$msg = 'Error al agregar novedad del producto. Intente de nuevo';
 	}
 		
 $html = "<script>

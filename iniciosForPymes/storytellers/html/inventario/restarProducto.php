@@ -8,14 +8,15 @@ require_once '../../php/conexion.php';
 $conex = new conection();
 $result = $conex->conex();
 
+$id = $_GET['id'];
+
 $option='';
 
-$query = mysqli_query($result,'select * from productos order by idproductos');
+$query = mysqli_query($result,"select * from productos where idproductos = '$id'");
 
-while ($row = $query->fetch_array()){
+$row=$query->fetch_assoc();
 
-	 	$option .=	"<option value='" . $row['idproductos'] . "'>" . $row['nombre'] . "</option>";
-	}
+$producto = $row['nombre'];
 
 $html = "<!DOCTYPE html>
 <head>
@@ -75,10 +76,9 @@ $(function () {
 								<div class='form-body'>
 									<form action='../../php/inventario/restarNovedad.php' method='post'> 
 										<div class='form-group'> 
-											<label>Producto</label> 
-											<select name='producto' class='form-control1'>
-												" . $option . "
-											</select>
+											<label>Producto</label>
+											<input type='hidden' name='producto' value='$id'> 
+											<input type='text' class='form-control' value='$producto' disabled/> 
 										</div>
 										<div class='form-group'> 
 											<label>Detalles</label> 
