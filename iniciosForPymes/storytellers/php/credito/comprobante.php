@@ -26,9 +26,10 @@ $query = mysqli_query($result,"select * from creditos c inner join clientes cl o
 $row = $query->fetch_assoc();
 
 $nombre_cliente = $row['empresa'];
+$nombres 		= $row['nombres'];
 $documento_cliente = $row['documento'];
-$detalles = $row['detalles'];
-$valor = "$ " . number_format($row['valor'], 0, ",", ".") . "";
+$detalles 		= $row['detalles'];
+$valor 			= "$ " . number_format($row['valor'], 0, ",", ".") . "";
 
 
 // Obtenemos la fecha
@@ -73,12 +74,12 @@ $html="<!DOCTYPE html>
 </head>
 <body>
 	<div class='hoja'>
-		<div class='logo'><img src='../../images/logoInformes.png'></div>
+		<div class='logo'><img src='../../images/logoInformes2.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='fecha'>Rionegro, $fecha</div>
-		<div class='numero'>Comprobante de pago No. $id</div>
-		<div class='encabezado'>$nombre_cliente con Identificador $documento_cliente abono o pago a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor de $valor por concepto de $detalles:</div>
-		<div class='firma'><p>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel <br />Tel: $tel</p></div>
+		<div class='numero'>Comprobante No. $id</div>
+		<div class='encabezado'><p>$nombres con identificación $documento_cliente realizo un abono o pago a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor de $valor por concepto de $detalles.</p></div>
+		<div class='firma'><p style=text-align:center !important>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel <br />Tel: $tel</p></div>
 	</div>
 </body>
 </html>";

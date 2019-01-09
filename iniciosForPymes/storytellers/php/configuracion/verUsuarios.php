@@ -20,7 +20,7 @@ $result = $conex->conex();
 $tr = '';
 
 
-$query = mysqli_query($result,'select * from administradores');
+$query = mysqli_query($result,'select * from administradores a inner join roles r on a.idrol = r.rol_id');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
@@ -29,7 +29,7 @@ $query = mysqli_query($result,'select * from administradores');
 				<td>" . $row['documento'] 		. "</td>
 				<td>" . $row['nombre'] 			. "</td>
 				<td>" . $row['apellido'] 		. "</td>
-				<td>" . $row['idrol'] 			. "</td>
+				<td>" . $row['nombre'] 			. "</td>
 				<td>" . $row['login'] 			. "</td>
 				<td><a onclick='javascript:abrir(\"editarUsuario.php?id=" . $row['idadmin'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarUsuario.php?id=" 	. $row['idadmin'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
@@ -37,10 +37,12 @@ $query = mysqli_query($result,'select * from administradores');
 
  }
 
-if ($idrol == 0) {
+if ($idrol == 1) {
 	include "../menu.php";
-}else{
+} else if ($idrol == 2){
 	include "../menu2.php";
+} else {
+	include "../menu3.php";
 }
 
 $html="<!DOCTYPE html>

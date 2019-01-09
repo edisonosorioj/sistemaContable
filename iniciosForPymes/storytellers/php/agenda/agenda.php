@@ -20,7 +20,13 @@ $result = $conex->conex();
 $tr = '';
 $tr2 = '';
 
-include "../menu.php";
+if ($idrol == 1) {
+	include "../menu.php";
+} else if ($idrol == 2){
+	include "../menu2.php";
+} else {
+	include "../menu3.php";
+}
 
 
 $html="<!DOCTYPE html>
@@ -30,20 +36,8 @@ $html="<!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel='stylesheet' href='../../css/bootstrap.css'>
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href='../../css/style.css' rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-<link href='../../css/font-awesome.css' rel='stylesheet'> 
-<!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
-<script src='../../js/jquery.cookie.js'></script>
 <script src='../../js/screenfull.js'></script>
 <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
 <script>
@@ -61,7 +55,6 @@ $html="<!DOCTYPE html>
 </script>
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
-<link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
 <script>
     var theme = $.cookie('protonTheme') || 'default';
@@ -90,8 +83,7 @@ else return false;
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
-
+	<body class='dashboard-page'>
 		<div class='main-grid'>
 			<div class='agile-grids'>	
 				<!-- tables -->
@@ -102,24 +94,22 @@ else return false;
 				<div class='col-md-14 calendario'>
 					
 				</div>
-				
 			</div>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
 			<p>© 2018 ForPymes. All Rights Reserved</p>
 		</div>
-		<!-- //footer -->
-	</section>
-	<script>
-	    $(document).ready(function () {
-	      $('.calendario').load('calendario.php');
-	    });
-  	</script>
-	<script src='../../js/bootstrap.js'></script>
-	<script src='../../js/proton.js'></script>
-	<script src='../../js/acciones.js'></script>
-</body>
+			<!-- //footer -->
+		<script>
+		    $(document).ready(function () {
+		      $('.calendario').load('calendario.php');
+		    });
+	  	</script>
+		<script src='../../js/bootstrap.js'></script>
+		<script src='../../js/proton.js'></script>
+		<script src='../../js/acciones.js'></script>
+	</body>
 </html>";
 
 echo $html;

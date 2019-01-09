@@ -6,11 +6,32 @@ $conex = new conection();
 $result = $conex->conex();
 	
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
-$id=$_GET['id'];
+$id 	=	$_GET['id'];
+$rol 	=	'';
 
-$query = mysqli_query($result, "select * from administradores where idadmin='$id'");
+$query = mysqli_query($result, "select * from administradores where idadmin = '$id';");
 
-$row=$query->fetch_assoc();
+$row 		= $query->fetch_assoc();
+$documento 	= $row['documento'];
+$nombre 	= $row['nombre'];
+$apellidos	= $row['apellido'];
+$rol 		= $row['idrol'];
+$login 		= $row['login'];
+
+// Genera el listado de los roles activo en el sistema
+
+$query1 = mysqli_query($result,"select * from roles where rol_id = '$rol';");
+$row1 = $query1->fetch_assoc();
+
+$nombre_rol = $row1['nombre'];
+
+
+$query2 = mysqli_query($result,"select * from roles where rol_id != '$rol';");
+
+while ($row1 = $query2->fetch_array()){
+
+	 	$rol .=	"<option value='" . $row1['rol_id'] . "'>" . $row1['nombre'] . "</option>";
+	}
 	
 ?>
 <!-- Se crea el HTML con la información del Cliente -->
@@ -64,14 +85,11 @@ $(function () {
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
-					<div class="progressbar-heading grids-heading">
-						<h2>Editar Usuario</h2>
-					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
 							<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
 								<div class="form-title">
-									<h4>Datos Básicos :</h4>
+									<h4>Editar Usuario</h4>
 								</div>
 								<div class="form-body">
 									<form action="actUsuario.php" method="post"> 
@@ -80,23 +98,29 @@ $(function () {
 										</div>
 										<div class="form-group"> 
 											<label>Documento</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>"> 
+											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $documento; ?>"> 
 										</div>
 										<div class="form-group"> 
 											<label>Nombres</label> 
-											<input type="text" name="nombre" class="form-control" placeholder="Nombres" value="<?php echo $row['nombre']; ?>"> 
+											<input type="text" name="nombre" class="form-control" placeholder="Nombres" value="<?php echo $nombre; ?>"> 
 										</div> 
 										<div class="form-group"> 
 											<label>Apellido</label> 
-											<input type="text" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $row['apellido']; ?>"> 
-										</div> 
+											<input type="text" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $apellidos; ?>"> 
+										</div>
+
 										<div class="form-group"> 
-											<label>Rol - Seleccione 0 = Adm, 1 = Ventas</label> 
-											<input type="text" name="idrol" class="form-control" placeholder="Rol" value="<?php echo $row['idrol']; ?>"> 
+											<label>Rol</label> 
+											<select name="idrol" class="form-control">
+												<option value="<?php echo $rol; ?>">
+													<?php echo $nombre_rol; ?>
+												</option>
+												"<?php echo $rol; ?>"
+											</select>
 										</div>
 										<div class="form-group"> 
 											<label>Login</label> 
-											<input type="text" name="login" class="form-control" placeholder="Login" value="<?php echo $row['login']; ?>"> 
+											<input type="text" name="login" class="form-control" placeholder="Login" value="<?php echo $login; ?>"> 
 										</div> 
 										<div class="form-group"> 
 											<label>Cambiar Contraseña</label> 

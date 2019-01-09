@@ -20,10 +20,12 @@ $result = $conex->conex();
 
 $show = '';
 
-if ($idrol == 0) {
+if ($idrol == 1) {
 	include "../menu.php";
-}else{
+} else if ($idrol == 2){
 	include "../menu2.php";
+} else {
+	include "../menu3.php";
 }
 
 // Consulta y por medio de un while muestra la lista de los pedidos. EVENTOS HOY
@@ -78,22 +80,11 @@ $tr = '';
 
 $html="<!DOCTYPE html>
 <head>
-<title>Eventos</title>
+<title>Wink</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel='stylesheet' href='../../css/bootstrap.css'>
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href='../../css/style.css' rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-<link href='../../css/font-awesome.css' rel='stylesheet'> 
-<!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
@@ -111,6 +102,7 @@ $html="<!DOCTYPE html>
 		});	
 	});
 </script>
+<link rel='icon' href='../../images/fav.ico'>
 <!-- tables -->
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
@@ -141,68 +133,73 @@ else return false;
 </head>
 <body class='dashboard-page'>
 
-		<div class='main-grid'>
+	<div class='main-grid'>
 			<div class='agile-grids'>	
-				<!-- tables -->
-				
-				<div class='footer col-md-12' $show>
-					<h2>Eventos de hoy</h2>
-				</div>
-				<div class='agile-tables' $show>
-					<div class='w3l-table-info'>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>Cliente</th>
-							<th>Nombre Evento</th>
-							<th>Valor</th>
-							<th>Inicia</th>
-							<th>Finaliza</th>
-							<th>Estado</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  " 
-						  . $tr2 . 
-						  "
-						</tbody>
-					  </table>
+				<!-- grids -->
+				<div class='grids'>
+					
+					<div class='progressbar-heading grids-heading'>
+						<h2>Inicio</h2>
+					</div>
+					
+					<div class='panel panel-widget top-grids'>
+						<div class='chute chute-center text-center'>
+							<div class='row mb40'>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../agenda/agenda.php\"' class='btn btn-primary btn-block'>Calendario</button>
+									</div>
+								</div>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../cliente/cliente.php\"' class='btn btn-primary btn-block'>Clientes</button>
+									</div>
+								</div>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../eventos/cotizacion.php\"'class='btn btn-primary btn-block'>Cotizaciones</button>
+									</div>
+								</div>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../eventos/eventos.php\"' class='btn btn-primary btn-block'>Eventos</button>
+									</div>
+								</div>
+							</div>
+							<div class='row mb40'>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../proveedores/proveedores.php\"' class='btn btn-primary btn-block'>Proveedores</button>
+									</div>
+								</div>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../inventario/inventario.php\"' class='btn btn-primary btn-block'>Inventario</button>
+									</div>
+								</div>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../lista_precios/lista_precios.php\"' class='btn btn-primary btn-block'>Lista de Precios</button>
+									</div>
+								</div>
+								<div class='col-md-3 mb5'>
+									<div class='demo-grid'>
+										<button type='button' onclick='window.location.href=\"../configuracion/configuracion.php\"' class='btn btn-primary btn-block'>Configuración</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
 					</div>
 				</div>
-
-				<div class='footer'>
-					<h2>Pr&oacute;ximos Eventos</h2>
-				</div>
-
-				<div class='agile-tables'>
-					<div class='w3l-table-info'>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>Cliente</th>
-							<th>Nombre Evento</th>
-							<th>Valor</th>
-							<th>Inicia</th>
-							<th>Finaliza</th>
-							<th>Estado</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  " 
-						  . $tr . 
-						  "
-						</tbody>
-					  </table>
-					</div>
-				</div>
-		<!-- footer -->
-		<div class='footer'>
-			<p>© 2018 Wink. All Rights Reserved . Design by <a href='edisonosorioj.com'></a>EdisonOsorioJ</p>
+				<!-- //grids -->
+			</div>
 		</div>
-		<!-- //footer -->
-	</section>
+	<!-- footer -->
+	<div class='footer'>
+		<p>© 2019 Wink. All Rights Reserved. Design by ForPymes</p>
+	</div>
+	<!-- //footer -->
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 	<script src='../../js/acciones.js'></script>

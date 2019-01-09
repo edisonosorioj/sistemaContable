@@ -10,8 +10,15 @@ $id 	= $_POST['pedido_id'];
 $cuotas = $_POST['copy-cuotas'];
 $abono 	= $_POST['copy-abono'];
 
-// Agrega Parametros Basicos de la cotización
-	$query = mysqli_query($result,"UPDATE cotizacion SET abono = '$abono', cuotas = '$cuotas' where pedido_id = '$id';");
+if ($abono != '') {
+	
+	$query = mysqli_query($result,"UPDATE cotizacion SET abono = '$abono' where pedido_id = '$id';");
+	
+} else if ($cuotas != '') {
+	
+	$query = mysqli_query($result,"UPDATE cotizacion SET cuotas = '$cuotas' where pedido_id = '$id';");
+
+}
 
 // Utilizamos esta consulta para obtener la información del contrato
 $query = mysqli_query($result, "select * from contrato where pedido_id = '$id'");
@@ -180,6 +187,9 @@ $valorLetras 		= CifrasEnLetras::convertirNumeroEnLetras($valor,2);
 $valorLetraPersona 	= CifrasEnLetras::convertirNumeroEnLetras($valorPersona,2);
 $LetraPersonas 		= CifrasEnLetras::convertirNumeroEnLetras($invitados,0);
 
+// $query = mysqli_query($result, "select * from contrato_base where id = '1'");
+// 	$row = $query->fetch_assoc();
+// 	$contenido .= urldecode($row['contrato']);
 
 	$contenido .= "<div id='prueba'><h3 style='text-align: center;'>CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
 
@@ -320,18 +330,17 @@ $LetraPersonas 		= CifrasEnLetras::convertirNumeroEnLetras($invitados,0);
 
 
 $html="<!DOCTYPE html>
-<html lang='es'
+<html lang='en'
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<title>CONTRATO</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
-	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
-	<link href='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet'>
-	<link href='../../asset/summernote.css' rel='stylesheet'>
-
-	<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
-	<script type='text/javascript' src='http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
-	<script type='text/javascript' src='../../asset/summernote.js'></script>
+	<link rel='stylesheet' type='text/css' href='../../asset/style-print.css' media='print' />
+	<link rel='stylesheet' type='text/css' href='https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css' rel='stylesheet' />
+	<link rel='stylesheet' type='text/css' href='../../asset/summernote.css' rel='stylesheet' /> 
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script> 
+	<script type='text/javascript' src='https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js'></script> 
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js'></script>
 	<script type='text/javascript' src='../../asset/summernote-ext-print.js'></script>
 	<script type='text/javascript'>
 	    $(document).ready(function() {

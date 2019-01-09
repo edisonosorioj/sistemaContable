@@ -55,28 +55,24 @@ Se agreguen cuotas y abono cuando se genere el contrato - Listo
 Mostrar lista de precios de la sede por dia - Listo
  - Implico
  	Vista, Editor y controles de edición.
-Al agreguar nueva sede inmediatamente se agregue el esquema de precios para ser agregado por el Administrador - Listo
+Al agregar nueva sede inmediatamente se agregue el esquema de precios para ser agregado por el Administrador - Listo
 Precios de nueva sede - Listo
+Recibo de pago - Ingreso en Clientes - Se mejoro - Listo
+Quitar forma de pago. - Listo
+Lista de botones en Inicio - Listo
+Actualizar Seleccionar rol en Configuraciòn y sedes. - Listo
+Mostrar cantidad de inventario disponible - Listo
+Evento mas grande en Calendario - Listo, letra mas grande
+Marco con colores empresarioales de calendario - Listo
+Click en Evento Agenda ver evento o cerrar. - Listo
+Diseño de cotización - Listo
 
-Recibo de pago - Ingreso en Clientes
-Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
-Quitar forma de pago.
 
-Modificar contrato general
-
-Mostrar cantidad de inventario disponible
 Mejorar margenes en Print y quitar numeración y URL
-Actualizar Seleccionar rol en Configuraciòn y sedes.
-Revisar fecha eventos realizados
-Lista de botones en Inicio
-Evento mas grande en Calendario
-Marco con colores empresarioales de calendario
 
+Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
+Modificar contrato general - Aún sin resolver
 
-
-
-Diseño de cotización
-Click en Evento Agenda ver evento o cerrar.
 Organizar horario 24. Antes de los numeros, despues de los numeros
 Horas extra. Minimo 6.
 Agregar nombre novios en Check List.

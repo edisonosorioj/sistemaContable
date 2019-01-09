@@ -192,11 +192,11 @@ td.text-right {
 /*Campo de informacion Firma*/
 
 .firma{
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 p{
-  text-align: center;
+  text-align: justify;
 }
 
 .botones{

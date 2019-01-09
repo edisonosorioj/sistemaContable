@@ -110,10 +110,6 @@ $html = "<!DOCTYPE html>
 											<input type='text' name='l_expedicion' class='form-control' placeholder='Lugar de Expedición' value='$lugar_expedicion'> 
 										</div> 
 										<div class='form-group'> 
-											<label>Detalles</label> 
-											<input type='text' name='forma_pago' class='form-control' placeholder='Forma de Pago' value='$forma_de_pago'> 
-										</div> 
-										<div class='form-group'> 
 											<label>Telefono Fijo</label> 
 											<input type='text' name='fijo' class='form-control' placeholder='Tel. Fijo' value='$tel'> 
 										</div> 

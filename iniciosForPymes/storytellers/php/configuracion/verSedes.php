@@ -37,10 +37,12 @@ $query = mysqli_query($result,'select * from sede');
 
  }
 
-if ($idrol == 0) {
+if ($idrol == 1) {
 	include "../menu.php";
-}else{
+} else if ($idrol == 2){
 	include "../menu2.php";
+} else {
+	include "../menu3.php";
 }
 
 $html="<!DOCTYPE html>

@@ -1,6 +1,26 @@
+<?php
+	
+require_once "../../php/conexion.php";
+
+$conex = new conection();
+$result = $conex->conex();
+	
+
+
+// Genera el listado de los roles activo en el sistema
+$rol 	=	'';
+
+$query2 = mysqli_query($result,"select * from roles;");
+
+while ($row1 = $query2->fetch_array()){
+
+	 	$rol .=	"<option value='" . $row1['rol_id'] . "'>" . $row1['nombre'] . "</option>";
+	}
+	
+?>
 <!DOCTYPE html>
 <head>
-<title>Nuevo Administrador</title>
+<title>Nuevo Usuario</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Centralizados Forpymes" />
@@ -48,14 +68,11 @@
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
-					<div class="progressbar-heading grids-heading">
-						<h2>Nuevo Usuario Administrador</h2>
-					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
 							<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
 								<div class="form-title">
-									<h4>Datos Básicos :</h4>
+									<h4>Nuevo Usuario:</h4>
 								</div>
 								<div class="form-body">
 									<form action="../../php/configuracion/addUsuarios.php" method="post"> 
@@ -72,8 +89,13 @@
 											<input type="text" name="apellido" class="form-control" placeholder="Apellidos" required/> 
 										</div> 
 										<div class="form-group"> 
-											<label>Rol - Seleccione 0 = Adm, 1 = Ventas</label> 
-											<input type="text" name="rol" class="form-control" placeholder="Rol" required/> 
+											<label>Rol</label> 
+											<select name="rol" class="form-control">
+												<option value="Seleccione">
+													Seleccione
+												</option>
+												"<?php echo $rol; ?>"
+											</select>
 										</div> 
 										<div class="form-group"> 
 											<label>Usuario</label> 

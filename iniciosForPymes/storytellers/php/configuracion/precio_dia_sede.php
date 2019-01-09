@@ -47,10 +47,12 @@ $query = mysqli_query($result,"SELECT pd.pxd_id as pxd_id, pd.dia as dia, pd.pre
  $row2 = $query2->fetch_assoc();
  $nombre_sede = $row2['nombre'];
 
-if ($idrol == 0) {
+if ($idrol == 1) {
 	include "../menu.php";
-}else{
+} else if ($idrol == 2){
 	include "../menu2.php";
+} else {
+	include "../menu3.php";
 }
 
 $html="<!DOCTYPE html>
@@ -60,7 +62,6 @@ $html="<!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> 
-<!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>

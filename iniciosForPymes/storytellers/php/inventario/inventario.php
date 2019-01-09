@@ -21,23 +21,24 @@ $tr = '';
 $total = 0;
 $sumtotal = '';
 
-if ($idrol == 0) {
+if ($idrol == 1) {
 	include "../menu.php";
-}else{
+} else if ($idrol == 2){
 	include "../menu2.php";
+} else {
+	include "../menu3.php";
 }
 
-$query = mysqli_query($result,'SELECT * FROM productos p 
+$query = mysqli_query($result,'SELECT *, sum(cantidad) as cantidades FROM productos p 
 	INNER JOIN proveedores pr 
-	-- INNER JOIN novedadProducto np 
+	INNER JOIN novedadProducto np 
 	ON p.proveedor_id = pr.proveedor_id 
-	-- AND p.idproductos = np.productoId 
-	-- GROUP BY np.id;
+	AND p.idproductos = np.productoId 
+	GROUP BY np.productoId;
 	');
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
-
 
 	$sumtotal = $row['disponible'] * $row['valor'];
 
@@ -46,7 +47,7 @@ $query = mysqli_query($result,'SELECT * FROM productos p
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" 	. $row['empresa'] . "</td>
 				<td>" 	. $row['nombre'] . 	"</td>
-				<td>			 </td>
+				<td>" 	. $row['cantidades'] . 	"</td>
 				<td>$ " . number_format($row['costo'], 0, ",", ".")	. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") . "</td>
 				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
@@ -82,7 +83,6 @@ $html="<!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>

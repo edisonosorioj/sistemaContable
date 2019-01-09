@@ -31,9 +31,9 @@
       $('#calendar').fullCalendar({
 
           header:{
-              left: 'today, prev,next, miBoton',
+              left: 'today,prev,next',
               center: 'title',
-              right: 'month,basicWeek, basicDay,agendaWeek,agendaDay',
+              right: 'month,basicWeek,basicDay,agendaWeek,agendaDay',
 
           },
 
@@ -74,7 +74,7 @@
           <div id="descripcionEvento"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success">Listo</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Listo</button>
         </div>
       </div>
     </div>

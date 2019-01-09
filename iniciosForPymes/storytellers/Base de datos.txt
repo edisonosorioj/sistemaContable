@@ -243,5 +243,9 @@ CREATE TABLE `novedadProducto` (
 
 ___
 
+CREATE TABLE `roles` (`rol_id` INT NOT NULL AUTO_INCREMENT,`nombre` VARCHAR(100) NULL,`descripcion` VARCHAR(2000) NULL,PRIMARY KEY (`rol_id`));
 
+insert into roles (nombre, descripcion) values ('Administrador', 'Administrador del Sistema'), ('Comercial', 'Encargado de Clientes y Ventas'), ('Contable', 'Encargado de la Contabilidad');
+
+CREATE TABLE `contrato_base` (`id` INT NOT NULL AUTO_INCREMENT,`contrato` LONGTEXT NULL,PRIMARY KEY (`id`));
 

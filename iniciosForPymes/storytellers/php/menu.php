@@ -112,7 +112,6 @@ $menu = "
 			</div>
 			<div class='full-screen'>
 				<section class='full-top'>
-					<button id='toggle'><i class='fa fa-arrows-alt' aria-hidden='true'></i></button>	
 				</section>
 			</div>
 			<div class='w3l_search'>
