@@ -66,13 +66,26 @@ Evento mas grande en Calendario - Listo, letra mas grande
 Marco con colores empresarioales de calendario - Listo
 Click en Evento Agenda ver evento o cerrar. - Listo
 Diseño de cotización - Listo
+---
+Enviar avances - Listo
+Cambiar pestaña nuevo cliente y cliente existente - Listo
 
+
+
+----
+Ver contrato al momento de acceder al cliente.
+Cotización no necesita cliente registrado.
+Estado de cuenta en Eventos
+Quitar saldo clientes y dejar correo electronico
+Linea de calendario encima de los numeros
+Calendario solo tome la fecha inicial - Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
 
 Mejorar margenes en Print y quitar numeración y URL
+Revisar Factura verificar modelos
 
-Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
 Modificar contrato general - Aún sin resolver
 
-Organizar horario 24. Antes de los numeros, despues de los numeros
+Organizar horario 24. Antes de los numeros, despues de los numeros - Minuto a minuto.
 Horas extra. Minimo 6.
 Agregar nombre novios en Check List.
+

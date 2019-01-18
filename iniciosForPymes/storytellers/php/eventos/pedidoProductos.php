@@ -233,6 +233,11 @@ if ($estado == 1) {
 	<form class='form-horizontal' action='lista_check.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=1000 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
 		<input type='hidden' name='pedido_id' value='$id_pedido'>
 		<button type='submit' class='btn btn-block btn-primary'>Check List</button>
+	</form>
+	<form class='form-horizontal' action='cancelarPedido.php' method='post'>
+		<label></label>
+		<input type='hidden' name='pedido_id' value='$id_pedido'>
+		<button type='submit' class='btn btn-block btn-danger'>Cancelar Evento</button> 
 	</form>"
 	;
 } else {
@@ -419,11 +424,6 @@ else return false;
 							<button type='submit' class='btn btn-block btn-primary'>Generar Contrato</button>
 						</form>
 						" . $form . "
-						<form class='form-horizontal' action='cancelarPedido.php' method='post'>
-							<label></label>
-							<input type='hidden' name='pedido_id' value='$id_pedido'>
-							<button type='submit' class='btn btn-block btn-danger'>Cancelar Evento</button> 
-						</form>
 					</div>
 				</div>
 

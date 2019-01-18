@@ -88,81 +88,12 @@ $html = "<!DOCTYPE html>
 			<div class='bs-example bs-example-tabs' role='tabpanel' data-example-id='togglable-tabs'>
 
 				<ul id='myTab' class='nav nav-tabs' role='tablist'>
-					<li role='presentation' class='active'><a href='#home' id='home-tab' role='tab' data-toggle='tab' aria-controls='home' aria-expanded='true'>Cliente Existente</a></li>
-					<li role='presentation'><a href='#profile' role='tab' id='profile-tab' data-toggle='tab' aria-controls='profile'>Nuevo Cliente</a></li>
+					<li role='presentation'  class='active'><a href='#profile' role='tab' id='profile-tab' data-toggle='tab' aria-controls='profile'>Nuevo Cliente</a></li>
+					<li role='presentation'><a href='#home' id='home-tab' role='tab' data-toggle='tab' aria-controls='home' aria-expanded='true'>Cliente Existente</a></li>
 				</ul>
 
 				<div id='myTabContent' class='tab-content'>
-					<div role='tabpanel' class='tab-pane fade in active' id='home' aria-labelledby='home-tab'>
-
-						<div class='main-grid'>
-							<div class='agile-grids'>	
-								<!-- input-forms -->
-								<div class='grids'>
-									<div class='progressbar-heading grids-heading'>
-										<h2>Nueva Cotizaci&oacute;n</h2>
-									</div>
-									<div class='panel panel-widget forms-panel'>
-										<div class='forms'>
-											<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
-												<div class='form-title'>
-													<h4>Datos Básicos</h4>
-												</div>
-												<div class='form-body'>
-													<form action='../../php/eventos/addPedido.php' method='post'> 
-														<div class='form-group'> 
-															<label>Fecha Inicio</label> 
-															<input type='date' name='start'> 
-															<input type='time' name='hora_i' value='06:00:00' step='1'> 
-														</div>
-														<div class='form-group'> 
-															<label>Fecha Final</label> 
-															<input type='date' name='end'> 
-															<input type='time' name='hora_f' value='06:00:00' step='1'> 
-														</div>
-														<div class='form-group'> 
-															<label>Nombre</label> 
-															<select name='cliente' class='form-control1'>
-																" . $option . "
-															</select>
-														</div>
-														<div class='form-group'> 
-															<label>Sede</label> 
-															<select name='sede' class='form-control1'>
-																" . $option2 . "
-															</select>
-														</div>
-														<div class='form-group'> 
-															<label>Tipo de Evento</label> 
-															<input type='text' name='evento' class='form-control' placeholder='Tipo de Evento'> 
-														</div>
-														<div class='form-group'> 
-															<label>Numero de Invitados</label> 
-															<input type='text' name='invitados' class='form-control' placeholder='Invitados'> 
-														</div>
-														<div class='form-group'> 
-															<label>Instalaciones:</label>
-															<select name='instalaciones' class='form-control1'>
-																<option value='Seleccione'>Seleccione instalaciones</option>
-																" . $instalaciones . "
-															</select>
-														</div>
-
-														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
-														<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
-													</form> 
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-								<!-- //input-forms -->
-							</div>
-						</div>
-					</div>
-
-					<div role='tabpanel' class='tab-pane fade' id='profile' aria-labelledby='profile-tab'>
+					<div role='tabpanel' class='tab-pane fade in active' id='profile' aria-labelledby='profile-tab'>
 
 						<div class='main-grid'>
 							<div class='agile-grids'>	
@@ -221,6 +152,75 @@ $html = "<!DOCTYPE html>
 															<label>Sede</label> 
 															<select name='sede' class='form-control1'>
 																<option value='0'>Ninguna</option>
+																" . $option2 . "
+															</select>
+														</div>
+														<div class='form-group'> 
+															<label>Tipo de Evento</label> 
+															<input type='text' name='evento' class='form-control' placeholder='Tipo de Evento'> 
+														</div>
+														<div class='form-group'> 
+															<label>Numero de Invitados</label> 
+															<input type='text' name='invitados' class='form-control' placeholder='Invitados'> 
+														</div>
+														<div class='form-group'> 
+															<label>Instalaciones:</label>
+															<select name='instalaciones' class='form-control1'>
+																<option value='Seleccione'>Seleccione instalaciones</option>
+																" . $instalaciones . "
+															</select>
+														</div>
+
+														<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
+														<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
+													</form> 
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- //input-forms -->
+							</div>
+						</div>
+					</div>
+
+					<div role='tabpanel' class='tab-pane fade' id='home' aria-labelledby='home-tab'>
+
+						<div class='main-grid'>
+							<div class='agile-grids'>	
+								<!-- input-forms -->
+								<div class='grids'>
+									<div class='progressbar-heading grids-heading'>
+										<h2>Nueva Cotizaci&oacute;n</h2>
+									</div>
+									<div class='panel panel-widget forms-panel'>
+										<div class='forms'>
+											<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
+												<div class='form-title'>
+													<h4>Datos Básicos</h4>
+												</div>
+												<div class='form-body'>
+													<form action='../../php/eventos/addPedido.php' method='post'> 
+														<div class='form-group'> 
+															<label>Fecha Inicio</label> 
+															<input type='date' name='start'> 
+															<input type='time' name='hora_i' value='06:00:00' step='1'> 
+														</div>
+														<div class='form-group'> 
+															<label>Fecha Final</label> 
+															<input type='date' name='end'> 
+															<input type='time' name='hora_f' value='06:00:00' step='1'> 
+														</div>
+														<div class='form-group'> 
+															<label>Nombre</label> 
+															<select name='cliente' class='form-control1'>
+																" . $option . "
+															</select>
+														</div>
+														<div class='form-group'> 
+															<label>Sede</label> 
+															<select name='sede' class='form-control1'>
 																" . $option2 . "
 															</select>
 														</div>

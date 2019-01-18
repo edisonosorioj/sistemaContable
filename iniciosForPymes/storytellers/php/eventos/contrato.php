@@ -10,6 +10,8 @@ $id 	= $_POST['pedido_id'];
 $cuotas = $_POST['copy-cuotas'];
 $abono 	= $_POST['copy-abono'];
 
+// echo $abono;die();
+
 if ($abono != '') {
 	
 	$query = mysqli_query($result,"UPDATE cotizacion SET abono = '$abono' where pedido_id = '$id';");

@@ -35,7 +35,7 @@ if($query > 0){
 		
 	$html = "<script>
 		window.alert('$msg');
-		self.location='eventos.php';
+		self.location='cotizacion.php';
 		opener.location.reload();
 	</script>";
 	
