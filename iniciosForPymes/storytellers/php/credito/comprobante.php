@@ -29,6 +29,10 @@ $nombre_cliente = $row['empresa'];
 $nombres 		= $row['nombres'];
 $documento_cliente = $row['documento'];
 $detalles 		= $row['detalles'];
+$telefono 		= $row['telefono'];
+$correo 		= $row['correo'];
+$direccion 		= $row['direccion'];
+$ciudad 		= $row['ciudad'];
 $valor 			= "$ " . number_format($row['valor'], 0, ",", ".") . "";
 
 
@@ -76,10 +80,17 @@ $html="<!DOCTYPE html>
 	<div class='hoja'>
 		<div class='logo'><img src='../../images/logoInformes2.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
-		<div class='fecha'>Rionegro, $fecha</div>
-		<div class='numero'>Comprobante No. $id</div>
-		<div class='encabezado'><p>$nombres con identificación $documento_cliente realizo un abono o pago a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor de $valor por concepto de $detalles.</p></div>
-		<div class='firma'><p style=text-align:center !important>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel <br />Tel: $tel</p></div>
+		<div class='fecha'>" . strtoupper($nombre_empresa) . " - $identificacion</div>
+		<div class='encabezado'><br />Rionegro, $fecha</div>
+		<div class='numero'><b>Valor</b> $valor</div>
+		<div class='encabezado'><p><b>Recibido de:</b> $nombres 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<b>Identificación:</b> $documento_cliente<br/>
+		<b>Dirección:</b> $direccion <br />
+		<b>Ciudad:</b> $ciudad
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<b>Telefono:</b> $telefono<br />
+		<b>Concepto:</b> $detalles</p></div>
 	</div>
 </body>
 </html>";

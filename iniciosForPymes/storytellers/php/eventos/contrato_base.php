@@ -2,7 +2,7 @@
 
 $contenido = '<div id="prueba"><h3 style="text-align: center;">CONTRATO DE PRESTACIÓN DE SERVICIOS LOGÍSTICOS DE EVENTO SOCIAL</h3></div>
 
-			<div class="parrafo">Por una parte $empresa, sociedad identificada con $tipo. No $identificacion representada legalmente por $empresa, mayor de edad, identificado con $tipo No $identificacion quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado $nombre_empresa, con identificación No $documento persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:
+			<div class="parrafo">Por una parte -empresa-, sociedad identificada con -tipo-. No -identificacion- representada legalmente por -empresa-, mayor de edad, identificado con -tipo- No -identificacion- quien para efectos de este documento se denominará <b>EL CONTRATISTA</b> y por otro lado -nombre_empresa-, con identificación No -documento- persona igualmente mayor de edad quien en adelante se denominará <b>EL CONTRATANTE</b>. Han decidido celebrar el Presente Contrato de Prestación de Servicios Logísticos de Evento Social el cual se regirá por las siguientes cláusulas:
 			</div>
 			
 			<div class="parrafo"><b>PRIMERA. OBJETO. EL CONTRATISTA</b> prestará los servicios de logística en el inmueble de su propiedad llamado Casa Cartagena, ubicado en Rionegro, para lo cual dispondrá de todos los recursos necesarios para su desarrollo de acuerdo con la etiqueta del evento. Adicionalmente ofrecerá parqueadero para 50 carros y espacio al aire libre.</div>
@@ -22,35 +22,35 @@ $contenido = '<div id="prueba"><h3 style="text-align: center;">CONTRATO DE PREST
 					</tr>
 					<tr>
 						<td class="text-center">Instalaciones</td>
-						<td class="text-center">$desInstala</td>
+						<td class="text-center">-desInstala-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Entrada</td>
-						<td class="text-center">$desEntrada</td>
+						<td class="text-center">-desEntrada-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Plato fuerte</td>
-						<td class="text-center">$desPlaFuerte</td>
+						<td class="text-center">-desPlaFuerte-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Mezcladores</td>
-						<td class="text-center">$desMezcla</td>
+						<td class="text-center">-desMezcla-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Menaje</td>
-						<td class="text-center">$desMenaje</td>
+						<td class="text-center">-desMenaje-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Personal Servicio</td>
-						<td class="text-center">$desPerServicio</td>
+						<td class="text-center">-desPerServicio-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Direccionamiento del evento</td>
-						<td class="text-center">$desDireccion</td>
+						<td class="text-center">-desDireccion-</td>
 					</tr>
 					<tr>
 						<td class="text-center">Licor</td>
-						<td class="text-center">$desLicor</td>
+						<td class="text-center">-desLicor-</td>
 					</tr>
 				</table>
 			</div>
@@ -60,18 +60,18 @@ $contenido = '<div id="prueba"><h3 style="text-align: center;">CONTRATO DE PREST
 			<div class="parrafo2">PARAGRAFO 2. El CONTRATANTE tendrá exclusividad con el CONTRATISTA para la prestación de servicios de alimentación mencionadas a continuación: entradas, plato fuerte, pasabocas y mesa de sal.</div>
 
 
-			<div class="parrafo"><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de " . $valorLetraPersona . " centavos (&#36; " . number_format($valorPersona, 0, ",", ".") . ") por persona. Para un total de " . $valorLetras . " centavos (&#36; " . number_format($valor, 0, ",", ".") . " ) para $invitados personas. Los cuáles serán cancelados de la siguiente manera:</div>
+			<div class="parrafo"><b>CUARTA. VALOR DEL SERVICIO. Él CONTRATANTE</b> cancelará al CONTRATISTA por el servicio de alimentación y logística la suma de -valorLetraPersona- centavos (&#36; -valorPersona-) por persona. Para un total de -valorLetras- centavos (&#36; -valor-) para -invitados- personas. Los cuáles serán cancelados de la siguiente manera:</div>
 
 			<div class="parrafo">
-				<br />Abono de $ " . number_format($abono, 0, ",", ".") . "<br />
-			Numero de Cuotas " . $cuotas . "<br /><br />
+				<br />Abono de &#36; -abono-<br />
+			Numero de Cuotas -cuotas-<br /><br />
 			
-			" . $meses . "<br />
+			-meses-<br />
 
 			</div>
-			<div class="parrafo2">PARAGRAFO. El costo por persona adicional será de " . $valorLetraPersona . " centavos (\$ " . number_format($valorPersona, 0, ",", ".") . ").</div>
+			<div class="parrafo2">PARAGRAFO. El costo por persona adicional será de -valorLetraPersona- centavos (&#36; -valorPersona-).</div>
 
-			<div class="parrafo"><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de " . $tipo_evento . ", para un mínimo de $LetraPersonas ($invitados) personas, dicho servicio se prestará el día $fecha_inicio. Hasta el $fecha_fin.</div>
+			<div class="parrafo"><b>QUINTA. HORARIO Y OBJETO DE LA PRESTACIÓN DEL SERVICIO.</b> Se destinará a la realización y celebración de la boda de -tipo_evento-, para un mínimo de -LetraPersonas- (-invitados-) personas, dicho servicio se prestará el día -fecha_inicio-. Hasta el -fecha_fin-.</div>
 			<div class="parrafo2">PARAGRAFO 1. El número total de personas a participar del evento, será confirmado por <b>EL CONTRATANTE</b> a más tardar un mes antes del evento.</div>
 			<div class="parrafo2">PARAGRAFO 2. El valor de la hora adicional es de &#36; 6.000 por persona según la cantidad de invitados en la confirmación final, basados en el parágrafo anterior.</div>
 
@@ -112,7 +112,7 @@ $contenido = '<div id="prueba"><h3 style="text-align: center;">CONTRATO DE PREST
 			 <div class="parrafo"><b>DECIMA. MÉRITO EJECUTIVO.</b></div>
 			<div class="parrafo">El presente contrato presta mérito ejecutivo para el cobro de las obligaciones aquí consagradas. Las partes renuncian de forma previa a cualquier requerimiento en mora.</div>
 
-			<div class="parrafo">Se firma en Rionegro - Antioquia, el $hoy.</div>
+			<div class="parrafo">Se firma en Rionegro - Antioquia, el -hoy-.</div>
 
 			<div class="table">
 				<table class="table-fill">
@@ -128,8 +128,8 @@ $contenido = '<div id="prueba"><h3 style="text-align: center;">CONTRATO DE PREST
 						<td class="text-center text-big">
 						</br></br></br><b>___________________________</br>
 						EL CONTRATANTE </br>
-						$nombre_cliente</br>
-						CC $documento</b>
+						-nombre_cliente-</br>
+						CC -documento-</b>
 						</td>
 					</tr>
 				</table>

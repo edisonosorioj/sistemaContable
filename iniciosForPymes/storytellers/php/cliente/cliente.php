@@ -132,7 +132,7 @@ $html="<!DOCTYPE html>
 							<th>Empresa</th>
 							<th>Nombre</th>
 							<th>Telefono</th>
-							<th>Saldo</th>
+							<th>Correo</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

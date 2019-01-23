@@ -72,18 +72,24 @@ Cambiar pestaña nuevo cliente y cliente existente - Listo
 Estado de cuenta en Eventos - Listo
 Ver contrato al momento de acceder al cliente. - Descartado
 Quitar saldo clientes y dejar correo electronico - Listo
+Esquematizar comprobante de Pago - Listo
+Cotización no necesita cliente registrado. - Listo. Solo se muestra usuarios con saldo.
+Revisar boton Imprimir que desaparecio - Listo
 
 
 
 ----
-Cotización no necesita cliente registrado.
+Valor en letras del Comprobante
+Mejorar margenes en Print y quitar numeración y URL
+Modificar contrato general - Aún sin resolver - Dejar palabras clave 
+Si el contrato es palaU mostrar otra información
+
+
 Calendario solo tome la fecha inicial - Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
 Linea de calendario encima de los numeros
 
-Mejorar margenes en Print y quitar numeración y URL
 Revisar Factura verificar modelos
 
-Modificar contrato general - Aún sin resolver
 
 Organizar horario 24. Antes de los numeros, despues de los numeros - Minuto a minuto.
 Horas extra. Minimo 6.

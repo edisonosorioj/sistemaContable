@@ -18,7 +18,12 @@
         print: 'Print'
       }
     },
-    'es-CO': {
+    'ko-KR': {
+      print: {
+        print: '인쇄'
+      }
+    },
+    'pt-BR': {
       print: {
         print: 'Imprimir'
       }
