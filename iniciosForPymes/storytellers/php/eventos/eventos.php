@@ -29,7 +29,7 @@ if ($idrol == 1) {
 }
 // Consulta y por medio de un while muestra la lista de los pedidos de EVENTO FINALIZADOS
 
-$query2 = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 1 and p.start < NOW() ORDER BY p.start ASC');
+$query2 = mysqli_query($result,'select p.cliente_id as cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.start, p.end, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id where p.estado = 1 and p.start < NOW() ORDER BY p.start ASC');
 
 $tr2 = '';
 
@@ -49,6 +49,7 @@ $tr2 = '';
 				<a href='pedidoProductos.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Revisar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				<a href='../credito/credito.php?id=" . $row2['cliente_id'] . "'><span data-tooltip='Estado Cuenta'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row2['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>
@@ -77,6 +78,7 @@ $tr = '';
 				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Revisar'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a href='../minuto_a_minuto/minuto_a_minuto.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Minuto'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
+				<a href='../credito/credito.php?id=" . $row2['cliente_id'] . "'><span data-tooltip='Estado Cuenta'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>

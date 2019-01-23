@@ -26,9 +26,10 @@ if ($idrol == 1) {
 	include "../menu3.php";
 }
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes where valor > 0 group by c.id order by c.nombres');
 
 
+// <td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 
 $tr = '';
 
@@ -39,7 +40,7 @@ $tr = '';
 				<td><a href='#' onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
 				<td><a href='#' onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
 				<td>" . $row['telefono'] 	. "</td>
-				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
+				<td>" . $row['correo'] 		. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
@@ -51,11 +52,11 @@ $tr = '';
  }
 
 // Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
+ // $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
- $cartera = $query2->fetch_array(MYSQLI_BOTH);
- $cTotal = number_format($cartera['valor'], 0, ",", ".");
+ // $cartera = $query2->fetch_array(MYSQLI_BOTH);
+ // $cTotal = number_format($cartera['valor'], 0, ",", ".");
 
 
 $html="<!DOCTYPE html>
@@ -116,9 +117,12 @@ $html="<!DOCTYPE html>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
 				</div>
-				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Cartera Pendiente: $ $cTotal</h3>
-			  	</div>
+				<div class='bs-component mb20 col-md-2'>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='href=\"clientesInactivos.php\"'>Ver inactivos</button>
+				</div>
+				<!-- <div class='bs-component mb20 col-md-6'>
+			  		<h3>Cartera Pendiente: $ </h3>
+			  	</div>-->
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>

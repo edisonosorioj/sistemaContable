@@ -154,7 +154,7 @@ else return false;
 				</div>
 				<div class='bs-component mb20 col-md-8'>
 					<form action='eliminarVarios.php' method='post'>
-					<button type='button' class='btn btn-primary hvr-icon-pulse' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
+					<button type='button' class='btn btn-primary hvr-icon-pulse' onClick=' window.location.href=\"javascript:history.go(-1)\" '>Volver</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
 					<button type='button' class='btn btn-primary hvr-icon-sink-away' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
 				</div>

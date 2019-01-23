@@ -69,16 +69,16 @@ Diseño de cotización - Listo
 ---
 Enviar avances - Listo
 Cambiar pestaña nuevo cliente y cliente existente - Listo
+Estado de cuenta en Eventos - Listo
+Ver contrato al momento de acceder al cliente. - Descartado
+Quitar saldo clientes y dejar correo electronico - Listo
 
 
 
 ----
-Ver contrato al momento de acceder al cliente.
 Cotización no necesita cliente registrado.
-Estado de cuenta en Eventos
-Quitar saldo clientes y dejar correo electronico
-Linea de calendario encima de los numeros
 Calendario solo tome la fecha inicial - Una sola fecha, hora y tiempo de fiesta a la hora de crear cotizaciones.
+Linea de calendario encima de los numeros
 
 Mejorar margenes en Print y quitar numeración y URL
 Revisar Factura verificar modelos
