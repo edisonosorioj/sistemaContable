@@ -134,6 +134,14 @@ $html= "<!DOCTYPE html>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/consecutivo.php\")'>Actualizar</button>
 												</td>	
 											</tr>
+											<tr>
+												<td>
+													<h4>5. Cambiar Contrato General</h4>
+												</td>
+												<td class='type-info'>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../eventos/contrato_vista.php\")'>Actualizar</button>
+												</td>	
+											</tr>
 										</tbody>
 									</table>
 								</div>

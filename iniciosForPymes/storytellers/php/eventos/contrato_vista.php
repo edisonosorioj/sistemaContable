@@ -1,12 +1,11 @@
 <?php 
 require_once('../conexion.php');
-require_once('CifrasEnLetras.php');
 
 $conex = new conection();
 $result = $conex->conex();
 
 // Utilizamos esta consulta para obtener la información del contrato
-$query = mysqli_query($result, "select * from contrato_base where id = 1");
+$query = mysqli_query($result, "select * from contrato_base;");
 
  $conteo = mysqli_num_rows($query);
 
@@ -14,66 +13,13 @@ $row = $query->fetch_assoc();
 
 $contenido = urldecode($row['contrato']);
 
-$old=array(	"-empresa-",
-			"-tipo-",
-			"-identificacion-",
-			"-nombre_empresa-",
-			"-documento-",
-			"-desInstala-",
-			"-desEntrada-",
-			"-desPlaFuerte-",
-			"-desMezcla-",
-			"-desMenaje-",
-			"-desPerServicio-",
-			"-desDireccion-",
-			"-valorLetraPersona-",
-			"-valorPersona-",
-			"-valorLetras-",
-			"-invitados-",
-			"-abono-",
-			"-cuotas-",
-			"-meses-",
-			"-tipo_evento-",
-			"-LetraPersonas-",
-			"-fecha_inicio-",
-			"-fecha_fin-",
-			"-nombre_cliente-");
-
-$new=array(	"$empresa",
-			"$tipo",
-			"$identificacion",
-			"$nombre_empresa",
-			"$documento",
-			"$desInstala",
-			"$desEntrada",
-			"$desPlaFuerte",
-			"$desMezcla",
-			"$desMenaje",
-			"$desPerServicio",
-			"$desDireccion",
-			"$valorLetraPersona",
-			"$valorPersona",
-			"$valorLetras",
-			"$invitados",
-			"$abono",
-			"$cuotas",
-			"$meses",
-			"$tipo_evento",
-			"$LetraPersonas",
-			"$fecha_inicio",
-			"$fecha_fin",
-			"$nombre_cliente");
-
-$contenido = str_replace($old, $new, $contenido);
-
-
  ?>
 
 <!DOCTYPE html>
 <html lang='es'
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>CONTRATO</title>
+	<title>CONTRATO GENERAL</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
 	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
@@ -95,15 +41,12 @@ $contenido = str_replace($old, $new, $contenido);
 	</head>
 <body>
 	<div class='hoja' style='margin-top: 50px !important;'>
-		<form action='guardarContrato.php' method='post'>
+		<form action='../configuracion/guardarContratoGeneral.php' method='post'>
 			<textarea id='summernote' name='contenido'>
-				<?echo $contenido;?>
+				<?php echo $contenido; ?>
 			</textarea>
 		<div class='botones'>
-			<input type='hidden' name='pedido_id' value='$id'>
-			<input type='hidden' name='cliente_id' value='$id_cliente'>
 			<button type='submit' id='btn' class='btn btn-primary'>Guardar</button>
-			<button type='button' id='btn' class='btn btn-primary' onclick='window.location.reload();'>Actualizar</button>
 			<button type='button' id='btn' class='btn btn-primary' onclick='window.close();'>Cerrar</button>
 		</div>
 	</form>

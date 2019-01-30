@@ -23,44 +23,11 @@ if ($idrol == 0) {
 }else{
 	include "../menu2.php";
 }
-// Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
-
-
-
-$tr = '';
-
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
-
- 	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 	. "</td>
-				<td>" . $row['empresa'] 	. "</td>
-				<td>" . $row['nombres'] 	. "</td>
-				<td>" . $row['telefono'] 	. "</td>
-				<td>" . $row['correo'] 		. "</td>
-				<td>" . $row['direccion'] 	. "</td>
-				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off'></i></a>
-				</td>
-			</tr>";
-
- }
-
-// Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
-
-// Lo organiza en un array y permite utilizar cada uno de los parametros
- $cartera = $query2->fetch_array(MYSQLI_BOTH);
- $cTotal = number_format($cartera['valor'], 0, ",", ".");
 
 
 $html="<!DOCTYPE html>
 <head>
-<title>Clientes</title>
+<title>Informes</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -131,14 +98,18 @@ $html="<!DOCTYPE html>
 						<div class='panel button-sizes'>
 							<div class='panel-heading'>
 								<div class='panel-title pn'>
-									<h3 class='mtn mb10 fw400'>Informe por Día</h3>
+									<h3 class='mtn mb10 fw400'>Est. Cuenta Clientes</h3>
 								</div>
 							</div>
 							<div class='panel-body mtn'>
 								
-								<form class='form-horizontal' action='informeDia.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
+								<form class='form-horizontal' action='informeClientes.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 								<div class='form-group'> 
-									<label>Fecha</label> 
+									<label>Fecha Inicio</label> 
+									<input type='date' name='fecha' class='form-control'>
+								</div>
+								<div class='form-group'> 
+									<label>Fecha Final</label> 
 									<input type='date' name='fecha' class='form-control'>
 								</div>
 								<div class='bs-component mb20'>
@@ -154,14 +125,18 @@ $html="<!DOCTYPE html>
 						<div class='panel button-sizes'>
 							<div class='panel-heading'>
 								<div class='panel-title pn'>
-									<h3 class='mtn mb10 fw400'>Informe por Semana</h3>
+									<h3 class='mtn mb10 fw400'>Informe General</h3>
 								</div>
 							</div>
 							<div class='panel-body mtn'>
 								
-								<form class='form-horizontal' action='informeSemana.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
+								<form class='form-horizontal' action='informeGeneral.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 								<div class='form-group'> 
-									<label>Fecha</label> 
+									<label>Fecha Inicio</label> 
+									<input type='date' name='fecha' class='form-control'>
+								</div>
+								<div class='form-group'> 
+									<label>Fecha Final</label> 
 									<input type='date' name='fecha' class='form-control'>
 								</div>
 								<div class='bs-component mb20'>
@@ -177,14 +152,18 @@ $html="<!DOCTYPE html>
 						<div class='panel button-sizes'>
 							<div class='panel-heading'>
 								<div class='panel-title pn'>
-									<h3 class='mtn mb10 fw400'>Informe por Mes</h3>
+									<h3 class='mtn mb10 fw400'>Informe Inventario</h3>
 								</div>
 							</div>
 							<div class='panel-body mtn'>
 								
-								<form class='form-horizontal' action='informeMes.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
+								<form class='form-horizontal' action='informeInventario.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 								<div class='form-group'> 
-									<label>Fecha</label> 
+									<label>Fecha Inicio</label> 
+									<input type='date' name='fecha' class='form-control'>
+								</div>
+								<div class='form-group'> 
+									<label>Fecha Final</label> 
 									<input type='date' name='fecha' class='form-control'>
 								</div>
 								<div class='bs-component mb20'>

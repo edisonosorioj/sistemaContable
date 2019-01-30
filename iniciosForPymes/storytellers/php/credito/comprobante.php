@@ -12,6 +12,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 require_once '../conexion.php';
+require_once('../eventos/CifrasEnLetras.php');
 
 $conex = new conection();
 $result = $conex->conex();
@@ -67,6 +68,8 @@ $forma_de_pago		= $datos['forma_de_pago'];
 $cel				= $datos['cel'];
 $tel				= $datos['tel'];
 
+$valorLetras 	= CifrasEnLetras::convertirNumeroEnLetras($valor,2);
+
 
 $html="<!DOCTYPE html>
 <html>
@@ -80,7 +83,7 @@ $html="<!DOCTYPE html>
 	<div class='hoja'>
 		<div class='logo'><img src='../../images/logoInformes2.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
-		<div class='fecha'>" . strtoupper($nombre_empresa) . " - $identificacion</div>
+		<div class='fecha'>" . strtoupper($nombre_empresa) . "<br />$identificacion</div>
 		<div class='encabezado'><br />Rionegro, $fecha</div>
 		<div class='numero'><b>Valor</b> $valor</div>
 		<div class='encabezado'><p><b>Recibido de:</b> $nombres 
@@ -91,6 +94,7 @@ $html="<!DOCTYPE html>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<b>Telefono:</b> $telefono<br />
 		<b>Concepto:</b> $detalles</p></div>
+		<b>Valor en Letras:</b> $valorLetras pesos</p></div>
 	</div>
 </body>
 </html>";
