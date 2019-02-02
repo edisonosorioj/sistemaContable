@@ -10,8 +10,6 @@ $id 	= $_POST['pedido_id'];
 $cuotas = $_POST['copy-cuotas'];
 $abono 	= $_POST['copy-abono'];
 
-// echo $abono;die();
-
 if ($abono != '') {
 	
 	$query = mysqli_query($result,"UPDATE cotizacion SET abono = '$abono' where pedido_id = '$id';");
@@ -244,9 +242,12 @@ $new=array(	"$empresa",
 $contenido = str_replace($old, $new, $contenido);
 }
 
+$query = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, invitados, instalacion_id, sede_id, start, end, empresa, documento from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$row = $query->fetch_assoc();
 
+$id_cliente 	= $row['id'];
 
-$html="<!DOCTYPE html>
+$html = "<!DOCTYPE html>
 <html lang='en'
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
