@@ -11,7 +11,8 @@ $menu = "
 		<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 		<!-- font-awesome icons -->
 		<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-		<link href='../../css/font-awesome.css' rel='stylesheet'> 
+		<link href='../../css/font-awesome.css' rel='stylesheet'>
+		<link rel='icon' href='../../images/fav.png'>
 	</head>
 	<nav class='main-menu'>
 		<ul>
@@ -73,12 +74,12 @@ $menu = "
 		</ul>
 		<ul class='logout'>
 			<li>
-			<a href='../logout.php'>
-			<i class='icon-off nav-icon'></i>
-			<span class='nav-text'>
-			Salir
-			</span>
-			</a>
+				<a href='../logout.php'>
+				<i class='icon-off nav-icon'></i>
+					<span class='nav-text'>
+					Salir
+					</span>
+				</a>
 			</li>
 		</ul>
 	</nav>

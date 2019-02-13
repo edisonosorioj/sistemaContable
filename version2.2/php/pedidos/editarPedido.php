@@ -8,14 +8,16 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select p.nombre_pedido, p.fecha, c.nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
+$query = mysqli_query($result, "select c.id as id_cliente, p.nombre_pedido, p.fecha, c.nombres as nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
 
 $row=$query->fetch_assoc();
+
+$id_cliente = $row['id_cliente'];
 
 
 $option='';
 
-$query2 = mysqli_query($result,'select * from clientes order by id');
+$query2 = mysqli_query($result,"select * from clientes where id != '$id_cliente' order by nombres");
 
 while ($row2 = $query2->fetch_array()){
 
@@ -93,12 +95,9 @@ $(function () {
 											<input type="text" name="nombre_pedido" class="form-control" placeholder="Nombre Pedido" value="<?php echo $row['nombre_pedido']; ?>"> 
 										</div>
 										<div class="form-group"> 
-											<label>Cliente Actual</label> 
-											<input type="text" name="cliente_actual" class="form-control" value="<?php echo $row['nombres']; ?>" disabled> 
-										</div> 
-										<div class="form-group"> 
 											<label>Cliente</label> 
 											<select name='cliente' class='form-control1'>
+												<option value='<? echo $id_cliente ?>'><? echo $row['nombres'] ?></option>
 												"<?php echo $option; ?>"
 											</select>
 										</div> 

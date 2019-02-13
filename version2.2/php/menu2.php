@@ -11,7 +11,8 @@ $menu = "
 		<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 		<!-- font-awesome icons -->
 		<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-		<link href='../../css/font-awesome.css' rel='stylesheet'> 
+		<link href='../../css/font-awesome.css' rel='stylesheet'>
+		<link rel='icon' href='../../images/fav.png'>
 	</head>
 	<nav class='main-menu'>
 		<ul>
@@ -25,18 +26,17 @@ $menu = "
 			</li>
 			<li class='has-subnav'>
 				<a href='../cliente/cliente.php'>
-				<i class='icon-user nav-icon'></i>
-				<span class='nav-text'>
-					Clientes
-				</span>
-				<!-- <i class='icon-angle-right'></i><i class='icon-angle-down'></i> -->
+					<i class='icon-user nav-icon'></i>
+					<span class='nav-text'>
+						Clientes
+					</span>
 				</a>
 			</li>
 			<li>
 				<a href='../pedidos/pedido.php'>
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
-					Pedidos
+						Pedidos
 					</span>
 				</a>
 			</li>
@@ -44,18 +44,18 @@ $menu = "
 				<a href='../inventario/inventario.php'>
 					<i class='fa fa-list-ul'></i>
 					<span class='nav-text'>
-					Inventario
+						Inventario
 					</span>
 				</a>
 			</li>
 		<ul class='logout'>
 			<li>
-			<a href='../logout.php'>
-			<i class='icon-off nav-icon'></i>
-			<span class='nav-text'>
-			Salir
-			</span>
-			</a>
+				<a href='../logout.php'>
+					<i class='icon-off nav-icon'></i>
+					<span class='nav-text'>
+						Salir
+					</span>
+				</a>
 			</li>
 		</ul>
 	</nav>

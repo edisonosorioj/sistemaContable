@@ -32,18 +32,6 @@ $html="<!DOCTYPE html>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel='stylesheet' href='../../css/bootstrap.css'>
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href='../../css/style.css' rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-<link href='../../css/font-awesome.css' rel='stylesheet'> 
-<link rel='icon' href='../../images/fav.png'>
-<!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
@@ -104,14 +92,6 @@ $html="<!DOCTYPE html>
 							<div class='panel-body mtn'>
 								
 								<form class='form-horizontal' action='informeClientes.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
-								<div class='form-group'> 
-									<label>Fecha Inicio</label> 
-									<input type='date' name='fecha' class='form-control'>
-								</div>
-								<div class='form-group'> 
-									<label>Fecha Final</label> 
-									<input type='date' name='fecha' class='form-control'>
-								</div>
 								<div class='bs-component mb20'>
 									<button type='submit' class='btn btn-hover btn-dark btn-block'>Generar</button>
 								</div>
@@ -133,11 +113,11 @@ $html="<!DOCTYPE html>
 								<form class='form-horizontal' action='informeGeneral.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
 								<div class='form-group'> 
 									<label>Fecha Inicio</label> 
-									<input type='date' name='fecha' class='form-control'>
+									<input type='date' name='fecha_inicio' class='form-control'>
 								</div>
 								<div class='form-group'> 
 									<label>Fecha Final</label> 
-									<input type='date' name='fecha' class='form-control'>
+									<input type='date' name='fecha_fin' class='form-control'>
 								</div>
 								<div class='bs-component mb20'>
 									<button type='submit' class='btn btn-hover btn-dark btn-block'>Generar</button>
@@ -158,14 +138,6 @@ $html="<!DOCTYPE html>
 							<div class='panel-body mtn'>
 								
 								<form class='form-horizontal' action='informeInventario.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'>
-								<div class='form-group'> 
-									<label>Fecha Inicio</label> 
-									<input type='date' name='fecha' class='form-control'>
-								</div>
-								<div class='form-group'> 
-									<label>Fecha Final</label> 
-									<input type='date' name='fecha' class='form-control'>
-								</div>
 								<div class='bs-component mb20'>
 									<button type='submit' class='btn btn-hover btn-dark btn-block'>Generar</button>
 								</div>
