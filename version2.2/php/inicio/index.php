@@ -149,7 +149,7 @@ $html= "<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2019 Forpymes . All Rights Reserved . Design by <a href=''>Forpymes</a></p>
+			<p>© 2019 ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
 		</div>
 		<!-- //footer -->
 	</section>

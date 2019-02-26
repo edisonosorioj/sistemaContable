@@ -93,9 +93,9 @@ tr {
 }
  
 tr:hover td {
-  /*background:#4E5066;
-  color:#FFFFFF;*/
-  /*border: 1px solid #22262e;*/
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
 }
  
 tr:first-child {
@@ -111,8 +111,7 @@ tr:nth-child(odd) td {
 }
  
 tr:nth-child(odd):hover td {
-  /*background:#4E5066;
-  color:#000000;*/
+  background:#4E5066;
 }
 
 tr:last-child td:first-child {

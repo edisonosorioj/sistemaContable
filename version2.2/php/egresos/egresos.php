@@ -28,10 +28,7 @@ if ($idrol == 0) {
 
 $query = mysqli_query($result,'select * from compras order by fecha desc');
 
-$query2 = mysqli_query($result,"select SUM(valor) as total from compras");
-
-
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
+while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['fecha'] 		. "</td>
@@ -45,6 +42,7 @@ $query2 = mysqli_query($result,"select SUM(valor) as total from compras");
 
  }
 
+$query2 = mysqli_query($result,"select SUM(valor) as total from compras");
  	$row2 = $query2->fetch_assoc();
  	$egr = $row2['total'];
 
@@ -143,7 +141,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2019 ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
 		</div>
 		<!-- //footer -->
 	</section>

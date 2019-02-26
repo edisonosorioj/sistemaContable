@@ -25,36 +25,85 @@ $fecha_fin 		= 	($_POST['fecha_fin'] 	!= '') ? $_POST['fecha_fin'] 	: $fecha;
 
 // Consulta y por medio de un while muestra la lista de los clientes
 
-$query2 = "select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, cr.valor as valor, cr.fecha from clientes c left join creditos cr on c.id = cr.idclientes where cr.fecha between '$fecha_inicio' and '$fecha_fin';"; 
+// $query2 = "select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, cr.valor as valor, cr.fecha from clientes c left join creditos cr on c.id = cr.idclientes where cr.fecha between '$fecha_inicio' and '$fecha_fin';"; 
 
-$query = mysqli_query($result,$query2);
+// $query = mysqli_query($result,$query2);
 
+
+// $tr = '';
+
+//  while ($row = $query->fetch_array(MYSQLI_BOTH)){
+ 		
+// 	 	$tr .=	"<tr class='rows' id='rows'>
+// 					<td>" . $row['fecha'] 	. "</td>
+// 					<td>" . $row['empresa'] 	. "</td>
+// 					<td>" . $row['nombres'] 	. "</td>
+// 					<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
+// 				</tr>";
+ 	
+
+//  }
+
+// // Realiza una segunda consulta que suma el total que deben todos los clientes
+//  $query2 = mysqli_query($result,"select SUM(valor) as valor from creditos where fecha between '$fecha_inicio' and '$fecha_fin';");
+
+// Total Egresos según Fechas
+
+$query = mysqli_query($result,"select * from compras where fecha between '$fecha_inicio' and '$fecha_fin';");
 
 $tr = '';
 
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
- 		
-	 	$tr .=	"<tr class='rows' id='rows'>
-					<td>" . $row['fecha'] 	. "</td>
-					<td>" . $row['empresa'] 	. "</td>
-					<td>" . $row['nombres'] 	. "</td>
-					<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				</tr>";
- 	
+while ($row = $query->fetch_array(MYSQLI_BOTH)){
+
+ 	$tr .=	"<tr class='rows' id='rows'>
+				<td>" . $row['fecha'] 		. "</td>
+				<td>" . $row['cantidad'] 	. "</td>
+				<td>" . $row['producto'] 	. "</td>
+				<td>" . $row['detalles'] 	. "</td>
+				<td align='right'>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
+			</tr>";
 
  }
 
-// Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,"select SUM(valor) as valor from creditos where fecha between '$fecha_inicio' and '$fecha_fin';");
+$query2 = mysqli_query($result,"select SUM(valor) as total from compras where fecha between '$fecha_inicio' and '$fecha_fin';");
+ 	$row2 = $query2->fetch_assoc();
+ 	$egresos = $row2['total'];
+
+
+// Total Ingresos según Fechas
+
+$query3 = mysqli_query($result,"select * from ingresos where fecha between '$fecha_inicio' and '$fecha_fin';");
+
+$tr2 = '';
+
+ while ($row3 = $query3->fetch_array(MYSQLI_BOTH)){
+
+ 	$tr2 .=	"<tr class='rows' id='rows'>
+				<td>" . $row3['fecha'] 				. "</td>
+				<td>" . $row3['cantidad'] 			. "</td>
+				<td>" . $row3['producto'] 			. "</td>
+				<td>" . $row3['detalles'] 			. "</td>
+				<td align='right'>" . number_format($row3['valor'], 0, ",", ".") . "</td>
+			</tr>";
+
+ }
+
+$query4 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha between '$fecha_inicio' and '$fecha_fin';");
+ 	$row4 = $query4->fetch_assoc();
+ 	$ingresos = $row4['total'];
+
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
  $carFecha = $query2->fetch_array(MYSQLI_BOTH);
  $cTotal = number_format($carFecha['valor'], 0, ",", ".");
 
+// Balance entre Ingresos y Egresos
+
+$balance = $ingresos - $egresos;
+
 
  // Tabla de Estado Clientes
 
- // Consulta y por medio de un while muestra la lista de los clientes
 $query3 = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 
@@ -105,13 +154,15 @@ $html="<!DOCTYPE html>
 			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
+					<h3>Total Egresos: $ " . number_format($egresos, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
 							<th>Fecha</th>
-							<th>Empresa</th>
-							<th>Nombres</th>
-							<th>Saldo</th>
+							<th>Cantidad</th>
+							<th>Producto</th>
+							<th>Detalles</th>
+							<th>Valor</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -122,9 +173,46 @@ $html="<!DOCTYPE html>
 					  </table>
 					</div>
 				</div>
-				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Total Cartera: $ $cTotal</h3>
-			  	</div>
+
+				<div class='agile-tables'>
+					<div class='w3l-table-info'>
+					<h3>Total Ingresos: $ " . number_format($ingresos, 0, ",", ".") . "</h3>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>Fecha</th>
+							<th>Cantidad</th>
+							<th>Producto</th>
+							<th>Detalles</th>
+							<th>Valor</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  " 
+						  . $tr2 . 
+						  "
+						</tbody>
+					  </table>
+					</div>
+				</div>
+
+				<div class='agile-tables'>
+					<div class='w3l-table-info'>
+					<h3>Balance General</h3>
+					    <table id='table'>
+						<thead>
+						  <tr>
+							<th>Valor Balance</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+						  	<td>" . number_format($balance, 0, ",", ".") . "</td>
+						  </tr>
+						</tbody>
+					  </table>
+					</div>
+				</div>
 
 			  	<div class='bs-component mb20 col-md-12'>
 					<h4>Estado Cuenta Clientes</h4>

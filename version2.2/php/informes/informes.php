@@ -153,7 +153,7 @@ $html="<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-				<p>© 2018 Forpymes . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>Edison Osorio</p>
+				<p>© 2019 ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
 		</div>
 		<!-- //footer -->
 	</section>
