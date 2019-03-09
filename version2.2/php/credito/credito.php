@@ -148,7 +148,6 @@ else return false;
 					<h2>$nombre</h2>
 				</div>
 				<div class='bs-component mb20 col-md-8'>
-					<form action='eliminarVarios.php' method='post'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
 					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
@@ -172,7 +171,6 @@ else return false;
 						  "
 						</tbody>
 					  </table>
-					  </form>
 					</div>
 				</div>
 				<!-- //tables -->

@@ -131,7 +131,6 @@ $menu = "
 		</section>
 
 ";
-// Modulo configuración - En construcción.
 
 
 

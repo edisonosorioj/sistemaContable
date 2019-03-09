@@ -87,7 +87,6 @@ CREATE TABLE `variables` (
   `pago_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `cliente` VARCHAR(45) NOT NULL,
-  `fecha_pago` VARCHAR(45) NOT NULL,
   `valor` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`pago_id`));
 
@@ -130,3 +129,8 @@ CREATE TABLE `estadoCuentas` (
   `valor` VARCHAR(10) NOT NULL,
   `idestado` INT NOT NULL,
   PRIMARY KEY (`idescuentas`, `idestado`));
+
+// En caso de ser necesario
+ALTER TABLE `sistema_contable`.`pagos` 
+DROP COLUMN `fecha_pago`;
+

@@ -129,7 +129,7 @@ $html= "<!DOCTYPE html>
 													<h4>3. Revisar el estado de tu plan.</h4>
 												</td>
 												<td class='type-info'>
-													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/pagos.php\")'>Revisar</button>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"pagos.php\")'>Revisar</button>
 												</td>	
 											</tr>
 										</tbody>

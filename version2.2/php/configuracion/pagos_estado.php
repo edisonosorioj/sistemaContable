@@ -13,14 +13,14 @@ if (isset($_SESSION['idrol'])){
 	
 }
 
-require_once "../conexion.php";
+require_once "../../php/conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
 $tr2 = '';
 
-include "../menu.php";
+include "../../php/menu.php";
 
 $query = mysqli_query($result,'select * from pagos order by fecha desc');
 
@@ -28,7 +28,6 @@ $query = mysqli_query($result,'select * from pagos order by fecha desc');
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td></td>
 				<td>" . $row['fecha'] 				. "</td>
 				<td>" . $row['cliente'] 			. "</td>
 				<td>" . $row['fecha_pago'] 			. "</td>
@@ -46,18 +45,9 @@ $html="<!DOCTYPE html>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
-<script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel='stylesheet' href='../../css/bootstrap.css'>
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href='../../css/style.css' rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-<link href='../../css/font-awesome.css' rel='stylesheet'> 
-<!-- //font-awesome icons -->
+<script type='application/x-javascript'> 
+	addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
@@ -113,15 +103,13 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Estado de Cuenta</h2>
+					<h2>Pagos Realizados</h2>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Ingresos: $ " . number_format($row2['total'], 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th><input type='checkbox' id='checkTodos' /></th>
 							<th>Fecha</th>
 							<th>Can.</th>
 							<th>Producto</th>
@@ -143,7 +131,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2019 ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
 		</div>
 		<!-- //footer -->
 	</section>

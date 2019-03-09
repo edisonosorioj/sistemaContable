@@ -17,8 +17,7 @@ require_once "../../php/conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-$tr = '';
-$tr2 = '';
+
 
 $query4 = mysqli_query($result, "select * from variables;");
 
@@ -37,27 +36,28 @@ if ($rows > 0)
 
 $nombre_empresa = $datos['empresa'];
 $plan 			= $datos['plan'];
-$fecha_contrato	= substr($datos['fecha_contrato'],8,2);
+$fecha_contrato	= $datos['fecha_contrato'];
+$fecha 			= date('d-m-Y');
+
+// Realiza la inserción del pago por parte del cliente
+$query = mysqli_query($result,"INSERT INTO pagos (fecha, cliente, valor) VALUES ('$fecha', '$nombre_empresa', '$plan');");
+
+// Acción que determina si la acción fue realizada con exito o no.
+if($query > 0){
+	$msg = 'El abono fue agregado con exito';
+}else{
+	$msg = 'Error al agregar el abono. Contacte al Administrador';
+}
+
 
 
 $html="<!DOCTYPE html>
 <head>
-<title>Estado de Cuenta</title>
+<title>Pago Exitoso</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
 <script type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel='stylesheet' href='../../css/bootstrap.css'>
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href='../../css/style.css' rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel='stylesheet' href='../../css/font.css' type='text/css'/>
-<link href='../../css/font-awesome.css' rel='stylesheet'> 
-<!-- //font-awesome icons -->
 <script src='../../js/jquery2.0.3.min.js'></script>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
@@ -79,31 +79,6 @@ $html="<!DOCTYPE html>
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
-<script>
-    var theme = $.cookie('protonTheme') || 'default';
-    $('body').removeClass (function (index, css) {
-        return (css.match (/\btheme-\S+/g) || []).join(' ');
-    });
-    if (theme !== 'default') $('body').addClass(theme);
-</script>
-<script type='text/javascript'>
-    $(document).ready(function() {
-      $('#table').basictable();
-    }); 
-	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
-	}
-</script>
-<script>
-function confirmar(texto)
-{
-if (confirm(texto))
-{
-return true;
-}
-else return false;
-}
-</script>
 <!-- //tables -->
 </head>
 <body class='dashboard-page'>
@@ -113,35 +88,8 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Estado de Cuenta</h2>
-				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/ingreso/nuevoIngreso.php\")'>Nuevo</button>
-				</div>
-				<div class='agile-tables'>
-					<div class='w3l-table-info'>
-					  	<h3>Estado de Cuentas</h3>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>Fecha</th>
-							<th>Clientes</th>
-							<th>Fecha de Pago</th>
-							<th>Valor</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					  </table>
-					</div>
+					<h2>El pago fue realizado correctamente. Le agradecemos la confianza./h2>
+					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../inicio/index.php\" '>INICIO</button>
 				</div>
 				<!-- //tables -->
 			</div>

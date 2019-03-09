@@ -5,6 +5,13 @@ require_once "../../php/conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 
+$query = mysqli_query($result, "select * from pagos order by pago_id desc limit 1");
+
+$row=$query->fetch_assoc();
+
+$fecha_ultimo_pago = $row['fecha'];
+
+
 $query4 = mysqli_query($result, "select * from variables;");
 
 $rows = mysqli_num_rows ($query4);  
@@ -20,10 +27,50 @@ if ($rows > 0)
               
 }  
 
-$plan 			= $datos['plan'];
-$fecha_contrato	= substr($datos['fecha_contrato'],8,2);
+$plan 				= $datos['plan'];
+$dia_contrato		= substr($fecha_ultimo_pago,8,2);
+$mes_contrato		= substr($fecha_ultimo_pago,5,2);
+$ano_contrato		= substr($fecha_ultimo_pago,0,4);
+$fecha_actual		= strtotime(date('d-m-Y'));
+$fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 
+if ($mes_contrato == '01') {
+		$mes_texto = 'Enero';
+} else if ($mes_contrato == '02') {
+		$mes_texto = 'Febrero';
+} else if ($mes_contrato == '03') {
+		$mes_texto = 'Marzo';
+} else if ($mes_contrato == '04') {
+		$mes_texto = 'Abril';
+} else if ($mes_contrato == '05') {
+		$mes_texto = 'Mayo';
+} else if ($mes_contrato == '06') {
+		$mes_texto = 'Junio';
+} else if ($mes_contrato == '07') {
+		$mes_texto = 'Julio';
+} else if ($mes_contrato == '08') {
+		$mes_texto = 'Agosto';
+} else if ($mes_contrato == '09') {
+		$mes_texto = 'Septiembre';
+} else if ($mes_contrato == '10') {
+		$mes_texto = 'Octubre';
+} else if ($mes_contrato == '11') {
+		$mes_texto = 'Noviembre';
+} else if ($mes_contrato == '12') {
+		$mes_texto = 'Diciembre';
+}
 
+$renovacion = $fecha_contrato - $fecha_actual;
+
+$cinco_dias = 432000;
+
+if($fecha_actual > $fecha_contrato){
+	$mensaje = "Su renovación era el $dia_contrato de $mes_texto de $ano_contrato. Por favor realizarlo ahora para continuar con el servicio.";
+}else if ($renovacion <= $cinco_dias) {
+	$mensaje = "Esta próxima su fecha de renovación no olvide estar atento..";
+}else{
+	$mensaje = "Estas al día. Muchas gracias.";
+}
 
 $html = "<!DOCTYPE html>
 <head>
@@ -89,14 +136,14 @@ $html = "<!DOCTYPE html>
 								<div class='form-body'>
 									<form action='../../php/configuracion/actDatosEmpresa.php' method='post'> 
 										<div class='form-group'> 
-											<label>Tu fechas de renovación de la plataforma son los $fecha_contrato de cada mes.</label>
+											<label>$mensaje</label>
 											<label>El valor de renovación es $ " . number_format($plan, 0, ",", ".") . " mensuales.</label><br /><br />
 											<input type='text' name='pago' class='form-control' value='$plan' disabled/> 
 											<label><b>Importante:</b> Guardar el comprobante de la transacción para confirmar la compra al final de la transacción.</label>
 										</div>
-										<a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-1e4a7f0d-96aa-4649-b303-b28a98f66127' name='MP-payButton' class='blue-ar-m-rn-coall'>Pagar Ahora</a>
+										<a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-fd472276-c019-48c8-9bd4-254a73f3f412' name='MP-payButton' class='blue-ar-m-rn-coall'>Pagar</a>
 										<script type='text/javascript'>
-										(function(){function \$MPC_load(){window.\$MPC_loaded !== true && (function(){var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = document.location.protocol+'//secure.mlstatic.com/mptools/render.js';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.\$MPC_loaded = true;})();}window.\$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', \$MPC_load) : window.addEventListener('load', \$MPC_load, false)) : null;})();
+										(function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement(\"script\");s.type = \"text/javascript\";s.async = true;s.src = document.location.protocol+\"//secure.mlstatic.com/mptools/render.js\";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
 										</script>
 									</form> 
 								</div>
