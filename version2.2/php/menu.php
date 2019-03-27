@@ -1,5 +1,18 @@
 <?php 
 
+if (isset($_SESSION['idrol'])){
+
+	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
+	
+}
+
+$fecha_actual		= strtotime(date('d-m-Y'));
+$fecha_contrato		= strtotime(date($fecha_ultimo_pago));
+
+if ($fecha_contrato <= $fecha_actual) {
+	$status = "class='class_a_href'";
+}
+
 $menu = "
 	<head>
 		<!-- bootstrap-css -->
@@ -25,7 +38,7 @@ $menu = "
 				</a>
 			</li>
 			<li class='has-subnav'>
-				<a href='../cliente/cliente.php'>
+				<a href='../cliente/cliente.php' " . $status . ">
 				<i class='icon-user nav-icon'></i>
 				<span class='nav-text'>
 					Clientes
@@ -33,7 +46,7 @@ $menu = "
 				</a>
 			</li>
 			<li class='has-subnav'>
-				<a href='../egresos/egresos.php'>
+				<a href='../egresos/egresos.php' " . $status . ">
 				<i class='fa fa-file-text-o nav_icon'></i>
 				<span class='nav-text'>
 				Egresos
@@ -42,13 +55,13 @@ $menu = "
 				</a>
 			</li>
 			<li class='has-subnav'>
-				<a href='../ingresos/ingresos.php'>
+				<a href='../ingresos/ingresos.php' " . $status . ">
 					<i class='fa fa-file-text-o nav_icon'></i>
 						<span class='nav-text'>Ingresos</span>
 				</a>
 			</li>
 			<li>
-				<a href='../pedidos/pedido.php'>
+				<a href='../pedidos/pedido.php' " . $status . ">
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
 					Pedidos
@@ -56,7 +69,7 @@ $menu = "
 				</a>
 			</li>
 			<li>
-				<a href='../inventario/inventario.php'>
+				<a href='../inventario/inventario.php' " . $status . ">
 					<i class='fa fa-list-ul'></i>
 					<span class='nav-text'>
 					Inventario
@@ -64,7 +77,7 @@ $menu = "
 				</a>
 			</li>
 			<li>
-				<a href='../informes/informes.php'>
+				<a href='../informes/informes.php' " . $status . ">
 					<i class='icon-folder-open nav-icon'></i>
 					<span class='nav-text'>
 					Informes

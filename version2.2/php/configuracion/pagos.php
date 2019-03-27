@@ -67,9 +67,13 @@ $cinco_dias = 432000;
 if($fecha_actual > $fecha_contrato){
 	$mensaje = "Su renovación era el $dia_contrato de $mes_texto de $ano_contrato. Por favor realizarlo ahora para continuar con el servicio.";
 }else if ($renovacion <= $cinco_dias) {
-	$mensaje = "Esta próxima su fecha de renovación no olvide estar atento..";
+	$mensaje = "Esta próxima su fecha de renovación no olvide estar atento.";
 }else{
 	$mensaje = "Estas al día. Muchas gracias.";
+}
+
+if ($fecha_ultimo_pago == '') {
+	$mensaje = 'Debes realizar el primer pago por el valor establecido mas abajo.';
 }
 
 $html = "<!DOCTYPE html>
@@ -94,21 +98,21 @@ $html = "<!DOCTYPE html>
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
 <script src='../../js/screenfull.js'></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+<script>
+$(function () {
+	$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-			if (!screenfull.enabled) {
-				return false;
-			}
+	if (!screenfull.enabled) {
+		return false;
+	}
 
-			
+	
 
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
+	$('#toggle').click(function () {
+		screenfull.toggle($('#container')[0]);
+	});	
+});
+</script>
 		
 </head>
 <body class='dashboard-page'>
@@ -141,9 +145,9 @@ $html = "<!DOCTYPE html>
 											<input type='text' name='pago' class='form-control' value='$plan' disabled/> 
 											<label><b>Importante:</b> Guardar el comprobante de la transacción para confirmar la compra al final de la transacción.</label>
 										</div>
-										<a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-fd472276-c019-48c8-9bd4-254a73f3f412' name='MP-payButton' class='blue-ar-m-rn-coall'>Pagar</a>
+										<a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-fd472276-c019-48c8-9bd4-254a73f3f412' name='MP-payButton' class='blue-ar-l-sq-coall'>Pagar</a>
 										<script type='text/javascript'>
-										(function(){function $MPC_load(){window.$MPC_loaded !== true && (function(){var s = document.createElement(\"script\");s.type = \"text/javascript\";s.async = true;s.src = document.location.protocol+\"//secure.mlstatic.com/mptools/render.js\";var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.$MPC_loaded = true;})();}window.$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;})();
+										(function(){function \$MPC_load(){window.\$MPC_loaded !== true && (function(){var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = document.location.protocol+'//secure.mlstatic.com/mptools/render.js';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.\$MPC_loaded = true;})();}window.\$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', \$MPC_load) : window.addEventListener('load', \$MPC_load, false)) : null;})();
 										</script>
 									</form> 
 								</div>

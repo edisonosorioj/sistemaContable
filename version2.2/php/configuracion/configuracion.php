@@ -10,8 +10,16 @@ if (!isset($_SESSION['login'])) {
 }
 if (isset($_SESSION['idrol'])){
 
-	$idrol = $_SESSION['idrol'];
+	$idrol 				= $_SESSION['idrol'];
+	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
 	
+}
+
+$fecha_actual		= strtotime(date('d-m-Y'));
+$fecha_contrato		= strtotime(date($fecha_ultimo_pago));
+
+if ($fecha_contrato <= $fecha_actual) {
+	$msg = "Recuerde renovar su licencia. Para hacerlo reviselo <a href='../configuracion/configuracion.php'>AQUÍ</a>";
 }
 
 require_once "../conexion.php";
@@ -61,13 +69,6 @@ $html= "<!DOCTYPE html>
 <link rel='stylesheet' type='text/css' href='../../css/table-style.css' />
 <link rel='stylesheet' type='text/css' href='../../css/basictable.css' />
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
-<script>
-    var theme = $.cookie('protonTheme') || 'default';
-    $('body').removeClass (function (index, css) {
-        return (css.match (/\btheme-\S+/g) || []).join(' ');
-    });
-    if (theme !== 'default') $('body').addClass(theme);
-</script>
 <script type='text/javascript'>
     $(document).ready(function() {
       $('#table').basictable();
@@ -80,7 +81,6 @@ $html= "<!DOCTYPE html>
 <!-- charts -->
 <script src='../../js/raphael-min.js'></script>
 <script src='../../js/morris.js'></script>
-<link rel='../../stylesheet' href='../../css/morris.css'>
 <!-- //charts -->
 <!--skycons-icons-->
 <script src='../../js/skycons.js'></script>
@@ -96,6 +96,7 @@ $html= "<!DOCTYPE html>
 					</div>
 					<div class='codes'>
 						<div class='agile-container'>
+						<div class='alert-warning' style='baground-color'><p>" . $msg . "<p></div>
 							<div class='grid_3 grid_4'>
 								<div class='bs-example'>
 									<table class='table'>
@@ -126,7 +127,7 @@ $html= "<!DOCTYPE html>
 											</tr>
 											<tr>
 												<td>
-													<h4>3. Revisar el estado de tu plan.</h4>
+													<h4>4. Revisar el estado de tu plan.</h4>
 												</td>
 												<td class='type-info'>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"pagos.php\")'>Revisar</button>

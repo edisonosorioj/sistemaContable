@@ -79,6 +79,11 @@ display: none;
 	color: green;
 }
 
+a.class_a_href{
+pointer-events: none;
+cursor: default;
+}
+
 /*PORQUE NO FUNCIONA HASTA EL AVISO DE ARRIBA*/
 
 body a:hover{
@@ -138,7 +143,7 @@ body a:hover{
 	.alert-info .alert-link{color:#367fbb;color:#808080}
 	.alert-info .title{display:block;font-size:14px;color:#666;margin-bottom:5px}
 	.alert-info .title i{color:#a5c8e5;margin-right:7px}
-	.alert-warning{background-color:#f4c84f;background-color:#fff;border-color:#f3a641;color:#d09c0d;color:#999;font-size:12px}
+	.alert-warning{background-color:#f4c84f !important;background-color:#fff !important;border-color:#f3a641 !important;color:#d09c0d !important;color:#999 !important;font-size:12px !important}
 	.alert-warning hr{border-top-color:#f29b29}
 	.alert-warning .alert-link{color:#a0780a;color:#808080}
 	.alert-warning .title{display:block;font-size:14px;color:#666;margin-bottom:5px}

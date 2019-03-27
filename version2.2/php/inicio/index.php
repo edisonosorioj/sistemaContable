@@ -11,10 +11,17 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idrol'])){
 
-	$idrol = $_SESSION['idrol'];
+	$idrol 				= $_SESSION['idrol'];
+	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
 	
 }
 
+$fecha_actual		= strtotime(date('d-m-Y'));
+$fecha_contrato		= strtotime(date($fecha_ultimo_pago));
+
+if ($fecha_contrato <= $fecha_actual) {
+	$msg = "Recuerde renovar su licencia. Para hacerlo reviselo <a href='../configuracion/configuracion.php'>AQUÍ</a>";
+}
 
 require_once "../conexion.php";
 
@@ -27,9 +34,10 @@ include "graficas.php";
 if ($idrol == 0) {
 	include "../menu.php";
 	$caja = $ingmes - $egrmes;
-	$graficas = "<div class='col-md-6 charts-right'>
+	$graficas = "
+				<div class='col-md-6 charts-right'>
 					<div class='area-grids-heading'>
-						<h3>Saldo este mes: $ " . number_format($caja, 0, ",", ".") . "</h3>
+						<h3>&nbsp;&nbsp;Saldo este mes: $ " . number_format($caja, 0, ",", ".") . "</h3>
 					</div>
 					<!-- area-chart -->
 					<div class='area-grids'>
@@ -88,7 +96,6 @@ if ($idrol == 0) {
 }
 
 
-
 $html= "<!DOCTYPE html>
 <head>
 <title>Inicio</title>
@@ -136,14 +143,11 @@ $html= "<!DOCTYPE html>
 <!--//skycons-icons-->
 </head>
 	<body class='dashboard-page'>
+			<div class='alert-warning'><p>" . $msg . "<p></div>
 			<div class='agile-grids'>
-				
+
 				" . $graficas . "
-
-				
-			
 			<div class='agile-bottom-grids'>
-
 				<div class='clearfix'> </div>
 			</div>
 		</div>

@@ -9,9 +9,13 @@ $conection = $conex->conex();
 $login = $_POST['login'];
 $password = md5($_POST['password']);
 
-$query = mysqli_query($conection,"select * from administradores where login = '" . $login . "' and contrasena = '" . $password . "'");
+$query = mysqli_query($conection,"SELECT * FROM administradores WHERE login = '" . $login . "' AND contrasena = '" . $password . "'");
 
 $row = $query->fetch_assoc();
+
+$query2 = mysqli_query($conection,"SELECT * FROM pagos ORDER BY pago_id DESC LIMIT 1");
+
+$row2 = $query2->fetch_assoc();
 
 $numrows = mysqli_num_rows($query);
  if($numrows > 0)
@@ -19,9 +23,10 @@ $numrows = mysqli_num_rows($query);
 /* Redirect browser */
 		session_start();
 		
-		$_SESSION['login'] = $login;
-		$_SESSION['idadmin'] = $row['idadmin'];
-		$_SESSION['idrol'] = $row['idrol'];
+		$_SESSION['login'] 				= $login;
+		$_SESSION['idadmin'] 			= $row['idadmin'];
+		$_SESSION['idrol'] 				= $row['idrol'];
+		$_SESSION['fecha_ultimo_pago'] 	= $row2['fecha'];
 		
 		header("Location: index.php");
 	 
