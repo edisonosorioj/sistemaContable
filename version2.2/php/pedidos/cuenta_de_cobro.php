@@ -15,7 +15,8 @@ require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
-$tr = '';
+$tr 	= '';
+$varIva = '';
 
 // Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
 $id 	=	$_POST['pedido_id'];
@@ -39,10 +40,10 @@ $query3 = mysqli_query($result,"select SUM(valort) as valor, c.t_cobrado as cobr
 
 $row3 = $query3->fetch_assoc();
 
-$valorPedido = "$ " . number_format($row3['valor'], 0, ",", ".") . "";
-$cobraPedido = "$ " . number_format($row3['cobrado'], 0, ",", ".") . "";
-
-// $valorPedido = "$ " . number_format($row3['t_cobrado'], 0, ",", ".") . "";
+$subTotal 		= $row3['valor'];
+$valorIva 		= $row3['valor'] * 0.19;
+$valorPedido 	= $subTotal + $valorIva;
+// $cobraPedido 	= "$ " . number_format($row3['cobrado'], 0, ",", ".") . "";
 
 // Obtenemos la fecha
 $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
@@ -54,10 +55,10 @@ $fecha = $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date
 $query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado, fecha from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row2=$query2->fetch_assoc();
 
-$nombre_cliente = $row2['nombres'];
-$cliente_empresa = $row2['empresa'];
-$documento_cliente = $row2['documento'];
-$fecha_pedido = $row2['fecha'];
+$nombre_cliente 	= $row2['nombres'];
+$cliente_empresa 	= $row2['empresa'];
+$documento_cliente 	= $row2['documento'];
+$fecha_pedido 		= $row2['fecha'];
 
 $fecha_pedido = explode('-', $fecha_pedido);
 
@@ -88,6 +89,20 @@ $lugar_expedicion	= $datos['lugar_expedicion'];
 $forma_de_pago		= $datos['forma_de_pago'];
 $cel				= $datos['cel'];
 $tel				= $datos['tel'];
+$varIva				= $datos['iva'];
+
+if ($varIva == 1) {
+	$iva = "<tr>
+				<td></td>
+				<th>SubTotal</th>
+				<td>$ " . number_format($subTotal, 0, ",", ".") . "</td>
+			</tr>
+			<tr>
+				<td></td>
+				<th>Iva</th>
+				<td>$ " . number_format($valorIva, 0, ",", ".") . "</td>
+			</tr>";
+}
 
 
 $html="<!DOCTYPE html>
@@ -112,18 +127,14 @@ $html="<!DOCTYPE html>
 					<th width='20'>CANTIDAD</th>
 					<th width='30'>VALOR</th>
 				</tr>
-				" 
-				. $tr . 
-				"
+				" .
+				$tr .
+				$iva
+				. "
 				<tr>
 					<td></td>
-					<th>Subtotal</th>
-					<td>$valorPedido</td>
-				</tr>
-				<tr>
-					<td></td>
-					<th>Total Cobrado</th>
-					<td>$cobraPedido</td>
+					<th>TOTAL</th>
+					<td>$ " . number_format($valorPedido, 0, ",", ".") . "</td>
 				</tr>
 			</table>
 		</div>

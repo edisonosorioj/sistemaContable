@@ -8,10 +8,11 @@ if (isset($_SESSION['idrol'])){
 
 $fecha_actual		= strtotime(date('d-m-Y'));
 $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
+$status 			= '';
 
-if ($fecha_contrato <= $fecha_actual) {
-	$status = "class='class_a_href'";
-}
+// if ($fecha_contrato < $fecha_actual) {
+// 	$status = "class='class_a_href'";
+// }
 
 $menu = "
 	<head>

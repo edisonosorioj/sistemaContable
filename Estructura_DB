@@ -1,6 +1,6 @@
-CREATE DATABASE madeira;
+CREATE DATABASE optimo;
 
-USE madeira;
+USE optimo;
 
 CREATE TABLE `administradores` (
   `idadmin` INT NOT NULL AUTO_INCREMENT,
@@ -80,7 +80,7 @@ CREATE TABLE `pedidoProductos` (
 CREATE TABLE `variables` (
   `variable_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
-  `detalle` VARCHAR(100) NOT NULL,
+  `detalle` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`variable_id`));
 
   CREATE TABLE `pagos` (`pago_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATE NOT NULL,`cliente` VARCHAR(45) NOT NULL,`valor` VARCHAR(45) NOT NULL,PRIMARY KEY (`pago_id`));
@@ -96,6 +96,7 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'cel', '321123
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo', '0');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('9', 'plan', '25000');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('10', 'fecha_contrato', '2018-05-20');
+insert into variables (variable_id, nombre, detalle) values (11, 'iva', 0);
 
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
@@ -126,6 +127,7 @@ CREATE TABLE `estadoCuentas` (
   PRIMARY KEY (`idescuentas`, `idestado`));
 
 // En caso de ser necesario
-ALTER TABLE `sistema_contable`.`pagos` 
-DROP COLUMN `fecha_pago`;
+ALTER TABLE `pagos` DROP COLUMN `fecha_pago`;
+
+ALTER TABLE `variables` CHANGE COLUMN `detalle` `detalle` VARCHAR(1000) NOT NULL ;
 
