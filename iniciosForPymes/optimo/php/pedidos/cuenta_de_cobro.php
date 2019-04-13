@@ -114,13 +114,13 @@ $html="<!DOCTYPE html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 	<title>Cuenta de Cobro</title>
-	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen, print' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen, print' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
-	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen' />
 </head>
 <body>
 	<div class='container'>
-		<div class='col-sm-12 text-right space'><a href=javascript:window.print();>Imprimir</a></div>
+		<div class='col-sm-12 text-right space'><a href=javascript:window.print(); class='imprimir'>Imprimir</a></div>
 	</div>
 	<div class='container'>
 		<div class='col-xs-3'><img src='../../images/logoInformes.png'></div>
@@ -186,7 +186,7 @@ $html="<!DOCTYPE html>
 						$fecha_pedido
 					</td>
 					<td>
-						CIUDAD
+						Ciudad
 					</td>
 				</tr>
 				<tr>
@@ -222,7 +222,7 @@ $html="<!DOCTYPE html>
 						$correo
 					</td>
 					<td>
-						ORDEN DE COMPRA
+						Orden de Compra
 					</td>
 					<td>
 						$ " . number_format($valorPedido, 0, ",", ".") . "
@@ -255,7 +255,7 @@ $html="<!DOCTYPE html>
 				</table>
 			</div>
 		</div>
-		<h4>&nbsp</h4>
+		<p>&nbsp</p>
 		<div class='table'>
 			<div class='col-sm-12'>
 				<table class='table-fill' border='2'>
@@ -267,7 +267,7 @@ $html="<!DOCTYPE html>
 				</table>
 			</div>
 		</div>
-		<div class='firma'><p>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel <br />Tel: $tel</p></div>
+		<div class='text-center'><img src='../../images/firma_optimo.png' width='50%'></img></div>
 	</div>
 </body>
 </html>";
