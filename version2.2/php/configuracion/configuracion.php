@@ -12,16 +12,19 @@ if (isset($_SESSION['idrol'])){
 
 	$idrol 				= $_SESSION['idrol'];
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
+	$nomina 			= $_SESSION['modulo_nomina'];
 	
 }
 
 $fecha_actual		= strtotime(date('d-m-Y'));
 $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $msg				= '';
+$iva 				= '';
+$nomina 			= '';
 
-// if ($fecha_contrato <= $fecha_actual) {
-// 	$msg = "Recuerde renovar su licencia. Para hacerlo reviselo <a href='../configuracion/configuracion.php'>AQUÍ</a>";
-// }
+if ($fecha_contrato <= $fecha_actual) {
+	$msg = "Recuerde renovar su licencia. Para hacerlo reviselo <a href='../configuracion/configuracion.php'>AQUÍ</a>";
+}
 
 require_once "../conexion.php";
 
@@ -46,18 +49,17 @@ $query4 = mysqli_query($result, "select * from variables;");
 $rows = mysqli_num_rows ($query4);  
           
 if ($rows > 0)  
-{  
+{
     for ($i=0; $i<$rows; $i++)  
     {  
         $row4 = mysqli_fetch_array($query4);  
         $rows4[$i] = $row4["nombre"];  
         $datos[$rows4[$i]] = $row4["detalle"];  
-    }  
-              
+    }             
 }  
 
-$iva = '';
-$iva = ($datos['iva'] == '0') ? 'No' : 'Si' ;
+$iva 	= ($datos['iva'] == '0') ? 'No' : 'Si' ;
+$nomina = ($datos['modulo_nomina'] == '0') ? 'No' : 'Si' ;
 
 $html= "<!DOCTYPE html>
 <head>
@@ -157,6 +159,14 @@ $html= "<!DOCTYPE html>
 												</td>
 												<td class='type-info'>
 													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/iva.php\")'>Cambiar</button>
+												</td>	
+											</tr>
+											<tr>
+												<td>
+													<h4>6. Menu Nomina. Estado $nomina</h4>
+												</td>
+												<td class='type-info'>
+													<button type='button' class='btn-hover btn-xs btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/configuracion/nomina.php\")'>Cambiar</button>
 												</td>	
 											</tr>
 										</tbody>
