@@ -113,7 +113,7 @@ $html="<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>Cuenta de Cobro</title>
+	<title>Cuenta de Cobro OPT $id</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen, print' />
 	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen, print' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
@@ -135,7 +135,7 @@ $html="<!DOCTYPE html>
 			</p>
 		</div>
 		<div class='col-xs-3'>
-			<h1>&nbsp</h1>
+			<h2>&nbsp</h2>
 			<table width='100%'>
 				<tr>
 					<th text-align='center'>
@@ -204,7 +204,7 @@ $html="<!DOCTYPE html>
 						E-MAIL
 					</th>
 					<th>
-						ORDEN DE COMPRA
+						O.COMPRA
 					</th>
 					<th>
 						PAGO

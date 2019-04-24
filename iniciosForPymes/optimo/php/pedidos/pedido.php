@@ -31,9 +31,9 @@ $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
- 	$costo 		= ($row['t_costo'] 		== null)	?	0				:$row['t_costo'];
- 	$cobrado 	= ($row['t_cobrado'] 	== null)	?	0				:$row['t_cobrado'];
+ 	$estado 	= ($row['estado'] 		== '0')	 ? "<p style='color:red;'>Pendiente</p>": "Realizado";
+ 	$costo 		= ($row['t_costo'] 		== null) ? 0								: $row['t_costo'];
+ 	$cobrado 	= ($row['t_cobrado'] 	== null) ? 0								: $row['t_cobrado'];
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['pedido_id'] 		. "</td>

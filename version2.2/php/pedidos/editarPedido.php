@@ -21,7 +21,7 @@ $query2 = mysqli_query($result,"select * from clientes where id != '$id_cliente'
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['nombres'] . "'>" . $row2['nombres'] . "</option>";
+	 	$option .=	"<option value='" . $row2['id'] . "'>" . $row2['nombres'] . "</option>";
 	}
 	
 ?>
@@ -85,6 +85,7 @@ $(function () {
 									<form action="actPedido.php" method="post"> 
 										<div class="form-group"> 
 											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
+											<input type="hidden" name="actual_cliente" value="<?php echo $id_cliente; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
 											<label>Fecha</label> 

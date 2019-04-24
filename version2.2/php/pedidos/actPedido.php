@@ -7,10 +7,11 @@ $result = $conex->conex();
 	$id				=	$_POST['id'];
 	$nombre_pedido	=	$_POST['nombre_pedido'];
 	$fecha			=	$_POST['fecha'];
-	$cliente		=	$_POST['cliente'];
+	$actual_cliente =	$_POST['actual_cliente'];
+	$cliente_id		=	$_POST['cliente'];
 
 // Consulta para actualizar el cliente
-if ($cliente = 'Cambiar') {
+if ($cliente == $actual_cliente) {
 	$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', fecha = '$fecha' where pedido_id ='$id';");
 	}else{
 	$query = mysqli_query($result, "UPDATE pedidos set nombre_pedido = '$nombre_pedido', fecha = '$fecha', cliente_id = '$cliente_id' where pedido_id ='$id';");

@@ -15,7 +15,7 @@ CREATE TABLE `creditos` (`idcreditos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE 
 CREATE TABLE `productos` (`idproductos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `nombre` VARCHAR(100) NOT NULL, `disponible` MEDIUMINT(10) NULL DEFAULT 0, `valor` varchar(45) NULL, PRIMARY KEY (`idproductos`));
  CREATE TABLE `pedidos` (`pedido_id` INT NOT NULL AUTO_INCREMENT, `cliente_id` INT NOT NULL, `nombre_pedido` VARCHAR(45) NULL, `t_costo` VARCHAR(45) NULL, `t_cobrado` VARCHAR(45) NULL, `fecha` DATE NULL, `estado` INT NOT NULL, PRIMARY KEY (`pedido_id`, `cliente_id`));
 
-CREATE TABLE `pedidoProductos` (`peproducto_id` INT NOT NULL AUTO_INCREMENT, `producto` VARCHAR(500) NULL, `valoru` VARCHAR(10) NULL, `cantidad` VARCHAR(10) NULL, `valort` VARCHAR(10) NULL, `pedido_id` INT NOT NULL, `cliente_id` INT NOT NULL, `producto_id` INT NOT NULL, PRIMARY KEY (`peproducto_id`));
+CREATE TABLE `pedidoProductos` (`peproducto_id` INT NOT NULL AUTO_INCREMENT, `producto` VARCHAR(500) NULL, `valoru` VARCHAR(10) NULL, `cantidad` FLOAT NULL, `valort` VARCHAR(10) NULL, `pedido_id` INT NOT NULL, `cliente_id` INT NOT NULL, `producto_id` INT NOT NULL, PRIMARY KEY (`peproducto_id`));
 
 CREATE TABLE `variables` (`variable_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NOT NULL, `detalle` VARCHAR(1000) NOT NULL, PRIMARY KEY (`variable_id`));
 

@@ -199,11 +199,11 @@ else return false;
 							</div>
 							<div class='col-md-1'>
 									<div class='form-group'> <label>Cantidad: </label> 
-										<input type='number' name='cantidad' class='form-control' id='cantidad' required/>
+										<input type='text' name='cantidad' class='form-control' id='cantidad' required/>
 									</div> 
 									<button type='submit' class='btn btn-primary'>Agregar</button> 
 							</div>
-							<div class='col-md-2'>
+							<div class='col-md-3'>
 									<div class='form-group'> <label>Detalles: </label> 
 										<input type='text' name='detalles' class='form-control'>
 									</div> 
