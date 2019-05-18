@@ -11,9 +11,10 @@ $result = $conex->conex();
 	$telefono 	=	$_POST['telefono'];
 	$correo 	=	$_POST['correo'];
 	$direccion 	=	$_POST['direccion'];
+	$ciudad 	=	$_POST['ciudad'];
 
 // Consulta para actualizar el cliente
-	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo', empresa = '$empresa', direccion = '$direccion' where id ='$id';");
+	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo', empresa = '$empresa', direccion = '$direccion', ciudad = '$ciudad' where id ='$id';");
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){

@@ -58,7 +58,7 @@ $menu = "
 				<a href='../inventario/inventario.php' " . $status . ">
 					<i class='fa fa-list-ul'></i>
 					<span class='nav-text'>
-						Inventario
+						Servicios
 					</span>
 				</a>
 			</li>

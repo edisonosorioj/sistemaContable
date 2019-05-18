@@ -144,11 +144,21 @@ $(function () {
 											<label>El valor de renovación es $ " . number_format($plan, 0, ",", ".") . " mensuales.</label><br /><br />
 											<input type='text' name='pago' class='form-control' value='$plan' disabled/> 
 											<label><b>Importante:</b> Guardar el comprobante de la transacción para confirmar la compra al final de la transacción.</label>
+										    <script src='https://checkout.epayco.co/checkout.js' 
+										        data-epayco-key='e8ec571b71dd508dde052517da8d0051' 
+										        class='epayco-button' 
+										        data-epayco-amount='25000'  
+										        data-epayco-name='Suscripción Mensual Forpymes' 
+										        data-epayco-description='Suscripción Mensual Forpymes' 
+										        data-epayco-currency='COP'    
+										        data-epayco-country='CO' 
+										        data-epayco-test='true' 
+										        data-epayco-external='false' 
+										        data-epayco-response='https://forpymes.co/demo/php/configuracion/pago_en_proceso.php'  
+										        data-epayco-confirmation='https://forpymes.co/demo/php/configuracion/pago_exitoso.php' 
+										        data-epayco-button='https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/boton_carro_de_compras_epayco5.png'> 
+										    </script> 
 										</div>
-										<a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-fd472276-c019-48c8-9bd4-254a73f3f412' name='MP-payButton' class='blue-ar-l-sq-coall'>Pagar</a>
-										<script type='text/javascript'>
-										(function(){function \$MPC_load(){window.\$MPC_loaded !== true && (function(){var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = document.location.protocol+'//secure.mlstatic.com/mptools/render.js';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.\$MPC_loaded = true;})();}window.\$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', \$MPC_load) : window.addEventListener('load', \$MPC_load, false)) : null;})();
-										</script>
 									</form> 
 								</div>
 							</div>
@@ -166,3 +176,9 @@ $(function () {
 </html>";
 
 echo $html;
+
+// BOTON DE PAGO
+// <a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-fd472276-c019-48c8-9bd4-254a73f3f412' name='MP-payButton' class='blue-ar-l-sq-coall'>Pagar</a>
+// <script type='text/javascript'>
+// (function(){function \$MPC_load(){window.\$MPC_loaded !== true && (function(){var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = document.location.protocol+'//secure.mlstatic.com/mptools/render.js';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.\$MPC_loaded = true;})();}window.\$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', \$MPC_load) : window.addEventListener('load', \$MPC_load, false)) : null;})();
+// </script>

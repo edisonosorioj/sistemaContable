@@ -23,7 +23,7 @@ $result = $conex->conex();
 	$nomina	 			=	$_POST['nomina'];
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO usuarios (nombre, apellido, documento, fecha_contrato, fecha_fin_contrato, valor_nomina) VALUES ('$nombre', '$apellido', '$documento', 'fecha_contrato','$fecha_fin_contrato', '$nomina');");
+	$query = mysqli_query($result,"INSERT INTO usuarios (nombre, apellido, documento, fecha_contrato, fecha_fin_contrato, valor_nomina) VALUES ('$nombre', '$apellido', '$documento', '$fecha_contrato','$fecha_fin_contrato', '$nomina');");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

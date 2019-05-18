@@ -29,10 +29,10 @@ $query = mysqli_query($result,'select * from usuarios;');
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['iduser'] 			. "</td>
-				<td>" . $row['nombre'] 			. "</td>
-				<td>" . $row['apellido'] 		. "</td>
-				<td>" . $row['documento'] 		. "</td>
-				<td align='right'>" . number_format($row['valor_nomina'], 0, ",", ".") . "</td>
+				<td><a onclick='javascript:abrir(\"verUsuario.php?id=" . $row['iduser'] . "\")'>" . $row['nombre'] 			. "</a></td>
+				<td><a onclick='javascript:abrir(\"verUsuario.php?id=" . $row['iduser'] . "\")'>" . $row['apellido'] 		. "</a></td>
+				<td><a onclick='javascript:abrir(\"verUsuario.php?id=" . $row['iduser'] . "\")'>" . $row['documento'] 		. "</a></td>
+				<td align='right'><a onclick='javascript:abrir(\"verUsuario.php?id=" . $row['iduser'] . "\")'>" . number_format($row['valor_nomina'], 0, ",", ".") . "</a></td>
 				<td><a onclick='javascript:abrir(\"editarUsuario.php?id=" . $row['iduser'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarUsuario.php?id=" 	. $row['iduser'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
 			</tr>";

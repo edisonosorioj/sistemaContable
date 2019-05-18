@@ -53,16 +53,19 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 $fecha = $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado, fecha, direccion, correo, telefono from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado, fecha, direccion, ciudad, correo, telefono, ocompra from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row2=$query2->fetch_assoc();
 
 $nombre_cliente 	= $row2['nombres'];
 $cliente_empresa 	= $row2['empresa'];
 $documento_cliente 	= $row2['documento'];
 $fecha_pedido 		= $row2['fecha'];
+$fecha_pedido_lineal= $row2['fecha'];
 $direccion 			= $row2['direccion'];
+$ciudad 			= $row2['ciudad'];
 $correo 			= $row2['correo'];
 $telefono 			= $row2['telefono'];
+$ocompra 			= $row2['ocompra'];
 
 $fecha_pedido = explode('-', $fecha_pedido);
 
@@ -108,15 +111,25 @@ if ($varIva == 1) {
 			</tr>";
 }
 
+if ($id < 10) {
+	$ceros = '000';
+} else if ($id < 100){
+	$ceros = '00';
+} else {
+	$ceros = '0';
+}
+
 
 $html="<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>Cuenta de Cobro OPT $id</title>
-	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen, print' />
-	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen, print' />
+	<title>Factura OPT $id</title>
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='print' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='print' />
 </head>
 <body>
 	<div class='container'>
@@ -144,7 +157,7 @@ $html="<!DOCTYPE html>
 				</tr>
 				<tr>
 					<td text-align='center'>
-						OPT $id
+						OPT$ceros$id
 					</td>
 				</tr>
 			</table>
@@ -152,7 +165,7 @@ $html="<!DOCTYPE html>
 	</div>
 	<div class='container'>
 		<div class='col-sm-12'>
-			<h1>&nbsp</h1>
+			<p>&nbsp</p>
 			<table width='100%'>
 				<tr>
 					<th>
@@ -183,10 +196,10 @@ $html="<!DOCTYPE html>
 						$nombre_cliente
 					</td>
 					<td>
-						$fecha_pedido
+						$fecha_pedido_lineal
 					</td>
 					<td>
-						Ciudad
+						$ciudad
 					</td>
 				</tr>
 				<tr>
@@ -222,7 +235,7 @@ $html="<!DOCTYPE html>
 						$correo
 					</td>
 					<td>
-						Orden de Compra
+						$ocompra
 					</td>
 					<td>
 						$ " . number_format($valorPedido, 0, ",", ".") . "

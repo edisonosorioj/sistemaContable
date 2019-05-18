@@ -23,42 +23,35 @@ if ($idrol == 0) {
 }else{
 	include "../menu2.php";
 }
-// Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
-
+// Consulta y por medio de un while muestra la lista de los pedidos
+$query = mysqli_query($result,'select * from nomina;');
 
 $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
+
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['documento'] 	. "</td>
-				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
-				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
-				<td>" . $row['telefono'] 	. "</td>
-				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
+				<td>" . $row['idnomina'] 		. "</td>
+				<td>" . $row['nombre'] 		. "</td>
+				<td>" . $row['fecha']	. "</td>
+				<td  align='right'>$ " . number_format($row['total_nomina'], 0, ",", ".") . "</td>
+				<td>" . $estado	. "</td>
+				<td><a onclick='javascript:abrir(\"editarNomina.php?id=" . $row['idnomina'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a href='grupoNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Detalles'>
 					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off'></i></a>
 				</td>
 			</tr>";
 
  }
 
-// Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
-
-// Lo organiza en un array y permite utilizar cada uno de los parametros
- $cartera = $query2->fetch_array(MYSQLI_BOTH);
- $cTotal = number_format($cartera['valor'], 0, ",", ".");
-
-
 $html="<!DOCTYPE html>
 <head>
-<title>Clientes</title>
+<title>Nomina</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -96,8 +89,18 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=900,height=400') ; 
 	}
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- //tables -->
 </head>
@@ -108,24 +111,21 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Clientes</h2>
+					<h2>Nomina</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/nomina/nuevaNomina.html\")'>Nuevo</button>
 				</div>
-				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Cartera Pendiente: $ $cTotal</h3>
-			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>ID</th>
-							<th>Empresa</th>
+							<th>Id</th>
+							<th>Fecha</th>
 							<th>Nombre</th>
-							<th>Telefono</th>
-							<th>Saldo</th>
+							<th>Valor</th>
+							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

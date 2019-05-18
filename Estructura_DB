@@ -41,6 +41,14 @@ insert into variables (variable_id, nombre, detalle) values (12, 'modulo_nomina'
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
+CREATE TABLE `nomina` ( `idnomina` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(100) NULL, `fecha` DATE NOT NULL, `total_nomina` VARCHAR(45) NULL, `estado` VARCHAR(45) NULL DEFAULT 0, PRIMARY KEY (`idnomina`));
+
+CREATE TABLE `grupoNomina` ( `idgrupo` INT NOT NULL AUTO_INCREMENT, `idnomina` INT NOT NULL, `idusuario` INT NULL, `auxilio` VARCHAR(45) NULL, `compensacion` VARCHAR(45) NULL, `salud` VARCHAR(45) NULL, `pension` VARCHAR(45) NULL, `prestamos` VARCHAR(45) NULL, `pago_total` VARCHAR(45) NULL, `grupoNomina` 
+ADD COLUMN `dias` VARCHAR(45), PRIMARY KEY (`idgrupo`));
+
+ALTER TABLE `sistema_contable`. NULL AFTER `pago_total`;
+
+
 //Actualizar inicializacion ID Pedidos
 
 ALTER TABLE `pedidos` AUTO_INCREMENT = 74;

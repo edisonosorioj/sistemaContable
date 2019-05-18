@@ -60,6 +60,7 @@ $nombre_cliente 	= $row2['nombres'];
 $cliente_empresa 	= $row2['empresa'];
 $documento_cliente 	= $row2['documento'];
 $fecha_pedido 		= $row2['fecha'];
+$fecha_pedido_lineal= $row2['fecha'];
 $direccion 			= $row2['direccion'];
 $correo 			= $row2['correo'];
 $telefono 			= $row2['telefono'];
@@ -108,15 +109,25 @@ if ($varIva == 1) {
 			</tr>";
 }
 
+if ($id < 10) {
+	$ceros = '000';
+} else if ($id < 100){
+	$ceros = '00';
+} else {
+	$ceros = '0';
+}
+
 
 $html="<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>Cuenta de Cobro</title>
-	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen, print' />
-	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen, print' />
+	<title>Cotización OPT $id</title>
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='print' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='print' />
 </head>
 <body>
 	<div class='container'>
@@ -127,7 +138,7 @@ $html="<!DOCTYPE html>
 		<div class='col-xs-6 text-center'>
 			<h3>" . strtoupper($nombre_empresa) . "</h3>
 			<h4>NIT $identificacion</h4>
-			<p>Autorizacion Dian N° 18762005044482<br />
+			<p>Autorización Dian N° 18762005044482<br />
 			Del 29 septiembre de 2017<br />
 			Rango: OPT 0001 - OPT 9999<br />
 			REGIMEN COMUN<br />
@@ -135,16 +146,16 @@ $html="<!DOCTYPE html>
 			</p>
 		</div>
 		<div class='col-xs-3'>
-			<h1>&nbsp</h1>
+			<h2>&nbsp</h2>
 			<table width='100%'>
 				<tr>
 					<th text-align='center'>
-						COTIZACIÓN
+						Cotización
 					</th>
 				</tr>
 				<tr>
 					<td text-align='center'>
-						OPT $id
+						OPT$ceros$id
 					</td>
 				</tr>
 			</table>
@@ -152,7 +163,7 @@ $html="<!DOCTYPE html>
 	</div>
 	<div class='container'>
 		<div class='col-sm-12'>
-			<h1>&nbsp</h1>
+			<p>&nbsp</p>
 			<table width='100%'>
 				<tr>
 					<th>
@@ -183,10 +194,10 @@ $html="<!DOCTYPE html>
 						$nombre_cliente
 					</td>
 					<td>
-						$fecha_pedido
+						$fecha_pedido_lineal
 					</td>
 					<td>
-						Ciudad
+						
 					</td>
 				</tr>
 				<tr>
@@ -204,7 +215,7 @@ $html="<!DOCTYPE html>
 						E-MAIL
 					</th>
 					<th>
-						ORDEN DE COMPRA
+						O.COMPRA
 					</th>
 					<th>
 						PAGO
@@ -222,15 +233,14 @@ $html="<!DOCTYPE html>
 						$correo
 					</td>
 					<td>
-						Orden de Compra
+						
 					</td>
 					<td>
 						$ " . number_format($valorPedido, 0, ",", ".") . "
 					</td>
 				</tr>
 				<tr>
-					<td colspan='5'>&nbsp
-					</td>
+					<td colspan='5'>&nbsp</td>
 				</tr>
 			</table>
 		</div>

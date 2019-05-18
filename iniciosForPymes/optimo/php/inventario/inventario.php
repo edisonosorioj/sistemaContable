@@ -41,7 +41,6 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
-				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarProductos.php?id=" . $row['idproductos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarProductos.php?id=" . $row['idproductos'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off'></i></spam></a></td>
@@ -54,7 +53,7 @@ $total = ($total > 0) ? $total = $total : $total = 0;
 
 $html="<!DOCTYPE html>
 <head>
-<title>Inventario</title>
+<title>Servicios</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -114,14 +113,13 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Inventario</h2>
+					<h2>Servicios</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/inventario/nuevoProducto.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
@@ -130,7 +128,6 @@ else return false;
 							<th>Producto</th>
 							<th>Cantidad</th>
 							<th>Valor</th>
-							<th>Total</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

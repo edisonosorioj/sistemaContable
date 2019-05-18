@@ -16,6 +16,7 @@ $result = $conex->conex();
 
 
 	$pedido_id		=	$_POST['pedido_id'];
+	$ocompra		=	$_POST['ocompra'];
 	$cobrado		=	$_POST['cobrado'];
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
@@ -94,7 +95,7 @@ if ($estado == 1) {
 
 
 // Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' where pedido_id = '$pedido_id';");
+	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1', ocompra = '$ocompra' where pedido_id = '$pedido_id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

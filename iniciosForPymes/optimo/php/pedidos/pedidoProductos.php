@@ -35,13 +35,14 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado, ocompra from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row3=$query3->fetch_assoc();
 $id_pedido 		= $row3['pedido_id'];
 $nombre_pedido 	= $row3['nombre_pedido'];
 $nombre_cliente = $row3['nombres'];
 $id_cliente 	= $row3['id'];
 $estado 		= $row3['estado'];
+$ocompra 		= $row3['ocompra'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
 $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort from pedidos p inner join pedidoProductos pp inner join clientes c on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
@@ -118,6 +119,15 @@ if ($varIva == 1) {
 			</tr>";
 	};
 
+
+if ($id < 10) {
+	$ceros = '000';
+} else if ($id < 100){
+	$ceros = '00';
+} else {
+	$ceros = '0';
+}
+
 // Se contruye el HTML para imprimirlo mas adelante.
 
 $html="<!DOCTYPE html>
@@ -186,8 +196,6 @@ else return false;
 				<div class='forms'>
 					<div class='form-two widget-shadow'>
 						<div class='row mb40'>
-							<div class='col-md-1'>
-							</div>	
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='addPeProducto.php' method='post'> 
 									<div class='form-group'> 
@@ -210,10 +218,15 @@ else return false;
 								</form>
 							</div>
 							<div class='col-md-1'>
-							</div>
+							</div>	
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='hacerPedido.php' method='post'>
 									<input type='hidden' name='pedido_id' value='$id_pedido'>
+									<div class='form-group'> <label>Orden de Compra: </label> 
+										<input type='text' name='ocompra' class='form-control' value='$ocompra'>
+									</div> 
+							</div>
+							<div class='col-md-2'>
 									<div class='form-group'> <label>Valor a Cobrar: </label> 
 										<input type='text' name='cobrado' class='form-control'>
 									</div> 
@@ -222,9 +235,9 @@ else return false;
 							</div>
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='cuenta_de_cobro.php' method='post' target='confirma' onSubmit='confirma = window.open(\"\",\"confirma\", \"top=100 left=100 width=900 height=600, status=no scrollbars=no, location=no, resizable=no, manu=no\");'> 
-									<div class='form-group'> <label>Cuenta Cobro #</label>
+									<div class='form-group'> <label>Factura #</label>
 										<input type='hidden' name='pedido_id' value='$id_pedido'>
-										<input type='text' name='nuevo_pedido_id' class='form-control' value='$id_pedido' disabled/>
+										<input type='text' name='nuevo_pedido_id' class='form-control' value='$ceros$id_pedido' disabled/>
 									</div>
 									<button type='submit' class='btn btn-danger'>Generar</button>
 								</form>

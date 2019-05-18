@@ -34,7 +34,6 @@ $query = mysqli_query($result,'select * from productos where idproductos != 0 or
 				<td>" . $row['nombre'] 				. "</td>
 				<td>" . $row['disponible'] 			. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 		. "</td>
-				<td>$ " . number_format($sumtotal, 0, ",", ".") 	. "</td>
 			</tr>";
 
  	$total = ((int)$total+(int)$sumtotal);
@@ -44,7 +43,7 @@ $total = ($total > 0) ? $total = $total : $total = 0;
 
 $html="<!DOCTYPE html>
 <head>
-<title>Inventario</title>
+<title>Lista de Precios</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -115,11 +114,10 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Inventario</h2>
+					<h2>Lista de Precios</h2>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>Total Inventario: $ " . number_format($total, 0, ",", ".") . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
