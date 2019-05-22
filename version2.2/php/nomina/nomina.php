@@ -35,8 +35,8 @@ $tr = '';
 
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['idnomina'] 		. "</td>
-				<td>" . $row['nombre'] 		. "</td>
 				<td>" . $row['fecha']	. "</td>
+				<td>" . $row['nombre'] 		. "</td>
 				<td  align='right'>$ " . number_format($row['total_nomina'], 0, ",", ".") . "</td>
 				<td>" . $estado	. "</td>
 				<td><a onclick='javascript:abrir(\"editarNomina.php?id=" . $row['idnomina'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;

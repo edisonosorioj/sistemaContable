@@ -43,13 +43,15 @@ $estado 		= $row3['estado'];
 
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"SELECT n.idnomina as idnomina, u.iduser as iduser, u.nombre as nombre, u.apellido as apellido, u.valor_nomina as valor_nomina, g.dias as dias, g.salud as salud, g.pension as pension, g.prestamos as prestamos, g.idgrupo as idgrupo, g.pago_total as pago_total FROM nomina n inner join grupoNomina g inner join usuarios u on n.idnomina = g.idnomina and u.iduser = g.idusuario WHERE n.idnomina = '$id'");
+$query = mysqli_query($result,"SELECT n.idnomina AS idnomina, u.iduser AS iduser, u.nombre AS nombre, u.apellido AS apellido, u.valor_nomina AS valor_nomina, g.dias AS dias, g.salud AS salud, g.pension AS pension, g.prestamos AS prestamos, g.idgrupo AS idgrupo, g.pago_total AS pago_total, g.auxilio AS auxilio, g.compensacion AS compensacion FROM nomina n inner join grupoNomina g inner join usuarios u on n.idnomina = g.idnomina and u.iduser = g.idusuario WHERE n.idnomina = '$id'");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 // echo "Llegue aqui";die();
 
- 	$devengado = ($row['valor_nomina']/$row['dias'])*$row['dias'];
+ 	$devengado = $row['valor_nomina'] + $row['compensacion'];
+ 	$devengado = ($devengado/30)*$row['dias'];
+ 	$devengado = $devengado + $row['auxilio'];
  	$deducciones = $row['salud'] + $row['pension'] + $row['prestamos'];
 
 
@@ -74,6 +76,7 @@ $query3 = mysqli_query($result,"select SUM(cr.pago_total) as valor from nomina c
 $row3 = $query3->fetch_assoc();
 
 $valorNomina = "Valor Nomina: $ " . number_format($row3['valor'], 0, ",", ".") . "";
+$nominaTotal = $row3['valor'];
 
 //Sale la lista de productos disponibles.
 
@@ -164,15 +167,17 @@ else return false;
 										<label>Usuario:</label> 
 										<select name='usuario' class='form-control'>" . $option . "</select>
 									</div>
-									<button type='submit' class='btn btn-primary'>Agregar</button> 
+									<button type='submit' class='btn btn-primary'>Agregar</button>
+								</form>
 							</div>
 							<div class='col-md-1'>
 							</div>
 							<div class='col-md-2'>
 								<form class='form-horizontal' action='ejecutarNomina.php' method='post'>
 									<input type='hidden' name='idnomina' value='$id'>
+									<input type='hidden' name='cobrado' value='$nominaTotal'>
 									<div class='form-group'> <label>Valor Nomina: </label> 
-										<input type='text' name='cobrado' class='form-control' value='$ " . number_format($row3['valor'], 0, ",", ".") . "' disabled/>
+										<input type='text' name='cobrado2' class='form-control' value='$ " . number_format($row3['valor'], 0, ",", ".") . "' disabled/>
 									</div> 
 									<button type='submit' class='btn btn-primary'>Liquidar</button> 
 								</form> 

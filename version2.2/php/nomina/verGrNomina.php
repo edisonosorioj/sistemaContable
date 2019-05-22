@@ -19,13 +19,29 @@ $compensacion 	= number_format($row['compensacion'], 0, ",", ".");
 $salud 			= number_format($row['salud'], 0, ",", ".");
 $pension 		= number_format($row['pension'], 0, ",", ".");
 $prestamo 		= number_format($row['prestamos'], 0, ",", ".");
-$pago_total 	= $row['pago_total'] + $row['auxilio'];
+$pago_total 	= $row['pago_total'];
 $dias 			= $row['dias'];
 
-$deducciones = $row['salud'] + $row['pension'] + $row['prestamos'];
-$deducciones = number_format($deducciones, 0, ",", ".");
+$deducciones2 = $row['salud'] + $row['pension'] + $row['prestamos'];
+$deducciones = number_format($deducciones2, 0, ",", ".");
 
 $pago_total = number_format($pago_total, 0, ",", ".");
+
+
+$query2 = mysqli_query($result, "select * from usuarios where iduser = '$idusuario'");
+
+$row2 = $query2->fetch_assoc();
+
+$nombres 		= $row2['nombre'] . ' ' . $row2['apellido'];
+$valor_nomina 	= ($row2['valor_nomina']/30)*$dias;
+$compensacion2 	= ($row['compensacion']/30)*$dias;
+$documento	 	= $row2['documento'];
+
+$devengado = $valor_nomina + $row['auxilio'] + $compensacion2;
+$devengado = number_format($devengado, 0, ",", ".");
+
+$compensacion2 = number_format($compensacion2, 0, ",", ".");
+$valor_nomina = number_format($valor_nomina, 0, ",", ".");
 
 $query3 = mysqli_query($result, "select * from nomina where idnomina = '$idnomina'");
 
@@ -45,13 +61,6 @@ if ($estado == 1) {
 	echo $html;	
 }else{
 
-$query2 = mysqli_query($result, "select * from usuarios where iduser = '$idusuario'");
-
-$row2 = $query2->fetch_assoc();
-
-$nombres 		= $row2['nombre'] . ' ' . $row2['apellido'];
-$valor_nomina 	= number_format($row2['valor_nomina'], 0, ",", ".");
-$documento	 	= $row2['documento'];
 
 
 // Se crea el HTML con la información del Pedido
@@ -101,6 +110,10 @@ $html = "
 								<td>$documento</td>
 							</tr>
 							<tr>
+								<td><b>Dias Laborados:</b></td>
+								<td>$dias</td>
+							</tr>
+							<tr>
 								<td colspan='2'>&nbsp;</td>
 							</tr>
 						</table>
@@ -129,7 +142,7 @@ $html = "
 							</tr>
 							<tr>
 								<td><b> &nbsp; Compensación</b></td>
-								<td align='right'>$ $compensacion &nbsp; </td>
+								<td align='right'>$ $compensacion2 &nbsp; </td>
 								<td><b> &nbsp; Prestamos</b></td>
 								<td align='right'>$ $prestamo &nbsp; </td>
 							</tr>
@@ -147,7 +160,7 @@ $html = "
 							</tr>
 							<tr>
 								<td align='right'><b> &nbsp; TOTAL</b></td>
-								<td align='right'>$ $pago_total &nbsp; </td>
+								<td align='right'>$ $devengado &nbsp; </td>
 								<td align='right'><b> &nbsp; TOTAL</b></td>
 								<td align='right'>$ $deducciones &nbsp; </td>
 							</tr>
@@ -155,6 +168,10 @@ $html = "
 						<table width='100%'>
 							<tr>
 								<td colspan='4'> &nbsp; </td>
+							</tr>
+							<tr>
+								<td width='30%'><b>TOTAL NOMINA</b></td>
+								<td>$ $pago_total </td>
 							</tr>
 							<tr>
 								<td colspan='4'> &nbsp; </td>

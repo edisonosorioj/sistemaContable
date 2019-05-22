@@ -24,6 +24,19 @@ $row3 = $query3->fetch_assoc();
 
 $estado = $row3['estado'];
 
+if ($estado == 1) {
+
+ 	$msg = "La nomina ya fue realizada, no es posible hacerlo nuevamente. Si desea cambiarlo debe cancelarla primero y despues realizar de nuevo el procedimiento";
+
+	$html = "<script>
+		window.alert('$msg');
+		history.back(1);
+	</script>";
+
+	echo $html;	
+
+
+}else{
 
 // Consulta para que aparezca la información de los productos disponibles
 $query2 = mysqli_query($result,"SELECT * FROM usuarios WHERE iduser = '$idusuario';");
@@ -37,12 +50,14 @@ $row = $query2->fetch_assoc();
 	$salud 			= $valor_nomina * 0.04;
 	$pension 		= $valor_nomina * 0.04;
 	$prestamos 		= 0;
-	$pago_total		= $valor_nomina + $auxilio + $compensacion - $salud - $pension - $prestamos;
+	$devengado		= $valor_nomina + $auxilio + $compensacion;
+	$deducciones 	= $salud + $pension + $prestamos;
+	$pago_total		= $devengado - $deducciones;
 	$dias 			= 30;
 
 // Agrega producto a la tabla GrupoNomina
 
-$query = mysqli_query($result,"INSERT INTO grupoNomina (idnomina, idusuario, auxilio, compensacion, salud, pension, prestamos, pago_total, dias) VALUES ( '$idnomina', '$idusuario', '$auxilio', '$compensacion', '$salud', '$pension', '$prestamos', '$pago_total', '$dias');");
+$query = mysqli_query($result,"INSERT INTO grupoNomina (idnomina, idusuario, auxilio, compensacion, salud, pension, prestamos, pago_total, dias) VALUES ('$idnomina', '$idusuario', '$auxilio', '$compensacion', '$salud', '$pension', '$prestamos', '$pago_total', '$dias');");
 
 $html = "<script>
 	javascript:history.back();
@@ -50,3 +65,4 @@ $html = "<script>
 
 echo $html;
 
+}

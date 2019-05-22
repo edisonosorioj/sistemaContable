@@ -4,18 +4,32 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-	
+
 // Con el ID que se trae de productos del pedido y permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select * from pedidoProductos where peProducto_id ='$id'");
+$query = mysqli_query($result, "select * from grupoNomina where idgrupo ='$id'");
 
 $row = $query->fetch_assoc();
 
-$pedido_id = $row['pedido_id'];
-$cantidad = $row['cantidad'];
+$idnomina 		= $row['idnomina'];
+$idusuario 		= $row['idusuario'];
+$auxilio 		= number_format($row['auxilio'], 0, ",", ".");
+$compensacion 	= number_format($row['compensacion'], 0, ",", ".");
+$salud 			= number_format($row['salud'], 0, ",", ".");
+$pension 		= number_format($row['pension'], 0, ",", ".");
+$prestamo 		= number_format($row['prestamos'], 0, ",", ".");
+$pago_total 	= $row['pago_total'];
+$dias 			= $row['dias'];
+$nuevoDias		= 30;
 
-$query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
+$deducciones = $row['salud'] + $row['pension'] + $row['prestamos'];
+$deducciones = number_format($deducciones, 0, ",", ".");
+
+
+$pago_total = number_format($pago_total, 0, ",", ".");
+
+$query3 = mysqli_query($result, "select * from nomina where idnomina = '$idnomina'");
 
 $row3 = $query3->fetch_assoc();
 
@@ -23,7 +37,7 @@ $estado = $row3['estado'];
 
 if ($estado == 1) {
 	 
-	$msg = "El pedido ya fue realizado, no es posible cambiar los productos. Si desea cambiarlos debe cancelarlo primero el pedido y despues realizar de nuevo el procedimiento";
+	$msg = "La nomina ya fue realizada, no es posible cambiar los usuarios. Si desea cambiarlos debe cancelarlo primero y realizar de nuevo el procedimiento";
 
 	$html = "<script>
 		window.alert('$msg');
@@ -33,22 +47,22 @@ if ($estado == 1) {
 	echo $html;	
 }else{
 
-$option='';
+$query2 = mysqli_query($result, "select * from usuarios where iduser = '$idusuario'");
 
-$query2 = mysqli_query($result,'select * from productos order by idproductos');
+$row2 = $query2->fetch_assoc();
 
-$producto = $row['producto'];
-
-while ($row2 = $query2->fetch_array()){
-
-	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
-	}
+$nombres 		= $row2['nombre'] . ' ' . $row2['apellido'];
+$valor_nomina 	= number_format($row2['valor_nomina'], 0, ",", ".");
+$documento	 	= $row2['documento'];
 	
+$devengado = ($row2['valor_nomina']/$nuevoDias)*$dias;
+$devengado = number_format($devengado, 0, ",", ".");
+
 $html = "
-<!-- Se crea el HTML con la información del Pedido -->
+<!-- Se crea el HTML con la información de la Nomina -->
 <!DOCTYPE html>
 <head>
-<title>Editar Producto del Pedido</title>
+<title>Editar Nomina de Usuario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Administración de Negocios, Admin, Negocios' />
@@ -68,22 +82,6 @@ $html = "
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
 <script src='../../js/screenfull.js'></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
-
-			if (!screenfull.enabled) {
-				return false;
-			}
-
-			
-
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
-		
 </head>
 <body class='dashboard-page'>
 
@@ -93,7 +91,7 @@ $html = "
 				<!-- input-forms -->
 				<div class='grids'>
 					<div class='progressbar-heading grids-heading'>
-						<h2>Editar Producto del Pedido</h2>
+						<h2>Editar Nomina Usuario</h2>
 					</div>
 					<div class='panel panel-widget forms-panel'>
 						<div class='forms'>
@@ -102,31 +100,49 @@ $html = "
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class='form-body'>
-									<form action='actPeProducto.php' method='post'>
+									<form action='actGrNomina.php' method='post'>
 
 										<div class='form-group'> 
 											<input type='hidden' name='id' value='$id' class='form-control'> 
 										</div>
 										<div class='form-group'> 
-											<label>Producto Actual</label> 
-											<input type='text' name='producto_actual' class='form-control' value='$producto' disabled> 
+											<label>Valor Nómina</label> 
+											<input type='text' name='nomina' class='form-control' value='$valor_nomina'> 
 										</div> 
 										<div class='form-group'> 
-											<label>Producto</label> 
-											<select name='nuevo_producto' class='form-control1'>
-												$option
-											</select>
+											<label>Días laborados</label> 
+											<input type='text' name='dias' class='form-control' value='$dias'>
 										</div> 
 										<div class='form-group'> 
-											<label>Detalles</label> 
-											<input type='text' name='detalles' class='form-control' placeholder='Detalles'> 
+											<label>Devengado</label> 
+											<input type='text' name='devengado' class='form-control' value='$devengado' disabled> 
 										</div>
 										<div class='form-group'> 
-											<label>Cantidad</label> 
-											<input type='text' name='cantidad' class='form-control' placeholder='Cantidad' value='$cantidad'> 
+											<label>Auxilio de Transporte</label> 
+											<input type='text' name='auxilio' class='form-control' placeholder='Auxilio de Transporte' value='$auxilio'> 
+										</div>
+										<div class='form-group'> 
+											<label>Compensación</label> 
+											<input type='text' name='compensacion' class='form-control' placeholder='Compensacion' value='$compensacion'> 
+										</div>
+										<div class='form-group'> 
+											<label>Salud 4%</label> 
+											<input type='text' name='salud' class='form-control' placeholder='Salud' value='$salud'> 
+										</div>
+										<div class='form-group'> 
+											<label>Pensión 4%</label> 
+											<input type='text' name='pension' class='form-control' placeholder='Pension' value='$pension'> 
+										</div>
+										<div class='form-group'> 
+											<label>Prestamos</label> 
+											<input type='text' name='prestamos' class='form-control' placeholder='Prestamos' value='$prestamo'> 
+										</div>
+										<div class='form-group'> 
+											<label>Total Pago</label> 
+											<input type='text' name='pago_total' class='form-control' placeholder='Pago Total' value='$pago_total' disabled> 
 										</div>
 
-										<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
+										<button type='submit' class='btn btn-default w3ls-button'>Actualizar</button> 
 										<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
 									</form> 
 								</div>
