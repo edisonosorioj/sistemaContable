@@ -3,6 +3,7 @@
 if (isset($_SESSION['idrol'])){
 
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
+	$nomina 			= $_SESSION['modulo_nomina'];
 	
 }
 
@@ -13,6 +14,26 @@ $status 			= '';
 // if ($fecha_contrato < $fecha_actual) {
 // 	$status = "class='class_a_href'";
 // }
+
+if ($nomina == 1) {
+	$nomina = "<li class='has-subnav'>
+				<a href='../nomina/usuarios.php' " . $status . ">
+					<i class='fa fa-file-text-o nav_icon'></i>
+						<span class='nav-text'>Nomina</span>
+					<i class='icon-angle-right'></i><i class='icon-angle-down'></i>
+				</a>
+				<ul>
+					<li>
+						<a href='../nomina/usuarios.php' class='subnav-text'>Usuarios</a>
+					</li>
+					<li>
+						<a href='../nomina/nomina.php' class='subnav-text'>Liquidar Nomina</a>
+					</li>
+				</ul>
+			</li>";
+}else{
+	$nomina = '';
+}
 
 $menu = "
 	<head>
@@ -69,6 +90,7 @@ $menu = "
 					</span>
 				</a>
 			</li>
+			" . $nomina . "
 			<li>
 				<a href='../inventario/inventario.php' " . $status . ">
 					<i class='fa fa-list-ul'></i>

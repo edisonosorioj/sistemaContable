@@ -79,6 +79,33 @@ display: none;
 	color: green;
 }
 
+.center{
+  	justify-content: center;
+	position: relative;
+}
+
+.mesas{
+	text-align:center;
+	border-radius: 20px;
+	display: inline-block;
+	margin : 10px;
+	padding: 10px;
+	width: 30%;
+	top: 50%;
+}
+
+.green{
+	background-color: #d0fcc6 !important;
+}
+
+.blue{
+	background-color: #abb6fd !important;
+}
+
+.gray{
+	background-color: #b5b5b7 !important;
+}
+
 a.class_a_href{
 pointer-events: none;
 cursor: default;

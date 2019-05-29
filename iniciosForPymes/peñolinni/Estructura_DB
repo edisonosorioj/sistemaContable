@@ -1,0 +1,60 @@
+CREATE DATABASE penolinni;
+
+USE penolinni;
+
+CREATE TABLE `administradores` (`idadmin` INT NOT NULL AUTO_INCREMENT, `documento` VARCHAR(45) NOT NULL, `nombre` VARCHAR(45) NOT NULL, `apellido` VARCHAR(45) NOT NULL, `idrol` INT(10) NOT NULL, `login` VARCHAR(45) NOT NULL, `contrasena` VARCHAR(200) NOT NULL, PRIMARY KEY (`idadmin`));
+
+CREATE TABLE `clientes` (`id` INT(10) NOT NULL AUTO_INCREMENT, `documento` VARCHAR(45) NOT NULL, `empresa` VARCHAR(100) NULL, `nombres` VARCHAR(45) NOT NULL, `telefono` VARCHAR(45) NOT NULL, `correo` VARCHAR(45) NULL, `direccion` VARCHAR(45) NULL, PRIMARY KEY (`id`));
+
+CREATE TABLE `compras` (`idcompras` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `cantidad` INT, `producto` VARCHAR(45) NOT NULL, `detalles` VARCHAR(100) NULL, `valor` VARCHAR(45) NULL, PRIMARY KEY (`idcompras`));
+
+CREATE TABLE `ingresos` (`idingresos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `cantidad` INT NULL, `producto` VARCHAR(45) NOT NULL, `detalles` VARCHAR(100) NULL, `valor` VARCHAR(45) NULL, PRIMARY KEY (`idingresos`));
+
+CREATE TABLE `creditos` (`idcreditos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `detalles` VARCHAR(100) NULL, `valor` VARCHAR(10) NULL, `idclientes` INT NOT NULL, PRIMARY KEY (`idcreditos`));
+
+CREATE TABLE `productos` (`idproductos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `nombre` VARCHAR(100) NOT NULL, `disponible` MEDIUMINT(10) NULL DEFAULT 0, `valor` varchar(45) NULL, PRIMARY KEY (`idproductos`));
+ CREATE TABLE `pedidos` (`pedido_id` INT NOT NULL AUTO_INCREMENT, `cliente_id` INT NOT NULL, `nombre_pedido` VARCHAR(45) NULL, `t_costo` VARCHAR(45) NULL, `t_cobrado` VARCHAR(45) NULL, `fecha` DATE NULL, `estado` INT NOT NULL, PRIMARY KEY (`pedido_id`, `cliente_id`));
+
+CREATE TABLE `pedidoProductos` (`peproducto_id` INT NOT NULL AUTO_INCREMENT, `producto` VARCHAR(500) NULL, `valoru` VARCHAR(10) NULL, `cantidad` FLOAT NULL, `valort` VARCHAR(10) NULL, `pedido_id` INT NOT NULL, `cliente_id` INT NOT NULL, `producto_id` INT NOT NULL, PRIMARY KEY (`peproducto_id`));
+
+CREATE TABLE `variables` (`variable_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NOT NULL, `detalle` VARCHAR(1000) NOT NULL, PRIMARY KEY (`variable_id`));
+
+CREATE TABLE `pagos` (`pago_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATE NOT NULL,`cliente` VARCHAR(45) NOT NULL,`valor` VARCHAR(45) NOT NULL,PRIMARY KEY (`pago_id`));
+
+INSERT INTO pagos (fecha, cliente, valor) VALUES ('2019-12-01', 'penilinni', '30000');
+
+CREATE TABLE `usuarios` (`iduser` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NULL, `apellido` VARCHAR(45) NULL, `documento` VARCHAR(45) NULL, `fecha_contrato` DATE NULL, `fecha_fin_contrato` DATE NULL, `valor_nomina` INT NULL, PRIMARY KEY (`iduser`));
+
+
+//Configuracion Básica para Cuenta de Cobro
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'MI EMPRESA');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'tipo_identificacion', 'CC');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('3', 'identificacion', '1.123.456.789');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('4', 'lugar_expedicion', 'Marinilla');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('5', 'forma_de_pago', 'Favor consignar en la cuenta de Ahorros Bancolombia 123-456789-00 a nombre de MI EMPRESA.');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('6', 'tel', '9876543');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('7', 'cel', '3211234567');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('8', 'consecutivo', '0');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('9', 'plan', '25000');
+INSERT INTO variables (variable_id, nombre, detalle) VALUES ('10', 'fecha_contrato', '2018-05-20');
+insert into variables (variable_id, nombre, detalle) values (11, 'iva', 0);
+insert into variables (variable_id, nombre, detalle) values (12, 'modulo_nomina', 0);
+insert into variables (nombre,detalle) values ('mesas', '0');
+
+INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
+
+CREATE TABLE `nomina` ( `idnomina` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(100) NULL, `fecha` DATE NOT NULL, `total_nomina` VARCHAR(45) NULL, `estado` VARCHAR(45) NULL DEFAULT 0, PRIMARY KEY (`idnomina`));
+
+CREATE TABLE `grupoNomina` ( `idgrupo` INT NOT NULL AUTO_INCREMENT, `idnomina` INT NOT NULL, `idusuario` INT NULL, `auxilio` VARCHAR(45) NULL, `compensacion` VARCHAR(45) NULL, `salud` VARCHAR(45) NULL, `pension` VARCHAR(45) NULL, `prestamos` VARCHAR(45) NULL, `pago_total` VARCHAR(45) NULL, `dias` VARCHAR(45) NULL, PRIMARY KEY (`idgrupo`));
+
+CREATE TABLE `items` (`iditems` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(100) NOT NULL, `estado` VARCHAR(45) NOT NULL DEFAULT '1',`grupo` VARCHAR(45) NULL, PRIMARY KEY (`iditems`));
+
+CREATE TABLE `precio_x_item` ( `idprecios` INT NOT NULL AUTO_INCREMENT, `iditems` INT NOT NULL, `nombre` VARCHAR(200) NOT NULL, `valor` VARCHAR(45) NOT NULL DEFAULT 0, PRIMARY KEY (`idprecios`));
+
+
+//Actualizar inicializacion ID Pedidos
+
+ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
+
+ALTER TABLE `variables` CHANGE COLUMN `detalle` `detalle` VARCHAR(1000) NOT NULL ;
+

@@ -1,6 +1,6 @@
-CREATE DATABASE optimo;
+CREATE DATABASE spartacity;
 
-USE optimo;
+USE spartacity;
 
 CREATE TABLE `administradores` (`idadmin` INT NOT NULL AUTO_INCREMENT, `documento` VARCHAR(45) NOT NULL, `nombre` VARCHAR(45) NOT NULL, `apellido` VARCHAR(45) NOT NULL, `idrol` INT(10) NOT NULL, `login` VARCHAR(45) NOT NULL, `contrasena` VARCHAR(200) NOT NULL, PRIMARY KEY (`idadmin`));
 
@@ -21,7 +21,7 @@ CREATE TABLE `variables` (`variable_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT
 
 CREATE TABLE `pagos` (`pago_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATE NOT NULL,`cliente` VARCHAR(45) NOT NULL,`valor` VARCHAR(45) NOT NULL,PRIMARY KEY (`pago_id`));
 
-CREATE TABLE `usuarios` (`iduser` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NULL, `apellido` VARCHAR(45) NULL, `documento` VARCHAR(45) NULL, `fecha_contrato` DATE NULL, `fecha_fin_contrato` DATE NULL DEFAULT 0000-00-00, `valor_nomina` INT NULL, PRIMARY KEY (`iduser`));
+CREATE TABLE `usuarios` (`iduser` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NULL, `apellido` VARCHAR(45) NULL, `documento` VARCHAR(45) NULL, `fecha_contrato` DATE NULL, `fecha_fin_contrato` DATE NULL, `valor_nomina` INT NULL, PRIMARY KEY (`iduser`));
 
 
 //Configuracion Básica para Cuenta de Cobro
@@ -37,14 +37,14 @@ INSERT INTO variables (variable_id, nombre, detalle) VALUES ('9', 'plan', '25000
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('10', 'fecha_contrato', '2018-05-20');
 insert into variables (variable_id, nombre, detalle) values (11, 'iva', 0);
 insert into variables (variable_id, nombre, detalle) values (12, 'modulo_nomina', 0);
+insert into variables (nombre,detalle) values ('mesas', '0');
 
 
 INSERT INTO administradores (idadmin, documento, nombre, apellido, idrol,login, contrasena) VALUES ('1', '123456789', 'Usuario', 'Inicial', '0', 'usuario', '401cec94d3ed586d8cb895c10c0f7db6');
 
 CREATE TABLE `nomina` ( `idnomina` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(100) NULL, `fecha` DATE NOT NULL, `total_nomina` VARCHAR(45) NULL, `estado` VARCHAR(45) NULL DEFAULT 0, PRIMARY KEY (`idnomina`));
 
-CREATE TABLE `grupoNomina` ( `idgrupo` INT NOT NULL AUTO_INCREMENT, `idnomina` INT NOT NULL, `idusuario` INT NULL, `auxilio` VARCHAR(45) NULL, `compensacion` VARCHAR(45) NULL, `salud` VARCHAR(45) NULL, `pension` VARCHAR(45) NULL, `prestamos` VARCHAR(45) NULL, `pago_total` VARCHAR(45) NULL, `grupoNomina` 
-ADD COLUMN `dias` VARCHAR(45), PRIMARY KEY (`idgrupo`));
+CREATE TABLE `grupoNomina` ( `idgrupo` INT NOT NULL AUTO_INCREMENT, `idnomina` INT NOT NULL, `idusuario` INT NULL, `auxilio` VARCHAR(45) NULL, `compensacion` VARCHAR(45) NULL, `salud` VARCHAR(45) NULL, `pension` VARCHAR(45) NULL, `prestamos` VARCHAR(45) NULL, `pago_total` VARCHAR(45) NULL, `dias` VARCHAR(45) NULL, PRIMARY KEY (`idgrupo`));
 
 ALTER TABLE `sistema_contable`. NULL AFTER `pago_total`;
 

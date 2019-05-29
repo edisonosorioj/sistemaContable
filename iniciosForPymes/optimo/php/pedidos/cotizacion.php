@@ -53,7 +53,7 @@ $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto"
 $fecha = $dias[date('w')]." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') ;
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado, fecha, direccion, correo, telefono from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query2 = mysqli_query($result, "select nombre_pedido, nombres, empresa, documento, pedido_id, id, estado, fecha, direccion, ciudad, correo, telefono, ocompra from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row2=$query2->fetch_assoc();
 
 $nombre_cliente 	= $row2['nombres'];
@@ -62,8 +62,10 @@ $documento_cliente 	= $row2['documento'];
 $fecha_pedido 		= $row2['fecha'];
 $fecha_pedido_lineal= $row2['fecha'];
 $direccion 			= $row2['direccion'];
+$ciudad 			= $row2['ciudad'];
 $correo 			= $row2['correo'];
 $telefono 			= $row2['telefono'];
+$ocompra 			= $row2['ocompra'];
 
 $fecha_pedido = explode('-', $fecha_pedido);
 
@@ -122,7 +124,7 @@ $html="<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>Cotización OPT $id</title>
+	<title>Cotización</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='print' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
@@ -138,7 +140,7 @@ $html="<!DOCTYPE html>
 		<div class='col-xs-6 text-center'>
 			<h3>" . strtoupper($nombre_empresa) . "</h3>
 			<h4>NIT $identificacion</h4>
-			<p>Autorización Dian N° 18762005044482<br />
+			<p>Autorizacion Dian N° 18762005044482<br />
 			Del 29 septiembre de 2017<br />
 			Rango: OPT 0001 - OPT 9999<br />
 			REGIMEN COMUN<br />
@@ -150,7 +152,7 @@ $html="<!DOCTYPE html>
 			<table width='100%'>
 				<tr>
 					<th text-align='center'>
-						Cotización
+						COTIZACIÓN
 					</th>
 				</tr>
 				<tr>
@@ -197,7 +199,7 @@ $html="<!DOCTYPE html>
 						$fecha_pedido_lineal
 					</td>
 					<td>
-						
+						$ciudad
 					</td>
 				</tr>
 				<tr>
@@ -233,14 +235,15 @@ $html="<!DOCTYPE html>
 						$correo
 					</td>
 					<td>
-						
+						$ocompra
 					</td>
 					<td>
 						$ " . number_format($valorPedido, 0, ",", ".") . "
 					</td>
 				</tr>
 				<tr>
-					<td colspan='5'>&nbsp</td>
+					<td colspan='5'>&nbsp
+					</td>
 				</tr>
 			</table>
 		</div>

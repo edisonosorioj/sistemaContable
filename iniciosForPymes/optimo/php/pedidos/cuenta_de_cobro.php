@@ -22,15 +22,18 @@ $varIva = '';
 $id 	=	$_POST['pedido_id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort, p.fecha as pfecha from pedidos p inner join pedidoProductos pp on p.pedido_id = pp.pedido_id where p.pedido_id = '$id' order by pp.peproducto_id ASC");
+$query = mysqli_query($result,"SELECT pp.peproducto_id as idpeproducto, pp.producto as producto, pp.valoru as valoru, pp.cantidad as cantidad, pp.valort as valort, p.fecha as pfecha, pp.producto_id as producto_id, c.nombres as cliente, pr.valor as valor from pedidos p inner join pedidoProductos pp inner join clientes c inner join productos pr on p.pedido_id = pp.pedido_id and pp.cliente_id = c.id and pp.producto_id = pr.idproductos WHERE p.pedido_id = '$id' order by pp.peproducto_id ASC");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" 	. 	$row['idproducto'] 	. "</td>
-				<td>" 	. 	$row['producto'] 	. "</td>
-				<td>" 	. 	$row['cantidad'] 	. "</td>
+				<td>" 	. 	$row['idpeproducto'] 	. "</td>
+				<td>" 	. 	$row['producto_id'] 	. "</td>
+				<td>" 	. 	$row['producto'] 		. "</td>
+				<td>" 	. 	$row['cantidad'] 		. "</td>
+				<td>" 	. 	$row['cliente'] 		. "</td>
+				<td>$ " 	. 	number_format($row['valor'], 0, ",", ".") 			. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 			</tr>";
 
@@ -100,12 +103,12 @@ $varIva				= $datos['iva'];
 
 if ($varIva == 1) {
 	$iva = "<tr>
-				<td colspan='2'></td>
+				<td colspan='5'></td>
 				<th>SubTotal</th>
 				<td>$ " . number_format($subTotal, 0, ",", ".") . "</td>
 			</tr>
 			<tr>
-				<td colspan='2'></td>
+				<td colspan='5'></td>
 				<th>Iva 19%</th>
 				<td>$ " . number_format($valorIva, 0, ",", ".") . "</td>
 			</tr>";
@@ -251,17 +254,20 @@ $html="<!DOCTYPE html>
 			<div class='col-sm-12'>
 				<table class='table-fill'>
 					<tr>
-						<th width='10'>ITEM</th>
-						<th width='60%'>PRODUCTO</th>
-						<th width='20'>CANTIDAD</th>
-						<th width='30'>VALOR</th>
+						<th width='10' align='center'>ITEM</th>
+						<th width='10' align='center'>CODIGO</th>
+						<th width='50%' align='center'>DESCRIPCIÓN</th>
+						<th width='10' align='center'>CANTIDAD</th>
+						<th width='20%' align='center'>CLIENTE</th>
+						<th width='15%' align='center'>VR.UNITARIO</th>
+						<th width='20%' align='center'>VALOR</th>
 					</tr>
 					" .
 					$tr .
 					$iva
 					. "
 					<tr>
-						<td colspan='2'></td>
+						<td colspan='5'></td>
 						<th>TOTAL</th>
 						<td>$ " . number_format($valorPedido, 0, ",", ".") . "</td>
 					</tr>
@@ -269,7 +275,7 @@ $html="<!DOCTYPE html>
 			</div>
 		</div>
 		<p>&nbsp</p>
-		<div class='table'>
+		<div class='table-fill'>
 			<div class='col-sm-12'>
 				<table class='table-fill' border='2'>
 					<tr>
@@ -280,7 +286,20 @@ $html="<!DOCTYPE html>
 				</table>
 			</div>
 		</div>
-		<div class='text-center'><img src='../../images/firma_optimo.png' width='50%'></img></div>
+		<div class='text-center'>
+			<img src='../../images/firma_optimo.png' width='50%'></img>
+		</div>
+		<div class='table'>
+			<div class='col-sm-12'>
+				<table class='table-fill' border='2'>
+					<tr>
+						<td>
+							<p align='center'><b>2019</b></p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>";
