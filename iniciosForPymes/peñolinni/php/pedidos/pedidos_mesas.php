@@ -29,7 +29,6 @@ $query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.
 
 $div = '';
 
- 	$suma = 1;
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	if($row['estado'] == '0'){
@@ -60,7 +59,7 @@ $div = '';
  				<a href='pedido_mesa.php?id=" . $row['pedido_id'] . "'><span>
 					VER ORDEN</spam></a>
  			</div></a>";
- 	$suma = $suma + 1;
+ 	
  }
 
 $html="<!DOCTYPE html>
@@ -121,18 +120,20 @@ else return false;
 </head>
 <body class='dashboard-page center'>
 
-		<div class=' center'>
-			<div class='center'>	
-				<!-- tables -->
+		<div>
+			<div>	
 				
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nueva Mesa</button>
 				</div>
-				<div class='table-heading'>
+				<div class='table-heading col-md-8'>
 					<h2>Pedidos en Mesas</h2>
 				</div>
-				<div class='center'>
-					<div class='w3l-table-info'>
+				<div class='bs-component mb20 col-md-2'>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:window.location.reload();'>Recargar</button>
+				</div>
+				<div>
+					<div>
 						  " 
 						  . $div . 
 						  "

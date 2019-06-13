@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select id, documento, empresa, nombres, telefono, correo, direccion from clientes where id='$id'");
+$query = mysqli_query($result, "select * from clientes where id='$id'");
 
 $row=$query->fetch_assoc();
 	
@@ -77,25 +77,45 @@ $(function () {
 											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>" disabled/> 
 										</div> 
 										<div class="form-group"> 
+											<label>CC / NIT</label> 
+											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>" disabled/> 
+										</div> 
+										<div class="form-group"> 
 											<label>Acudiente</label> 
 											<input type="text" name="empresa" class="form-control" placeholder="Empresa" value="<?php echo $row['empresa']; ?>" disabled/> 
 										</div> 
 										<div class="form-group"> 
 											<label>CC / NIT</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>" disabled/> 
+											<input type="text" name="doc_empresa" class="form-control" placeholder="Documento Acudiente" value="<?php echo $row['doc_empresa']; ?>" disabled/> 
 										</div>
 										<div class="form-group"> 
 											<label>Telefono</label> 
 											<input type="text" name="telefono" class="form-control" placeholder="Telefono" value="<?php echo $row['telefono']; ?>" disabled/> 
-										</div>
-										<div class="form-group"> 
-											<label>Dirección</label> 
-											<input type="text" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $row['direccion']; ?>" disabled/> 
 										</div> 
 										<div class="form-group"> 
 											<label>Email</label> 
 											<input type="text" name="correo" class="form-control" placeholder="Correo" value="<?php echo $row['correo']; ?>" disabled/> 
 										</div> 
+										<div class="form-group"> 
+											<label>Dirección</label> 
+											<input type="text" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $row['direccion']; ?>" disabled/> 
+										</div>
+										<div class="form-group"> 
+											<label>Fecha Nacimiento</label> 
+											<input type="text" name="fecha_nacimiento" class="form-control" placeholder="Fecha Nacimiento" value="<?php echo $row['fecha_nacimiento']; ?>" disabled/> 
+										</div>
+										<div class="form-group"> 
+											<label>RH</label> 
+											<input type="text" name="rh" class="form-control" placeholder="RH" value="<?php echo $row['rh']; ?>" disabled/> 
+										</div>
+										<div class="form-group"> 
+											<label>Categoría</label> 
+											<input type="text" name="categoria" class="form-control" placeholder="Categoría" value="<?php echo $row['categoria']; ?>" disabled/> 
+										</div>
+										<div class="form-group"> 
+											<label>Seguro Social</label> 
+											<input type="text" name="seguro_social" class="form-control" placeholder="Seguro Social" value="<?php echo $row['seguro_social']; ?>" disabled/> 
+										</div>
 
 										<button type="submit" class="btn btn-default w3ls-button">Editar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cerrar</button> 

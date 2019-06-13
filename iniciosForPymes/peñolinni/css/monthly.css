@@ -388,20 +388,7 @@
 	padding-right:5px;
 }
 
-/* Events List custom webkit scrollbar */
-
-.monthly-event-list::-webkit-scrollbar {width: 9px;}
-
-/* Track */
-.monthly-event-list::-webkit-scrollbar-track {background: none;}
-
 /* Handle */
-.monthly-event-list::-webkit-scrollbar-thumb {
-	background:#ccc;
-	border:1px solid #E9EBEC;
-	border-radius: 10px;
-}
-.monthly-event-list::-webkit-scrollbar-thumb:hover {background:#555;}
 
 /* Increase font & spacing over larger size */
 @media (min-width: 400px) {

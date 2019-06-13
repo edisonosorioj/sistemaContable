@@ -67,51 +67,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class="form-body">
-									<form action="../../php/cliente/addCliente.php" method="post"> 
+									<form action="../../php/cliente/addMasivo.php" method="post"> 
 										<div class="form-group"> 
-											<label>Identificación</label> 
-											<input type="text" name="documento" class="form-control" placeholder="Documento o Nit" required/> 
+											<label>Fecha</label> 
+											<input type="date" name="fecha" class="form-control" required/> 
 										</div>
 										<div class="form-group"> 
-											<label>Nombre Estudiante</label> 
-											<input type="text" name="nombres" class="form-control" placeholder="Nombre" required/> 
+											<label>Motivo</label> 
+											<input type="text" name="detalles" class="form-control" placeholder="Motivo" required/> 
 										</div>
 										<div class="form-group"> 
-											<label>Nombre Acudiente</label> 
-											<input type="text" name="empresa" class="form-control" placeholder="Nombre Acudiente"> 
+											<label>Valor Másivo</label> 
+											<input type="text" name="valor_masivo" class="form-control" placeholder="Valor" required/> 
 										</div>
-										<div class="form-group"> 
-											<label>Identificación Acudiente</label> 
-											<input type="text" name="doc_empresa" class="form-control" placeholder="Identificación Acudiente"> 
-										</div> 
-										<div class="form-group"> 
-											<label>Teléfono</label> 
-											<input type="text" name="telefono" class="form-control" placeholder="Teléfono"> 
-										</div> 
-										<div class="form-group"> 
-											<label>Email</label> 
-											<input type="email" name="correo" class="form-control" placeholder="Correo" id="exampleInputEmail1"> 
-										</div> 
-										<div class="form-group"> 
-											<label>Dirección</label> 
-											<input type="text" name="direccion" class="form-control" placeholder="Direccion"> 
-										</div> 
-										<div class="form-group"> 
-											<label>Fecha Nacimiento</label> 
-											<input type="text" name="fecha_nacimiento" class="form-control"> 
-										</div> 
-										<div class="form-group"> 
-											<label>RH</label> 
-											<input type="text" name="rh" class="form-control" placeholder="RH"> 
-										</div> 
-										<div class="form-group"> 
-											<label>Categoría</label> 
-											<input type="text" name="categoria" class="form-control" placeholder="Categoría"> 
-										</div> 
-										<div class="form-group"> 
-											<label>Seguro Social</label> 
-											<input type="text" name="seguro_social" class="form-control" placeholder="Seguro Social"> 
-										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 

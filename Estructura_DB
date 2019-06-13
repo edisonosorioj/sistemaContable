@@ -21,10 +21,9 @@ CREATE TABLE `variables` (`variable_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT
 
 CREATE TABLE `pagos` (`pago_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATE NOT NULL,`cliente` VARCHAR(45) NOT NULL,`valor` VARCHAR(45) NOT NULL,PRIMARY KEY (`pago_id`));
 
-CREATE TABLE `usuarios` (`iduser` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NULL, `apellido` VARCHAR(45) NULL, `documento` VARCHAR(45) NULL, `fecha_contrato` DATE NULL, `fecha_fin_contrato` DATE NULL, `valor_nomina` INT NULL, PRIMARY KEY (`iduser`));
+CREATE TABLE `usuarios` (`iduser` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(45) NULL, `apellido` VARCHAR(45) NULL, `documento` VARCHAR(45) NULL, `fecha_contrato` DATE NULL, `fecha_fin_contrato` DATE NULL, `valor_nomina` INT NULL, `estado` INT(11) NULL, `aplicar_deduccion` INT(11) NULL, PRIMARY KEY (`iduser`));
 
 
-//Configuracion Básica para Cuenta de Cobro
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('1', 'empresa', 'MI EMPRESA');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('2', 'tipo_identificacion', 'CC');
 INSERT INTO variables (variable_id, nombre, detalle) VALUES ('3', 'identificacion', '1.123.456.789');
@@ -64,3 +63,4 @@ ALTER TABLE `pagos` DROP COLUMN `fecha_pago`;
 
 ALTER TABLE `variables` CHANGE COLUMN `detalle` `detalle` VARCHAR(1000) NOT NULL ;
 
+ALTER TABLE `usuarios` ADD COLUMN `estado` INT(11) NULL AFTER `valor_nomina`, ADD COLUMN `aplicar_deduccion` INT(11) NULL AFTER `estado`;

@@ -21,7 +21,7 @@ $id=$_GET['id'];
 // Realiza la eliminación del producto.
 
 
-if ($estado == 1) {
+if ($estado == 2) {
 
  	$msg = "El producto no puede ser eliminado, debes cancelar primero el pedido";
 
@@ -36,20 +36,13 @@ if ($estado == 1) {
 }else{
 		
 	$query = mysqli_query($result,"delete from pedidoProductos where peproducto_id = '$id'");
-
-	if($query > 0){
-		$msg = 'El producto del Pedido fue eliminado';
-	}else{
-		$msg = 'Error al eliminar producto Pedido. Intentelo de nuevo';
-	}
 		
 	// Este alert se muestra con el mensaje correspondiente a la acción realizada en el IF
 			
-		$html = "<script>
-			window.alert('$msg');
-			history.back(1);
-			opener.location.reload();
-		</script>";
+	$html = "<script>
+		history.back(1);
+		opener.location.reload();
+	</script>";
 		
 	echo $html;	
 }

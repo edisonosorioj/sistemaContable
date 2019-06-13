@@ -40,9 +40,7 @@ $query3 = mysqli_query($result,"select SUM(valort) as valor, c.t_cobrado as cobr
 
 $row3 = $query3->fetch_assoc();
 
-$subTotal 		= $row3['valor'];
-$valorIva 		= $row3['valor'] * 0.19;
-$valorPedido 	= $subTotal + $valorIva;
+$valorPedido 	= $row3['valor'];
 // $cobraPedido 	= "$ " . number_format($row3['cobrado'], 0, ",", ".") . "";
 
 // Obtenemos la fecha
@@ -92,6 +90,10 @@ $tel				= $datos['tel'];
 $varIva				= $datos['iva'];
 
 if ($varIva == 1) {
+	$subTotal 		= $row3['valor'];
+	$valorIva 		= $row3['valor'] * 0.19;
+	$valorPedido 	= $subTotal + $valorIva;
+
 	$iva = "<tr>
 				<td></td>
 				<th>SubTotal</th>

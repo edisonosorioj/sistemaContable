@@ -20,81 +20,88 @@
 <script src='../../js/modernizr.js'></script>
 <script src='../../js/jquery.cookie.js'></script>
 <script src='../../js/screenfull.js'></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+<script>
+$(function () {
+$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
 
-			if (!screenfull.enabled) {
-				return false;
-			}
+if (!screenfull.enabled) {
+return false;
+}
 
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
-		
+$('#toggle').click(function () {
+screenfull.toggle($('#container')[0]);
+});
+});
+</script>
+
 </head>
 <body class='dashboard-page'>
 
-	<section class='wrapper scrollable'>
-		<nav class='user-menu'>
-			<a href='javascript:;' class='main-menu-access'>
-			<i class='icon-proton-logo'></i>
-			<i class='icon-reorder'></i>
-			</a>
-		</nav>
-		<div class='main-grid'>
-			<div class='agile-grids'>	
-				<!-- input-forms -->
-				<div class='grids'>
-					<div class='panel panel-widget forms-panel'>
-						<div class='forms'>
-							<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
-								<div class='form-title'>
-									<h4>Datos Básicos :</h4>
-								</div>
-								<div class='form-body'>
-									<form action='../../php/nomina/addUsuario.php' method='post'> 
-										<div class='form-group'> 
-											<label>Documento</label> 
-											<input type='text' name='documento' class='form-control' placeholder='Documento' required/> 
-										</div>
-										<div class='form-group'> 
-											<label>Nombres</label> 
-											<input type='text' name='nombre' class='form-control' placeholder='Nombres' required/> 
-										</div>
-										<div class='form-group'> 
-											<label>Apellidos</label> 
-											<input type='text' name='apellido' class='form-control' placeholder='Apellidos' required/> 
-										</div> 
-										<div class='form-group'> 
-											<label>Fecha Contrato</label> 
-											<input type='date' name='fecha_contrato' class='form-control' placeholder='Fecha Contrato' required/> 
-										</div> 
-										<div class='form-group'> 
-											<label>Fecha Fin Contrato</label> 
-											<input type='date' name='fecha_fin_contrato' class='form-control' placeholder='Fecha fin contrato'> 
-										</div> 
-										<div class='form-group'> 
-											<label>Nomina</label> 
-											<input type='text' name='nomina' class='form-control' placeholder='Valor Nomina'> 
-										</div> 
+<section class='wrapper scrollable'>
+<nav class='user-menu'>
+<a href='javascript:;' class='main-menu-access'>
+<i class='icon-proton-logo'></i>
+<i class='icon-reorder'></i>
+</a>
+</nav>
+<div class='main-grid'>
+<div class='agile-grids'>
+<!-- input-forms -->
+<div class='grids'>
+<div class='panel panel-widget forms-panel'>
+<div class='forms'>
+<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
+<div class='form-title'>
+<h4>Datos Básicos :</h4>
+</div>
+<div class='form-body'>
+<form action='../../php/nomina/addUsuario.php' method='post'> 
+<div class='form-group'> 
+<label>Documento</label> 
+<input type='text' name='documento' class='form-control' placeholder='Documento' required/> 
+</div>
+<div class='form-group'> 
+<label>Nombres</label> 
+<input type='text' name='nombre' class='form-control' placeholder='Nombres' required/> 
+</div>
+<div class='form-group'> 
+<label>Apellidos</label> 
+<input type='text' name='apellido' class='form-control' placeholder='Apellidos' required/> 
+</div> 
+<div class='form-group'> 
+<label>Fecha Contrato</label> 
+<input type='date' name='fecha_contrato' class='form-control' placeholder='Fecha Contrato' required/> 
+</div> 
+<div class='form-group'> 
+<label>Fecha Fin Contrato</label> 
+<input type='date' name='fecha_fin_contrato' class='form-control' placeholder='Fecha fin contrato'> 
+</div> 
+<div class='form-group'> 
+<label>Nomina</label> 
+<input type='text' name='nomina' class='form-control' placeholder='Valor Nomina'> 
+</div> 
+<div class='form-group'> 
+<label>Aplicar Deducciones</label>
+<select name='deducciones' class='form-control'>
+<option value="1">Si</option>
+<option value="0">No</option>
+</select>
+</div> 
 
-										<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
-										<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
-									</form> 
-								</div>
-							</div>
-						</div>
-					</div>
+<button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
+<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
+</form> 
+</div>
+</div>
+</div>
+</div>
 
-				</div>
-				<!-- //input-forms -->
-			</div>
-		</div>
-	</section>
-	<script src='../../js/bootstrap.js'></script>
-	<script src='../../js/proton.js'></script>
+</div>
+<!-- //input-forms -->
+</div>
+</div>
+</section>
+<script src='../../js/bootstrap.js'></script>
+<script src='../../js/proton.js'></script>
 </body>
 </html>

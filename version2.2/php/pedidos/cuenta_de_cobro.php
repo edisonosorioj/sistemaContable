@@ -40,9 +40,7 @@ $query3 = mysqli_query($result,"select SUM(valort) as valor, c.t_cobrado as cobr
 
 $row3 = $query3->fetch_assoc();
 
-$subTotal 		= $row3['valor'];
-$valorIva 		= $row3['valor'] * 0.19;
-$valorPedido 	= $subTotal + $valorIva;
+$valorPedido 	= $row3['valor'];
 // $cobraPedido 	= "$ " . number_format($row3['cobrado'], 0, ",", ".") . "";
 
 // Obtenemos la fecha
@@ -92,6 +90,10 @@ $tel				= $datos['tel'];
 $varIva				= $datos['iva'];
 
 if ($varIva == 1) {
+	$subTotal 		= $row3['valor'];
+	$valorIva 		= $row3['valor'] * 0.19;
+	$valorPedido 	= $subTotal + $valorIva;
+
 	$iva = "<tr>
 				<td></td>
 				<th>SubTotal</th>
@@ -109,9 +111,12 @@ $html="<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-	<title>Cuenta de Cobro</title>
+	<title>Cuenta de Cobro $id</title>
 	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/informes/style.css' media='print' />
 	<link rel='stylesheet' type='text/css' href='../../css/informes/print.css' media='print' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='screen' />
+	<link rel='stylesheet' type='text/css' href='../../css/bootstrap.css' media='print' />
 </head>
 <body>
 	<div class='hoja'>

@@ -40,14 +40,18 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	if ($row['valor'] < 0) {
- 		$td = "&nbsp;&nbsp;";
+ 		$td = "&nbsp;&nbsp;
+ 			<a class='botonTab' onclick='javascript:abrir(\"cuenta_de_cobro_min.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='C. Cobro'><i class='fa fa-file-text-o'></i></spam></a>
+ 			&nbsp;&nbsp;
+ 			<a class='botonTab' onclick='javascript:abrir(\"pago_ya.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Pago Ya'><i class='fa fa-check'></i></spam></a>
+ 			&nbsp;&nbsp;";
  	}else{
  		$td = "&nbsp;&nbsp;
-			<a class='botonTab' onclick='javascript:abrir(\"comprobante.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Recibo'><i
-			class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;";
+			<a class='botonTab' onclick='javascript:abrir(\"comprobante.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Recibo'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;";
  	}
 
  	$tr .=	"<tr class='rows' id='rows'>
+				<td><input type='checkbox' name='seleccion[]' value='".$row['idcreditos']."'</td>
 				<td>" . $row['idcreditos'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
@@ -147,30 +151,34 @@ else return false;
 				<div class='table-heading'>
 					<h2>$nombre</h2>
 				</div>
+				<form action='eliminarVarios.php' method='post'> 
 				<div class='bs-component mb20 col-md-8'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
 					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
+					<button type='submit' class='btn btn-primary hvr-icon-sink-away col-11'>Eliminar Seleccionados</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					  	<h3>" . $deuda . "</h3>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>Cod.</th>
-							<th>Fecha</th>
-							<th width='30%'>Detalles</th>
-							<th>Valor</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  " 
-						  . $tr . 
-						  "
-						</tbody>
-					  </table>
+						  	<h3>" . $deuda . "</h3>
+						    <table id='table'>
+								<thead>
+								  <tr>
+									<th></th>
+									<th>Cod.</th>
+									<th>Fecha</th>
+									<th width='30%'>Detalles</th>
+									<th>Valor</th>
+									<th>Acciones</th>
+								  </tr>
+								</thead>
+							<tbody>
+							  " 
+							  . $tr . 
+							  "
+							</tbody>
+						  </table>
+						</form>
 					</div>
 				</div>
 				<!-- //tables -->

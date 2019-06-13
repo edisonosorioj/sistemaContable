@@ -13,6 +13,7 @@ $query = mysqli_query($result, "select c.id as id_cliente, p.nombre_pedido, p.fe
 $row=$query->fetch_assoc();
 
 $id_cliente = $row['id_cliente'];
+$nombre_cliente = $row['nombres'];
 
 
 $option='';
@@ -98,7 +99,7 @@ $(function () {
 										<div class="form-group"> 
 											<label>Cliente</label> 
 											<select name='cliente' class='form-control1'>
-												<option value='<? echo $id_cliente ?>'><? echo $row['nombres'] ?></option>
+												<option value='<? echo $id_cliente ?>'><? echo $nombre_cliente ?></option>
 												"<?php echo $option; ?>"
 											</select>
 										</div> 

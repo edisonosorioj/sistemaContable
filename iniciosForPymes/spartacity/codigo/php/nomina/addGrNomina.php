@@ -43,7 +43,10 @@ $query2 = mysqli_query($result,"SELECT * FROM usuarios WHERE iduser = '$idusuari
 
 $row = $query2->fetch_assoc();
 
-	$valor_nomina 	= $row['valor_nomina'];
+	$valor_nomina 		= $row['valor_nomina'];
+	$aplicar_deduccion 	= $row['aplicar_deduccion'];
+
+if ($aplicar_deduccion == 1) {
 
 	$auxilio 		= 97032;
 	$compensacion 	= 0;
@@ -54,6 +57,22 @@ $row = $query2->fetch_assoc();
 	$deducciones 	= $salud + $pension + $prestamos;
 	$pago_total		= $devengado - $deducciones;
 	$dias 			= 30;
+
+} else {
+	
+	$auxilio 		= 0;
+	$compensacion 	= 0;
+	$salud 			= 0;
+	$pension 		= 0;
+	$prestamos 		= 0;
+	$devengado		= $valor_nomina + $auxilio + $compensacion;
+	$deducciones 	= $salud + $pension + $prestamos;
+	$pago_total		= $devengado - $deducciones;
+	$dias 			= 30;
+
+}
+
+
 
 // Agrega producto a la tabla GrupoNomina
 

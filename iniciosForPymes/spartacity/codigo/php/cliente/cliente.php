@@ -24,7 +24,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor, c.categoria from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 
 
@@ -37,6 +37,7 @@ $tr = '';
 				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
 				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
 				<td>" . $row['telefono'] 	. "</td>
+				<td>" . $row['categoria'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
@@ -113,6 +114,9 @@ $html="<!DOCTYPE html>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
 				</div>
+				<div class='bs-component mb20 col-md-2'>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoMasivo.php\")'>Masivo</button>
+				</div>
 				<div class='bs-component mb20 col-md-6'>
 			  		<h3>Cartera Pendiente: $ $cTotal</h3>
 			  	</div>
@@ -121,10 +125,11 @@ $html="<!DOCTYPE html>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>ID</th>
-							<th>Empresa</th>
+							<th>Documento</th>
+							<th>Acudiente</th>
 							<th>Nombre</th>
 							<th>Telefono</th>
+							<th>Categoria</th>
 							<th>Saldo</th>
 							<th>Acciones</th>
 						  </tr>

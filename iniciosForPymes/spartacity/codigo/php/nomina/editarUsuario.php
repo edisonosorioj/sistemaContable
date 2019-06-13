@@ -1,14 +1,14 @@
 <?php
-	
+
 require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
-	
+
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select iduser, nombre, apellido, documento, fecha_contrato, fecha_fin_contrato, valor_nomina from usuarios where iduser='$id'");
+$query = mysqli_query($result, "select * from usuarios where iduser = '$id'");
 
 $row=$query->fetch_assoc();
 
@@ -19,7 +19,26 @@ $documento 			= $row['documento'];
 $fecha_contrato 	= $row['fecha_contrato'];
 $fecha_fin_contrato = $row['fecha_fin_contrato'];
 $valor_nomina 		= $row['valor_nomina'];
-	
+$estado 			= $row['estado'];
+$aplicar_deduccion	= $row['aplicar_deduccion'];
+
+if ($estado == 0 || $estado == '') {
+$si_no = "<option value='0'>Inactivo</option>
+<option value='1'>Activo</option>";
+} else {
+$si_no = "<option value='1'>Activo</option>
+<option value='0'>Inactivo</option>";
+}
+
+if ($aplicar_deduccion == 0 || $estado == '') {
+$si_no2 = "<option value='0'>No</option>
+<option value='1'>Si</option>";
+} else {
+$si_no2 = "<option value='1'>Si</option>
+<option value='0'>No</option>";
+}
+
+
 ?>
 <!-- Se crea el HTML con la información del Cliente -->
 <!DOCTYPE html>
@@ -44,20 +63,20 @@ $valor_nomina 		= $row['valor_nomina'];
 <script src="../../js/modernizr.js"></script>
 <script src="../../js/jquery.cookie.js"></script>
 <script src="../../js/screenfull.js"></script>
-		
+
 </head>
 <body class="dashboard-page">
 
 	<section class="wrapper scrollable">
 		<nav class="user-menu">
-			<a href="javascript:;" class="main-menu-access">
+		<a href="javascript:;" class="main-menu-access">
 			<i class="icon-proton-logo"></i>
 			<i class="icon-reorder"></i>
-			</a>
+		</a>
 		</nav>
 		<div class="main-grid">
-			<div class="agile-grids">	
-				<!-- input-forms -->
+			<div class="agile-grids">
+		<!-- input-forms -->
 				<div class="grids">
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
@@ -91,6 +110,18 @@ $valor_nomina 		= $row['valor_nomina'];
 											<label>Nomina</label> 
 											<input type="text" name="valor_nomina" class="form-control" placeholder="Nomina" value="<?php echo $valor_nomina; ?>"> 
 										</div>
+										<div class="form-group"> 
+											<label>Estado</label> 
+											<select name='estado' class='form-control'>
+												<?php echo $si_no; ?>
+											</select> 
+										</div>
+										<div class="form-group"> 
+											<label>Aplicar Deducciones</label> 
+											<select name='aplicar_deduccion' class='form-control'>
+												<?php echo $si_no2; ?>
+											</select> 
+										</div>
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 
@@ -101,7 +132,7 @@ $valor_nomina 		= $row['valor_nomina'];
 					</div>
 
 				</div>
-				<!-- //input-forms -->
+		<!-- //input-forms -->
 			</div>
 		</div>
 	</section>

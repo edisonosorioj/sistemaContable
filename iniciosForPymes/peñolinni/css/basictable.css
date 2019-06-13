@@ -51,5 +51,4 @@ table.bt tbody td .bt-content {
 .bt-wrapper.active {
   max-height: 310px;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }

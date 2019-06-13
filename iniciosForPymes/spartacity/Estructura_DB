@@ -1,0 +1,1 @@
+ALTER TABLE `clientes` ADD COLUMN `fecha_nacimiento` VARCHAR(45) NULL AFTER `direccion`, ADD COLUMN `doc_empresa` VARCHAR(45) NULL  AFTER `fecha_nacimiento`, ADD COLUMN `rh` VARCHAR(45) NULL AFTER `doc_empresa`, ADD COLUMN `categoria` VARCHAR(45) NULL AFTER `rh`, ADD COLUMN `seguro_social` VARCHAR(45) NULL AFTER `categoria`;

@@ -101,11 +101,13 @@ if ($rows > 0)
 $varIva				= $datos['iva'];
 
 // Se encarga de reemplazar los valores de subtotal e Iva.
-$valorSubTotal = $row3['valor'];
-$valorIva = $row3['valor'] * 0.19;
-$valorPedido = $valorSubTotal + $valorIva;
+$valorPedido = $row3['valor'];
+
 
 if ($varIva == 1) {
+	$valorSubTotal = $row3['valor'];
+	$valorIva = $row3['valor'] * 0.19;
+	$valorPedido = $valorSubTotal + $valorIva;
 	$iva = "<tr>
 				<td colspan='3'></td>
 				<td><b>SubTotal</b></td>

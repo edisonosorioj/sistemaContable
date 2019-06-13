@@ -8,11 +8,12 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select c.id as id_cliente, p.nombre_pedido, p.fecha, c.nombres as nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id='$id'");
+$query = mysqli_query($result, "select c.id as id_cliente, p.nombre_pedido, p.fecha, c.nombres as nombres from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 
 $row=$query->fetch_assoc();
 
-$id_cliente = $row['id_cliente'];
+$id_cliente 		= $row['id_cliente'];
+$nombres_cliente 	= $row['nombres'];
 
 
 $option='';
@@ -98,7 +99,7 @@ $(function () {
 										<div class="form-group"> 
 											<label>Cliente</label> 
 											<select name='cliente' class='form-control1'>
-												<option value='<? echo $id_cliente ?>'><? echo $row['nombres'] ?></option>
+												<option value='<?php echo $id_cliente ?>'><?php echo $nombres_cliente;?></option>
 												"<?php echo $option; ?>"
 											</select>
 										</div> 

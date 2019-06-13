@@ -86,7 +86,7 @@ $menu = "
 				<a href='../pedidos/pedido.php' " . $status . ">
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
-					Pedidos
+					Mensualidades
 					</span>
 				</a>
 			</li>

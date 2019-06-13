@@ -41,7 +41,7 @@ $query = mysqli_query($result,'select * from ingresos order by fecha desc');
 
 $query2 = mysqli_query($result,'select SUM(valor) as total from ingresos');
  	$row2 = $query2->fetch_assoc();
- 	$ing = $row2['total'];
+ 	$ing = ($row2['total'] != '')? $row2['total'] : 0;
 
 $html="<!DOCTYPE html>
 <head>
