@@ -23,8 +23,10 @@ $sumtotal = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}elseif ($idrol == 1) {
 	include "../menu2.php";
+}else{
+	include "../menu3.php";
 }
 
 $query = mysqli_query($result,'select * from productos where idproductos != 0 order by idproductos');

@@ -33,7 +33,14 @@ $result = $conex->conex();
 include "graficas.php";
 
 if ($idrol == 0) {
-	include "../menu.php";
+	if ($idrol == 0) {
+			include "../menu.php";
+		}elseif ($idrol == 1) {
+			include "../menu2.php";
+		}else{
+			include "../menu3.php";
+	};
+	
 	$caja = $ingmes - $egrmes;
 	$graficas = "
 				<div class='col-md-6 charts-right'>

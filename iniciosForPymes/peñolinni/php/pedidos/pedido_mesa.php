@@ -28,8 +28,10 @@ $iva = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}elseif ($idrol == 1) {
 	include "../menu2.php";
+}else{
+	include "../menu3.php";
 }
 
 // Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido
@@ -38,7 +40,7 @@ $id = $_GET['id'];
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
 $query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row3=$query3->fetch_assoc();
-$id_pedido 		= $row3['pedido_id'];
+$id_pedido 		= $id;
 $nombre_pedido 	= $row3['nombre_pedido'];
 $nombre_cliente = $row3['nombres'];
 $id_cliente 	= $row3['id'];
@@ -93,15 +95,16 @@ if ($estado == 1) {
 		$hacerPedido 	= "";
 		$ordenLista 	= "";
 		$pagar 			= "<div class='col-md-2'>
-							<form class='form-horizontal' action='pagarPedidoMesa.php' method='post'>
-								<input type='hidden' name='pedido_id' value='$id'>
-								<input type='hidden' name='valor_pedido' value='$valorPedido2'>
-								<button type='submit' class='ordenes button'>Pagar</button> 
-							</form> 
-						   </div>";
+							<div class='ordenes button'> 
+								<a href='#' onclick='javascript:abrir2(\"valorPedidoMesa.php?id=$id\")'>
+					 				<h2>Pagar</h2>
+					 			</a>
+							</div>
+						</div>";
 } else {
-		$hacerPedido 	= "<div class='col-md-2'>
-							<form class='form-horizontal' action='hacerPedidoMesa.php' method='post'>
+		$hacerPedido 	= "
+						   <div class='col-md-2'>
+							<form class='form-horizontal' action='valorPedidoMesa.php' method='post'>
 								<input type='hidden' name='pedido_id' value='$id'>
 								<button type='submit' class='ordenes button'>Hacer Pedido</button> 
 							</form> 
@@ -166,6 +169,9 @@ else return false;
     }); 
 	function abrir(url) { 
 	open(url,'','top=50,left=50,width=900,height=600') ; 
+	}
+	function abrir2(url) { 
+	open(url,'','top=50,left=50,width=500,height=300') ; 
 	}
 </script>
 <!-- //tables -->

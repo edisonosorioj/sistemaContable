@@ -43,20 +43,12 @@ if ($grupo == 1) {
 		            Completa
 		        </label>
 		    </div>
-		    <br />
-		    <div class='radio'>
+		    <br />";
+
+	$div2 = "<div class='radio'>
 	            <label style='font-size: 2.5em'>
-	                Cant. Adicionales<br/>
-	                <input type='number' name='can_adicion'>
-	            </label>
-	        </div>
-		    <div class='radio'>
-	            <label style='font-size: 2.5em'>
-	                Adiciones:<br/>
-	                <select>
-	                <option></option>
-	                </select>
-	                <input type='number' name='can_adicion'>
+	                # Adiciones<br/>
+	                <input type='number' name='can_adicion' value='0'>
 	            </label>
 	        </div>
 			";
@@ -111,15 +103,15 @@ $html = "
 						                <input type='number' name='cantidad' value='1'>
 						            </label>
 						        </div>
+						        ".$div2."
 					            <div class='radio'>
 						            <label style='font-size: 2.5em'>
 						                Nota<br/>
-						                <input type='nota' name='nota' cols=38 rows=5>
+						                <textarea name='nota' cols='20' rows='3'></textarea>
 						            </label>
 						        </div>
 						        <button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
 								<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
-					        </div>
 						</form>
 					</div> 
 				</div>

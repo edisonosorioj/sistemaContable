@@ -41,8 +41,10 @@ $result = $conex->conex();
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}elseif ($idrol == 1) {
 	include "../menu2.php";
+}else{
+	include "../menu3.php";
 }
 
 $query4 = mysqli_query($result, "select * from variables;");

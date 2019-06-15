@@ -20,7 +20,13 @@ $result = $conex->conex();
 $tr = '';
 $tr2 = '';
 
-include "../menu.php";
+if ($idrol == 0) {
+	include "../menu.php";
+}elseif ($idrol == 1) {
+	include "../menu2.php";
+}else{
+	include "../menu3.php";
+}
 
 $query = mysqli_query($result,'select * from ingresos order by fecha desc');
 

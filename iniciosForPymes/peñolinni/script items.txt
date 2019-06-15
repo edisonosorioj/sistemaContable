@@ -154,6 +154,10 @@ insert into precio_x_item (iditems,nombre,valor) values ("32", "Tinto", "1000");
 insert into precio_x_item (iditems,nombre,valor) values ("33", "Aromatica", "1000");
 insert into precio_x_item (iditems,nombre,valor) values ("34", "Café", "1500");
 
+update precio_x_item set nombre = "Frio" where idprecios = 100;
+insert into precio_x_item (iditems,nombre,valor) values ("26", "Caliente", "3500");
+insert into precio_x_item (iditems,nombre,valor) values ("26", "Sin Azucar", "3500");
+
 update items set grupo = "1" where iditems = "1";
 update items set grupo = "1" where iditems = "2";
 update items set grupo = "1" where iditems = "3";
