@@ -3,7 +3,8 @@
 if (isset($_SESSION['idrol'])){
 
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
-	$pedidomesas 		= $_SESSION['mesas'];
+	$nomina 			= $_SESSION['modulo_nomina'];
+	$pedidoMesas 		= $_SESSION['mesas'];
 	
 }
 
@@ -12,7 +13,7 @@ $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $status 			= '';
 
 $status 		= ($fecha_contrato < $fecha_actual) ? "class='class_a_href'" 			: $status;
-$pedidomesas 	= ($pedidomesas == 1) 				? '../pedidos/pedidos_mesas.php' 	: '../pedidos/pedido.php' ;
+$pedidoMesas 	= ($pedidoMesas == 1) 				? "../pedidos/pedidos_mesas.php" 	: "../pedidos/pedido.php" ;
 
 $menu = "
 	<head>
@@ -42,7 +43,7 @@ $menu = "
 				<a href='../cliente/cliente.php' " . $status . ">
 					<i class='icon-user nav-icon'></i>
 					<span class='nav-text'>
-						Clientes
+						Mesas
 					</span>
 				</a>
 			</li>

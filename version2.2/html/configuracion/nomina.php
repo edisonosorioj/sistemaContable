@@ -76,8 +76,9 @@ $html = "<!DOCTYPE html>
 								</div>
 								<div class='form-body'>
 									<form action='../../php/configuracion/actNomina.php' method='post'> 
+									Tenga en cuenta que su mensualidad puede variar. Sería un valor variable de $10.000.
 										<div class='form-group'> 
-											<label>Estado uso de Nomina = $nomina</label>
+											<label><br />Estado uso de Nomina = $nomina</label>
 											<select name='nomina' class='form-control1'>
 												<option value=" . $row['detalle'] . ">Cambiar</option>
 												<option value='0'>No</option>

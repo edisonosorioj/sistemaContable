@@ -28,6 +28,7 @@ if ($rows > 0)
 }  
 
 $plan 				= $datos['plan'];
+$empresa 			= $datos['empresa'];
 $dia_contrato		= substr($fecha_ultimo_pago,8,2);
 $mes_contrato		= substr($fecha_ultimo_pago,5,2);
 $ano_contrato		= substr($fecha_ultimo_pago,0,4);
@@ -128,37 +129,50 @@ $(function () {
 			<div class='agile-grids'>	
 				<!-- input-forms -->
 				<div class='grids'>
-					<div class='progressbar-heading grids-heading'>
-						<h2>Actualización de Datos</h2>
-					</div>
 					<div class='panel panel-widget forms-panel'>
 						<div class='forms'>
 							<div class='form-grids widget-shadow' data-example-id='basic-forms'> 
 								<div class='form-title'>
-									<h4>Datos Básicos :</h4>
+									<h4>Plan de Pago</h4>
 								</div>
 								<div class='form-body'>
-									<form action='../../php/configuracion/actDatosEmpresa.php' method='post'> 
+									<form action='comprobando_pago.php' method='post' enctype='multipart/form-data'> 
 										<div class='form-group'> 
 											<label>$mensaje</label>
 											<label>El valor de renovación es $ " . number_format($plan, 0, ",", ".") . " mensuales.</label><br /><br />
 											<input type='text' name='pago' class='form-control' value='$plan' disabled/> 
 											<label><b>Importante:</b> Guardar el comprobante de la transacción para confirmar la compra al final de la transacción.</label>
-										    <script src='https://checkout.epayco.co/checkout.js' 
-										        data-epayco-key='e8ec571b71dd508dde052517da8d0051' 
-										        class='epayco-button' 
-										        data-epayco-amount='25000'  
-										        data-epayco-name='Suscripción Mensual Forpymes' 
-										        data-epayco-description='Suscripción Mensual Forpymes' 
-										        data-epayco-currency='COP'    
-										        data-epayco-country='CO' 
-										        data-epayco-test='true' 
-										        data-epayco-external='false' 
-										        data-epayco-response='https://forpymes.co/demo/php/configuracion/pago_en_proceso.php'  
-										        data-epayco-confirmation='https://forpymes.co/demo/php/configuracion/pago_exitoso.php' 
-										        data-epayco-button='https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/boton_carro_de_compras_epayco5.png'> 
-										    </script> 
 										</div>
+										<div>											
+											<br />
+											<table border='1'>
+												<tr>
+													<th colspan='3'>
+														<h4>Formas de Pago :</h4>
+													</th>
+												</tr>
+												<tr height='150px'>
+													<td width='30%' align='center'>
+														<b>Bancolombia:</b><br />Ahorros<br />Edison Osorio<br />CC. 1038407938
+													</td>
+													<td width='30%' align='center'>
+														<b>Efecty:</b><br />Marinilla - Ant.<br />Edison Osorio<br />CC. 1038407938
+													</td>
+													<td width='40%' align='center'>
+														<img width='100%' src='../../images/pago_forpymes_30.png'>
+													</td>
+												</tr>
+											</table>
+											<p></p>
+											<p></p>
+										</div>
+										<br />
+											<input type='hidden' name='empresa' value='$empresa' class='form-control'> 
+											<input type='hidden' name='valor' value='$plan' class='form-control'> 
+											Adjuntar Comprobante de Pago: 
+											<input type='file' name='foto'/>
+										<br />
+											<input class='boton' type='submit' value='Guardar' />
 									</form> 
 								</div>
 							</div>
@@ -176,9 +190,3 @@ $(function () {
 </html>";
 
 echo $html;
-
-// BOTON DE PAGO
-// <a mp-mode='dftl' href='https://www.mercadopago.com/mco/checkout/start?pref_id=134487234-fd472276-c019-48c8-9bd4-254a73f3f412' name='MP-payButton' class='blue-ar-l-sq-coall'>Pagar</a>
-// <script type='text/javascript'>
-// (function(){function \$MPC_load(){window.\$MPC_loaded !== true && (function(){var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = document.location.protocol+'//secure.mlstatic.com/mptools/render.js';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);window.\$MPC_loaded = true;})();}window.\$MPC_loaded !== true ? (window.attachEvent ?window.attachEvent('onload', \$MPC_load) : window.addEventListener('load', \$MPC_load, false)) : null;})();
-// </script>

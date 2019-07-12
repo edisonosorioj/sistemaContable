@@ -17,6 +17,9 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+$td = '';
+$div = '';
+$id = $_GET['id'];
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -26,34 +29,41 @@ if ($idrol == 0) {
 	include "../menu3.php";
 }
 
+
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select * from nomina;');
 
-$tr = '';
+$query2 = mysqli_query($result,"select * from precio_x_item where iditems = '$id';");
 
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
+while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
 
- 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
+	$nombre2 	= $row2['nombre'];
+	$idprecios 	= $row2['idprecios'];
+	$valor 		= $row2['valor'];
+	$iditems 	= $row2['iditems'];
 
- 	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['idnomina'] 		. "</td>
-				<td>" . $row['fecha']	. "</td>
-				<td>" . $row['nombre'] 		. "</td>
-				<td  align='right'>$ " . number_format($row['total_nomina'], 0, ",", ".") . "</td>
-				<td>" . $estado	. "</td>
-				<td><a onclick='javascript:abrir(\"editarNomina.php?id=" . $row['idnomina'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='grupoNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Detalles'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off'></i></a>
-				</td>
-			</tr>";
+	$td .= "<td width='100px'>
+				<a href='#' onclick='javascript:abrir(\"detalles.php?id=" . $idprecios . "\")'>
+					<div class='especial'>" . $nombre2 . " - " . $valor . "</div>
+				</a>
+		   </td>
+		";
+}
 
- }
+
+
+if ($iditems == 1) {
+	$nombreGrupo = "Pizzas";
+} elseif($iditems == 2) {
+	$nombreGrupo = "Carnes";
+} elseif($iditems == 3) {
+	$nombreGrupo = "Otros";
+} else {
+	$nombreGrupo = "Bebidas";
+}
 
 $html="<!DOCTYPE html>
 <head>
-<title>Nomina</title>
+<title>Inventario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -91,7 +101,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=400') ; 
+	open(url,'','top=100,left=100,width=900,height=500') ; 
 	}
 </script>
 <script>
@@ -113,31 +123,22 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Nomina</h2>
+					<h2>$nombreGrupo</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/nomina/nuevaNomina.html\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/productos/nuevoItem.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
-					<div class='w3l-table-info'>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>Id</th>
-							<th>Fecha</th>
-							<th>Nombre</th>
-							<th>Valor</th>
-							<th>Estado</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  " 
-						  . $tr . 
-						  "
-						</tbody>
-					  </table>
-					</div>
+					<div class='center'>
+						<table>
+							<tr>
+								"
+								. $td . 
+								"
+							</tr>
+						</table>
+					</div> 
 				</div>
 				<!-- //tables -->
 			</div>
@@ -155,3 +156,4 @@ else return false;
 </html>";
 
 echo $html;
+

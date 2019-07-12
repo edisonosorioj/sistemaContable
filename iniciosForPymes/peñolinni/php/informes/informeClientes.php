@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -94,7 +94,7 @@ $html="<!DOCTYPE html>
 <script type='text/javascript' src='../../js/jquery.basictable.min.js'></script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	

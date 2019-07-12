@@ -21,7 +21,7 @@ $id=$_GET['id'];
 // Realiza la eliminación del producto.
 
 
-if ($estado == 2) {
+if ($estado == 3) {
 
  	$msg = "El producto no puede ser eliminado, debes cancelar primero el pedido";
 

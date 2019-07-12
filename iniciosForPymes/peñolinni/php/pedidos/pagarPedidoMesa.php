@@ -4,7 +4,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -48,12 +48,8 @@ if ($estado != 0){
 
 	$query2 = mysqli_query($result,"UPDATE pedidoProductos set registro_id = '$registro_id' where pedido_id = '$pedido_id' and registro_id is null;");
 
-	//Según la respuesta de la inserción se da una respuesta en un alert 
-		if($query > 0){
-			$msg = "El pago se hizo correctamente";
-		}else{
-			$msg = 'Error al agregar el pedido. Intente nuevamente';
-		}
+	$query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', '$valor_pedido', '$cliente_id');");
+
 
 	}else{
 		$msg = "No puedes pagar un pedido sino lo haz realizado.";
@@ -61,9 +57,9 @@ if ($estado != 0){
 	
 		
 	$html = "<script>
-		window.alert('$msg');
-		self.location='pedidos_mesas.php';
 		opener.location.reload();
+		location.href='pedidos_mesas.php';
+		window.close();
 	</script>";
 	
 	echo $html;	

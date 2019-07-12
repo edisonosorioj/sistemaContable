@@ -25,13 +25,22 @@ $query = mysqli_query($result,'select * from administradores');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	if ($row['idrol'] == 0) {
+ 		$txtRol = 'Administrativo';
+ 	} elseif ($row['idrol'] == 1) {
+ 		$txtRol = 'Comercial';
+ 	}else{
+ 		$txtRol = 'Otro';
+ 	}
+ 	
+
  	$tr .=	"<tr class='rows' id='rows'>
- 				<td>" . $row['idadmin']			. "</td>
-				<td>" . $row['documento'] 		. "</td>
-				<td>" . $row['nombre'] 			. "</td>
-				<td>" . $row['apellido'] 		. "</td>
-				<td>" . $row['idrol'] 			. "</td>
-				<td>" . $row['login'] 			. "</td>
+ 				<td>" . $row['idadmin']		. "</td>
+				<td>" . $row['documento'] 	. "</td>
+				<td>" . $row['nombre'] 		. "</td>
+				<td>" . $row['apellido'] 	. "</td>
+				<td>" . $txtRol 			. "</td>
+				<td>" . $row['login'] 		. "</td>
 				<td><a onclick='javascript:abrir(\"editarUsuario.php?id=" . $row['idadmin'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarUsuario.php?id=" 	. $row['idadmin'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
 			</tr>";

@@ -4,7 +4,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -13,6 +13,7 @@ if (isset($_SESSION['idrol'])){
 
 	$idrol 				= $_SESSION['idrol'];
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
+	$pedidomesas 		= $_SESSION['mesas'];
 	
 }
 
@@ -33,13 +34,13 @@ $result = $conex->conex();
 include "graficas.php";
 
 if ($idrol == 0) {
-	if ($idrol == 0) {
-			include "../menu.php";
-		}elseif ($idrol == 1) {
-			include "../menu2.php";
-		}else{
-			include "../menu3.php";
-	};
+		include "../menu.php";
+	}elseif ($idrol == 1) {
+		include "../menu2.php";
+	}else{
+		include "../menu3.php";
+};
+if ($idrol == 0) {
 	
 	$caja = $ingmes - $egrmes;
 	$graficas = "
@@ -95,7 +96,6 @@ if ($idrol == 0) {
 					</div>
 				</div>";
 } else {
-	include "../menu2.php";
 	$graficas = "<div class='col-md-6 charts-right'>
 					<div class='area-grids-heading'>
 						<h3>Bienvenidos</h3>
@@ -150,7 +150,7 @@ $html= "<!DOCTYPE html>
 <script src='../../js/skycons.js'></script>
 <!--//skycons-icons-->
 </head>
-	<body class='dashboard-page'>
+	<body class='dashboard-page' style='overflow: scroll !important;'>
 			<div class='alert-warning'><p>" . $msg . "<p></div>
 			<div class='agile-grids'>
 

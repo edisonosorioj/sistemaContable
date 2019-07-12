@@ -85,7 +85,7 @@ $html = "
 		</script>
 		
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 	<section class='wrapper scrollable'>
 		<div class='main-grid'>

@@ -149,7 +149,9 @@ insert into precio_x_item (iditems,nombre,valor) values ("29", "Aguila Light", "
 insert into precio_x_item (iditems,nombre,valor) values ("29", "Club Colombia", "4500");
 insert into precio_x_item (iditems,nombre,valor) values ("29", "Corona", "7000");
 insert into precio_x_item (iditems,nombre,valor) values ("30", "Botella", "2000");
-insert into precio_x_item (iditems,nombre,valor) values ("31", "Gaseosa", "2000");
+insert into precio_x_item (iditems,nombre,valor) values ("31", "Gaseosa 350", "2000");
+insert into precio_x_item (iditems,nombre,valor) values ("31", "Gaseosa 1 1/4", "4000");
+insert into precio_x_item (iditems,nombre,valor) values ("31", "H2O", "2000");
 insert into precio_x_item (iditems,nombre,valor) values ("32", "Tinto", "1000");
 insert into precio_x_item (iditems,nombre,valor) values ("33", "Aromatica", "1000");
 insert into precio_x_item (iditems,nombre,valor) values ("34", "Café", "1500");

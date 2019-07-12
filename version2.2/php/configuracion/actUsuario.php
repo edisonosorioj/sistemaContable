@@ -18,9 +18,9 @@ $result = $conex->conex();
 	$documento	=	$_POST['documento'];
 	$nombre		=	$_POST['nombre'];
 	$apellido	=	$_POST['apellido'];
-	$idrol	 	=	$_POST['idrol'];
+	$idrol	 	=	$_POST['rol'];
 	$login	 	=	$_POST['login'];
-	$password 	=	$_POST['password'];
+	$password 	=	$_POST['contrasena'];
 
 // Agrega nuevos usuarios según el formulario recibido
 	if ($password != '') {

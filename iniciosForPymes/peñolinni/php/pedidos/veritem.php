@@ -20,7 +20,7 @@ if ($id == 1) {
 }
 
 // Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,"select * from items where grupo = '$id';");
+$query = mysqli_query($result,"select *, REPLACE( nombre, 'Pizza ', '') as nombre from items where grupo = '$id';");
 
 $div = '';
 
@@ -49,7 +49,7 @@ $div = '';
 			<tr height='50px'>
 				<td style='text-align:left;width:150px'>
 					<div class='especial' style='background-color:#abb6fd;'>
-						$nombre
+						&nbsp;$nombre
 					</div>
 				</td>
 				" . $td . "
@@ -87,7 +87,7 @@ $html = "
 	}
 </script>
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 	<section class=''>
 		<div class=''>
@@ -97,7 +97,7 @@ $html = "
 					<div class='progressbar-heading'>
 						<h1>$nombreGrupo</h1>
 					<div>
-					<button class='button' onclick='opener.location.href=\"pedido_mesa.php?id=" . $mesa . "\"; self.close();'>Listo!</button>
+					<button class='button' onclick='opener.location.href=\"pedido_mesa.php?id=" . $mesa . "\"; self.close();'>Listo</button>
 					<button class='button' onclick='window.close();'>Cancelar</button>
 					</div>
 					</div>

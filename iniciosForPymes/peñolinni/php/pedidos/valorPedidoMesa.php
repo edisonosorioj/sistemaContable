@@ -8,6 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de productos del pedido y permite abrir un nuevo html y con información existente
 $html 		= '';
 $id 		= $_GET['id'];
+$ajuste		= 0;
 
 $query3 = mysqli_query($result, "select count(*) as conteo from pedidoProductos where pedido_id = '$id' and producto like '%- Media%' and registro_id is null;");
 $row3	= $query3->fetch_assoc();
@@ -15,16 +16,19 @@ $row3	= $query3->fetch_assoc();
 $conteo	= $row3['conteo'];
 
 if (($conteo == 2) || ($conteo == 4) || ($conteo == 6)) {
-	# code...
-} else {
-	# code...
+	$query2 = mysqli_query($result, "select sum(valort) as total from pedidoProductos where pedido_id = '$id' and registro_id is null and producto like '%- Media%';");
+	$row2	= $query2->fetch_assoc();
+
+	$subtotal	= $row2['total'];
+	$ajuste = (substr($subtotal, -3) == 500 ) ? 500 : 0 ;
 }
 
 
 $query2 = mysqli_query($result, "select sum(valort) as total from pedidoProductos where pedido_id = '$id' and registro_id is null;");
 $row2	= $query2->fetch_assoc();
 
-$valor_pedido	= $row2['total'];
+$valor_pedido	= $row2['total'] + $ajuste;
+$valor_pedido2	= number_format($valor_pedido, 0, ",", ".");
 
 $html = "
 <!DOCTYPE html>
@@ -58,9 +62,11 @@ $html = "
 					</div>
 					<div style='align-content:right;'>
 						<form action='pagarPedidoMesa.php' method='post'>
+							<input type='hidden' name='pedido_id' value='$id'>
+							<input type='hidden' name='valor_pedido' value='$valor_pedido'>
 					            <div class='radio'>
 						            <label style='font-size: 2.5em'>
-						                <h2>$valor_pedido</h2>
+						                <h2>$ $valor_pedido2</h2>
 						            </label>
 						        </div>
 						        <button type='submit' class='btn btn-default w3ls-button'>Pagar</button> 

@@ -19,9 +19,9 @@ $fecha_actual		= strtotime(date('d-m-Y'));
 $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $msg				= '';
 
-// if ($fecha_contrato <= $fecha_actual) {
-// 	$msg = "Recuerde renovar su licencia. Para hacerlo reviselo <a href='../configuracion/configuracion.php'>AQUÍ</a>";
-// }
+if ($fecha_contrato <= $fecha_actual) {
+	$msg = "Recuerde renovar su licencia. Para hacerlo reviselo <a href='../configuracion/configuracion.php'>AQUÍ</a>";
+}
 
 require_once "../conexion.php";
 

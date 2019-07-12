@@ -17,6 +17,7 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+$tr = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -26,34 +27,38 @@ if ($idrol == 0) {
 	include "../menu3.php";
 }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select * from nomina;');
+$query = mysqli_query($result,'SELECT i.iditems as iditems, i.nombre as nombre, i.grupo as grupo, i.estado as estado, p.idprecios as idprecios FROM items i INNER JOIN precio_x_item p ON i.iditems = p.iditems WHERE i.iditems != 0 GROUP BY i.iditems ORDER BY i.iditems');
 
-$tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
+ $estado = ($row['estado'] == 1) ? 'Activo' : 'Inactivo';
+
+ if ($row['grupo'] == 1) {
+	$nombreGrupo = "Pizzas";
+} elseif($row['grupo'] == 2) {
+	$nombreGrupo = "Carnes";
+} elseif($row['grupo'] == 3) {
+	$nombreGrupo = "Otros";
+} else {
+	$nombreGrupo = "Bebidas";
+}
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['idnomina'] 		. "</td>
-				<td>" . $row['fecha']	. "</td>
+				<td>" . $row['iditems'] 	. "</td>
 				<td>" . $row['nombre'] 		. "</td>
-				<td  align='right'>$ " . number_format($row['total_nomina'], 0, ",", ".") . "</td>
-				<td>" . $estado	. "</td>
-				<td><a onclick='javascript:abrir(\"editarNomina.php?id=" . $row['idnomina'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='grupoNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Detalles'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off'></i></a>
-				</td>
+				<td>" . $estado 			. "</td>
+				<td>" . $nombreGrupo 		. "</td>
+				<td><a href='editarItem.php?id=" . $row['idprecios'] . "'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarItem.php?id=" . $row['idprecios'] . "'><span data-tooltip='Eliminar'>
+				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
 
  }
 
 $html="<!DOCTYPE html>
 <head>
-<title>Nomina</title>
+<title>Inventario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -91,7 +96,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=400') ; 
+	open(url,'','top=100,left=100,width=900,height=500') ; 
 	}
 </script>
 <script>
@@ -113,21 +118,20 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Nomina</h2>
+					<h2>Productos</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/nomina/nuevaNomina.html\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/productos/nuevoItem.html\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Id</th>
-							<th>Fecha</th>
-							<th>Nombre</th>
-							<th>Valor</th>
+							<th>ID</th>
+							<th>Producto</th>
 							<th>Estado</th>
+							<th>Grupo</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
@@ -155,3 +159,4 @@ else return false;
 </html>";
 
 echo $html;
+

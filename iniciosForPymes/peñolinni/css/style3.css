@@ -57,6 +57,10 @@
     opacity: .5;
 }
 
+input[type=checkbox] {
+  transform: 1.3em !important;
+}
+
 body{
     text-align: center;
 }

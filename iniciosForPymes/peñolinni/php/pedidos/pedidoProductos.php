@@ -6,7 +6,7 @@ session_start();
 // Verifica que la sesion este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -177,7 +177,7 @@ else return false;
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	

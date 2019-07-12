@@ -6,7 +6,7 @@ session_start();
 // Verifica que la sesion este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -57,7 +57,7 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
 				<td>" 	. 	$row['cantidad'] 	. "</td>
 				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 				<td>
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off' style='font-size:2em;'></i></spam></a>
 				</td>
 			</tr>";
 
@@ -102,9 +102,8 @@ if ($estado == 1) {
 							</div>
 						</div>";
 } else {
-		$hacerPedido 	= "
-						   <div class='col-md-2'>
-							<form class='form-horizontal' action='valorPedidoMesa.php' method='post'>
+		$hacerPedido 	= "<div class='col-md-2'>
+							<form class='form-horizontal' action='hacerPedidoMesa.php' method='post'>
 								<input type='hidden' name='pedido_id' value='$id'>
 								<button type='submit' class='ordenes button'>Hacer Pedido</button> 
 							</form> 
@@ -252,6 +251,12 @@ else return false;
 						</tr>
 						</tbody>
 					  </table>
+					</div>
+					<div class='col-md-2'>
+						<form class='form-horizontal' action='cancelarPedidoMesa.php' method='post'>
+							<input type='hidden' name='pedido_id' value='$id'>
+							<button onClick=\"return confirmar('¿Estas seguro de eliminar?')\" type='submit' class='ordenes button'>Cancelar Orden</button> 
+						</form> 
 					</div>
 					" . $pagar . "
 				</div>

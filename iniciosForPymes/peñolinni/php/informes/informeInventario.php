@@ -108,7 +108,7 @@ else return false;
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	

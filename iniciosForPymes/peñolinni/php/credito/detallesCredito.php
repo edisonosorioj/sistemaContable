@@ -1,6 +1,9 @@
 <?php
+// Version 2.0 of Edison Osorio
 session_start();
 
+
+// Verifica que la sesion este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
 	header("Location: ../inicio/session.html");
@@ -13,10 +16,13 @@ if (isset($_SESSION['idrol'])){
 	
 }
 
-require_once "../conexion.php";
+require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
+$tr = '';
+$tr2 = '';
+$deuda = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -26,34 +32,54 @@ if ($idrol == 0) {
 	include "../menu3.php";
 }
 
-// Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select * from nomina;');
+// Obtiene el ID enviado desde Cliente para visualizar su historial
+$fecha = $_GET['fecha'];
 
-$tr = '';
+// Realiza la consulta para ser visualizada en un tabla por medio de un While
+$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join creditos cr on c.id = cr.idclientes where cr.fecha = '$fecha' order by cr.idcreditos DESC, fecha DESC;");
+
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
-
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['idnomina'] 		. "</td>
-				<td>" . $row['fecha']	. "</td>
-				<td>" . $row['nombre'] 		. "</td>
-				<td  align='right'>$ " . number_format($row['total_nomina'], 0, ",", ".") . "</td>
-				<td>" . $estado	. "</td>
-				<td><a onclick='javascript:abrir(\"editarNomina.php?id=" . $row['idnomina'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='grupoNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Detalles'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarNomina.php?id=" . $row['idnomina'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off'></i></a>
+				<td>" . $row['idcreditos'] 	. "</td>
+				<td>" . $row['fecha'] 		. "</td>
+				<td>" . $row['detalles'] 	. "</td>
+				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
+				<td>
+				<a class='botonTab' onclick='javascript:abrir(\"editarDetallesCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarDetallesCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
 				</td>
 			</tr>";
 
  }
 
+// Utilizamos esta consulta para obtener el nombre del cliente en su historial 
+$query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
+
+$row2=$query2->fetch_assoc();
+
+$nombre = $row2['nombres'];
+
+// Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
+$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
+
+$row3 = $query3->fetch_assoc();
+
+if($row3['total'] < 0){
+
+	$deuda .="<label class='deuda'>Cartera Pendiente: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
+
+}else{
+	$deuda .="<label class='aFavor'>Cartera a Favor: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
+
+}
+
+// Se contruye el HTML para imprimirlo mas adelante.
+
 $html="<!DOCTYPE html>
 <head>
-<title>Nomina</title>
+<title>Credito</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -91,7 +117,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=400') ; 
+	open(url,'','top=100,left=100,width=900,height=600') ; 
 	}
 </script>
 <script>
@@ -113,21 +139,23 @@ else return false;
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Nomina</h2>
+					<h2>$nombre</h2>
 				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/nomina/nuevaNomina.html\")'>Nuevo</button>
+				<div class='bs-component mb20 col-md-8'>
+					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
+					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
+					  	<h3>" . $deuda . "</h3>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Id</th>
+							<th>Cod.</th>
 							<th>Fecha</th>
-							<th>Nombre</th>
+							<th width='30%'>Detalles</th>
 							<th>Valor</th>
-							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>
@@ -151,6 +179,11 @@ else return false;
 	<script src='../../js/bootstrap.js'></script>
 	<script src='../../js/proton.js'></script>
 	<script src='../../js/acciones.js'></script>
+	<script>
+		$('#checkTodos').change(function () {
+  		$('input:checkbox').prop('checked', $(this).prop('checked'));
+		});
+	</script>
 </body>
 </html>";
 

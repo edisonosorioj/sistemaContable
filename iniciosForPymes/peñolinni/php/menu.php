@@ -4,7 +4,7 @@ if (isset($_SESSION['idrol'])){
 
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
 	$nomina 			= $_SESSION['modulo_nomina'];
-	$pedidomesas 		= $_SESSION['mesas'];
+	$pedidoMesas 		= $_SESSION['mesas'];
 	
 }
 
@@ -13,7 +13,7 @@ $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $status 			= '';
 
 $status 		= ($fecha_contrato < $fecha_actual) ? "class='class_a_href'" 			: $status;
-$pedidomesas 	= ($pedidomesas == 1) 				? '../pedidos/pedidos_mesas.php' 	: '../pedidos/pedido.php' ;
+$pedidoMesas 	= ($pedidoMesas == 1) 				? "../pedidos/pedidos_mesas.php" 	: "../pedidos/pedido.php" ;
 
 
 if ($nomina == 1) {
@@ -64,7 +64,7 @@ $menu = "
 				<a href='../cliente/cliente.php' " . $status . ">
 				<i class='icon-user nav-icon'></i>
 				<span class='nav-text'>
-					Clientes
+					Mesas
 				</span>
 				</a>
 			</li>
@@ -84,7 +84,7 @@ $menu = "
 				</a>
 			</li>
 			<li>
-				<a href='" . $pedidomesas . "' " . $status . ">
+				<a href='" . $pedidoMesas . "' " . $status . ">
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
 					Pedidos
@@ -96,6 +96,14 @@ $menu = "
 					<i class='fa fa-list-ul'></i>
 					<span class='nav-text'>
 					Inventario
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href='../productos/productos.php' " . $status . ">
+					<i class='fa fa-list-ul'></i>
+					<span class='nav-text'>
+					Productos
 					</span>
 				</a>
 			</li>

@@ -16,7 +16,7 @@ $row = $query->fetch_assoc();
 
 
 // Obtiene la ultima fecha de pago para generar alarmas en el sistema
-$query2 = mysqli_query($conection,"SELECT * FROM pagos ORDER BY pago_id DESC LIMIT 1");
+$query2 = mysqli_query($conection,"SELECT fecha FROM pagos ORDER BY pago_id DESC LIMIT 1");
 
 $row2 = $query2->fetch_assoc();
 

@@ -11,6 +11,24 @@ $id=$_GET['id'];
 $query = mysqli_query($result, "select * from administradores where idadmin='$id'");
 
 $row=$query->fetch_assoc();
+
+$rol = $row['idrol'];
+if ($rol == 0) {
+	$txtRol = 'Administrador';
+	$options = "<option value='1'>Comercial</option>
+				<option value='2'>Otro</option>";
+} else if ($rol == 1) {
+	$txtRol = 'Comercial';
+	$options = "<option value='0'>Administrador</option>
+				<option value='2'>Otro</option>";
+} else {
+	$txtRol = 'Otro';
+	$options = "
+				<option value='0'>Administrador</option>
+				<option value='1'>Comercial</option>
+				";
+}
+
 	
 ?>
 <!-- Se crea el HTML con la información del Cliente -->
@@ -51,7 +69,7 @@ $(function () {
 </script>
 		
 </head>
-<body class="dashboard-page">
+<body class="dashboard-page" style='overflow: scroll !important;'>
 
 	<section class="wrapper scrollable">
 		<nav class="user-menu">
@@ -91,8 +109,11 @@ $(function () {
 											<input type="text" name="apellido" class="form-control" placeholder="Apellido" value="<?php echo $row['apellido']; ?>"> 
 										</div> 
 										<div class="form-group"> 
-											<label>Rol - Seleccione 0 = Adm, 1 = Ventas</label> 
-											<input type="text" name="idrol" class="form-control" placeholder="Rol" value="<?php echo $row['idrol']; ?>"> 
+											<label>Rol</label>
+											<select class="form-control" name='rol'>
+												<option value='<?php echo $row['idrol']; ?>'><? echo $txtRol; ?></option>
+												<? echo $options ?>
+											</select>
 										</div>
 										<div class="form-group"> 
 											<label>Login</label> 

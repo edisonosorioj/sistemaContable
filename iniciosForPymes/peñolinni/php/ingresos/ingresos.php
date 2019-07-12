@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -33,12 +33,14 @@ $query = mysqli_query($result,'select * from ingresos order by fecha desc');
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	$valor = ($row['valor'] != '') ? $row['valor'] : 0;
+
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['fecha'] 				. "</td>
-				<td>" . $row['cantidad'] 			. "</td>
-				<td>" . $row['producto'] 			. "</td>
-				<td>" . $row['detalles'] 			. "</td>
-				<td align='right'>" . number_format($row['valor'], 0, ",", ".") . "</td>
+				<td>" . $row['fecha'] 		. "</td>
+				<td>" . $row['cantidad'] 	. "</td>
+				<td>" . $row['producto'] 	. "</td>
+				<td>" . $row['detalles'] 	. "</td>
+				<td align='right'>" . number_format($valor, 0, ",", ".") . "</td>
 				<td><a onclick='javascript:abrir(\"editarIngreso.php?id=" . $row['idingresos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarIngreso.php?id=" 	. $row['idingresos'] . "'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a></td>
 			</tr>";
@@ -104,7 +106,7 @@ else return false;
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	

@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -103,7 +103,7 @@ $html="<!DOCTYPE html>
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	
@@ -116,7 +116,7 @@ $html="<!DOCTYPE html>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
 				</div>
 				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Cartera Pendiente: $ $cTotal</h3>
+			  		<h3>Total : $ $cTotal</h3>
 			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>

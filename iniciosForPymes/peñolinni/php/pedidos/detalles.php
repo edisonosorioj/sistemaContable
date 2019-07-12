@@ -9,6 +9,8 @@ $result = $conex->conex();
 $html 		= '';
 $id 		= $_GET['id'];
 $mesa 		= $_GET['mesa'];
+$div 		= '';
+$div2 		= '';
 
 $query3 = mysqli_query($result, "select pi.iditems as iditems, i.nombre as nombre, pi.nombre as tipo, pi.valor as valor, i.grupo as grupo from precio_x_item pi inner join items i on pi.iditems = i.iditems where idprecios = '$id';");
 $row3	= $query3->fetch_assoc();
@@ -28,7 +30,7 @@ $cliente_id	= $row3['cliente_id'];
 if ($grupo == 1) {
 	$div = "<div class='checkbox'>
 			    <div class='radio'>
-			        <label style='font-size: 2.5em'>
+			        <label style='font-size: 2em'>
 			            <input type='radio' name='tamano' value='0' checked>
 			            <span class='cr'><i class='cr-icon fa fa-circle'></i></span>
 			            Media
@@ -36,7 +38,7 @@ if ($grupo == 1) {
 			    </div>
 		    </div>
 		    <div class='radio'>
-		        <label style='font-size: 2.5em'>
+		        <label style='font-size: 2em'>
 					<input type='hidden' name='grupo' value='$grupo'>
 		            <input type='radio' name='tamano' value='1' checked>
 		            <span class='cr'><i class='cr-icon fa fa-circle'></i></span>
@@ -46,9 +48,9 @@ if ($grupo == 1) {
 		    <br />";
 
 	$div2 = "<div class='radio'>
-	            <label style='font-size: 2.5em'>
+	            <label style='font-size: 2em'>
 	                # Adiciones<br/>
-	                <input type='number' name='can_adicion' value='0'>
+	                <input type='number' name='adicion' value='0'>
 	            </label>
 	        </div>
 			";
@@ -57,6 +59,33 @@ if ($grupo == 1) {
 			<input type='hidden' name='grupo' value='$grupo'>
 			";
 }
+
+if ($iditems == 20 || $iditems == 21) {
+	$div2 = "<div class='radio'>
+	            <label style='font-size: 2em'>
+	            	<b>Adiciones</b><br/>
+	                	<input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Maicitos&nbsp;&nbsp;
+						<input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta<br />&nbsp;&nbsp;
+						<input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon&nbsp;&nbsp;
+						<input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón&nbsp;&nbsp;
+	            </label>
+	        </div>
+			";
+	}
+
+if ($iditems == 23) {
+	$div2 = "<div class='radio'>
+	            <label style='font-size: 2em'>
+	            	<b>Adiciones</b><br/>
+	                <input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Pollo&nbsp;&nbsp;
+					<input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta<br />&nbsp;&nbsp;
+					<input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon&nbsp;&nbsp;
+					<input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón&nbsp;&nbsp;
+	            </label>
+	        </div>
+			";
+	}
+
 
 $html = "
 <!DOCTYPE html>
@@ -86,7 +115,7 @@ $html = "
 				<!-- input-forms -->
 				<div class='grids'>
 					<div class='progressbar-heading'>
-						<h1>Detalles</h1>
+						<h1>$nombre</h1>
 					</div>
 					<div style='align-content:right;'>
 						<form action='addPeProductoMesas.php' method='post'>

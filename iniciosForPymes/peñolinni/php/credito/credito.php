@@ -6,7 +6,7 @@ session_start();
 // Verifica que la sesion este correcta. Sino existe lo saca del sistema.
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -55,7 +55,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['detalles'] 	. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
+				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?fecha=" . $row['fecha'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>" . $td . "
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
 				</td>
 			</tr>";
@@ -140,7 +140,7 @@ else return false;
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	

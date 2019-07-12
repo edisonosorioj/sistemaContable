@@ -11,9 +11,9 @@ $fecha_actual		= strtotime(date('d-m-Y'));
 $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $status 			= '';
 
-// if ($fecha_contrato < $fecha_actual) {
-// 	$status = "class='class_a_href'";
-// }
+if ($fecha_contrato < $fecha_actual) {
+	$status = "class='class_a_href'";
+}
 
 if ($nomina == 1) {
 	$nomina = "<li class='has-subnav'>
