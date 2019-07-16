@@ -1,6 +1,6 @@
-CREATE DATABASE penolinni;
+CREATE DATABASE tercera_estacion;
 
-USE penolinni;
+USE tercera_estacion;
 
 CREATE TABLE `administradores` (`idadmin` INT NOT NULL AUTO_INCREMENT, `documento` VARCHAR(45) NOT NULL, `nombre` VARCHAR(45) NOT NULL, `apellido` VARCHAR(45) NOT NULL, `idrol` INT(10) NOT NULL, `login` VARCHAR(45) NOT NULL, `contrasena` VARCHAR(200) NOT NULL, PRIMARY KEY (`idadmin`));
 
@@ -10,7 +10,8 @@ CREATE TABLE `compras` (`idcompras` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NO
 
 CREATE TABLE `ingresos` (`idingresos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `cantidad` INT NULL, `producto` VARCHAR(45) NOT NULL, `detalles` VARCHAR(100) NULL, `valor` VARCHAR(45) NULL, PRIMARY KEY (`idingresos`));
 
-CREATE TABLE `creditos` (`idcreditos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `detalles` VARCHAR(100) NULL, `valor` VARCHAR(10) NULL, `idclientes` INT NOT NULL, PRIMARY KEY (`idcreditos`));
+CREATE TABLE `creditos` (`idcreditos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `detalles` VARCHAR(100) NULL, `valor` VARCHAR(10) NULL, `idclientes` INT NOT NULL, `registro_id` INT(11), PRIMARY KEY (`idcreditos`));
+
 
 CREATE TABLE `productos` (`idproductos` INT NOT NULL AUTO_INCREMENT, `fecha` DATE NOT NULL, `nombre` VARCHAR(100) NOT NULL, `disponible` MEDIUMINT(10) NULL DEFAULT 0, `valor` varchar(45) NULL, PRIMARY KEY (`idproductos`));
  CREATE TABLE `pedidos` (`pedido_id` INT NOT NULL AUTO_INCREMENT, `cliente_id` INT NOT NULL, `nombre_pedido` VARCHAR(45) NULL, `t_costo` VARCHAR(45) NULL, `t_cobrado` VARCHAR(45) NULL, `fecha` DATE NULL, `estado` INT NOT NULL, PRIMARY KEY (`pedido_id`, `cliente_id`));
@@ -56,3 +57,4 @@ ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
 
 ALTER TABLE `variables` CHANGE COLUMN `detalle` `detalle` VARCHAR(1000) NOT NULL ;
 
+ALTER TABLE `creditos` ADD COLUMN `registro_id` INT(11) NULL AFTER `idclientes`;

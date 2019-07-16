@@ -24,56 +24,39 @@ $tr = '';
 $tr2 = '';
 $deuda = '';
 
-if ($idrol == 0) {
-	include "../menu.php";
-}elseif ($idrol == 1) {
-	include "../menu2.php";
-}else{
-	include "../menu3.php";
-}
 
 // Obtiene el ID enviado desde Cliente para visualizar su historial
-$fecha = $_GET['fecha'];
+$registro_id = $_GET['registro_id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join creditos cr on c.id = cr.idclientes where cr.fecha = '$fecha' order by cr.idcreditos DESC, fecha DESC;");
+$query = mysqli_query($result,"select c.peproducto_id as peproducto_id, cr.idcreditos as idcreditos, cr.fecha as fecha, c.producto as producto, c.valort as valort, cr.registro_id as registro_id from pedidoProductos c inner join creditos cr on c.registro_id = cr.registro_id where cr.registro_id = '$registro_id' order by cr.idcreditos DESC, fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['idcreditos'] 	. "</td>
+				<td>" . $row['peproducto_id'] 	. "</td>
 				<td>" . $row['fecha'] 		. "</td>
-				<td>" . $row['detalles'] 	. "</td>
-				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarDetallesCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarDetallesCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
-				</td>
+				<td>" . $row['producto'] 	. "</td>
+				<td>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
 			</tr>";
 
  }
 
 // Utilizamos esta consulta para obtener el nombre del cliente en su historial 
-$query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
+$query2 = mysqli_query($result, "select c.nombres, cr.idclientes as idclientes from clientes c inner join creditos cr on c.id = cr.idclientes where cr.registro_id = '$registro_id' order by cr.idcreditos DESC, fecha DESC;");
 
 $row2=$query2->fetch_assoc();
 
-$nombre = $row2['nombres'];
+$nombre 	= $row2['nombres'];
+$id 		= $row2['idclientes'];
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
+$query3 = mysqli_query($result,"select SUM(valort) as total from pedidoProductos where registro_id = '$registro_id';");
 
 $row3 = $query3->fetch_assoc();
 
-if($row3['total'] < 0){
-
-	$deuda .="<label class='deuda'>Cartera Pendiente: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
-
-}else{
-	$deuda .="<label class='aFavor'>Cartera a Favor: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
-
-}
+$deuda .="<label class='aFavor'>Valor Cuenta: $ " . number_format($row3['total'], 0, ",", ".") ."</label></form>";
 
 // Se contruye el HTML para imprimirlo mas adelante.
 
@@ -143,8 +126,6 @@ else return false;
 				</div>
 				<div class='bs-component mb20 col-md-8'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -156,7 +137,6 @@ else return false;
 							<th>Fecha</th>
 							<th width='30%'>Detalles</th>
 							<th>Valor</th>
-							<th>Acciones</th>
 						  </tr>
 						</thead>
 						<tbody>

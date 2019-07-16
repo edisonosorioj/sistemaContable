@@ -8,7 +8,7 @@ class conection{
 	  $dbserver = "127.0.0.1";
 	  $dbuser = "root";
 	  $password = "qwer1234";
-	  $dbname = "penolinni";
+	  $dbname = "tercera_estacion";
 	 
 	  $conex = new mysqli($dbserver, $dbuser, $password, $dbname);
 

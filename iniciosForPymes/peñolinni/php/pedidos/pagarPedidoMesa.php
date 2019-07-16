@@ -17,6 +17,7 @@ $result = $conex->conex();
 
 $pedido_id		=	$_POST['pedido_id'];
 $valor_pedido	=	$_POST['valor_pedido'];
+$registro_id	= 	'';
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
 $query5 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");
@@ -26,14 +27,15 @@ $estado 		= $row5['estado'];
 $nombre_pedido 	= $row5['nombre_pedido'];
 $cliente_id		= $row5['cliente_id'];
 
+
+$query6 = mysqli_query($result,"SELECT pp.registro_id AS registro_id FROM pedidoProductos pp ORDER BY pp.registro_id DESC LIMIT 1;");
+$row6 	= $query6->fetch_assoc();
+
+$registro_id = ($row6['registro_id'] == '') ? 0 : $row6['registro_id'];
+
+$registro_id = $registro_id + 1;
+
 if ($estado != 0){
-
-	$query6 = mysqli_query($result," SELECT pp.registro_id AS registro_id FROM pedidos p inner join pedidoProductos pp on p.pedido_id = pp.pedido_id WHERE p.pedido_id = '$pedido_id' order by pp.registro_id DESC limit 1;");
-	$row6 	= $query6->fetch_assoc();
-
-	$registro_id = ($row6['registro_id'] == '') ? 0 : $registro_id ;
-
-	$registro_id = $registro_id + 1;
 
 	//Agrega un registro al resumen del cliente
 

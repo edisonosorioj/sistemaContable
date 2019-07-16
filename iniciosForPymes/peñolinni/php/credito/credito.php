@@ -36,7 +36,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by cr.idcreditos DESC, fecha DESC;");
+$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor, cr.registro_id as registro_id from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by cr.idcreditos DESC, fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -55,7 +55,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['detalles'] 	. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?fecha=" . $row['fecha'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>" . $td . "
+				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?registro_id=" . $row['registro_id'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>" . $td . "
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
 				</td>
 			</tr>";
@@ -151,8 +151,6 @@ else return false;
 				</div>
 				<div class='bs-component mb20 col-md-8'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
