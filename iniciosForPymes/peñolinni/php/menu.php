@@ -111,10 +111,17 @@ $menu = "
 			<li>
 				<a href='../informes/informes.php' " . $status . ">
 					<i class='icon-folder-open nav-icon'></i>
-					<span class='nav-text'>
-					Informes
-					</span>
+					<span class='nav-text'>Informes</span>
+					<i class='icon-angle-right'></i><i class='icon-angle-down'></i>
 				</a>
+				<ul>
+					<li>
+						<a href='../informes/informes.php' class='subnav-text'>Informes</a>
+					</li>
+					<li>
+						<a href='../informes/cuadre_caja.php' class='subnav-text'>Cuadre de Caja</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 		<ul class='logout'>

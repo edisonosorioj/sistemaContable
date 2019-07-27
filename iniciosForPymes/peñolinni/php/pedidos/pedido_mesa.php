@@ -258,6 +258,13 @@ else return false;
 							<button onClick=\"return confirmar('¿Estas seguro de eliminar?')\" type='submit' class='ordenes button'>Cancelar Orden</button> 
 						</form> 
 					</div>
+					<div class='col-md-2'>
+						<div class='ordenes button'> 
+							<a href='#' onclick='javascript:abrir2(\"cambioMesa.php?id=$id\")'>
+				 				<p style='color:black;'>Cambiar Mesa</p>
+				 			</a>
+						</div>
+					</div>
 					" . $pagar . "
 				</div>
 				<!-- //tables -->

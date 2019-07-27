@@ -47,8 +47,8 @@ $div = '';
 
  	$div .=	"
 			<tr height='50px'>
-				<td style='text-align:left;width:150px'>
-					<div class='especial' style='background-color:#abb6fd;'>
+				<td style='text-align:left;width:150px;'>
+					<div class='especial' style='background-color:#abb6fd;font-size=10px;'>
 						&nbsp;$nombre
 					</div>
 				</td>
@@ -89,8 +89,8 @@ $html = "
 </head>
 <body class='dashboard-page' style='overflow: scroll !important;'>
 
-	<section class=''>
-		<div class=''>
+	<section>
+		<div>
 			<div class='agile-grids'>	
 				<!-- input-forms -->
 				<div class='grids'>

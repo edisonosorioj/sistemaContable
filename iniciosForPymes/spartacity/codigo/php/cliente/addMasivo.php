@@ -17,7 +17,7 @@ while ($row = $query->fetch_array(MYSQLI_BOTH)) {
 	$id = $row['id'];
 
 // Realiza la inserción de un credito agregando un signo "-" para que reste los totales
-	$query2 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valor'), '$id');");
+	$query2 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valor'), '$id') WHERE estado = 1;");
 
 }
 

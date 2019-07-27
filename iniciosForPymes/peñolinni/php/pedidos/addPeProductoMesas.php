@@ -86,9 +86,9 @@ if ($tamano == 1) {
 	$valort 		= $valort * $cantidad;
 
 // Agrega producto a la tabla pedidoProductos
-	$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) VALUES ( CONCAT('$producto', ' - ' ,'$detalles', ' - ', '$dtamano', ' - ', '$text_adicion','$adiciones $nota'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '0');");
+	$query = mysqli_query($result,"INSERT INTO pedidoProductos (producto, valoru, cantidad, valort, pedido_id, cliente_id, producto_id) VALUES ( CONCAT('$producto', ' - ' ,'$detalles', ' - ', '$dtamano', ' - ', '$text_adicion','$adiciones $nota'), '$valor', '$cantidad', '$valort', '$pedido_id', '$cliente_id', '$iditems');");
 
-	$query = mysqli_query($result,"UPDATE pedidos set estado = '0' where pedido_id = '$pedido_id';");
+	$query = mysqli_query($result,"UPDATE pedidos set estado = '1' where pedido_id = '$pedido_id';");
 
 	$html = "<script>
 		opener.location.reload();

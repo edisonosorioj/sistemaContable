@@ -1,27 +1,16 @@
 <?php
-if( !session_id() )
-{
-    session_start();
-}
-require_once '../conexion.php';
 
-$conex = new conection();
-$result = $conex->conex();
-
-	$id=$_GET['id'];
-	
-	$query = mysqli_query($result, "select * from precio_x_item where idprecios = '$id';");
-
-	$row=$query->fetch_assoc();
+$id = $_GET['id'];
 
 ?>
-<!-- Se crea el HTML con la información del credito -->
+
 <!DOCTYPE html>
 <head>
-<title>Edición Egreso</title>
+<title>Nuevo Item</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Administración de Negocios, Admin, Negocios" />
+<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -37,23 +26,6 @@ $result = $conex->conex();
 <script src="../../js/jquery2.0.3.min.js"></script>
 <script src="../../js/modernizr.js"></script>
 <script src="../../js/jquery.cookie.js"></script>
-<script src="../../js/screenfull.js"></script>
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
-
-			if (!screenfull.enabled) {
-				return false;
-			}
-
-			
-
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
-		
 </head>
 <body class="dashboard-page">
 
@@ -69,7 +41,7 @@ $result = $conex->conex();
 				<!-- input-forms -->
 				<div class="grids">
 					<div class="progressbar-heading grids-heading">
-						<h2>Editar Producto</h2>
+						<h2>Nuevo Producto</h2>
 					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
@@ -78,19 +50,18 @@ $result = $conex->conex();
 									<h4>Datos Básicos :</h4>
 								</div>
 								<div class="form-body">
-									<form action="actItem.php" method="post"> 
+									<form action="../../php/productos/addItem.php" method="post">
 										<div class="form-group"> 
 											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
 										</div>
 										<div class="form-group"> 
 											<label>Nombre</label> 
-											<input type="text" name="nombre" class="form-control" placeholder="Nombre" value="<?php echo $row['nombre']; ?>"> 
-										</div> 
+											<input type="text" name="nombre" class="form-control" placeholder="Nombre"> 
+										</div>
 										<div class="form-group"> 
 											<label>Valor</label> 
-											<input type="number" name="valor" class="form-control" placeholder="Valor" value="<?php echo $row['valor']; ?>"> 
+											<input type="number" name="valor" class="form-control" placeholder="Valor"> 
 										</div> 
-
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 
 									</form> 

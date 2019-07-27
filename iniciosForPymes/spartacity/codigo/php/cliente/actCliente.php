@@ -16,9 +16,10 @@ $result = $conex->conex();
 	$rh 				=	$_POST['rh'];
 	$categoria 			=	$_POST['categoria'];
 	$seguro_social 		=	$_POST['seguro_social'];
+	$estado 			=	$_POST['estado'];
 
 // Consulta para actualizar el cliente
-	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo', empresa = '$empresa', direccion = '$direccion', doc_empresa = '$doc_empresa', fecha_nacimiento = '$fecha_nacimiento', rh = '$rh', categoria = '$categoria', seguro_social = '$seguro_social' where id = '$id';");
+	$query = mysqli_query($result, "UPDATE clientes set documento = '$documento', nombres = '$nombres', telefono = '$telefono', correo = '$correo', empresa = '$empresa', direccion = '$direccion', doc_empresa = '$doc_empresa', fecha_nacimiento = '$fecha_nacimiento', rh = '$rh', categoria = '$categoria', seguro_social = '$seguro_social', estado = '$estado' where id = '$id';");
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){

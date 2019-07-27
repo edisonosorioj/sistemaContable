@@ -17,6 +17,10 @@ require_once "../conexion.php";
 
 $conex = new conection();
 $result = $conex->conex();
+$tr = '';
+$div = '';
+$id = $_GET['id'];
+$conteo = 1;
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -25,40 +29,51 @@ if ($idrol == 0) {
 }else{
 	include "../menu3.php";
 }
-//* Consulta y por medio de un while muestra la lista de los clientes - DATE(DATE_SUB(NOW(),INTERVAL 10 HOUR))*//
-$query = mysqli_query($result,'SELECT c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, cr.valor as valor FROM clientes c LEFT JOIN (SELECT idclientes, SUM(valor) AS valor, fecha FROM creditos WHERE DATE(fecha) = CURDATE() GROUP BY idclientes) cr ON c.id = cr.idclientes;');
 
-$tr = '';
-$conteo = 1;
 
- while ($row = $query->fetch_array(MYSQLI_BOTH)){
+// Consulta y por medio de un while muestra la lista de los pedidos
 
- 	$tr .=	"<tr class='rows' id='rows'>
-				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $conteo . "</a></td><td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
-				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
-				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
-					<i class='fa fa-file-text-o' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
-				<a href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off' style='font-size:2em;'></i></a>
-				</td>
+$query2 = mysqli_query($result,"select * from precio_x_item where iditems = '$id';");
+
+while ($row2 = $query2->fetch_array(MYSQLI_BOTH)){
+
+	$idprecios 	= $row2['idprecios'];
+	$nombre2 	= $row2['nombre'];
+	$valor 		= $row2['valor'];
+	$iditems 	= $row2['iditems'];
+
+	$tr .= "<tr class='rows' id='rows'>
+				<td>" . $conteo . "</td>
+				<td>" . $nombre2 . "</td>
+			   	<td>" . $valor . "</td>
+			   	<td><a onclick='javascript:abrir(\"editarItem.php?id=" . $row2['idprecios'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarItem.php?id=" . $idprecios . "'><span data-tooltip='Eliminar'>
+				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
-
 	$conteo++;
+	}
 
- }
 
-// Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,"select SUM(valor) as valor, fecha from creditos where DATE(fecha) = DATE(CURDATE());");
+// Utilizamos esta consulta para obtener el nombre del Item
+$query2 = mysqli_query($result, "select nombre from items where iditems = '$id'");
 
-// Lo organiza en un array y permite utilizar cada uno de los parametros
- $cartera = $query2->fetch_array(MYSQLI_BOTH);
- $cTotal = ($cartera['valor'] == '' || !isset($cartera['valor'])) ? 0 : $cartera['valor'];
- $cTotal = number_format($cTotal, 0, ",", ".");
+$row2=$query2->fetch_assoc();
+
+$nombre_item = $row2['nombre'];
+
+if ($iditems == 1) {
+	$nombreGrupo = "Pizzas";
+} elseif($iditems == 2) {
+	$nombreGrupo = "Carnes";
+} elseif($iditems == 3) {
+	$nombreGrupo = "Otros";
+} else {
+	$nombreGrupo = "Bebidas";
+}
 
 $html="<!DOCTYPE html>
 <head>
-<title>Mesas</title>
+<title>Inventario</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -96,8 +111,18 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=900,height=500') ; 
 	}
+</script>
+<script>
+function confirmar(texto)
+{
+if (confirm(texto))
+{
+return true;
+}
+else return false;
+}
 </script>
 <!-- //tables -->
 </head>
@@ -108,32 +133,26 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Mesas Atendidas</h2>
+					<h2>$nombreGrupo - $nombre_item</h2>
 				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
+				<div class='bs-component mb20 col-md-8'>
+					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick='window.location.href=\"productos.php\" '>Volver</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/productos/nuevoItem.php?id=" . $iditems . "\")'>Nuevo</button>
 				</div>
-				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Total día: $ $cTotal</h3>
-			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
-					    <table id='table'>
-						<thead>
-						  <tr>
-							<th>*</th>
-							<th>Nombre</th>
-							<th>Saldo</th>
-							<th>Acciones</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  " 
-						  . $tr . 
-						  "
-						</tbody>
-					  </table>
-					</div>
+						<table>
+							<tr>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Valor</th>
+								<th>Acciones</th>
+							</tr>
+							"
+							. $tr . 
+							"
+						</table>
+					</div> 
 				</div>
 				<!-- //tables -->
 			</div>
@@ -151,3 +170,4 @@ $html="<!DOCTYPE html>
 </html>";
 
 echo $html;
+

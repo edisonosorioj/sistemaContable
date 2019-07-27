@@ -18,6 +18,7 @@ require_once "../conexion.php";
 $conex = new conection();
 $result = $conex->conex();
 $tr = '';
+$conteo = 1;
 
 if ($idrol == 0) {
 	include "../menu.php";
@@ -45,20 +46,22 @@ $query = mysqli_query($result,'SELECT i.iditems as iditems, i.nombre as nombre, 
 }
 
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['iditems'] 	. "</td>
+				<td>" . $conteo	. "</td>
 				<td>" . $row['nombre'] 		. "</td>
 				<td>" . $estado 			. "</td>
 				<td>" . $nombreGrupo 		. "</td>
-				<td><a href='editarItem.php?id=" . $row['idprecios'] . "'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarItem.php?id=" . $row['idprecios'] . "'><span data-tooltip='Eliminar'>
+				<td><a href='verItem.php?id=" . $row['iditems'] . "'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarItem.php?id=" . $row['iditems'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";
+
+	$conteo++;
 
  }
 
 $html="<!DOCTYPE html>
 <head>
-<title>Inventario</title>
+<title>Productos</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />

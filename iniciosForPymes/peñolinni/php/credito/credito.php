@@ -55,15 +55,15 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['detalles'] 	. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?registro_id=" . $row['registro_id'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>" . $td . "
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
+				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?registro_id=" . $row['registro_id'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-file-text-o' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off' style='font-size:2em;'></i></spam></a>
 				</td>
 			</tr>";
 
  }
 
 // Utilizamos esta consulta para obtener el nombre del cliente en su historial 
-$query2 = mysqli_query($result, "select nombres from clientes where id='$id'");
+$query2 = mysqli_query($result, "select nombres from clientes where id = '$id'");
 
 $row2=$query2->fetch_assoc();
 

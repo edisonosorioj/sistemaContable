@@ -27,7 +27,7 @@ $fecha_fin 		= 	($_POST['fecha_fin'] 	!= '') ? $_POST['fecha_fin'] 	: $fecha;
 
 // Total Egresos según Fechas
 
-$query = mysqli_query($result,"select * from compras where fecha between '$fecha_inicio' and '$fecha_fin';");
+$query = mysqli_query($result,"SELECT * FROM compras WHERE fecha BETWEEN '$fecha_inicio' AND '$fecha_fin';");
 
 $tr = '';
 
@@ -43,14 +43,14 @@ while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  }
 
-$query2 = mysqli_query($result,"select SUM(valor) as total from compras where fecha between '$fecha_inicio' and '$fecha_fin';");
+$query2 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha BETWEEN '$fecha_inicio' AND '$fecha_fin';");
  	$row2 = $query2->fetch_assoc();
  	$egresos = $row2['total'];
 
 
 // Total Ingresos según Fechas
 
-$query3 = mysqli_query($result,"select * from ingresos where fecha between '$fecha_inicio' and '$fecha_fin';");
+$query3 = mysqli_query($result,"SELECT * FROM ingresos WHERE fecha BETWEEN '$fecha_inicio' AND '$fecha_fin';");
 
 $tr2 = '';
 
@@ -66,7 +66,7 @@ $tr2 = '';
 
  }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha between '$fecha_inicio' and '$fecha_fin';");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha BETWEEN '$fecha_inicio' AND '$fecha_fin';");
  	$row4 = $query4->fetch_assoc();
  	$ingresos = $row4['total'];
 
@@ -83,7 +83,7 @@ $iva = $ingresos * 0.19;
 
  // Tabla de Estado Clientes
 
-$query3 = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
+$query3 = mysqli_query($result,"SELECT c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor FROM clientes c left join creditos cr on c.id = cr.idclientes WHERE DATE(cr.fecha) BETWEEN DATE('$fecha_inicio') AND DATE('$fecha_fin') GROUP BY c.id ORDER BY c.nombres;");
 
 
 
@@ -93,23 +93,21 @@ $tr3 = '';
 
  	$tr3 .=	"<tr class='rows' id='rows'>
 				<td>" . $row3['documento'] 	. "</td>
-				<td>" . $row3['empresa'] 	. "</td>
 				<td>" . $row3['nombres'] 	. "</td>
-				<td>" . $row3['telefono'] 	. "</td>
 				<td  align='right'>$ " . number_format($row3['valor'], 0, ",", ".") 	. "</td>
 			</tr>";
 
  }
 
  // Realiza una segunda consulta que suma el total que deben todos los clientes
- $query4 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
+ $query4 = mysqli_query($result,"SELECT SUM(cr.valor) as valor, cr.fecha FROM creditos cr WHERE DATE(cr.fecha) BETWEEN '$fecha_inicio' AND '$fecha_fin';");
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
  $caCliente = $query4->fetch_array(MYSQLI_BOTH);
  $cTotal2 = number_format($caCliente['valor'], 0, ",", ".");
 
  // Utilizamos esta consulta para obtener el datos de las variables de configuracion
-$query4 = mysqli_query($result, "select * from variables;");
+$query4 = mysqli_query($result, "SELECT * FROM variables;");
 
 $rows = mysqli_num_rows ($query4);  
           
@@ -149,8 +147,7 @@ if ($varIva == 1) {
 
  // Tabla de productos vendidos por pedido
 
-$query5 = mysqli_query($result,'select producto, SUM(cantidad) as cantidad, SUM(valort) as valor, producto_id from pedidoProductos group by producto_id;');
-
+$query5 = mysqli_query($result,"SELECT pp.producto, SUM(pp.cantidad) as cantidad, SUM(pp.valort) as valor, pp.producto_id FROM pedidoProductos pp GROUP BY pp.producto_id;");
 
 $tr5 = '';
 
@@ -239,7 +236,7 @@ $html="<!DOCTYPE html>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Valor Balance</th>
+							<th width='200px'>Valor Balance</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -254,7 +251,7 @@ $html="<!DOCTYPE html>
 				" . $detallesIva . "
 
 			  	<div class='bs-component mb20 col-md-12'>
-					<h4>Estado Cuenta Clientes</h4>
+					<h4>Ventas totales por Mesa</h4>
 			  	</div>
 			  	<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -262,10 +259,8 @@ $html="<!DOCTYPE html>
 						<thead>
 						  <tr>
 							<th>ID</th>
-							<th>Empresa</th>
-							<th>Nombre</th>
-							<th>Telefono</th>
-							<th>Saldo</th>
+							<th width='200px'>Nombre</th>
+							<th width='100px'>Saldo</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -277,11 +272,11 @@ $html="<!DOCTYPE html>
 					</div>
 				</div>
 				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Total Cartera: $ $cTotal2</h3>
+			  		<h3>Total: $ $cTotal2</h3>
 			  	</div>
 
 			  	<div class='bs-component mb20 col-md-12'>
-					<h4>Informe de Productos</h4>
+					<h4>Informe de General de Productos Vendidos</h4>
 			  	</div>
 			  	<div class='agile-tables'>
 					<div class='w3l-table-info'>
@@ -302,9 +297,6 @@ $html="<!DOCTYPE html>
 					  </table>
 					</div>
 				</div>
-				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Total Cartera: $ $cTotal2</h3>
-			  	</div>
 				<!-- //tables -->
 			</div>
 		</div>

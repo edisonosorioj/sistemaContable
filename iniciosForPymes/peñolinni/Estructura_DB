@@ -58,3 +58,5 @@ ALTER TABLE `pedidos` AUTO_INCREMENT = 74;
 ALTER TABLE `variables` CHANGE COLUMN `detalle` `detalle` VARCHAR(1000) NOT NULL ;
 
 ALTER TABLE `creditos` ADD COLUMN `registro_id` INT(11) NULL AFTER `idclientes`;
+
+ALTER TABLE `creditos` CHANGE COLUMN `fecha` `fecha` DATETIME NOT NULL ;

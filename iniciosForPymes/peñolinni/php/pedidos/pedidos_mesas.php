@@ -120,7 +120,7 @@ else return false;
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page center'>
+<body class='dashboard-page center' style='overflow: scroll !important;'>
 
 		<div>
 			<div>	

@@ -11,6 +11,8 @@ $id 		= $_GET['id'];
 $mesa 		= $_GET['mesa'];
 $div 		= '';
 $div2 		= '';
+$option 	= '';
+$conteo 	= 1;
 
 $query3 = mysqli_query($result, "select pi.iditems as iditems, i.nombre as nombre, pi.nombre as tipo, pi.valor as valor, i.grupo as grupo from precio_x_item pi inner join items i on pi.iditems = i.iditems where idprecios = '$id';");
 $row3	= $query3->fetch_assoc();
@@ -49,8 +51,20 @@ if ($grupo == 1) {
 
 	$div2 = "<div class='radio'>
 	            <label style='font-size: 2em'>
-	                # Adiciones<br/>
-	                <input type='number' name='adicion' value='0'>
+	            	<b>Adiciones</b><br/>
+	                	<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Maicitos</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta<br /></div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Jalapeños' style='transform: scale(2);'>&nbsp;&nbsp;Jalapeños</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Pollo' style='transform: scale(2);'>&nbsp;&nbsp;Pollo</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Albahaca' style='transform: scale(2);'>&nbsp;&nbsp;Albahaca</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Salami' style='transform: scale(2);'>&nbsp;&nbsp;Salami</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Peperoni' style='transform: scale(2);'>&nbsp;&nbsp;Peperoni</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Tomate' style='transform: scale(2);'>&nbsp;&nbsp;Tomate</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Queso' style='transform: scale(2);'>&nbsp;&nbsp;Queso</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Pasta' style='transform: scale(2);'>&nbsp;&nbsp;Pasta</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Piña' style='transform: scale(2);'>&nbsp;&nbsp;Piña</div>
 	            </label>
 	        </div>
 			";
@@ -64,10 +78,10 @@ if ($iditems == 20 || $iditems == 21) {
 	$div2 = "<div class='radio'>
 	            <label style='font-size: 2em'>
 	            	<b>Adiciones</b><br/>
-	                	<input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Maicitos&nbsp;&nbsp;
-						<input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta<br />&nbsp;&nbsp;
-						<input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon&nbsp;&nbsp;
-						<input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón&nbsp;&nbsp;
+	                	<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Maicitos</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon</div>
+						<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón</div>
 	            </label>
 	        </div>
 			";
@@ -77,14 +91,20 @@ if ($iditems == 23) {
 	$div2 = "<div class='radio'>
 	            <label style='font-size: 2em'>
 	            	<b>Adiciones</b><br/>
-	                <input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Pollo&nbsp;&nbsp;
-					<input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta<br />&nbsp;&nbsp;
-					<input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon&nbsp;&nbsp;
-					<input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón&nbsp;&nbsp;
+	                <div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Maicitos' style='transform: scale(2);'>&nbsp;&nbsp;Pollo</div>
+					<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Tocineta' style='transform: scale(2);'>&nbsp;&nbsp;Tocineta</div>
+					<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Champiñon' style='transform: scale(2);'>&nbsp;&nbsp;Champiñon</div>
+					<div style='font-size:18px; display: inline-block;'><input type='checkbox' name='adicion[]' value='Jamón' style='transform: scale(2);'>&nbsp;&nbsp;Jamón</div>
 	            </label>
 	        </div>
 			";
 	}
+
+
+while ($conteo <= 20) {
+	$option .= "<option value='" . $conteo . "'>" . $conteo . "</option>";
+	$conteo++;
+}
 
 
 $html = "
@@ -119,28 +139,47 @@ $html = "
 					</div>
 					<div style='align-content:right;'>
 						<form action='addPeProductoMesas.php' method='post'>
-			            	<input type='hidden' name='id' value='$id'>
-			            	<input type='hidden' name='producto' value='$nombre'>
-			            	<input type='hidden' name='detalles' value='$tipo'>
-			            	<input type='hidden' name='valor' value='$valor'>
-			            	<input type='hidden' name='cliente_id' value='$cliente_id'>
-			            	<input type='hidden' name='pedido_id' value='$mesa'>
-								".$div."
-					            <div class='radio'>
-						            <label style='font-size: 2.5em'>
-						                Cantidad
-						                <input type='number' name='cantidad' value='1'>
-						            </label>
-						        </div>
-						        ".$div2."
-					            <div class='radio'>
-						            <label style='font-size: 2.5em'>
-						                Nota<br/>
-						                <textarea name='nota' cols='20' rows='3'></textarea>
-						            </label>
-						        </div>
-						        <button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
-								<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
+			            	<table style='width:100%;'>
+			            		<tr>
+			            			<td>
+				            			<input type='hidden' name='id' value='$id'>
+						            	<input type='hidden' name='producto' value='$nombre'>
+						            	<input type='hidden' name='detalles' value='$tipo'>
+						            	<input type='hidden' name='valor' value='$valor'>
+						            	<input type='hidden' name='cliente_id' value='$cliente_id'>
+						            	<input type='hidden' name='pedido_id' value='$mesa'>
+										".$div."
+			            			</td>
+			            			<td>
+							            <div class='radio'>
+								            <label style='font-size: 1.5em'>
+								                Cantidad
+								                <select name='cantidad'>
+								                	" . $option . "
+								                </select>
+								            </label>
+								        </div>
+			            			</td>
+			            		</tr>
+			            		<tr>
+			            			<td colspan='2'>
+							        	".$div2."
+			            			</td>
+			            		</tr>
+			            		<tr>
+			            			<td colspan='2'>
+							            <div class='radio'>
+								            <label style='font-size: 1.5em'>
+								                Nota<br/>
+								                <textarea name='nota' cols='20' rows='3'></textarea>
+								            </label>
+								        </div>
+							        <button type='submit' class='btn btn-default w3ls-button'>Guardar</button> 
+									<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button> 
+			            			</td>
+			            		</tr>
+				            	
+			            	</table>
 						</form>
 					</div> 
 				</div>

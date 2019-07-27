@@ -11,6 +11,15 @@ $id=$_GET['id'];
 $query = mysqli_query($result, "select * from clientes where id = '$id'");
 
 $row=$query->fetch_assoc();
+
+if ($row['estado'] == 1) {
+	$estado = 'Activo';
+} else if($row['estado'] == 2) {
+	$estado = 'Becado';
+} else {
+	$estado = 'Inactivo';
+}
+
 	
 ?>
 <!-- Se crea el HTML con la información del Cliente -->
@@ -119,6 +128,15 @@ $(function () {
 										<div class="form-group"> 
 											<label>Seguro Social</label> 
 											<input type="text" name="seguro_social" class="form-control" placeholder="Seguro Social" value="<?php echo $row['seguro_social']; ?>"/> 
+										</div>
+										<div class="form-group"> 
+											<label>Estado</label> 
+											<select name='estado' class="form-control">
+												<option value="<?php echo $row['estado'] ?>"><?php echo $estado ?></option>
+												<option value='1'>Activo</option>
+												<option value='2'>Becado</option>
+												<option value='0'>Inactivo</option>
+											</select>
 										</div>
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
