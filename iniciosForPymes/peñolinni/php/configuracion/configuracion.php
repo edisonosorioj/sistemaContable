@@ -192,7 +192,7 @@ $html= "<!DOCTYPE html>
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2019 ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
+			<p>© " . date('Y') . " ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
 		</div>
 		<!-- //footer -->
 	</section>

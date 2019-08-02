@@ -26,39 +26,34 @@ if ($idrol == 0) {
 	include "../menu3.php";
 }
 //* Consulta y por medio de un while muestra la lista de los clientes - DATE(DATE_SUB(NOW(),INTERVAL 10 HOUR))*//
-$query = mysqli_query($result,'SELECT c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, cr.valor as valor FROM clientes c LEFT JOIN (SELECT idclientes, SUM(valor) AS valor, fecha FROM creditos WHERE DATE(fecha) = CURDATE() GROUP BY idclientes) cr ON c.id = cr.idclientes;');
+$query = mysqli_query($result,'SELECT * FROM cuadre_caja;');
 
 $tr = '';
 $conteo = 1;
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	$estado = ($row['estado'] == 0)? 'Correcto' : 'Incorrecto';
+
  	$tr .=	"<tr class='rows' id='rows'>
-				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $conteo . "</a></td><td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
-				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				<td><a onclick='javascript:abrir(\"editarCliente.php?id=" . $row['id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
-				<a href='../credito/credito.php?id=" . $row['id'] . "'><span data-tooltip='Historia'>
-					<i class='fa fa-file-text-o' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
-				<a href='eliminarCliente.php?id=" . $row['id'] . "'><span data-tooltip='Eliminar'>
+ 				<td><a onclick='javascript:abrir(\"verCuadreCaja.php?id=" . $row['id_cuadre'] . "\")'>" . $row['fecha'] . "</a></td>
+				<td  align='right'>$ " . number_format($row['valor_ventas'], 0, ",", ".") 	. "</td>
+				<td  align='right'>$ " . number_format($row['cuadre_caja'], 0, ",", ".") 	. "</td>
+				<td  align='right'>$ " . number_format($row['balance'], 0, ",", ".") 	. "</td>
+				<td  align='right'>" . $estado . "</td>
+				<td><a onclick='javascript:abrir(\"editarCuadre_caja.php?id=" . $row['id_cuadre'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
+				<a href='eliminarCuadre_caja.php?id=" . $row['id_cuadre'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off' style='font-size:2em;'></i></a>
 				</td>
 			</tr>";
 
 	$conteo++;
 
- }
-
-// Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,"select SUM(valor) as valor, fecha from creditos where DATE(fecha) = DATE(CURDATE());");
-
-// Lo organiza en un array y permite utilizar cada uno de los parametros
- $cartera = $query2->fetch_array(MYSQLI_BOTH);
- $cTotal = ($cartera['valor'] == '' || !isset($cartera['valor'])) ? 0 : $cartera['valor'];
- $cTotal = number_format($cTotal, 0, ",", ".");
+}
 
 $html="<!DOCTYPE html>
 <head>
-<title>Mesas</title>
+<title>Cuadre Caja</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -96,7 +91,7 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=800,height=400') ; 
 	}
 </script>
 <!-- //tables -->
@@ -108,22 +103,24 @@ $html="<!DOCTYPE html>
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Mesas Atendidas</h2>
+					<h2>Cuadre Caja</h2>
 				</div>
 				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/cliente/nuevoCliente.html\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/informes/nuevoCuadre.php\")'>Nuevo</button>
 				</div>
 				<div class='bs-component mb20 col-md-6'>
-			  		<h3>Total día: $ $cTotal</h3>
+			  		<h3>-</h3>
 			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>*</th>
-							<th>Nombre</th>
-							<th>Saldo</th>
+							<th>Fecha</th>
+							<th>Valor Caja</th>
+							<th>Cuadre</th>
+							<th>Balance</th>
+							<th>Estado</th>
 							<th>Acciones</th>
 						  </tr>
 						</thead>

@@ -272,7 +272,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2019 ForPymes. All Rights Reserved. Design by <a href='edisonosorioj.com'></a>Edison Osorio</p>
+			<p>© " . date('Y') . " ForPymes. All Rights Reserved. Design by <a href='edisonosorioj.com'></a>Edison Osorio</p>
 		</div>
 		<!-- //footer -->
 	</section>

@@ -29,7 +29,7 @@ $nombre_pedido 	= $row5['nombre_pedido'];
 $cliente_id		= $row5['cliente_id'];
 
 
-$query6 = mysqli_query($result,"SELECT MAX(registro_id) as registro_id FROM pedidoProductos ORDER BY peproducto_id DESC LIMIT 1;");
+$query6 = mysqli_query($result,"SELECT * FROM pedidoProductos where registro_id is not null ORDER BY peproducto_id DESC LIMIT 1");
 $row6 	= $query6->fetch_assoc();
 
 $registro_id = ($row6['registro_id'] == '') ? 0 : $row6['registro_id'];
@@ -53,6 +53,7 @@ if ($estado != 0){
 
 	$query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes, registro_id) VALUES (CONCAT(CURDATE(), ' ', CURTIME()), '$detalles', '$valor_pedido', '$cliente_id', '$registro_id');");
 
+	$msg = "El pedido fue realizado correctamente.";
 
 	}else{
 		$msg = "No puedes pagar un pedido sino lo haz realizado.";

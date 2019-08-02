@@ -50,6 +50,8 @@ CREATE TABLE `items` (`iditems` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(10
 
 CREATE TABLE `precio_x_item` ( `idprecios` INT NOT NULL AUTO_INCREMENT, `iditems` INT NOT NULL, `nombre` VARCHAR(200) NOT NULL, `valor` VARCHAR(45) NOT NULL DEFAULT 0, PRIMARY KEY (`idprecios`));
 
+CREATE TABLE `penolinni`.`cuadre_caja` (`id_cuadre` INT UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATETIME NULL,`valor_ventas` VARCHAR(45) NULL,`cuadre_caja` VARCHAR(45) NULL,`balance` VARCHAR(45) NULL,`estado` INT NULL,`realizado_por` VARCHAR(45) NULL,PRIMARY KEY (`id_cuadre`));
+
 
 //Actualizar inicializacion ID Pedidos
 
