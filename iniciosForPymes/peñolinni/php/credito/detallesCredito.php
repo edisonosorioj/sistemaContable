@@ -26,10 +26,12 @@ $deuda = '';
 
 
 // Obtiene el ID enviado desde Cliente para visualizar su historial
-$registro_id = $_GET['registro_id'];
+$registro_id 	= $_GET['registro_id'];
+$cliente_id 	= $_GET['cliente_id'];
+$fecha 			= $_GET['fecha'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select c.peproducto_id as peproducto_id, cr.idcreditos as idcreditos, cr.fecha as fecha, c.producto as producto, c.valort as valort, cr.registro_id as registro_id from pedidoProductos c inner join creditos cr on c.registro_id = cr.registro_id where cr.registro_id = '$registro_id' order by cr.idcreditos DESC, fecha DESC;");
+$query = mysqli_query($result,"SELECT c.peproducto_id as peproducto_id, cr.idcreditos as idcreditos, cr.fecha as fecha, c.producto as producto, c.valort as valort, cr.registro_id as registro_id FROM pedidoProductos c INNER JOIN creditos cr ON c.registro_id = cr.registro_id WHERE cr.registro_id = '$registro_id' AND c.cliente_id = '$cliente_id' and cr.idclientes = '$cliente_id' and cr.fecha = '$fecha' ORDER BY cr.idcreditos DESC, fecha DESC;");
 
 $conteo = 1;
 
@@ -47,7 +49,7 @@ $conteo = 1;
  }
 
 // Utilizamos esta consulta para obtener el nombre del cliente en su historial 
-$query2 = mysqli_query($result, "select c.nombres, cr.idclientes as idclientes from clientes c inner join creditos cr on c.id = cr.idclientes where cr.registro_id = '$registro_id' order by cr.idcreditos DESC, fecha DESC;");
+$query2 = mysqli_query($result, "SELECT c.nombres, cr.idclientes as idclientes FROM clientes c INNER JOIN creditos cr on c.id = cr.idclientes WHERE cr.registro_id = '$registro_id' ORDER BY cr.idcreditos DESC, fecha DESC;");
 
 $row2=$query2->fetch_assoc();
 
@@ -55,7 +57,7 @@ $nombre 	= $row2['nombres'];
 $id 		= $row2['idclientes'];
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query3 = mysqli_query($result,"select SUM(valort) as total from pedidoProductos where registro_id = '$registro_id';");
+$query3 = mysqli_query($result,"SELECT SUM(valort) as total FROM pedidoProductos WHERE registro_id = '$registro_id' and cliente_id = '$cliente_id';");
 
 $row3 = $query3->fetch_assoc();
 

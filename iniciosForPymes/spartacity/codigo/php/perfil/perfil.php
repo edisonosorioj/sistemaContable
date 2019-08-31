@@ -21,7 +21,6 @@ if (isset($_SESSION['idrol'])){
 	
 }
 
-
 require_once "../conexion.php";
 
 $conex = new conection();
@@ -29,22 +28,118 @@ $result = $conex->conex();
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}else if($idrol == 1){
 	include "../menu2.php";
+} else{
+	include "../menu3.php";
 }
 
+if ($idrol == 0 || $idrol == 1 ) {
+	// Realiza una consulta para verificar unos parametros en la base de datos y asi permitir la actualización de la información.
+	 $query = mysqli_query($result,"select * from administradores where idadmin = '" . $idadmin . "';");
 
-// Realiza una consulta para verificar unos parametros en la base de datos y asi permitir la actualización de la información.
- $query = mysqli_query($result,"select * from administradores where idadmin = '" . $idadmin . "';");
+	// Lo organiza en un array y permite utilizar cada uno de los parametros
+	 $row = $query->fetch_assoc();
 
-// Lo organiza en un array y permite utilizar cada uno de los parametros
- $row = $query->fetch_assoc();
+	 $id 		= $row['idadmin'];
+	 $documento = $row['documento'];
+	 $nombre 	= $row['nombre'];
+	 $apellido 	= $row['apellido'];
+	 $login 	= $row['login'];
 
- $id 		= $row['idadmin'];
- $documento = $row['documento'];
- $nombre 	= $row['nombre'];
- $apellido 	= $row['apellido'];
- $login 	= $row['login'];
+	 $adicionales = "<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Apellidos</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$apellido' name='apellido' id='focusedinput' placeholder='Apellido'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Login</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$login' name='login' id='focusedinput' placeholder='Login'>
+						</div>
+						<div class='col-sm-2'>
+							<p class='help-block'>Nuevo Login</p>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='inputPassword' class='col-sm-2 control-label'>Password</label>
+						<div class='col-sm-8'>
+							<input type='password' class='form-control1' id='inputPassword' placeholder='Password' name='password'>
+						</div>
+						<div class='col-sm-2'>
+							<p class='help-block'>Nuevo Password</p>
+						</div>
+					</div>";
+
+} else {
+	// Realiza una consulta para verificar unos parametros en la base de datos y asi permitir la actualización de la información.
+	 $query = mysqli_query($result,"select * from clientes where id = '" . $idadmin . "';");
+
+	// Lo organiza en un array y permite utilizar cada uno de los parametros
+	 $row = $query->fetch_assoc();
+
+	 $id 				= $row['id'];
+	 $documento 		= $row['documento'];
+	 $nombre 			= $row['nombres'];
+	 $acudiente 		= $row['empresa'];
+	 $telefono 			= $row['telefono'];
+	 $correo 			= $row['correo'];
+	 $direccion 		= $row['direccion'];
+	 $fecha_nacimiento 	= $row['fecha_nacimiento'];
+	 $doc_acudiente 	= $row['doc_empresa'];
+	 $rh 				= $row['rh'];
+
+	 $adicionales = "<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Acudiente</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$acudiente' name='acudiente' id='focusedinput' placeholder='Acudiente'>
+						</div>
+						<div class='col-sm-2'>
+							<p class='help-block'>Padre de familia</p>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Telefono</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$telefono' name='telefono' id='focusedinput' placeholder='Telefono'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Correo</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$correo' name='correo' id='focusedinput' placeholder='Correo'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Dirección</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$direccion' name='direccion' id='focusedinput' placeholder='Dirección'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Fecha Nacimiento</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$fecha_nacimiento' name='fecha_nacimiento' id='focusedinput' placeholder='Fecha Nacimiento'>
+						</div>
+						<div class='col-sm-2'>
+							<p class='help-block'>Día/Mes/Año</p>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>Doc. Acudiente</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$doc_acudiente' name='doc_empresa' id='focusedinput' placeholder='Documento Acudiente'>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label for='focusedinput' class='col-sm-2 control-label'>RH</label>
+						<div class='col-sm-8'>
+							<input type='text' class='form-control1' value='$rh' name='rh' id='focusedinput' placeholder='RH'>
+						</div>
+					</div>";
+}
+
 
 
 $html="
@@ -123,30 +218,7 @@ $html="
 												<input type='text' class='form-control1' value='$nombre' name='nombre' id='focusedinput' placeholder='Nombres'>
 											</div>
 										</div>
-										<div class='form-group'>
-											<label for='focusedinput' class='col-sm-2 control-label'>Apellidos</label>
-											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value='$apellido' name='apellido' id='focusedinput' placeholder='Apellido'>
-											</div>
-										</div>
-										<div class='form-group'>
-											<label for='focusedinput' class='col-sm-2 control-label'>Login</label>
-											<div class='col-sm-8'>
-												<input type='text' class='form-control1' value='$login' name='login' id='focusedinput' placeholder='Apellido'>
-											</div>
-											<div class='col-sm-2'>
-												<p class='help-block'>Nuevo Login</p>
-											</div>
-										</div>
-										<div class='form-group'>
-											<label for='inputPassword' class='col-sm-2 control-label'>Password</label>
-											<div class='col-sm-8'>
-												<input type='password' class='form-control1' id='inputPassword' placeholder='Password' name='password'>
-											</div>
-											<div class='col-sm-2'>
-												<p class='help-block'>Nuevo Password</p>
-											</div>
-										</div>
+										" . $adicionales . "
 										<button type='submit' class='btn btn-default w3ls-button'>Actualizar</button>
 										<button type='button' onclick='history.back()' class='btn btn-default w3ls-button'>Cancelar</button> 
 									</form>
@@ -159,7 +231,7 @@ $html="
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2017 AdminSoft . All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
+			<p>© 2019 Forpymes. All Rights Reserved . Design by <a href='edisonosorioj.com'></a>AlDía</p>
 		</div>
 		<!-- //footer -->
 	</section>

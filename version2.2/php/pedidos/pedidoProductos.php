@@ -35,7 +35,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Utilizamos esta consulta para obtener el nombre del cliente, del pedido y su historial
-$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
+$query3 = mysqli_query($result, "select nombre_pedido, nombres, pedido_id, id, p.estado as estado from pedidos p inner join clientes c on p.cliente_id = c.id where pedido_id = '$id'");
 $row3=$query3->fetch_assoc();
 $id_pedido 		= $row3['pedido_id'];
 $nombre_pedido 	= $row3['nombre_pedido'];
@@ -49,12 +49,15 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
+ 	$valoru = ($row['valoru'] == '')? 0 : $row['valoru'];
+ 	$valort = ($row['valort'] == '')? 0 : $row['valort'];
+
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" 	. 	$row['idproducto'] 	. "</td>
 				<td>" 	. 	$row['producto'] 	. "</td>
-				<td align='right'>$ " . number_format($row['valoru'], 0, ",", ".") 	. "</td>
+				<td align='right'>$ " . number_format($valoru, 0, ",", ".") 	. "</td>
 				<td>" 	. 	$row['cantidad'] 	. "</td>
-				<td align='right'>$ " . number_format($row['valort'], 0, ",", ".") 	. "</td>
+				<td align='right'>$ " . number_format($valort, 0, ",", ".") 	. "</td>
 				<td>
 				<a class='botonTab' onclick='javascript:abrir(\"editarPeProducto.php?id=" . $row['idproducto'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPeProducto.php?id=" . $row['idproducto'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
@@ -62,6 +65,7 @@ $query = mysqli_query($result,"select pp.peproducto_id as idproducto, pp.product
 			</tr>";
 
  }
+
 
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
@@ -98,7 +102,7 @@ if ($rows > 0)
               
 }  
 
-$varIva				= $datos['iva'];
+$varIva	= $datos['iva'];
 
 // Se encarga de reemplazar los valores de subtotal e Iva.
 $valorPedido = $row3['valor'];
@@ -118,6 +122,8 @@ if ($varIva == 1) {
 				<td><b>Iva</b></td>
 				<td align='left'>$ " . number_format($valorIva, 0, ",", ".") . "</td>
 			</tr>";
+	}else{
+		$iva = "";
 	};
 
 // Se contruye el HTML para imprimirlo mas adelante.

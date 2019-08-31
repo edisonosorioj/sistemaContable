@@ -51,7 +51,7 @@ $row 	= $query2->fetch_assoc();
 $valor 	= $row['valor'];
 $valorMasIva = ($valor * 0.19)+$valor;
 
-$valor = ($varIva == '0') ? $valor : $valorMasIva;
+$valor = ($varIva == '1') ? $valorMasIva : $valor;
 
 if ($estado == 1) {
 

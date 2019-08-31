@@ -11,14 +11,28 @@ date_default_timezone_set('America/Lima');
 $html 		= '';
 $fecha 		= date('Y-m-d');
 
-if ($fecha == date('Y-m-d')) {
-	
-	$html = 'No es posible hacer otro cuadre el día de hoy. Elimina el registro anterior e intenta de nuevo.';
+$query = mysqli_query($result, "select count(*) as conteo from cuadre_caja where fecha like '$fecha%';");
+	$row	= $query->fetch_assoc();
 
-	$html .= "<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button>";
+	$conteo	= $row['conteo'];
+
+	// echo $conteo;die;
+
+if ($conteo > 0) {
+	
+	$html = '
+			<html><head><link rel="stylesheet" type="text/css" href="../../css/style3.css" />
+			<link rel="stylesheet" href="../../css/bootstrap.css"></head>
+			<div class="progressbar-heading">
+				<h1>Cuadre de Caja</h1>
+				<p>No es posible hacer otro cuadre el día de hoy. Elimina el registro anterior e intenta de nuevo.</p>
+			</div>
+			';
+
+	$html .= "<button type='button' class='btn btn-default w3ls-button' onclick='window.close();'>Cancelar</button></html>";
 
 	echo $html;
-	
+
 }else{
 
 	$query = mysqli_query($result, "select sum(valor) as ingresos from ingresos where fecha = '$fecha';");

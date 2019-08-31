@@ -122,20 +122,25 @@ $html="<!DOCTYPE html>
 	<div class='hoja'>
 		<div class='logo'><img src='../../images/logoInformes.png'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
-		<div class='fecha'>Rionegro, $fecha_pedido</div>
+		<div class='encabezado'>Rionegro, $fecha</div>
 		<div class='numero'>Cotización No. $id</div>
-		<div class='encabezado'>$cliente_empresa con Identificador $documento_cliente debe a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor contemplado al final de la tabla por concepto de:</div>
+		<div class='encabezado'>
+			<b>Señor(a):</b><br />
+			$nombre_cliente<br />
+			$cliente_empresa<br />
+			$cliente_correo
+		</div>
+		<div class='encabezado'>$nombre_empresa presenta el siguiente valor para ser evaluado según los productos solicitados expresados en la siguiente tabla:</div>
 		<div class='table'>
 			<table class='table-fill'>
 				<tr>
-					<th width='70%'>PRODUCTO</th>
-					<th width='20'>CANTIDAD</th>
-					<th width='30'>VALOR</th>
+					<th>PRODUCTO</th>
+					<th>CANTIDAD</th>
+					<th>VALOR</th>
 				</tr>
-				" .
-				$tr .
-				$iva
-				. "
+				" 
+				. $tr . 
+				"
 				<tr>
 					<td></td>
 					<th>TOTAL</th>
@@ -143,7 +148,7 @@ $html="<!DOCTYPE html>
 				</tr>
 			</table>
 		</div>
-		<div class='pago'>$forma_de_pago</div>
+		<div class='pago'>En caso de ser aprobada favor confirmar enviando esta cotización firmada por correo electrónico o física al remitente. Esta propuesta tiene una validez de 30 días a partir de la fecha en que se genero.</div>
 		<div class='firma'><p>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel <br />Tel: $tel</p></div>
 	</div>
 </body>

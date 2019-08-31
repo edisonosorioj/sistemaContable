@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+date_default_timezone_set('America/Lima');
 
 $ingr = '';
 $egr = '';
@@ -24,13 +26,13 @@ $gra = '';
 /////////////////////Ingresos-Egresos/////////////////////////////
 
 // Ingresos
-$query = mysqli_query($result,'select SUM(valor) as total from ingresos');
+$query = mysqli_query($result,'SELECT SUM(valor) as total FROM ingresos');
 
 $row = $query->fetch_assoc();
 $ingr .= number_format($row['total'], 0, ",", ".");
 
 // Egresos
-$query2 = mysqli_query($result,'select SUM(valor) as total from compras');
+$query2 = mysqli_query($result,'SELECT SUM(valor) as total FROM compras');
 
 $row2 = $query2->fetch_assoc();
 $egr .= $row2['total'];
@@ -46,7 +48,7 @@ $porcEgr = $sum - $row['total'];
 
 $dia = date("Y-m-d");
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -55,7 +57,7 @@ if ($row3['total'] <= 0) {
 	$ingr0 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -67,7 +69,7 @@ if ($row4['total'] <= 0) {
 /////////////
 $dia1 = date("Y-m-d", strtotime("-1 day"));
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia1."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia1."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -76,7 +78,7 @@ if ($row3['total'] <= 0) {
 	$ingr1 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia1."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia1."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -88,7 +90,7 @@ if ($row4['total'] <= 0) {
 /////////////
 $dia2 = date("Y-m-d", strtotime("-2 day"));
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia2."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia2."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -97,7 +99,7 @@ if ($row3['total'] <= 0) {
 	$ingr2 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia2."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia2."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -109,7 +111,7 @@ if ($row4['total'] <= 0) {
 ////////////
 $dia3 = date("Y-m-d", strtotime("-3 day"));
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia3."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia3."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -118,7 +120,7 @@ if ($row3['total'] <= 0) {
 	$ingr3 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia3."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia3."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -130,7 +132,7 @@ if ($row4['total'] <= 0) {
 /////////////////
 $dia4 = date("Y-m-d", strtotime("-4 day"));
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia4."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia4."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -139,7 +141,7 @@ if ($row3['total'] <= 0) {
 	$ingr4 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia4."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia4."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -151,7 +153,7 @@ if ($row4['total'] <= 0) {
 ////////////////
 $dia5 = date("Y-m-d", strtotime("-5 day"));
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia5."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia5."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -160,7 +162,7 @@ if ($row3['total'] <= 0) {
 	$ingr5 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia5."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia5."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -173,7 +175,7 @@ if ($row4['total'] <= 0) {
 ////////////////
 $dia6 = date("Y-m-d", strtotime("-6 day"));
 
-$query3 = mysqli_query($result,"select SUM(valor) as total from ingresos where fecha = '".$dia6."'");
+$query3 = mysqli_query($result,"SELECT SUM(valor) as total FROM ingresos WHERE fecha LIKE '".$dia6."%'");
 
 $row3 = $query3->fetch_assoc();
 if ($row3['total'] <= 0) {
@@ -182,7 +184,7 @@ if ($row3['total'] <= 0) {
 	$ingr6 .= $row3['total'];
 }
 
-$query4 = mysqli_query($result,"select SUM(valor) as total from compras where fecha = '".$dia6."'");
+$query4 = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE fecha LIKE '".$dia6."%'");
 
 $row4 = $query4->fetch_assoc();
 if ($row4['total'] <= 0) {
@@ -195,10 +197,10 @@ if ($row4['total'] <= 0) {
 
 
 
-$ingreso = mysqli_query($result,'select SUM(valor) as total from ingresos where MONTH(fecha) = MONTH(now())');
+$ingreso = mysqli_query($result,'SELECT SUM(valor) as total FROM ingresos WHERE MONTH(fecha) = MONTH(now())');
  	$cam1 = $ingreso->fetch_assoc();
  	$ingmes = $cam1['total'];
 
- $egreso = mysqli_query($result,"select SUM(valor) as total from compras where MONTH(fecha) = MONTH(now())");
+ $egreso = mysqli_query($result,"SELECT SUM(valor) as total FROM compras WHERE MONTH(fecha) = MONTH(now())");
  	$cam2 = $egreso->fetch_assoc();
  	$egrmes = $cam2['total'];

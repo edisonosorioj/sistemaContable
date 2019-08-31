@@ -36,7 +36,7 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor, cr.registro_id as registro_id from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by cr.idcreditos DESC, fecha DESC;");
+$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor, cr.registro_id as registro_id, cr.idclientes as cliente_id from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by cr.idcreditos DESC, fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -55,7 +55,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['detalles'] 	. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
 				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?registro_id=" . $row['registro_id'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-file-text-o' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
+				<a class='botonTab' onclick='javascript:abrir(\"detallesCredito.php?registro_id=" . $row['registro_id'] . "&cliente_id=" . $row['cliente_id'] . "&fecha=" . $row['fecha'] . "\")'><span data-tooltip='Detalles'><i class='fa fa-file-text-o' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off' style='font-size:2em;'></i></spam></a>
 				</td>
 			</tr>";

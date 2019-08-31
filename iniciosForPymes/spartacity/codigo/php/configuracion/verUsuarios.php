@@ -40,8 +40,10 @@ $query = mysqli_query($result,'select * from administradores');
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}else if($idrol == 1){
 	include "../menu2.php";
+} else{
+	include "../menu3.php";
 }
 
 $html="<!DOCTYPE html>

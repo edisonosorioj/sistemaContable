@@ -8,14 +8,17 @@ $result = $conex->conex();
 // Con el ID que se trae de productos del pedido y permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select * from pedidoProductos where peProducto_id ='$id'");
+$query = mysqli_query($result, "SELECT pp.pedido_id as pedido_id, pp.cantidad as cantidad, pp.producto_id as producto_id, pp.producto as producto, p.nombre as nombre FROM pedidoProductos pp INNER JOIN productos p on pp.producto_id = p.idproductos where peProducto_id = '$id';");
 
 $row = $query->fetch_assoc();
 
-$pedido_id = $row['pedido_id'];
-$cantidad = $row['cantidad'];
+$pedido_id 		= $row['pedido_id'];
+$cantidad 		= $row['cantidad'];
+$producto_id 	= $row['producto_id'];
+$producto 		= $row['producto'];
+$nombre 		= $row['nombre'];
 
-$query3 = mysqli_query($result, "select * from pedidos where pedido_id = '$pedido_id'");
+$query3 = mysqli_query($result, "SELECT * FROM pedidos where pedido_id = '$pedido_id'");
 
 $row3 = $query3->fetch_assoc();
 
@@ -35,13 +38,12 @@ if ($estado == 1) {
 
 $option='';
 
-$query2 = mysqli_query($result,'select * from productos order by idproductos');
+$query2 = mysqli_query($result,"SELECT * FROM productos where idproductos != '$producto_id' order by idproductos;");
 
-$producto = $row['producto'];
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
+	 	$option .=	"<option value='" . $row2['idproductos'] . "'>" . $row2['nombre'] . "</option>";
 	}
 	
 $html = "
@@ -105,7 +107,8 @@ $html = "
 									<form action='actPeProducto.php' method='post'>
 
 										<div class='form-group'> 
-											<input type='hidden' name='id' value='$id' class='form-control'> 
+											<input type='hidden' name='id' value='$id'> 
+											<input type='hidden' name='producto_id' value='$producto_id'> 
 										</div>
 										<div class='form-group'> 
 											<label>Producto Actual</label> 
@@ -114,6 +117,7 @@ $html = "
 										<div class='form-group'> 
 											<label>Producto</label> 
 											<select name='nuevo_producto' class='form-control1'>
+												<option value='" . $producto_id . "'>" . $row['nombre'] . "</option>
 												$option
 											</select>
 										</div> 

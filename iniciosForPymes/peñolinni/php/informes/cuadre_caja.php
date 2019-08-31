@@ -26,7 +26,7 @@ if ($idrol == 0) {
 	include "../menu3.php";
 }
 //* Consulta y por medio de un while muestra la lista de los clientes - DATE(DATE_SUB(NOW(),INTERVAL 10 HOUR))*//
-$query = mysqli_query($result,'SELECT * FROM cuadre_caja;');
+$query = mysqli_query($result,'SELECT * FROM cuadre_caja ORDER BY fecha DESC;');
 
 $tr = '';
 $conteo = 1;
@@ -41,8 +41,7 @@ $conteo = 1;
 				<td  align='right'>$ " . number_format($row['cuadre_caja'], 0, ",", ".") 	. "</td>
 				<td  align='right'>$ " . number_format($row['balance'], 0, ",", ".") 	. "</td>
 				<td  align='right'>" . $estado . "</td>
-				<td><a onclick='javascript:abrir(\"editarCuadre_caja.php?id=" . $row['id_cuadre'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil' style='font-size:2em;'></i></spam></a>&nbsp;&nbsp;
-				<a href='eliminarCuadre_caja.php?id=" . $row['id_cuadre'] . "'><span data-tooltip='Eliminar'>
+				<td><a href='eliminarCuadre_caja.php?id=" . $row['id_cuadre'] . "'><span data-tooltip='Eliminar'>
 					<i class='fa icon-off' style='font-size:2em;'></i></a>
 				</td>
 			</tr>";
@@ -108,9 +107,6 @@ $html="<!DOCTYPE html>
 				<div class='bs-component mb20 col-md-2'>
 					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/informes/nuevoCuadre.php\")'>Nuevo</button>
 				</div>
-				<div class='bs-component mb20 col-md-6'>
-			  		<h3>-</h3>
-			  	</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>

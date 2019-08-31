@@ -5,7 +5,6 @@ if (isset($_SESSION['idrol'])){
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
 	$nomina 			= $_SESSION['modulo_nomina'];
 	$pedidomesas 		= $_SESSION['mesas'];
-	
 }
 
 $fecha_actual		= strtotime(date('d-m-Y'));
@@ -13,7 +12,7 @@ $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $status 			= '';
 
 $status 		= ($fecha_contrato < $fecha_actual) ? "class='class_a_href'" 			: $status;
-$pedidomesas 	= ($pedidomesas == 1) 				? '../pedidos/pedidos_mesas.php' 	: '../pedidos/pedido.php' ;
+$pedidomesas 	= ($pedidomesas == 1) 				? "../pedidos/pedidos_mesas.php" 	: "../pedidos/pedido.php" ;
 
 
 if ($nomina == 1) {

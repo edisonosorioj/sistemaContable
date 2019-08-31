@@ -27,8 +27,10 @@ $porDescuento = 0.04;
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}else if($idrol == 1){
 	include "../menu2.php";
+} else{
+	include "../menu3.php";
 }
 
 // Obtiene el ID enviado desde Pedido para visualizar los productos solicitados para el pedido

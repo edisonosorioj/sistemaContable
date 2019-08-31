@@ -8,17 +8,36 @@ $conection = $conex->conex();
 $nomina = '';
 
 $login = $_POST['login'];
-$password = md5($_POST['password']);
 
-$query = mysqli_query($conection,"SELECT * FROM administradores WHERE login = '" . $login . "' AND contrasena = '" . $password . "'");
+$query0 = mysqli_query($conection,"SELECT * FROM administradores WHERE login = '" . $login . "'");
+$acceso = mysqli_num_rows($query0);
 
-$row = $query->fetch_assoc();
+if ($acceso > 0) {
+	$password = md5($_POST['password']);
+	$query = mysqli_query($conection,"SELECT * FROM administradores WHERE login = '" . $login . "' AND contrasena = '" . $password . "'");
+
+	$row = $query->fetch_assoc();
+
+	$idadmin 	= $row['idadmin'];
+	$idrol		= $row['idrol'];
+} else {
+	$password = $_POST['password'];
+	$query = mysqli_query($conection,"SELECT * FROM clientes WHERE documento = '" . $login . "' AND documento = '" . $password . "'");
+
+	$row = $query->fetch_assoc();
+
+	$idadmin 	= $row['id'];
+	$idrol		= 2;
+}
+
 
 
 // Obtiene la ultima fecha de pago para generar alarmas en el sistema
 $query2 = mysqli_query($conection,"SELECT * FROM pagos ORDER BY pago_id DESC LIMIT 1");
 
 $row2 = $query2->fetch_assoc();
+
+$fecha = $row2['fecha'];
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
 $query3 = mysqli_query($conection, "SELECT * FROM variables;");
@@ -46,9 +65,9 @@ $numrows = mysqli_num_rows($query);
 		session_start();
 		
 		$_SESSION['login'] 				= $login;
-		$_SESSION['idadmin'] 			= $row['idadmin'];
-		$_SESSION['idrol'] 				= $row['idrol'];
-		$_SESSION['fecha_ultimo_pago'] 	= $row2['fecha'];
+		$_SESSION['idadmin'] 			= $idadmin;
+		$_SESSION['idrol'] 				= $idrol;
+		$_SESSION['fecha_ultimo_pago'] 	= $fecha;
 		$_SESSION['modulo_nomina'] 		= $nomina;
 		
 		header("Location: index.php");

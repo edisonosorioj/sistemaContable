@@ -97,10 +97,13 @@ td{
 
 .especial{
     background-color: lightgreen;
+    box-sizing: content-box;
+    border: white 2px solid;
+    border-radius: 10px;
     font-size: 15px;
-    height: 40px;
-    vertical-align: center;
+    height: 60px;
     padding-top: 10px;
+    vertical-align: center;
     width: 95%;
 }
 

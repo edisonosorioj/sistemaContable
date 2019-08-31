@@ -20,8 +20,10 @@ $result = $conex->conex();
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}else if($idrol == 1){
 	include "../menu2.php";
+} else{
+	include "../menu3.php";
 }
 // Consulta y por medio de un while muestra la lista de los clientes
 $query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor, c.categoria from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');

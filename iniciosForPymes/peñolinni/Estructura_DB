@@ -50,7 +50,9 @@ CREATE TABLE `items` (`iditems` INT NOT NULL AUTO_INCREMENT, `nombre` VARCHAR(10
 
 CREATE TABLE `precio_x_item` ( `idprecios` INT NOT NULL AUTO_INCREMENT, `iditems` INT NOT NULL, `nombre` VARCHAR(200) NOT NULL, `valor` VARCHAR(45) NOT NULL DEFAULT 0, PRIMARY KEY (`idprecios`));
 
-CREATE TABLE `penolinni`.`cuadre_caja` (`id_cuadre` INT UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATETIME NULL,`valor_ventas` VARCHAR(45) NULL,`cuadre_caja` VARCHAR(45) NULL,`balance` VARCHAR(45) NULL,`estado` INT NULL,`realizado_por` VARCHAR(45) NULL,PRIMARY KEY (`id_cuadre`));
+CREATE TABLE `cuadre_caja` (`id_cuadre` INT UNSIGNED NOT NULL AUTO_INCREMENT,`fecha` DATETIME NULL,`valor_ventas` VARCHAR(45) NULL,`cuadre_caja` VARCHAR(45) NULL,`balance` VARCHAR(45) NULL,`estado` INT NULL,`realizado_por` VARCHAR(45) NULL,PRIMARY KEY (`id_cuadre`));
+
+CREATE TABLE `acciones_ejecutadas` (`accion_id` INT NOT NULL AUTO_INCREMENT, `fecha` DATETIME NOT NULL, `usuario_id` INT NOT NULL, `modulo` VARCHAR(200) NOT NULL, `accion` VARCHAR(200) NOT NULL, PRIMARY KEY (`accion_id`), UNIQUE INDEX `accion_id_UNIQUE` (`accion_id` ASC));
 
 
 //Actualizar inicializacion ID Pedidos
@@ -62,3 +64,11 @@ ALTER TABLE `variables` CHANGE COLUMN `detalle` `detalle` VARCHAR(1000) NOT NULL
 ALTER TABLE `creditos` ADD COLUMN `registro_id` INT(11) NULL AFTER `idclientes`;
 
 ALTER TABLE `creditos` CHANGE COLUMN `fecha` `fecha` DATETIME NOT NULL ;
+
+ALTER TABLE `creditos` CHANGE COLUMN `registro_id` `registro_id` INT(11) NULL ;
+
+ALTER TABLE `pedidoProductos` CHANGE COLUMN `registro_id` `registro_id` INT(11) NULL ;
+
+ALTER TABLE `ingresos` CHANGE COLUMN `fecha` `fecha` DATETIME NOT NULL ;
+
+ALTER TABLE `compras` CHANGE COLUMN `fecha` `fecha` DATETIME NOT NULL ;

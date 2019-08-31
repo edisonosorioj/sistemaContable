@@ -29,7 +29,7 @@ $seguro_social 		= $_POST['seguro_social'];
 $estado 			= $_POST['estado'];
 
 // Agrega nuevos usuarios según el formulario recibido
-$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo, empresa, direccion, doc_empresa, fecha_nacimiento, rh, categoria, seguro_social, estado) VALUES ('$documento', '$nombres', '$telefono', '$correo', '$empresa', '$direccion', '$doc_empresa', '$fecha_nacimiento', '$rh', '$categoria', '$seguro_social, '$estado');");
+$query = mysqli_query($result,"INSERT INTO clientes (documento, nombres, telefono, correo, empresa, direccion, doc_empresa, fecha_nacimiento, rh, categoria, seguro_social, estado) VALUES ('$documento', '$nombres', '$telefono', '$correo', '$empresa', '$direccion', '$doc_empresa', '$fecha_nacimiento', '$rh', '$categoria', '$seguro_social', '$estado');");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 if($query > 0){

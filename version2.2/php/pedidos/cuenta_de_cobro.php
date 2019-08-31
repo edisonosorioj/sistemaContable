@@ -40,7 +40,7 @@ $query3 = mysqli_query($result,"select SUM(valort) as valor, c.t_cobrado as cobr
 
 $row3 = $query3->fetch_assoc();
 
-$valorPedido 	= $row3['valor'];
+$valorPedido 	= $row3['cobrado'];
 // $cobraPedido 	= "$ " . number_format($row3['cobrado'], 0, ",", ".") . "";
 
 // Obtenemos la fecha

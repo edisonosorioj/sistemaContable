@@ -50,7 +50,7 @@ $query = mysqli_query($result,'SELECT i.iditems as iditems, i.nombre as nombre, 
 				<td>" . $row['nombre'] 		. "</td>
 				<td>" . $estado 			. "</td>
 				<td>" . $nombreGrupo 		. "</td>
-				<td><a href='verItem.php?id=" . $row['iditems'] . "'><span data-tooltip='Detalles'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
+				<td><a href='verItem.php?id=" . $row['iditems'] . "'><span data-tooltip='Tipos'><i class='fa fa-file'></i></spam></a>&nbsp;&nbsp;
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarItem.php?id=" . $row['iditems'] . "'><span data-tooltip='Eliminar'>
 				<i class='fa icon-off'></i></spam></a></td>
 			</tr>";

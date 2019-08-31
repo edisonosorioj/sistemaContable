@@ -20,18 +20,38 @@ require_once '../conexion.php';
 
 $conex = new conection();
 $result = $conex->conex();
+
+// Obtiene el ID enviado desde Cliente para visualizar su historial
+$id = $_GET['id'];
 $tr = '';
 $tr2 = '';
 $deuda = '';
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+	$botones = "<div class='bs-component mb20 col-md-8'>
+					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
+					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
+					<button type='submit' class='btn btn-primary hvr-icon-sink-away col-11'>Eliminar Seleccionados</button>
+				</div>";
+	$botones_acciones = "<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
+				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>";
+}else if($idrol == 1){
 	include "../menu2.php";
+	$botones = "<div class='bs-component mb20 col-md-8'>
+					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
+					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
+					<button type='submit' class='btn btn-primary hvr-icon-sink-away col-11'>Eliminar Seleccionados</button>
+				</div>";
+	$botones_acciones = "<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
+			<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>";		
+} else{
+	include "../menu3.php";
+	$botones= '';
+	$botones_acciones='';
 }
-
-// Obtiene el ID enviado desde Cliente para visualizar su historial
-$id = $_GET['id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
 $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by cr.idcreditos DESC, fecha DESC;");
@@ -56,10 +76,7 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 				<td>" . $row['fecha'] 		. "</td>
 				<td>" . $row['detalles'] 	. "</td>
 				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
-				<td>
-				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
-				</td>
+				<td>" . $botones_acciones . $td . "</td>
 			</tr>";
 
  }
@@ -151,13 +168,8 @@ else return false;
 				<div class='table-heading'>
 					<h2>$nombre</h2>
 				</div>
-				<form action='eliminarVarios.php' method='post'> 
-				<div class='bs-component mb20 col-md-8'>
-					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
-					<button type='submit' class='btn btn-primary hvr-icon-sink-away col-11'>Eliminar Seleccionados</button>
-				</div>
+				<form action='eliminarVarios.php' method='post'>
+				" . $botones . "
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 						  	<h3>" . $deuda . "</h3>

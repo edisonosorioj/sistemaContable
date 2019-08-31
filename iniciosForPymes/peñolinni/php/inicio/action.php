@@ -42,24 +42,24 @@ $mesas 	= $datos['mesas'];
 
 // Agrega datos a las variables de configuración
 $numrows = mysqli_num_rows($query);
- if($numrows > 0)
-	{
+if($numrows > 0)
+{
 /* Redirect browser */
-		session_start();
-		
-		$_SESSION['login'] 				= $login;
-		$_SESSION['idadmin'] 			= $row['idadmin'];
-		$_SESSION['idrol'] 				= $row['idrol'];
-		$_SESSION['fecha_ultimo_pago'] 	= $row2['fecha'];
-		$_SESSION['modulo_nomina'] 		= $nomina;
-		$_SESSION['mesas'] 				= $mesas;
-		
-		header("Location: index.php");
-	 
-	 	} else {
-	 	 
-		header("Location: session2.html");
-	}
+	session_start();
+	
+	$_SESSION['login'] 				= $login;
+	$_SESSION['idadmin'] 			= $row['idadmin'];
+	$_SESSION['idrol'] 				= $row['idrol'];
+	$_SESSION['fecha_ultimo_pago'] 	= $row2['fecha'];
+	$_SESSION['modulo_nomina'] 		= $nomina;
+	$_SESSION['mesas'] 				= $mesas;
+	
+	header("Location: index.php");
+ 
+ 	} else {
+ 	 
+	header("Location: session2.html");
+}
 	 
 
 ?>

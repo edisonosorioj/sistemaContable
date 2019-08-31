@@ -5,30 +5,54 @@ $conex = new conection();
 $result = $conex->conex();
 
 	$id				=	$_POST['id'];
+	$producto_id	=	$_POST['producto_id'];
 	$producto		=	$_POST['nuevo_producto'];
 	$detalles		=	$_POST['detalles'];
 	$cantidad		=	$_POST['cantidad'];
 
-// Consulta para que aparezca la información de los productos disponibles
-	$query2 = mysqli_query($result,"SELECT * FROM productos WHERE nombre = '$producto';");
+	$query2 = mysqli_query($result,"SELECT * FROM productos WHERE idproductos = '$producto_id';");
 
 	$row = $query2->fetch_assoc();
 
- 	$producto_id = $row['idproductos'];
- 	$valor = $row['valor'];
+ 	$valor 	= $row['valor'];
+ 	$nombre = $row['nombre'];
 
  	$valort = $valor * $cantidad;
 
- 	$proDetalles = $producto . ' - ' . $detalles;
+if ($producto_id == $producto) {
 
- 	// echo $proDetalles;die();
+ 	if ($detalles == '') {
+	// Consulta para actualizar el producto del pedido
+		$query = mysqli_query($result, "UPDATE pedidoProductos set valoru = '$valor', cantidad = '$cantidad', valort = '$valort' WHERE peproducto_id = '$id';");
+ 		
+ 	} else {
+		
+ 		$proDetalles = $nombre . ' - ' . $detalles;
 
-// Consulta para actualizar el cliente
-	$query = mysqli_query($result, "UPDATE pedidoProductos set producto = '$proDetalles', valoru = '$valor', cantidad = '$cantidad', valort = '$valort' where peproducto_id ='$id';");
+	// Consulta para actualizar el producto del pedido
+		$query = mysqli_query($result, "UPDATE pedidoProductos set producto = '$proDetalles', valoru = '$valor', cantidad = '$cantidad', valort = '$valort' WHERE peproducto_id = '$id';");
+ 	}
+ 	
+
+} else {
+ 	$query2 = mysqli_query($result,"SELECT * FROM productos WHERE idproductos = '$producto';");
+
+	$row = $query2->fetch_assoc();
+
+ 	$valor 	= $row['valor'];
+ 	$nombre = $row['nombre'];
+
+ 	$valort = $valor * $cantidad;
+ 	$proDetalles = $nombre . ' - ' . $detalles;
+
+	// Consulta para actualizar el producto del pedido
+	$query = mysqli_query($result, "UPDATE pedidoProductos SET producto = '$proDetalles', valoru = '$valor', cantidad = '$cantidad', valort = '$valort', producto_id = '$producto' WHERE peproducto_id = '$id';");
+}
+
 
 // Según la respuesta de la consulta se da una respuesta en una Alert
 	if($query > 0){
-		$msg = "El producto del pedido ". $producto ." fue actualizado";
+		$msg = "El producto ". $nombre ." del pedido fue actualizado";
 	}else{
 		$msg = 'Error al actualizar el producto del pedido. Contacte al Administrador';
 	}

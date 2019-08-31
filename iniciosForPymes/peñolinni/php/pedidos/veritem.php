@@ -47,7 +47,7 @@ $div = '';
 
  	$div .=	"
 			<tr height='50px'>
-				<td style='text-align:left;width:150px;'>
+				<td style='width:150px;'>
 					<div class='especial' style='background-color:#abb6fd;font-size=10px;'>
 						&nbsp;$nombre
 					</div>

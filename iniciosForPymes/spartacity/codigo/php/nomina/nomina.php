@@ -20,8 +20,10 @@ $result = $conex->conex();
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else{
+}else if($idrol == 1){
 	include "../menu2.php";
+} else{
+	include "../menu3.php";
 }
 
 // Consulta y por medio de un while muestra la lista de los pedidos

@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['login'])) {
 
-	header("Location: ../inicio/session.php");
+	header("Location: ../inicio/session.html");
 	exit();
 	
 }
@@ -20,44 +20,30 @@ $result = $conex->conex();
 
 if ($idrol == 0) {
 	include "../menu.php";
-}else if($idrol == 1){
+}elseif ($idrol == 1) {
 	include "../menu2.php";
-} else{
+}else{
 	include "../menu3.php";
 }
-
-// Consulta y por medio de un while muestra la lista de los pedidos
-$query = mysqli_query($result,'select p.cliente_id, p.pedido_id as pedido_id, c.nombres as nombres, p.nombre_pedido, p.t_costo, p.t_cobrado, p.fecha, p.estado from pedidos p inner join clientes c on p.cliente_id = c.id order by p.pedido_id DESC;');
+//* Consulta y por medio de un while muestra la lista de los clientes - DATE(DATE_SUB(NOW(),INTERVAL 10 HOUR))*//
+$query = mysqli_query($result,'SELECT * FROM acciones_ejecutadas ae INNER JOIN administradores a ON ae.usuario_id = a.idadmin ORDER BY fecha DESC;');
 
 $tr = '';
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
- 	$estado 	= ($row['estado'] 		== '0')		?	"Pendiente"		:"Realizado";
- 	$costo 		= ($row['t_costo'] 		== null)	?	0				:$row['t_costo'];
- 	$cobrado 	= ($row['t_cobrado'] 	== null)	?	0				:$row['t_cobrado'];
-
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['pedido_id'] 		. "</td>
-				<td>" . $row['nombres'] 		. "</td>
-				<td>" . $row['nombre_pedido'] 	. "</td>
-				<td  align='right'>$ " . number_format($costo, 0, ",", ".") . "</td>
-				<td  align='right'>$ " . number_format($cobrado, 0, ",", ".") . "</td>
-				<td>" . $row['fecha']	. "</td>
-				<td>" . $estado	. "</td>
-				<td><a onclick='javascript:abrir(\"editarPedido.php?id=" . $row['pedido_id'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>&nbsp;&nbsp;
-				<a href='pedidoProductos.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Productos'>
-					<i class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;
-				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarPedido.php?id=" . $row['pedido_id'] . "'><span data-tooltip='Eliminar'>
-					<i class='fa icon-off'></i></a>
-				</td>
+				<td  align='right'>" . $row['fecha']	. "</td>
+				<td  align='right'>" . $row['nombre'] . ' ' . $row['apellido'] . "</td>
+				<td  align='right'>" . $row['modulo']	. "</td>
+				<td  align='right'>" . $row['accion'] 	. "</td>
 			</tr>";
 
- }
+}
 
 $html="<!DOCTYPE html>
 <head>
-<title>Pedidos</title>
+<title>Acciones</title>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name='keywords' content='Sistema Administrativo' />
@@ -95,46 +81,29 @@ $html="<!DOCTYPE html>
       $('#table').basictable();
     }); 
 	function abrir(url) { 
-	open(url,'','top=100,left=100,width=900,height=700') ; 
+	open(url,'','top=100,left=100,width=800,height=400') ; 
 	}
-</script>
-<script>
-function confirmar(texto)
-{
-if (confirm(texto))
-{
-return true;
-}
-else return false;
-}
 </script>
 <!-- //tables -->
 </head>
-<body class='dashboard-page'>
+<body class='dashboard-page' style='overflow: scroll !important;'>
 
 		<div class='main-grid'>
 			<div class='agile-grids'>	
 				<!-- tables -->
 				
 				<div class='table-heading'>
-					<h2>Pedidos</h2>
-				</div>
-				<div class='bs-component mb20 col-md-2'>
-					<button type='button' class='btn btn-primary btn-block hvr-icon-float-away' onclick='javascript:abrir(\"../../html/pedidos/nuevoPedido.php\")'>Nuevo</button>
+					<h2>Acciones Ejecutadas</h2>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>Id</th>
-							<th>Cliente</th>
-							<th>Nombre Pedido</th>
-							<th>Costo</th>
-							<th>Cobrado</th>
 							<th>Fecha</th>
-							<th>Estado</th>
-							<th>Acciones</th>
+							<th>Usuario</th>
+							<th>Modulo</th>
+							<th>Acción</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -150,7 +119,7 @@ else return false;
 		</div>
 		<!-- footer -->
 		<div class='footer'>
-			<p>© 2019 ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
+			<p>© " . date('Y') . " ForPymes. All Rights Reserved . Design by <a href='https://forpymes.co'></a>ForPymes</p>
 		</div>
 		<!-- //footer -->
 	</section>

@@ -11,6 +11,7 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idrol'])){
 
+	$login				= $_SESSION['login'];
 	$idrol 				= $_SESSION['idrol'];
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
 	
@@ -32,6 +33,12 @@ $result = $conex->conex();
 
 include "graficas.php";
 
+$query = mysqli_query($result,"SELECT * FROM clientes WHERE documento = '" . $login . "'");
+
+$row = $query->fetch_assoc();
+
+$nombres 	= $row['nombres'];
+
 if ($idrol == 0) {
 	include "../menu.php";
 	$caja = $ingmes - $egrmes;
@@ -43,7 +50,7 @@ if ($idrol == 0) {
 					<!-- area-chart -->
 					<div class='area-grids'>
 						<div class='area-grids-heading'>
-							<h3>Balance General</h3>
+							<h3>&nbsp;&nbsp;Balance General</h3>
 						</div>
 						<div id='graph4'></div>
 						<script>
@@ -87,11 +94,21 @@ if ($idrol == 0) {
 						</script>
 					</div>
 				</div>";
-} else {
+} else if($idrol == 1){
 	include "../menu2.php";
 	$graficas = "<div class='col-md-6 charts-right'>
 					<div class='area-grids-heading'>
-						<h3>Bienvenidos</h3>
+						<h3>&nbsp;&nbsp;Bienvenidos</h3>
+					</div>
+					<div class='area-grids-heading'>
+						<h3>&nbsp;&nbsp;Bienvenidos</h3>
+					</div>
+				</div>";
+} else{
+	include "../menu3.php";
+	$graficas = "<div class='col-md-6 charts-right'>
+					<div class='area-grids-heading'>
+						<h3>&nbsp;Bienvenido $nombres</h3>
 					</div>
 				</div>";
 }

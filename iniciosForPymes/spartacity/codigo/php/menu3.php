@@ -3,6 +3,7 @@
 if (isset($_SESSION['idrol'])){
 
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
+	$idadmin 			= $_SESSION['idadmin'];
 	
 }
 
@@ -38,30 +39,15 @@ $menu = "
 					</span>
 				</a>
 			</li>
-			<li class='has-subnav'>
-				<a href='../cliente/cliente.php' " . $status . ">
-					<i class='icon-user nav-icon'></i>
-					<span class='nav-text'>
-						Estudiantes
-					</span>
-				</a>
-			</li>
 			<li>
-				<a href='../pedidos/pedido.php' " . $status . ">
+				<a href='../credito/credito.php?id=" . $idadmin . "' " . $status . ">
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
 						Mensualidades
 					</span>
 				</a>
 			</li>
-			<li>
-				<a href='../inventario/inventario.php' " . $status . ">
-					<i class='fa fa-list-ul'></i>
-					<span class='nav-text'>
-						Inventario
-					</span>
-				</a>
-			</li>
+		</ul>
 		<ul class='logout'>
 			<li>
 				<a href='../logout.php'>
