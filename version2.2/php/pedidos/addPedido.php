@@ -25,8 +25,6 @@ $result = $conex->conex();
 
 	$consecutivo = mysqli_insert_id($result);
 
-	// echo $consecutivo;die();
-
 	$query3 = mysqli_query($result,"UPDATE variables SET detalle = '$consecutivo' WHERE variable_id = 8;");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 

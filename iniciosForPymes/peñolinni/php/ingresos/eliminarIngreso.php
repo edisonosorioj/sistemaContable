@@ -9,6 +9,8 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idadmin'])){
 	$idadmin = $_SESSION['idadmin'];
+}else{
+	$idadmin = 'Usuario sin registro';
 }
 
 $conex = new conection();
@@ -18,7 +20,7 @@ $id=$_GET['id'];
 $fecha 	=	date('Y-m-d H:i:s');
 $u_id 	=	$idadmin;
 $mod 	=	'EGRESOS';
-$acc 	=	'ELIMINAR INGRESO CON ID = ' . $id;
+$acc 	=	'ELIMINO INGRESO CON ID ' . $id;
 	
 $query = mysqli_query($result,"delete from ingresos where idingresos='$id'");
 

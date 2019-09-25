@@ -11,6 +11,8 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idadmin'])){
 	$idadmin = $_SESSION['idadmin'];
+}else{
+	$idadmin = 'Usuario sin registro';
 }
 
 require_once "../conexion.php";
@@ -23,10 +25,10 @@ date_default_timezone_set('America/Lima');
 $pedido_id		=	$_POST['pedido_id'];
 $valor_pedido	=	$_POST['valor_pedido'];
 $registro_id	= 	'';
-$fecha 	=	date('Y-m-d H:i:s');
-$u_id 	=	$idadmin;
-$mod 	=	'EGRESOS';
-$acc 	=	'REALIZO PAGO DE PEDIDO ' . $pedido_id;
+$fecha 			=	date('Y-m-d H:i:s');
+$u_id 			=	$idadmin;
+$mod 			=	'PEDIDOS';
+$acc 			=	'REALIZO PAGO DE MESA ' . $pedido_id;
 
 // Obtiene la información del total del pedido por medio del PEDIDO ID
 $query5 = mysqli_query($result,"SELECT * FROM pedidos WHERE pedido_id = '$pedido_id';");

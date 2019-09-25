@@ -9,10 +9,14 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idadmin'])){
 	$idadmin = $_SESSION['idadmin'];
+}else{
+	$idadmin = 'Usuario sin registro';
 }
 
 $conex = new conection();
 $result = $conex->conex();
+
+date_default_timezone_set('America/Lima');
 	
 $id			=	$_POST['id'];
 $fecha 		= 	$_POST['fecha'];
@@ -21,13 +25,12 @@ $producto	=	$_POST['producto'];
 $detalles 	=	$_POST['detalles'];
 $valor 		=	$_POST['valor'];
 
-date_default_timezone_set('America/Lima');
 	
 $id 	=	$_POST['id'];
 $fecha 	=	date('Y-m-d H:i:s');
 $u_id 	=	$idadmin;
 $mod 	=	'EGRESOS';
-$acc 	=	'ACTUALIZO EGRESO CON ID = ' . $id;
+$acc 	=	'ACTUALIZO EGRESO CON ID ' . $id . $producto;
 
 // Actualiza el registro de la compra por medio de la consulta siguiente
 $query = mysqli_query($result, "UPDATE compras set fecha = '$fecha', cantidad = '$cantidad', producto = '$producto', detalles = '$detalles', valor = '$valor' where idcompras = '$id';");

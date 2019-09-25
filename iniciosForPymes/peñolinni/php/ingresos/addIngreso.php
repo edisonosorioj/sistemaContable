@@ -9,6 +9,8 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idadmin'])){
 	$idadmin = $_SESSION['idadmin'];
+}else{
+	$idadmin = 'Usuario sin registro';
 }
 
 $conex = new conection();

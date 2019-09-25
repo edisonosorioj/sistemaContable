@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Lima');
 
 session_start();
 
@@ -27,7 +28,7 @@ $result = $conex->conex();
 	$cliente_id		= $row5['cliente_id'];
 
 // Utilizamos esta consulta para obtener el datos de las variables de configuracion
-$query4 = mysqli_query($result, "select * from variables;");
+$query4 = mysqli_query($result, "SELECT * FROM variables;");
 
 $rows = mysqli_num_rows ($query4);  
           
@@ -69,7 +70,7 @@ if ($estado == 1) {
 
 //Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
 
- $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
+ $query4 = mysqli_query($result,"SELECT p.cantidad AS cantidadPedido, pp.disponible AS disponibleProducto, idproductos as producto_id FROM pedidoProductos p INNER JOIN productos pp ON p.producto_id = pp.idproductos WHERE p.pedido_id = '$pedido_id';");
 
 
  while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
@@ -80,7 +81,7 @@ if ($estado == 1) {
 
  	$total = $disponibleProducto - $cantidadPedido;
 
-	$query3 = mysqli_query($result,"UPDATE productos set disponible = '$total' where idproductos = '$producto_id';");
+	$query3 = mysqli_query($result,"UPDATE productos SET disponible = '$total' WHERE idproductos = '$producto_id';");
 
  }
 
@@ -94,7 +95,7 @@ if ($estado == 1) {
 
 
 // Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
-	$query = mysqli_query($result,"UPDATE pedidos set t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' where pedido_id = '$pedido_id';");
+	$query = mysqli_query($result,"UPDATE pedidos SET t_costo = '$valor', t_cobrado = '$cobrado', estado = '1' WHERE pedido_id = '$pedido_id';");
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0){

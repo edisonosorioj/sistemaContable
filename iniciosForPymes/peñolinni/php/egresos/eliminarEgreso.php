@@ -9,7 +9,10 @@ if (!isset($_SESSION['login'])) {
 
 if (isset($_SESSION['idadmin'])){
 	$idadmin = $_SESSION['idadmin'];
+}else{
+	$idadmin = 'Usuario sin registro';
 }
+
 $conex = new conection();
 $result = $conex->conex();
 $ae 	= '';
@@ -20,9 +23,7 @@ $id 	=	$_GET['id'];
 $fecha 	=	date('Y-m-d H:i:s');
 $u_id 	=	$idadmin;
 $mod 	=	'EGRESOS';
-$acc 	=	'ELIMINAR EGRESO CON ID = ' . $id;
-
-
+$acc 	=	'ELIMINAR EGRESO CON ID ' . $id;
 
 $query = mysqli_query($result,"DELETE FROM compras WHERE idcompras = '$id'");
 
