@@ -151,7 +151,7 @@ else return false;
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick=' window.location.href=\"../cliente/cliente.php\" '>Volver</button>
 					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoAbono.php?id=" . $id . "\")'>Pagos</button>
 					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/nuevoCredito.php?id=" . $id . "\")'>Cobros</button>
-					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"../../html/credito/intereses.php?id=" . $id . "\")'>Cargar Interes</button>
+					<button type='button' class='btn btn-primary hvr-icon-sink-away col-11' onclick='javascript:abrir(\"intereses.php?id=" . $id . "\")'>Cargar Interes</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>
