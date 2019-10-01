@@ -10,9 +10,9 @@ $ano_mes 	= date('Y-m');
 $dia 		= date('d');
 $mes 		= date('m');
 $ahora 		= date('Y-m-d');
-$mas1mes 	= date('m',strtotime($ahora."+ 1 month"));
+$menos1mes 	= date('Y-m',strtotime($ahora."- 1 month"));
 
-$query = mysqli_query($result,"SELECT p.cliente_id as cliente_id, p.t_cobrado, p.nombre_pedido as detalles, c.fecha as fecha_cr, p.pedido_id FROM pedidos p INNER JOIN creditos c ON p.pedido_id = c.idpedido WHERE p.recurrente = 1;");
+$query = mysqli_query($result,"SELECT p.cliente_id as cliente_id, p.t_cobrado, p.nombre_pedido as detalles, c.fecha as fecha_cr, p.pedido_id FROM pedidos p INNER JOIN creditos c ON p.pedido_id = c.idpedido WHERE p.recurrente = 1 AND c.fecha  like '$menos1mes%' group by p.pedido_id ORDER BY c.fecha DESC;");
 
 while ($row = $query->fetch_array(MYSQLI_BOTH)) {
 
@@ -26,9 +26,10 @@ while ($row = $query->fetch_array(MYSQLI_BOTH)) {
 	$nueva_fecha 	= substr($fecha_cr,0,4) . '-' . $nuevo_mes . '-' . substr($fecha_cr,8,2);
 	$conteo 		= 0;
 
-	// echo substr($fecha_cr,5,2) . ' - ' . $mes . " / " . substr($fecha_cr,8,2) . " - " . $dia; die();
 
 	if (substr($fecha_cr,5,2) < $mes && substr($fecha_cr,8,2) <= $dia) {
+		
+		echo $fecha_cr . " - " . $nueva_fecha . '<br />Correcto';
 
 		// Realiza la inserción de un credito agregando un signo "-" para que reste los totales
 		$query3 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes, idpedido) VALUES ('$nueva_fecha', '$detalles', CONCAT('-','$valor'), '$idcliente', '$idpedido');");

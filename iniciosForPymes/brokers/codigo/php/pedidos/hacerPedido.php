@@ -70,7 +70,7 @@ if ($estado == 1) {
 
 //Por medidio del PEDIDO ID se obtendrá los id de los propuestos para descontarlos del inventario por medio de una consulta sql.
 
- $query4 = mysqli_query($result,"select p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id from pedidoProductos p inner join productos pp on p.producto_id = pp.idproductos where p.pedido_id = '$pedido_id';");
+ $query4 = mysqli_query($result,"SELECT p.cantidad as cantidadPedido, pp.disponible as disponibleProducto, idproductos as producto_id FROM pedidoProductos p INNER JOIN productos pp on p.producto_id = pp.idproductos WHERE p.pedido_id = '$pedido_id';");
 
 
  while ($row4 = $query4->fetch_array(MYSQLI_BOTH)){
@@ -91,7 +91,7 @@ if ($estado == 1) {
  $detalles 		= "Pedido No. " . $pedido_id . " - " . $nombre_pedido;
  $valorcredito 	= $cobrado;
 
- $query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes) VALUES ('$fecha', '$detalles', CONCAT('-','$valorcredito'), '$cliente_id');");
+ $query6 = mysqli_query($result,"INSERT INTO creditos (fecha, detalles, valor, idclientes, idpedido) VALUES ('$fecha', '$detalles', CONCAT('-','$valorcredito'), '$cliente_id', '$pedido_id');");
 
 
 // Actualiza la tabla de pedidos con los parametros de total de costo, total cobrado que viene por post y cambia el estado para que este como realizado
