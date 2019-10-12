@@ -77,8 +77,8 @@ $html="<!DOCTYPE html>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='fecha'>Rionegro, $fecha</div>
 		<div class='numero'>Comprobante de pago No. $id</div>
-		<div class='encabezado'>$nombre_cliente con Identificador $documento_cliente abono o pago a $nombre_empresa con $tipo $identificacion de $lugar_expedicion, el valor de $valor por concepto de $detalles:</div>
-		<div class='firma'><p>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel <br />Tel: $tel</p></div>
+		<div class='encabezado'>$nombre_cliente con Identificador $documento_cliente abono o pago a $nombre_empresa con $tipo $identificacion de fecha $lugar_expedicion, el valor de $valor por concepto de: $detalles</div>
+		<div class='firma'><p>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel<br />www.facebook.com/SpartaCityMarinilla<br />spartacitymarinilla@gmail.com</p></div>
 	</div>
 </body>
 </html>";

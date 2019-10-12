@@ -13,7 +13,7 @@ $mes 		= date('m');
 $ahora 		= date('Y-m-d');
 $mas1mes 	= date('m',strtotime($ahora."+ 1 month"));
 
-$query = mysqli_query($result,"SELECT * FROM creditos c WHERE idcliente = '$id' AND valor < 0 AND idpago IS NULL AND idpedido IS NOT NULL;");
+$query = mysqli_query($result,"SELECT * FROM creditos c WHERE idclientes = '$id' AND valor < 0 AND idpago IS NULL AND idpedido IS NOT NULL;");
 
 while ($row = $query->fetch_array(MYSQLI_BOTH)) {
 
@@ -21,14 +21,21 @@ while ($row = $query->fetch_array(MYSQLI_BOTH)) {
 	$fecha_cr 		= $row['fecha'];
 	$dia_cr			= substr($fecha_cr,8,2);
 	$valor			= $row['valor'];
-	$dia_mora		= $dia - ($dia_cr + 5);
 	$por_int 		= 0.02;
-	$interes_dia	= $valor * $por_int;
-	$interes_total	= $interes_dia * $dia_mora;
 
-	echo $dia_mora . ' - ' . $interes_total; die();
+	$resta_fecha = abs(strtotime($ahora) - strtotime($fecha_cr));
 
-	if ($dia_mora > 0) {
+	$years 	= floor($resta_fecha / (365*60*60*24));
+	$months = floor(($resta_fecha - $years * 365*60*60*24) / (30*60*60*24));
+	$days 	= floor(($resta_fecha - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+	$days = $days - 5;
+
+	$interes_dia	= -1*($valor * $por_int);
+	$interes_total	= $interes_dia * $days;
+
+
+	if ($days > 0) {
 
 		// Realiza la inserción de un credito agregando un signo "-" para que reste los totales
 		$query3 = mysqli_query($result,"UPDATE creditos set intereses = '$interes_total' where idcreditos = '$id_credito';");

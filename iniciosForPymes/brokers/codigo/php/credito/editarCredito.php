@@ -6,11 +6,11 @@ $conex = new conection();
 $result = $conex->conex();
 	
 // Con el ID nos abre otro HTML correspondiente al Editar para organizarlo
-	$id=$_GET['id'];
-	
-	$query = mysqli_query($result, "select * from creditos where idcreditos='$id'");
+$id = $_GET['id'];
 
-	$row=$query->fetch_assoc();
+$query = mysqli_query($result, "SELECT * FROM creditos WHERE idcreditos = '$id'");
+
+$row = $query->fetch_assoc();
 	
 ?>
 <!-- Se crea el HTML con la información del credito -->

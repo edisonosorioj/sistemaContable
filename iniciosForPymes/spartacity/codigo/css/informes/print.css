@@ -6,7 +6,6 @@
 
 
 /*Estilos de impresion*/
-
 html, body{
   padding: 10px, 20px;
     background: #f4f7f9;
@@ -23,11 +22,11 @@ html, body{
 }
 
 .logo{
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .fecha{
-  margin-top: 10%;
+  margin-top: 2%;
   text-align: center;
 }
 
@@ -37,7 +36,7 @@ html, body{
 }
 
 .numero{
-  margin-left: 70%;
+  margin-left: 60%;
   margin-top: 5%;
 }
 
