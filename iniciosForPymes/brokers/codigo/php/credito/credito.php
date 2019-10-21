@@ -34,7 +34,12 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as fecha, cr.detalles as detalles, cr.valor as valor from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id' order by cr.idcreditos DESC, fecha DESC;");
+$query = mysqli_query($result,"SELECT cr.idcreditos AS idcreditos, cr.fecha AS fecha, cr.detalles AS detalles, cr.valor AS valor, cr.intereses, cr.dias_mora AS dias_mora, cr.idpago as idpago FROM clientes c 
+	INNER JOIN creditos cr 
+	ON c.id = cr.idclientes 
+	WHERE cr.idclientes = 1 
+	#AND cr.valor < 0 
+	ORDER BY cr.fecha DESC;");
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
@@ -47,11 +52,16 @@ $query = mysqli_query($result,"select cr.idcreditos as idcreditos, cr.fecha as f
 			class='fa fa-file-text-o'></i></spam></a>&nbsp;&nbsp;";
  	}
 
+ 	$style = (($row['idpago'] == NULL) && ($row['valor'] < 0))?"style='background:#fa9898;'":"style='background:#c8fab8;'";
+
+ 	$total_con_intereses = $row['valor'] + $row['intereses'];
+
  	$tr .=	"<tr class='rows' id='rows'>
-				<td>" . $row['idcreditos'] 	. "</td>
-				<td>" . $row['fecha'] 		. "</td>
-				<td>" . $row['detalles'] 	. "</td>
-				<td>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
+				<td " . $style . ">" . $row['idcreditos'] 	. "</td>
+				<td " . $style . ">" . $row['fecha'] 		. "</td>
+				<td " . $style . ">" . $row['detalles'] 	. "</td>
+				<td " . $style . ">" . $row['dias_mora'] 	. "</td>
+				<td " . $style . ">$ " . number_format($total_con_intereses, 0, ",", ".") 	. "</td>
 				<td>
 				<a class='botonTab' onclick='javascript:abrir(\"editarCredito.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Editar'><i class='fa fa-pencil'></i></spam></a>" . $td . "
 				<a onClick=\"return confirmar('¿Estas seguro de eliminar?')\" href='eliminarCredito.php?id=" . $row['idcreditos'] . "' class='botonTab'><span data-tooltip='Eliminar'><i class='fa icon-off'></i></spam></a>
@@ -68,7 +78,7 @@ $row2=$query2->fetch_assoc();
 $nombre = $row2['nombres'];
 
 // Obtenemos el total que adeuda el cliente y los mostramos en diferentes colores si debe o no
-$query3 = mysqli_query($result,"select SUM(valor) as total from clientes c inner join creditos cr on c.id = cr.idclientes where cr.idclientes = '$id'");
+$query3 = mysqli_query($result,"SELECT SUM(valor+intereses) as total FROM clientes c INNER JOIN creditos cr on c.id = cr.idclientes WHERE cr.idclientes = '$id'");
 
 $row3 = $query3->fetch_assoc();
 
@@ -162,6 +172,7 @@ else return false;
 							<th>Cod.</th>
 							<th>Fecha</th>
 							<th width='30%'>Detalles</th>
+							<th>Dias Mora</th>
 							<th>Valor</th>
 							<th>Acciones</th>
 						  </tr>

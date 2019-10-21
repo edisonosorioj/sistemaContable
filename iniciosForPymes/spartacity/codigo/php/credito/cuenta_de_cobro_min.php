@@ -75,11 +75,11 @@ $html="<!DOCTYPE html>
 </head>
 <body>
 	<div class='hoja'>
-		<div class='logo'><img src='../../images/logoInformes.png'></div>
+		<div class='logo'><img src='../../images/logoInformes.jpg'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='fecha'>Marinilla, $fecha</div>
 		<div class='numero'>Cuenta de Cobro No. $id</div>
-		<div class='encabezado'>$nombre_cliente con Identificador $documento_cliente abono o pago a $nombre_empresa con $tipo $identificacion de fecha $lugar_expedicion, el valor de $valor por concepto de: $detalles</div>
+		<div class='encabezado'>$nombre_usuario con Identificador $documento_cliente abono o pago a $nombre_empresa con $tipo $identificacion de fecha $lugar_expedicion, el valor de $valor por concepto de: $detalles</div>
 		<div class='firma'><p>Atentamente,<br />" . strtoupper($nombre_empresa) . "<br />CEL: $cel<br />www.facebook.com/SpartaCityMarinilla<br />spartacitymarinilla@gmail.com</p></div>
 	</div>
 </body>

@@ -17,7 +17,9 @@ $query2 = mysqli_query($result,"SELECT * FROM creditos WHERE idclientes = $id AN
 
 while ($row2 = $query2->fetch_array()){
 
-	 	$option .=	"<option value='" . $row2['idcreditos'] . "'>" . $row2['detalles'] . "</option>";
+		$interes_total = $row2['valor'] + $row2['intereses'];
+
+	 	$option .=	"<option value='" . $row2['idcreditos'] . "'>" . $row2['fecha'] . ' - ' . $row2['detalles'] . ' $' . $interes_total . "</option>";
 	}	
 
 

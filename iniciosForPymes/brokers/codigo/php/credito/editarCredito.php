@@ -98,6 +98,10 @@ $row = $query->fetch_assoc();
 											<label>Valor</label> 
 											<input type="text" name="valor" class="form-control" placeholder="Valor" value="<?php echo $row['valor']; ?>"> 
 										</div> 
+										<div class="form-group"> 
+											<label>Intereses</label> 
+											<input type="text" name="intereses" class="form-control" placeholder="Intereses" value="<?php echo $row['intereses']; ?>"> 
+										</div> 
 
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 

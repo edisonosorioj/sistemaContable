@@ -25,7 +25,7 @@ $query = mysqli_query($result,"select * from creditos c inner join clientes cl o
 
 $row = $query->fetch_assoc();
 
-$nombre_cliente = $row['empresa'];
+$nombre_cliente = $row['nombres'];
 $documento_cliente = $row['documento'];
 $detalles = $row['detalles'];
 $valor = "$ " . number_format($row['valor'], 0, ",", ".") . "";
@@ -73,7 +73,7 @@ $html="<!DOCTYPE html>
 </head>
 <body>
 	<div class='hoja'>
-		<div class='logo'><img src='../../images/logoInformes.png'></div>
+		<div class='logo'><img src='../../images/logoInformes.jpg'></div>
 		<div class='imprimir'><a href=javascript:window.print();>Imprimir</a></div>
 		<div class='fecha'>Rionegro, $fecha</div>
 		<div class='numero'>Comprobante de pago No. $id</div>

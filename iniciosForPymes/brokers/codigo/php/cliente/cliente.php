@@ -24,9 +24,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor) as valor from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
-
-
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor + cr.intereses) as valor, cr.intereses as intereses from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 $tr = '';
 
@@ -49,7 +47,7 @@ $tr = '';
  }
 
 // Realiza una segunda consulta que suma el total que deben todos los clientes
- $query2 = mysqli_query($result,'select SUM(cr.valor) as valor from creditos cr');
+ $query2 = mysqli_query($result,'select SUM(cr.valor + intereses) as valor from creditos cr');
 
 // Lo organiza en un array y permite utilizar cada uno de los parametros
  $cartera = $query2->fetch_array(MYSQLI_BOTH);
