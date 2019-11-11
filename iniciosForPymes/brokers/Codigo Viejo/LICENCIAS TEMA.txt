@@ -1,0 +1,48 @@
+Licencia MIT
+Copyright (c) 2018 Creative Tim
+Se otorga permiso, de forma gratuita, a cualquier persona que obtenga 
+una copia de este software y archivos de documentación asociados 
+(el "Software"), para tratar el Software sin restricciones, incluidos, 
+entre otros, los derechos de uso, copia, modificación y fusión. , publicar,
+distribuir, sublicenciar y / o vender copias del Software, y permitir a las 
+personas a quienes se les proporciona el Software que lo hagan, sujeto a las 
+siguientes condiciones:
+El aviso de copyright anterior y este aviso de permiso se incluirán en 
+todas las copias o porciones sustanciales del Software.
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO,
+EXPRESA O IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS DE COMERCIABILIDAD,
+IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO 
+LOS AUTORES O PROPIETARIOS DE DERECHOS DE AUTOR SERÁN RESPONSABLES DE 
+NINGUNA RECLAMACIÓN, DAÑOS U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN 
+CONTRACTUAL, EXTRACONTRACTUAL O DE OTRO TIPO, QUE SURJA DE, O RELACIONADA 
+CON EL SOFTWARE O EL USO U OTRAS OFERTAS EN LA SOFTWARE.
+
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+Material Kit es un kit gratuito de interfaz de usuario Bootstrap 4 
+con un nuevo diseño inspirado en el diseño material de Google. 
+Usted lo pidió, entonces lo construimos. Es un gran placer presentarles 
+los conceptos materiales en un conjunto de componentes bellos y fáciles 
+de usar. Junto con el rediseño de los elementos de Bootstrap, encontrará 
+tres páginas de ejemplo totalmente codificadas para ayudarlo a diseñar su 
+próximo proyecto. 
+Material Kit utiliza luz, superficie y movimiento. Utiliza una elección de 
+color deliberada, imágenes de borde a borde y tipografía a gran escala. 
+El diseño general se asemeja a hojas de papel que siguen múltiples capas 
+diferentes, por lo que la profundidad y el orden son obvios. La navegación
+se mantiene principalmente a la izquierda y las acciones a la derecha.
+Este nuevo diseño tiene elementos que han sido el resultado de la 
+investigación con respecto a la tinta y el papel y la forma en que los 
+objetos y materiales interactúan en la vida real. El resultado es un conjunto 
+bello y consistente de elementos que pueden ayudarlo a comenzar con su 
+próximo proyecto. Material Kit es una gran herramienta si está buscando 
+crear una presencia web para su aplicación Android y necesita ser 
+consistente, dejando la impresión de elementos visualmente similares. 
+También es un gran recurso en sí mismo, luciendo espléndido y ayudándolo 
+a construir sus páginas web. 
+Material Kit está basado en Github Repo de Fez 
+( http://fezvrasta.github.io/bootstrap-material-design/ ) 
+quien hizo un trabajo increíble al crear la columna vertebral para 
+los efectos materiales, animaciones y transiciones. Muchas gracias 
+a su equipo por sus esfuerzos de pensamiento progresivo.

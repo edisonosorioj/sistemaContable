@@ -1,0 +1,756 @@
+.kf_main_navigation ul li a{font-family:Open Sans}
+.kf_main_navigation ul li a{font-size:14px}
+.kf_main_navigation ul li a{line-height:10px}
+.kf_main_navigation ul li a{font-weight:normal}
+.kf_main_navigation ul li a{letter-spacing:5px}
+.kf_main_navigation ul li a{text-transform:uppercase}
+body h1{font-family:Open Sans}
+body h1{font-size:40px }
+body h1{line-height:40px }
+body h1{font-weight:normal }
+body h1{letter-spacing:5px }
+body h1{text-transform:uppercase }
+body h2{font-family:Open Sans }
+body h2{font-size:33px }
+body h2{line-height:40px }
+body h2{font-weight:normal }
+body h2{letter-spacing:5px }
+body h2{text-transform:uppercase }
+body h3{font-family:Open Sans }
+body h3{font-size:30px }
+body h3{line-height:35px }
+body h3{font-weight:normal }
+body h3{letter-spacing:5px }
+body h3{text-transform:uppercase }
+body h4{font-family:Open Sans }
+body h4{font-size:24px }
+body h4{line-height:28px }
+body h4{font-weight:normal }
+body h4{letter-spacing:5px }
+body h4{text-transform:uppercase }
+body h5{font-family:Open Sans }
+body h5{font-size:20px }
+body h5{line-height:25px }
+body h5{font-weight:normal }
+body h5{letter-spacing:5px }
+body h5{text-transform:uppercase }
+body h6{font-family:Open Sans }
+body h6{font-size:18px }
+body h6{line-height:24px }
+body h6{font-weight:normal }
+body h6{letter-spacing:5px }
+body h6{text-transform:uppercase }
+body, p{font-family:Open Sans}
+body, p{font-size:14px }
+body, p{line-height:16px }
+body, p{font-weight:normal }
+body, p{letter-spacing:1px }
+body, p{text-transform:uppercase }
+.kf_main_navigation .navigation > .menu > ul > li a, .kf_main_navigation .navigation ul.menu > li a{color: #666666;  }
+.kf_main_navigation .navigation > .menu > ul > li.current_page_item a, .kf_main_navigation .navigation ul.menu > li.current-menu-item.current_page_item a{color: #1e73be;  }
+.kf_main_navigation .navigation > .menu > ul > li.current_page_item a, .kf_main_navigation .navigation ul.menu > li.current-menu-item.current_page_item a{background-color: #ffffff;  }
+.kf_main_navigation .navigation .menu > ul > li.current_page_ancestor > a, .kf_main_navigation .navigation ul.menu > li.current_page_ancestor > a{color: #1e73be;  }
+.kf_main_navigation .navigation ul.menu > li.current_page_ancestor > a{background-color: #ffffff;  }
+.kf_main_navigation .navigation > .menu > ul > li a, .kf_main_navigation .navigation ul.menu > li a{background-color: #ffffff;  }
+.kf_main_navigation .navigation > .menu > ul > li:hover a, .kf_main_navigation .navigation ul.menu > li:hover a{background-color: #ffffff;  }
+.kf_main_navigation .navigation > .menu > ul > li a:hover, .kf_main_navigation .navigation ul.menu > li a:hover{color: #1e73be;  }
+.kf_main_navigation ul li:before{color: #1e73be;  }
+header .kf_logo_nav_wrap .kf_main_navigation .navigation > .menu > ul > li > ul.children li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li > ul.children li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li > ul.sub-menu li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li{background-color: #ffffff !important;  }
+.sub-menu, .children{border-color: #ffffff !important;  }
+header .kf_logo_nav_wrap .kf_main_navigation .navigation > .menu > ul > li ul.children li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.children li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li{color: #666666 !important;  }
+header .kf_logo_nav_wrap .kf_main_navigation .navigation > .menu > ul > li ul.children li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.children li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li:hover, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li:hover{color: #ffffff !important;  }
+header .kf_logo_nav_wrap .kf_main_navigation .navigation > .menu > ul > li ul.children li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.children li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li:hover a, header .kf_logo_nav_wrap .kf_main_navigation .navigation > ul > li ul.sub-menu li:hover, header .kf_logo_nav_wrap .kf_main_navigation .navigation ul.menu > li ul.sub-menu li:hover{background-color: #1e73be !important;  }
+.kf_main_navigation .navigation .menu ul > li.current_page_ancestor ul.children li.current_page_item a, .kf_main_navigation .navigation ul.menu > li.current_page_ancestor li.current_page_item a{color: #ffffff !important;  }
+.kf_main_navigation .navigation .menu ul > li.current_page_ancestor ul.children li.current_page_item a, .kf_main_navigation .navigation .menu ul > li.current_page_ancestor li.current_page_item a, .kf_main_navigation .navigation ul.menu > li.current_page_ancestor li.current_page_item a{background-color: #1e73be !important;  }
+.kf_main_navigation .navigation .menu ul > li.current_page_ancestor ul.children li.current_page_item a, .kf_main_navigation .navigation ul.menu > li.current-menu-ancestor.current_page_ancestor li.current-menu-item.current_page_item a{color: #ffffff !important;  }
+.kf_main_navigation .navigation .menu ul > li.current_page_ancestor li.current-menu-item.current_page_item a, .kf_main_navigation .navigation ul.menu > li.current_page_ancestor li.current-menu-item.current_page_item a{background-color: #1e73be !important;  }
+.kode-linksection, .kode-modren-btn{border-color:#020202 !important}
+.kode-linksection, .kode-modren-btn{background:#ffffff !important}
+body { background-color: #ffffff;  }
+.footer:before{ opacity: .8;  }
+footer:before{ background-color: #5b4884;  }
+.footer{background:url();background-size: cover;float: left;position: relative;width: 100%;}.lib-contact-section .kode-footer-style-thumb.kode-thumb{background-image:url();}a.logo{margin-top: 5px;  }
+.kf_top_bar{background-color: #0070bb;  }
+.kf_top_bar, .kf_top_bar p, .kf_top_bar a,.kf_opening_time{color: #ffffff;  }
+.kf_top_bar .kf_top_social_icon li a{color: #ffffff;  }
+.kf_top_bar .kf_top_social_icon li a:hover{color: #1e73be;  }
+.kf_top_bar .kf_top_social_icon li a{background-color: #0070bb;  }
+.kf_top_bar .kf_top_social_icon li a:hover{background-color: #ffffff;  }
+.kf_list_free a{color: #ffffff;  }
+.kf_list_free{background-color: #f4ac5a;  }
+.kf_list_free:hover, .kf_list_free:hover a{color: #ffffff;  }
+.kf_list_free:hover{background-color: #1e73be;  }
+.kf_property_sub_banner{background-color: #1e73be !important;  }
+.kf_sub_banner_hdg h3{color: #ffffff !important;  }
+.kf_property_breadcrumb ul{background-color: #0070bb !important;  }
+.breadcrumb > li + li::before, .kf_property_breadcrumb ul li a, .kf_property_breadcrumb ul li strong{color: #ffffff !important;  }
+.kf_property_breadcrumb ul li a:hover{color: #ffffff !important;  }
+.header_4 .kode_property_top_navi_row_4{ background-color: #ffffff !important;  }
+.kode-blog-content p{color: #666666 !important;  }
+	
+						/*Reviews of the Client Wrap Css*/
+						.kf_client_review_slider .item:hover .kf_pet_testi_3::before
+						/*property Listing 04 Wrap CSS*/	{
+							border-color:#5b4884 transparent transparent;	
+						}
+						/*Header Wrap Css*/
+						.kf_top_social_icon ul li:hover a,
+						.kf_callus i,
+						.kf_phone_num h6,
+						.kf_main_navigation ul li::before,
+						.kf_main_navigation ul li.active > a,
+						.kf_main_navigation ul li:hover > a,
+						/*Banner Wrap Css*/
+						/*Our Services Wrap Css*/
+						.kf_property_services_wrap:hover i,
+						.kf_property_services_wrap:hover h5 > a,
+						/*Property Listing Wrap Css*/
+						.kf_property_listing_wrap:hover .kf_property_listing_des h5 > a,
+						.kf_property_listing_wrap:hover .kf_listing_total_price h4,
+						/*Pagination Wrap Css*/
+						.kf_property_pagination ul li a:hover,
+						.kf_property_pagination ul li.active a,
+						/*Most Recent Property Wrap Css*/
+						/*Leased And Sold Property Wrap Css*/
+						/*Property For Rent Wrap Css*/
+						.kf_rent_property_des h6 > a:hover,
+						.kf_rent_property_des ul li:hover i,
+						/*Our Agent Wrap*/
+						/*Number Counter Wrap Css*/
+						/*Latest Blog Wrap Css*/
+						/*Map Wrap Css*/
+						/*Company Wrap Css*/
+						/*Twitter Wrap Css*/
+						/*Home Page Footer Widgets*/
+						/*Home Page Footer*/
+						/*Index Page 2 CSS*/
+						/*Advance Search Css*/
+						/*Sub Banner Wrap Css*/
+						/*Know More About Property Wrap Css*/
+						/*Heading Wrap Css*/
+						/*Testmonial Wrap Start Wrap Css*/
+						/*Core Value Wrap Start Wrap Css*/
+						/*Blog Listing Wrap Css*/
+						ul.kf_blog_listing_meta li:hover a,
+						.kf_blog_listing_des > a:hover,
+						/*Aside Bar Widgets Css*/
+						.kf_aside_category ul li:hover:before,
+						.kf_aside_category ul li:hover a,
+						.kf_aside_category ul li:hover span,
+						/*Featured Post Css*/
+						.kf_aside_post_des h6 > a:hover,
+						/*Featured Agent CSS*/
+						.kf_aside_agent_des h6 > a:hover,
+						.kf_aside_agent_des span i,
+						/*Featured Properties CSS*/
+						/*Search For Property Wrap CSS*/
+						/*Blog Listing 2 Wrap Css*/
+						ul.kf_blog_social_icon li:hover a,
+						.kf_listing2_blog h4 > a:hover,
+						/*Blog Detail Wrap Css*/
+						ul.kf_tag_list li:hover a,
+						.kf_property_detail_real ul li:hover i,
+						.kf_property_detail_real ul li:hover  a,
+						/*Comment CSS*/
+						.kf_comment_des > a,
+						.kf_comment_des h6 > a:hover,
+						/*Post Comment CSS*/
+						/*Blog Detail 2 Wrap Css*/
+						.kf_property_detail_Essentail ul li:hover a,
+						/*Comming Soon Page Css*/
+						/*Team Detail Page Css*/
+						/*Reviews of the Client Wrap Css*/
+						.kf_pet_testi_3_fig_des h5 > a:hover,
+						/*Property Meta Wrap Css*/
+						/*property Listing 02 Wrap CSS*/
+						.kf_property_caption h5 > a:hover,
+						.kf_property_dolar li:hover a,
+						ul.kf_listing_03_location li:hover a,
+						/*property Listing 04 Wrap CSS*/
+						/*Contact Us 03 Wrap Css*/
+						/*Property Detail Page Css*/
+						
+						/*404 Page Page Css*/
+						.kf_error_text h3,
+						/*Submit Property Page Css*/
+						/*ShortCode CSS*/
+						.pet_love_content_list h6 > a:hover,
+						.goal_des > ul > li::before,
+						ul.kf_product_featured_list li:hover a,
+						/* Envoto Listing Css */
+						ul.envoto_ui_element li:hover a,
+						ul.envoto_tweet_element li:hover a
+						/*Login Page Css*/
+						/*Header 3 Css Wrap*/
+						.kode-pagination > a,
+						.kf_logo_nav_wrap .kf_callus i,
+						.kf_logo_nav_wrap .kf_phone_num h6,
+						.kf_property_rent_wrap a.kode_link_1:hover,
+						/* Gallery Wrap Start */{color: #5b4884 !important;  }
+
+						/*
+							  ============================================================
+								   Background Color
+							  ============================================================
+						*/
+						.user-profile .close,
+						/*Header Wrap Css*/
+						.kf_list_free:hover,
+						/*Navigation 2 CSS*/
+						.dl-menuwrapper ul,
+						.kf_logo_nav_style2 .kf_main_navigation > ul > li.active > a,
+						.kf_logo_nav_style2 .kf_main_navigation > ul > li:hover > a,
+						/*Banner Wrap Css*/
+						.kf_banner_wrap .bx-wrapper .bx-controls-direction a:hover,
+						/* DL Menu Wrap CSS */
+						.dl-menuwrapper button,
+						/*Our Services Wrap Css*/
+						.kf_twitter_wrap_bg:before,
+						.kf_property_services_wrap:hover h5 > a:before,
+						/*Property Listing Wrap Css*/
+						.kf_listing_overlay,
+						/*Pagination Wrap Css*/
+						/* Video Wrap Css */
+						.kf_play_btn > a:hover,
+						.kf_video_wrap > a:hover,
+						.kf_video_wrap > a:hover > i:after,
+						/*Most Recent Property Wrap Css*/
+						/*Leased And Sold Property Wrap Css*/
+						.kf_leased_property:after,
+						/*Property For Rent Wrap Css*/
+						.kf_rent_label,
+						.kf_rent_property_des ul li:hover span,
+						.kf_property_rent_wrap:hover .kf_rent_location,
+						.kf_rent_property.owl-theme .owl-controls .owl-page.active span,
+						.kf_rent_property.owl-theme .owl-controls .owl-page:hover span,
+						/*Our Agent Wrap*/
+						.kf_agent_slider.owl-theme .owl-controls .owl-buttons div:hover,
+						/*Number Counter Wrap Css*/
+						.kf_num_counter_bg:before,
+						/*Latest Blog Wrap Css*/
+						/*Map Wrap Css*/
+						/*Company Wrap Css*/
+						/*Twitter Wrap Css*/
+						.kf_twitter_wrap_bg,
+						/*Home Page Footer Widgets*/
+						.widget > h6:before,
+						/*Home Page Footer*/
+						/*Index Page 2 CSS*/
+						.kf_schedule_wrap,
+						.kf_schedule_visit > a:hover,
+						/*Advance Search Css*/
+						.kf_search_field input[type="submit"],
+						.kf_search_field button,
+						/*Sub Banner Wrap Css*/
+						/*Know More About Property Wrap Css*/
+						.kf_know_property_bg,
+						/*Heading Wrap Css*/
+						.kf_heading_2 h3:before,
+						/*Testmonial Wrap Start Wrap Css*/
+						/*Core Value Wrap Start Wrap Css*/
+						/* About Us Wrap Css */
+						.kf_video_icon a:hover,
+						/*Blog Listing Wrap Css*/
+						.kf_blog_listing_wrap .bx-wrapper .bx-controls-direction a,
+						/*Aside Bar Widgets Css*/
+						/*Search For Property Wrap CSS*/
+						.kf_search_property_wrap h6,
+						.kf_property_field .kf_range_slider .ui-slider .ui-slider-range,
+						.aside_hdg h5:after,
+						h2.widget-title:after,
+						.kf_property_field input[type="submit"],
+						.kf_property_field button,
+						/*Featured Post Css*/
+						/*Featured Agent CSS*/
+						/*Featured Properties CSS*/
+						/*Blog Listing 2 Wrap Css*/
+						.kf_listing2_blog_wrap:hover .kf_listing2_blog_des > a,
+						/*Blog Detail Wrap Css*/
+						.kf_property_detail_social_icon ul li a,
+						/*Post Comment CSS*/
+						.kf_commet_field input[type="submit"],
+						.kf_commet_field button,
+						/*Blog Detail 2 Wrap Css*/
+						/*Comming Soon Page Css*/
+						.kf_cooming_soon_form button:hover,
+						/*Team Detail Page Css*/
+						.member_contact_des i,
+						.kf_member_contact_detail ul li:hover,
+						/*Reviews of the Client Wrap Css*/
+						.kf_client_review_slider.owl-theme .owl-controls .owl-page.active span,
+						.kf_client_review_slider.owl-theme .owl-controls .owl-page:hover span,
+						/*Property Meta Wrap Css*/
+						/*property Listing 02 Wrap CSS*/
+						/*property Listing 03 Wrap CSS*/
+						.kf_listing_03_wrap:hover .kf_listing_total,
+						/*property Listing 04 Wrap CSS*/
+						.kf_listing_03_des > a:hover,
+						/*Contact Us 03 Wrap Css*/
+						.kf_content_us_icon:before,
+						.kf_content_us_icon span:before,
+						.kf_loging_input button,
+						.kf_loging_input input[type="submit"],
+						/*Property Detail Page Css*/
+						.kf_property_detail_bed ul li:hover,
+						.kf_property_detail_sale > a,
+						.kf_property_detail_form button,
+						.kf_property_detail_form input[type="submit"],
+						/*404 Page Page Css*/
+						.kf_go_back_bg,
+						/*Submit Property Page Css*/
+						.kf_submit_property_button button,
+						/*ShortCode CSS*/
+						.accordion.accordion-open,
+						ul.kf_shortcode_social2 li:hover a,
+						.kf_link_1:hover,
+						.kf_hdr2_search .widget-search label,
+						.kf_btn_1:hover,
+						.kf-action7_content:hover a,
+						.kf-action7_content:hover a:before,
+						.pet_love_content ul li:hover span::before,
+						.kf_price_table:hover .kf_table_price,
+						.kf_price_table:hover .kf_table_price::before,
+						/*Login Page Css*/
+						.kf_login_1,
+						/*Header 3 Css Wrap*/
+						.top_navi_circal:hover a,
+						.widget_kodeproperty_search_property_widget h2,
+						.kf_hdr2_search > a:hover,
+						.kf_hdr2_navigation,
+						/* Gallery Wrap Start */
+						/*Step 1 CSS*/
+						.kf_property_rent_wrap a.kode_link_1:hover,
+						.kf_submit_field span,
+						.kf_submit_field_btn .previous,
+						.kf_submit_field_btn .next,
+						.kf_submit_field_btn .submit,
+						/* Contact Us 1 Wrap */
+						/*Submit Add Aside Bar Wrap*/
+						#progressbar li:after,
+						#progressbar li.active:before,  #progressbar li.active:after,
+						.kf_listing_detail > a.kode_link_1:hover,
+						.kf_video_wrap a:hover,
+						.kf_recent_property_des > a.kode_link_1:hover,		
+						.kf_listing_detail > a.kode_link_1:hover,
+						.kf_property_services_wrap a.kode_link_1:hover,
+						.kf_prdct_featured_wrap a.kode_link_1:hover,
+						.form-submit input[type="submit"]:hover,
+						.kf_leased_property.kf_sold_property a.kode_link_1:hover,
+						.kf_commet_field input[type="submit"]:hover,
+						.kf_commet_field button:hover,
+						#mceu_0 > button:hover,
+						.mce-toolbar .mce-ico:hover,
+						.mce-btn button:hover,
+						.user-profile ul li a:hover,
+						.user-custom-pay-form,
+						.kodehotel-form-button,
+						.kf_author_wrap,
+						.header_3 .kode_top_register_3 li .kode_property_right_3,
+						.kode_location_search_button_4 button,
+						.header_4 .kode_property_advance_search_4 button,
+						.kode_property_account_list li a:hover,
+						.pet_love_content:hover span,
+						.kode-calculator-button input.calculator-button[type="button"],
+						.woocommerce .woocommerce-Button,
+						.kf_with_us_form button,
+						/* bbpress */
+						.bbp-breadcrumb,
+						div.bbp-submit-wrapper #bbp_topic_submit,
+						#bbpress-forums li.bbp-header .bbp-reply-content .subscription-toggle,
+						#bbpress-forums #bbp_topic_submit, #bbpress-forums #bbp_reply_submit,
+						.kode_property_amount_list li.kode_property_table,
+						#filterable-item-filter-1 a
+						{background-color: #5b4884 !important;  }
+
+						/*
+						============================================================
+						Border Color
+						============================================================
+						*/
+						/*Header Wrap Css*/
+						.kf_main_navigation ul ul,
+						/*Banner Wrap Css*/
+						.kf_video_wrap a:hover,
+						.kf_listing_detail > a.kode_link_1:hover,
+						.pet_love_content:hover span,
+						.kf_recent_property_des > a.kode_link_1:hover,
+						/*Our Services Wrap Css*/
+						/*Property Listing Wrap Css*/
+						.kf_listing_detail > a.kf_link_1:hover,
+						/*Pagination Wrap Css*/
+						.kf_property_listing_wrap:hover,
+						/* Video Wrap Css */
+						.kf_play_btn > a:hover,
+						.kf_video_wrap > a:hover,
+						/*Most Recent Property Wrap Css*/
+						/*Leased And Sold Property Wrap Css*/
+						/*Property For Rent Wrap Css*/
+						/*Our Agent Wrap*/
+						/*Number Counter Wrap Css*/
+						/*Latest Blog Wrap Css*/
+						/*Map Wrap Css*/
+						/*Company Wrap Css*/
+						.kf_compnay_wrap:hover,
+						/*Twitter Wrap Css*/
+						/*Home Page Footer Widgets*/
+						/*Home Page Footer*/
+						/*Index Page 2 CSS*/
+						/*Advance Search Css*/
+						/*Sub Banner Wrap Css*/
+						/*Know More About Property Wrap Css*/
+						/*Heading Wrap Css*/
+						/*Testmonial Wrap Start Wrap Css*/
+						/*Core Value Wrap Start Wrap Css*/
+						/*Blog Listing Wrap Css*/
+						.kf_blog_listing_pager a.active,
+						.kf_blog_listing_pager a:hover,
+						/*Aside Bar Widgets Css*/
+						/*Search For Property Wrap CSS*/
+						.kf_property_field .kf_range_slider .ui-slider .ui-slider-handle,
+						/*Featured Post Css*/
+						/*Featured Agent CSS*/
+						/*Featured Properties CSS*/
+						/*Blog Listing 2 Wrap Css*/
+						.kf_listing2_blog_wrap:hover .kf_listing2_blog_des > a,
+						/*Blog Detail Wrap Css*/
+						/*Blog Detail 2 Wrap Css*/
+						/*Comming Soon Page Css*/
+						/*Team Detail Page Css*/
+						/*Reviews of the Client Wrap Css*/
+						.kf_client_review_slider .item:hover .kf_pet_testi_3,
+						.kf_client_review_slider .item:hover .kf_pet_testi_3_fig figure img,
+						/*Property Meta Wrap Css*/
+						/*property Listing 02 Wrap CSS*/
+						/*property Listing 04 Wrap CSS*/
+						.kf_listing_03_des > a:hover,
+						/*Contact Us 03 Wrap Css*/
+						.kf_content_us_icon span:after,
+						/*Property Detail Page Css*/
+						/*404 Page Page Css*/
+						/*Submit Property Page Css*/
+						/*ShortCode CSS*/
+						ul.kf_shortcode_social2 li:hover a,
+						.kf_link_1:hover,
+						.kf_prdct_featured_wrap a.kf_link_1:hover,
+						.kf_price_table:hover,
+						.kf_property_rent_wrap a.kode_link_1:hover,
+						.kf_prdct_featured_wrap a.kode_link_1:hover,
+						.kf_leased_property.kf_sold_property a.kode_link_1:hover,
+						/*Login Page Css*/
+						/*Header 3 Css Wrap*/
+						.kf_recent_property_des > a.kode_link_1:hover,
+						.kf_hdr2_search input[type="text"]:focus{border-color: #5b4884 !important;  }
+/*
+								  ============================================================
+									   Font Color
+								  ============================================================
+							*/
+							/*Header Wrap Css*/
+							/*Banner Wrap Css*/
+							/*Our Services Wrap Css*/
+							/*Property Listing Wrap Css*/
+							/*Pagination Wrap Css*/
+							.kf_num_count_wrap a:hover,
+							/*Most Recent Property Wrap Css*/
+							.kf_like_property > a:hover,
+							/*Leased And Sold Property Wrap Css*/
+							/*Property For Rent Wrap Css*/
+							/*Our Agent Wrap*/
+							.kf_agent_des h6 > a:hover,
+							/*Number Counter Wrap Css*/
+							/*Latest Blog Wrap Css*/
+							.kf_blog_post_wrap:hover > h6,
+							.kf_blog_des > h6 > a:hover,
+							.kf_blog_post_wrap:hover .kf_blog_des > a,
+							ul.kf_blog_post_meta li:hover i,
+							ul.kf_blog_post_meta li:hover a,
+							/*Map Wrap Css*/
+							/*Company Wrap Css*/
+							/*Twitter Wrap Css*/
+							/*Home Page Footer Widgets*/
+							/*Home Page Footer*/
+							/*Col 1*/
+							ul.kf_foo_address li:hover i,
+							ul.kf_foo_address li:hover a,
+							/*Col 2*/
+							.kf_foo_listing_des > h6 > a:hover,
+							/*Col 3*/
+							.kf_foo_post_des p > a:hover,
+							/*Col 4*/
+							.kf_foo_property_type ul li:hover a,
+							/*Copy Right Css*/
+							.kf_copyright_element ul li:hover a,
+							/*Index Page 2 CSS*/
+							/*Advance Search Css*/
+							.kf_search_field .amount,
+							/*Sub Banner Wrap Css*/
+							/*Know More About Property Wrap Css*/
+							/*Heading Wrap Css*/
+							/*Testmonial Wrap Start Wrap Css*/
+							/*Core Value Wrap Start Wrap Css*/
+							.kf_core_value_wrap ul li.active a,
+							.kf_core_value_wrap ul li:hover a,
+							/*Blog Listing Wrap Css*/
+							/*Aside Bar Widgets Css*/
+							/*Search For Property Wrap CSS*/
+							/*Featured Post Css*/
+							/*Featured Agent CSS*/
+							/*Featured Properties CSS*/
+							/*Blog Listing 2 Wrap Css*/
+							/*Blog Detail Wrap Css*/
+							/*Blog Detail 2 Wrap Css*/
+							/*Comming Soon Page Css*/
+							.kf_comming_counter ul.downcount li span,
+							/*Team Detail Page Css*/
+							.kf_team_detail_des ul.kf_recent_rating li:hover a,
+							/*Reviews of the Client Wrap Css*/
+							/*Property Meta Wrap Css*/
+							/*property Listing 02 Wrap CSS*/
+							/*property Listing 04 Wrap CSS*/
+							.kf_listing_03_des ul.kf_recent_rating li:hover a,
+							/*Contact Us 03 Wrap Css*/
+							.kf_with_us_social ul li:hover a,
+							.kf_login_password ul li:hover a,
+							/*Property Detail Page Css*/
+							/*404 Page Page Css*/
+							.kf_404_wrap h2,
+							.kf_not_found_wrap h2,
+							/*Submit Property Page Css*/
+							.kf_submit_property_newsletter a,
+							/*ShortCode CSS*/
+							.kf_link_2:hover,
+							/*Login Page Css*/
+							/*Header 3 Css Wrap*/
+							.kf_hdr2_social_icon ul li:hover a,
+							.kf_blog_post_wrap .kode-blog-content a.kode_link_2:hover,
+							.kf_top_weather a:hover
+							/* Gallery Wrap Start */{color: #dfa23d !important;  }
+
+							/*
+								  ============================================================
+									   Background Color
+								  ============================================================
+							*/
+							/*Header Wrap Css*/
+							.kf_top_bar,
+							.no-touch .dl-menuwrapper li a:hover,
+							/*Banner Wrap Css*/
+							.kf_banner_wrap .bx-wrapper .bx-controls-direction a,
+							/* DL Responsive CSS */
+							.dl-menuwrapper button:hover,
+							.dl-menuwrapper button.dl-active,
+							.kf_hdr2_navigation .dl-trigger,
+							/*Our Services Wrap Css*/
+							/*Property Listing Wrap Css*/
+							/*Pagination Wrap Css*/
+							/*Most Recent Property Wrap Css*/
+							/*Leased And Sold Property Wrap Css*/
+							.header_3 .kode_top_register_3 li .kode_property_left_3,
+							.kf_sold_property.kf_sold_property:after,
+							.kf_leased_property a.kf_link_1:hover,
+							/*Property For Rent Wrap Css*/
+							/*Our Agent Wrap*/
+							/*Number Counter Wrap Css*/
+							/*Latest Blog Wrap Css*/
+							.kf_blog_slider.owl-theme .owl-controls .owl-buttons div:hover,
+							/*Map Wrap Css*/
+							/*Company Wrap Css*/
+							/*Twitter Wrap Css*/
+							/*Home Page Footer Widgets*/
+							.widget > h6:after,
+							.kf_foo_listing_hover,
+							/*Home Page Footer*/
+							/*Col 1*/
+							ul.kf_foo_social_icon li:hover a,
+							/*Index Page 2 CSS*/
+							.kf_schedule_visit > a,
+							/*Advance Search Css*/
+							.kf_search_tab_wrap ul li.active a,
+							.kf_search_tab_wrap ul li:hover a,
+							.kf_search_field input[type="submit"]:hover,
+							.kf_search_field button:hover,
+							.kf_range_slider .ui-widget-header,
+							/*Sub Banner Wrap Css*/
+							.kf_property_sub_banner,
+							/*Know More About Property Wrap Css*/
+							/*Heading Wrap Css*/
+							.kf_heading_2 h3:after,
+							/*Testmonial Wrap Start Wrap Css*/
+							/*Core Value Wrap Start Wrap Css*/
+							.kf_testimonial_wrap .bx-wrapper .bx-controls-direction a:hover,
+							/*Blog Listing Wrap Css*/
+							.kf_blog_listing_wrap .bx-wrapper .bx-controls-direction a:hover,
+							/*Aside Bar Widgets Css*/
+							/*Search For Property Wrap CSS*/
+							.aside_hdg h5:before,
+							h2.widget-title:before,
+							.kf_property_field input[type="submit"]:hover,
+							.kf_property_field button:hover,
+							/*Featured Post Css*/
+							/*Featured Agent CSS*/
+							/*Featured Properties CSS*/
+							/*Blog Listing 2 Wrap Css*/
+							.kf_blog2_date:before,
+							.kf_listing2_blog_des .bx-wrapper .bx-controls-direction a:hover,
+							/*Blog Detail Wrap Css*/
+							.kf_property_detail_social_icon ul li:hover a,
+							/*Post Comment CSS*/
+							.kf_commet_field input[type="submit"]:hover,
+							.kf_commet_field button:hover,
+							/*Blog Detail 2 Wrap Css*/
+							/*Comming Soon Page Css*/
+							.kf_cooming_soon_form button,
+							/*Team Detail Page Css*/
+							.kf_member_contact_detail ul li:hover .member_contact_des i,
+							/*Reviews of the Client Wrap Css*/
+							/*Property Meta Wrap Css*/
+							.kf_property_view i:hover,
+							/*property Listing 02 Wrap CSS*/
+							.kf_property_more:hover,
+							/*property Listing 04 Wrap CSS*/
+							/*Contact Us 03 Wrap Css*/
+							.kf_with_us_form button:hover,
+							.kf_loging_input button:hover,
+							.kf_loging_input input[type="submit"],
+							.kf_loging_input input[type="text"]:focus + label,
+							.kf_loging_input input[type="password"]:focus + label,
+							/*Property Detail Page Css*/
+							.kf_property_detail_form button:hover,
+							.kf_property_detail_form input[type="submit"]:hover,
+							/*404 Page Page Css*/
+							/*Submit Property Page Css*/
+							.kf_submit_property_button button:hover,
+							/*ShortCode CSS*/
+							.kf_table_price,
+							.kf_table_price::before,
+							/*Login Page Css*/
+							.kf_login_social_icon ul li:hover a,
+							/*Header 3 Css Wrap*/
+							.top_navi_circal a,
+							.kf_hdr2_search > a,
+							.kf_menu_scl_icon ul li a,
+							.header2 .kf_main_navigation > ul > li.active > a,
+							.header2 .kf_main_navigation > ul > li:hover > a,
+							/*2nd Ul*/
+							.kf_leased_property a.kode_link_1:hover,
+							.header2 .kf_main_navigation ul ul li:hover > a,
+							/* Gallery Wrap Start */
+							#filterable-item-filter-1 a:hover,
+							.header_3 .kode_top_nav_search_row_3 li .kode_property_search_bar_3:hover,
+							.edu_masonery_thumb:hover figure figcaption,
+							#search-property-btn,
+							.kf_twitter_wrap_bg::before,
+							.kf_submit_field_btn input[type="button"],
+							.kf_property_rent_wrap:hover .kf_rent_total_price,
+							.header_4 .kode_property_top_nav_4,
+							.kode_location_property_4,
+							.header_4 .kode_property_icon_search_4 li a,
+							.kode_location_button_feature_4,
+							#bbpress-forums li.bbp-header,
+							.bbp-admin-links a:hover,
+							.subscription-toggle,
+							.kf_loging_input label,
+							#agent-contact-sub,
+							.kode-cheaked-boxs li.selected-checkbox,
+							#filterable-item-filter-1 > li .active{background-color: #dfa23d !important;  }
+
+							.widget-filter input:checked + .radio-value{ background-color: #dfa23d !important;border-color: #dfa23d !important;  }
+
+							.kf_property_sub_banner:before{ background-color: #000 !important;border-color: #dfa23d !important;  }
+
+							.kf_property_sub_banner:before{ opacity: 0.6 !important;border-color: #dfa23d !important;  }
+
+							.kf_property_sub_banner{ background-attachment: body-scroll !important;border-color: #dfa23d !important;  }
+
+							/*
+							============================================================
+							Border Color
+							============================================================
+							*/
+							/*Header Wrap Css*/
+							/*Banner Wrap Css*/
+							.kf_banner_wrap,
+							/*Our Services Wrap Css*/
+							/*Property Listing Wrap Css*/
+							/*Pagination Wrap Css*/
+							/*Most Recent Property Wrap Css*/
+							/*Leased And Sold Property Wrap Css*/
+							/*Property For Rent Wrap Css*/
+							.kf_blog_post_wrap .kode-blog-content a.kode_link_2:hover,
+							
+							/*Our Agent Wrap*/
+							/*Number Counter Wrap Css*/
+							/*Latest Blog Wrap Css*/
+							.kf_blog_post_wrap:hover .kf_blog_des > a,
+							/*Map Wrap Css*/
+							/*Company Wrap Css*/
+							/*Twitter Wrap Css*/
+							/*Home Page Footer Widgets*/
+							.kf_foo_featured_listing figure,
+							/*Home Page Footer*/
+							/*Index Page 2 CSS*/
+							/*Advance Search Css*/
+							.kf_range_slider .ui-slider .ui-slider-handle,
+							/*Sub Banner Wrap Css*/
+							/*Know More About Property Wrap Css*/
+							/*Heading Wrap Css*/
+							/*Testmonial Wrap Start Wrap Css*/
+							/*Core Value Wrap Start Wrap Css*/
+							/*Blog Listing Wrap Css*/
+							/*Aside Bar Widgets Css*/
+							/*Search For Property Wrap CSS*/
+							.kf_property_field input[type="submit"]:hover,
+							.kf_property_field button:hover,
+							/*Featured Post Css*/
+							/*Featured Agent CSS*/
+							/*Featured Properties CSS*/
+							/*Blog Listing 2 Wrap Css*/
+							/*Blog Detail Wrap Css*/
+							/*Blog Detail 2 Wrap Css*/
+							/*Comming Soon Page Css*/
+							/*Team Detail Page Css*/
+							/*Reviews of the Client Wrap Css*/
+							/*Property Meta Wrap Css*/
+							/*property Listing 02 Wrap CSS*/
+							/*property Listing 04 Wrap CSS*/
+							.kf_property_more:hover,
+							/*Contact Us 03 Wrap Css*/
+							.kf_loging_input input[type="text"]:focus,
+							/*Property Detail Page Css*/
+							.kf_property_detail_form button:hover,
+							.kf_property_detail_form input[type="submit"]:hover,
+							.kf_property_detail_form input[type="text"]:focus,
+							.kf_property_detail_form textarea:focus,
+							.kf_leased_property a.kode_link_1:hover,
+							/*404 Page Page Css*/
+							/*Submit Property Page Css*/
+							/*ShortCode CSS*/
+							.kf_link_2:hover
+							/*Login Page Css*/
+							/*Header 3 Css Wrap*/
+							/* Gallery Wrap Start */{border-color: #dfa23d !important;  }
+.header_3 .kode_top_bar_3{border-top-color: #5b4884 !important;  }
+.kf_login_colum{border-bottom-color: #5b4884 !important;  }
+.kode_location_property_4{border-bottom-color: #fff !important;  }
+.kf_login_1::before{border-color: #5b4884 transparent transparent !important;  }
+.kode_pet_navigation ul.nav li a.current{border-top-color: #5b4884 !important;  }
+
+								.kode-sidebar.kode-left-sidebar,
+								.kode-sidebar.kode-right-sidebar,
+								.kode-widget.kode-sidebar-element{background-color: #ffffff !important;float:left;width:100%;}
+
+								.kode-sidebar.kode-left-sidebar,
+								.kode-sidebar.kode-right-sidebar,
+								.kode-widget.kode-sidebar-element{padding-top: 0px !important;}
+
+								.kode-sidebar.kode-left-sidebar,
+								.kode-sidebar.kode-right-sidebar,
+								.kode-widget.kode-sidebar-element{padding-bottom: 0px !important;}
+
+								.kode-sidebar.kode-left-sidebar,
+								.kode-sidebar.kode-right-sidebar,
+								.kode-widget.kode-sidebar-element{padding-left: 0px !important;}
+
+								.kode-sidebar.kode-left-sidebar,
+								.kode-sidebar.kode-right-sidebar,
+								.kode-widget.kode-sidebar-element{padding-right: 0px !important;}

@@ -1,0 +1,175 @@
+.kode-option-wrapper {
+    float: left;    
+    margin-top: 5px;
+	width:100%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.kode-page-option .kode-option-wrapper.header-class{	
+	min-height:auto !important;
+	border:none;
+	background:#34BBAC;
+	padding:15px 30px;
+	color:#fff;
+}
+.kode-page-option .kode-option-wrapper.header-class h4{
+	margin:0px;
+}
+.kode-page-option .kode-option-wrapper.columns.four{
+    min-height: 200px;
+}
+.kode-page-option .kode-option-wrapper {
+    background: ghostwhite;
+    float: left;
+    min-height: 120px;
+    margin: 0;
+    padding: 30px;    
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border:1px solid #ccc;
+	border-left:none;
+	border-top:none;
+}
+.kode-option-wrapper.sidebar-wrapper {
+    background: ghostwhite none repeat scroll 0 0;
+    	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+    float: left;
+    padding: 30px;
+    width: 50%;
+}
+.kode-page-option{
+	float:left;
+	width:100%;
+}
+.kode-page-option-title{
+	padding:15px;
+	background:#0091CD;
+	color:#fff;
+}
+.kode-input-hidden{
+	display:none;
+}
+.postbox{
+	width:100%;
+	float:left;
+	clear:both;
+}
+.kode-upload-img-sample {
+	width:50px;
+}
+.custom-styles{
+	display:none;
+	
+}
+.custom-style{
+	float:left;
+}
+.kode-option-title{
+	font-weight:bolder;
+	font-size:14px;
+	margin-bottom:10px;
+}
+.kode-input-description > span{
+	margin-top:10px;
+	float:left;
+	
+}
+.kode-option td input{width:60px;}
+.player-name-sec{width:100px;text-align:left;}
+
+.kode-table thead th {
+	padding: 4px 14px;
+	font-size: 15px;
+}
+.kode-option-wrapper.kode-multi-item,
+.kode-option-wrapper.kode-multi-fields{
+	padding:0px;
+}
+.kode-multi-fields{
+	display:none;
+}
+.kode-element-wrapper-item > .kode-option-title,
+.kode-option-wrapper.kode-multi-item > .kode-option > .kode-option-title,
+.kode-option-wrapper.kode-multi-fields > .kode-option > .kode-option-title{
+	margin-left:30px;
+	margin-top:10px;
+	float:left;
+	width:100%;
+}
+.kode-option-title{
+	float:left;
+	width:100%;
+}
+.kode-option-wrapper.kode-multi-item .kode-option-wrapper,
+.kode-option-wrapper.kode-multi-fields .kode-option-wrapper{
+	min-height:170px;
+}
+.kode-page-option .kode-option-wrapper-child .kode-option-wrapper{
+	min-height:122px;
+	padding:0 30px 30px;
+}
+.kode-option-wrapper-child.columns.three {
+    border: 1px solid #eee;
+    padding-top: 30px;
+}
+.kode-multi-item .kode-option-title {
+    margin-left: 32px;
+}
+.down-arrow:before{
+	content: "\f063";
+}
+.up-arrow:before{
+	content: "\f062";
+}
+.kode-delete-item-clone:before,
+.kode-delete-item:before{
+	content: "\f00d";
+}
+.up-arrow,
+.down-arrow{
+	cursor: pointer;
+    font-family: "FontAwesome";
+    font-size: 18px;
+    position: absolute;
+    
+}
+.up-arrow{
+	right:28px;
+    top: 10px;
+}
+.down-arrow{
+	right:48px;
+	top: 10px;
+}
+.kode-delete-item-clone,
+.kode-delete-item {
+    cursor: pointer;
+    font-family: "FontAwesome";
+    font-size: 18px;
+    position: absolute;
+    right:8px;
+    top: 10px;
+}
+.kode-multi-item,
+.kode-element-wrapper-item {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+.kode-option-wrapper.kode-header-class{
+	padding:0px;
+	min-height:0px;
+}
+.kode-option-wrapper.kode-header-class .page-builder-head-wrapper{
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	
+}

@@ -1,0 +1,148 @@
+html, body {position: relative;height: 100%;}
+body {background: #eee;font-family: Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;color:#000;margin: 0;padding: 0;}
+
+#fondo_plantilla_propiedades{background-image: url('../../libreria/theme/img/city.jpg'); background-size: cover; background-position: top center;position: fixed;top: 0px;left: 0px;height: 100%;width: 100%;}
+#reset_circle_img_collage{height: 60px;}
+#reset_nav_link_img{padding: 0px;padding-left: 10px;}
+#reset_header_card_collage{padding-top: 10px;padding-bottom: 0px;margin-bottom: 0px;}
+#accordion_info_copropiedad{display: none;}
+#contenedor_publicar_form_propiedad{top: -150px;position: absolute;}
+#select_form_srh_index{position: relative;top: 22px;}
+#form_buscar_propiedad_index{height: 50px;margin-bottom: 0px;position: relative;top: 10px;}
+#contenedor_slide_swiper_index{width: 100%;height: 90vh;position: absolute;filter: blur(3px);opacity: 0.6;}
+#contenedor_slide_text_index{width: 100%;height: 350px;overflow: hidden;border-top: 1px solid white;position: relative;top: 39px;}
+#pantalla_c {width: 100%;height: 750px;background: white;opacity: 0.8;position: relative;}
+#icon_table_prop_pub{padding-left: 10px;padding-right: 10px;top: 0px;position: relative;}
+#table_prop_pub{width: 100%;}
+#button_up_pag {display: none;position: fixed;top: 85vh;left: 93%;z-index: 9;transition: all 0.3s;}
+#button_up_pag:hover{top: 86vh;}
+#formulario_contacto_us{top: 150px;}
+#select_propiedad_buscar_index{padding: 10px;border-top-left-radius: 5px;border-top-right-radius: 5px;background-color: #ffffffc4;}
+#espaciado_swipe_prop{margin-top: 10px;}
+#reset_img_swiper{background-repeat: no-repeat;background-size: auto 100%;background-position: center;}
+#accordion{margin-bottom: 50px;padding: 30px;}
+#cont_inf_us_sesion_ini{display: block;width: 100%;color: dimgrey;}
+#contenedor_form_registro{position: relative;top: 150px;}
+#profesion_empresa_codeudor_dos,#pais_empresa_codeudor_dos,#pais_empresa_independiente_codeudor_dos,#registro_empresa_independiente_codeudor_dos,#pais_doc_codeudor_uno,#tipo_documento_codeudor_dos,#pais_doc_codeudor_dos,#trabajo_codeudor_dos,#tipo_documento,#icon_tipo_doc_reg,#icon_pais_reg,#pais_expedicion_cargar_departamento,#icon_pais_reg_per,#pais_cargar_departamento,#tipo_documento_codeudor_uno,#pais_empresa_independiente_codeudor_uno,#registro_empresa_independiente_codeudor_uno,#profesion_empresa_codeudor_uno,#icon_profesion_empresa_codeudor_uno,#trabajo_codeudor_uno,#icon_trabajo_codeudor_uno,#icon_pais_empresa_codeudor_uno,#pais_empresa_codeudor_uno,#registro_empresa_codeudor_uno,#icon_registro_empresa_codeudor_uno{top:22px;position: relative;}
+#informacion_empresa_codeudor_uno,#informacion_empresa_independiente_codeudor_uno,#informacion_empresa_otro_codeudor_uno,#informacion_empresa_codeudor_dos,#informacion_empresa_independiente_codeudor_dos,#informacion_empresa_otro_codeudor_dos,#num_piso_propiedad,#cuarto_util_parqueadero,#dpl_niveles_estrato_propiedad,#comodidades_de_la_propiedad,#dpl_niveles_estrato_propiedad,#dpl_alcobas_banos_propiedad,#dpl_cocina_piso_propiedad{display: none;}
+#foot_fomr_ingreso{display: inline-flex;padding: 10px;width: 100%;}
+#cont_error_tipo_doc_reg_us,#cont_error_documento_reg_us{top: 220px;}
+#cont_error_fecha_expedicion_doc_reg_us,#cont_error_pais_expedicion_doc_reg_us{top: 335px;}
+#cont_error_departamento_expedicion_doc_reg_us,#cont_error_ciudad_expedicion_doc_reg_us{top: 410px;}
+#cont_error_nombre_reg_us,#cont_error_apellido_reg_us{top: 260px;}
+#cont_error_clave_reg_us,#cont_error_conf_clave_reg_us{top: 370px;}
+#cont_error_email_reg_us,#cont_error_conf_email_reg_us{top: 490px;}
+#cont_error_fecha_reg_us,#cont_error_pais_reg_us{top: 595px;}
+#cont_error_departamento_reg_us,#cont_error_ciudad_reg_us{top: 680px;}
+#cont_error_dir_reg_us{top: 415px;}
+#icon_menu_dpl{transition: all 0.5s;}
+#cont_error_titulo_contact_us{top: 160px;}
+#cont_error_nombre_contact_us,#cont_error_apellido_contact_us{top: 230px;}
+#cont_error_email_contact_us{top: 290px;}
+#cont_error_mensaje_contact_us{top: 440px;}
+#cont_error_email_ingreso_us{top: 150px;}
+#cont_error_pass_ingreso_us{top: 225px;}
+#cont_error_genero_reg_us{top: 820px;}
+#contenedor_slide_swiper_propiedad{width: 100%;height: 600px;}
+#codigo_propiedad_dpl{width: 100%;text-align: right;}
+#titulo_foto_aerea{width: 100%;text-align: center;}
+#contenedor_propiedad_publicada{margin-bottom: 20px;padding: 10px;}
+#contenedor_img_pub_doc{width: 100%;padding-left: 66px;}
+#desplegar_imagenes_pub_cargar{padding-left: 66px;position: relative;transition: all 0.2s;margin-bottom: 40px;}
+#espacio_video{margin-top: 10px;margin-bottom: 0px;max-height: 400px;overflow: hidden;position: relative;width: 100%;text-align: center;}
+#publicar_video_noticia_evento{display: inline-flex;width: 100%;height: 66px;}
+#frame_video_facebook_pub{height: 400px;}
+#frame_video_pub_index_youtube{width: 100%;height: 255px;}
+#videos_publicar_propiedad{margin-bottom: 30px;}
+#desplegar_imagenes_pub_cargar:hover{top: 3px;}
+#desplegar_imagenes_pub_cargar > a{display: inline-flex;}
+#desplegar_imagenes_pub_cargar > a > img{margin-right: 10px;}
+#desplegar_imagenes_pub_cargar > a > p{color: gray;font-size: 1.3em;position: relative;top: 5px;}
+#cont_error_titulo_publicar_propiedad{top: 99px;}
+#cont_error_imagen_select{top: 90px;}
+#cont_error_matricula_propiedad{top: -60px;}
+#cont_error_tipo_propiedad{top: 910px;}
+#cont_error_alcobas_propiedad,#cont_error_banos_propiedad{top: 1020px;}
+#cont_error_pais_propiedad,#cont_error_provincia_propiedad{top: 1110px;}
+#cont_error_ciudad_propiedad,#cont_error_sector_propiedad{top: 1200px;}
+#cont_error_direccion_propiedad{top: -60px;}
+#cont_error_area_total_propiedad,#cont_error_area_bruta_propiedad{top: 400px;}
+#cont_error_cocina_propiedad,#cont_error_piso_propiedad{top: 490px;}
+#cont_error_niveles_propiedad{top: 600px;}
+#cont_error_parqueadero_propiedad{top: 680px;}
+#comodidades_propiedad_lat{list-style: none;padding: 0px;width: 100%;}
+#comodidades_propiedad_lat > li{display: inline-flex;width: 100%;}
+#comodidades_propiedad_lat > li > p{color: #525252;}
+#comodidades_copropiedad_lat{list-style: none;padding: 0px;width: 100%;}
+#comodidades_copropiedad_lat > li{display: inline-flex;width: 100%;}
+#comodidades_copropiedad_lat > li > p{color: #525252;}
+#horario_porteria_copropiedad{display: none;}
+#reset_card_body_collage{padding: 15px;}
+#reset_nav_link_titu{height: 60px;overflow: hidden;font-size: 1rem;}
+#row_resultado_propiedad{position: relative;}
+#titulo_resultado_propiedad{color: black;font-size: 1em;}
+
+.warning_publicar{position: relative;left: 60px;}
+.contenedor_swipe_img{height: 170px;}
+.descripcion_propiedad_resum{padding: 10px;background: #eaeaea;margin-top: 5px;border-radius: 3px;text-align: left;}
+.info_propiedad_resumen{background: #d89e1d;color: white;text-align: left;padding-left: 10px;border-radius: 3px;margin-top: 10px;margin-bottom: 10px;width: 100%;display: inline-flex;padding-top: 5px;}
+.info_propiedad_resumen > p{padding-left: 5px;position: relative;top: 3px;}
+.button_mas_propiedad{background: #eeb73a;color: white;border-radius: 3px;padding: 5px;position: relative;top: 3px;left: 6px;transition: all 0.2s;}
+.button_mas_propiedad:hover,.button_mas_propiedad:focus{color:white;top: 4px;box-shadow: 0px 1px 3px #8c8c8c;}
+.button_adquirir_prop{width: 100%;margin-top: 10px;margin-bottom: 10px;transition: all 0.3s;position: relative;}
+.button_adquirir_prop:hover{top: 3px;}
+.button_adquirir_prop > div{background: #c50000;padding: 10px;text-align: center;border-radius: 5px;color: white;font-weight: bold;}
+.reset_cont_form_arrendar_propiedad{width: 85%;}
+.reset_cont_form_arrendar_propiedad_b{width: 90%;}
+.reset_inputs_form_accordion_arrendar_propiedad{width: 80%;}
+.reset_inputs_form_arrendar_propiedad{padding-left: 10px;}
+.titulos_formularios_h2{color:#424242;padding-left: 15px;}
+.impar_color{background-color: whitesmoke;}
+.td_flex{display: inline-flex;}
+.correcion_input_forms{padding-left: 55px;width: 100%;overflow: hidden;}
+.note-popover.popover{display: none;}
+.titulos_secciones_index {width: 100%;text-align: center;margin-top: 50px;margin-bottom: 60px;font-size: 3rem;border-bottom: 1px solid #e6e6e6;padding-bottom: 50px;color: #6d6d6d;}
+.del_img_pub_propiedad{position: absolute;width: 25px;height: 25px;left: 3px;top: 80%;transition: all 0.2s;border-radius: 500px;}
+.del_img_pub_propiedad:hover{top: 81%;box-shadow: 0px 1px 1px #636363;}
+.del_img_pub_propiedad > a > img{height: 100%;}
+.orange_txt{color: #dc9f16;}
+.bold_txt{font-weight: bold;}
+.box_subtitulos_txt{width: 100%;background: #dc9f16;color: white;font-weight: bold;padding: 10px;border-top-left-radius: 5px;border-top-right-radius: 5px;}
+.box_txtdescriptiv_prop{width: 100%;padding: 10px;background: #f1f1f1;border-radius: 5px;}
+.txt_col_2_table{padding-left: 50px;}
+.swiper-container,.swiper-container_b {width: 100%;height: 90%;}
+.swiper-slide {text-align: center;background: transparent;display: -webkit-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;display: block;}
+.gallery-top {height: 80%;width: 100%;}
+.gallery-thumbs {height: 20%;box-sizing: border-box;padding: 10px 0;}
+.gallery-thumbs .swiper-slide {height: 100%;opacity: 0.4;}
+.gallery-thumbs .swiper-slide-active {opacity: 1;}
+.swiper-slide > img{width: 100%;}
+.swiper-slide > p{width: 100%; color: white;font-weight: 900;text-shadow: 3px 3px 3px #5d5d5d;line-height: 90px;font-size: 5.5em;margin-top: 23px;}
+.txt_subslide_index{color: #f4b72e;font-size: 2em;font-weight: bold;text-shadow: 1px 1px 1px #6b6b6b;position: relative;top: 10px;}
+.left_burbuja_error_der{left: 65%;}
+.left_burbuja_error_izq{left: 20%;}
+.reset_display{width: 85%;}
+.reset_display_icon{width: 15%;}
+.separador{width: 3px;background: #969494;}
+.pie_pagina_forms{text-align: center;width: 100%;}
+.contenedor_mensajes_sis_brks{padding: 20px;display: inline-flex;width: 100%;margin-bottom: 50px;}
+.contenedor_mensajes_sis_brks > p{width: 80%;font-size: 1.9rem;}
+.contenedor_mensajes_sis_brks_img{box-shadow: 0px 0px 3px #717171;position: relative; margin-right: 15px;height: 60px;text-align: center;border-radius: 500px;overflow: hidden;width: 60px;transition: all 0.2s;}
+.contenedor_mensajes_sis_brks_img:hover{top: 3px;}
+.contenedor_mensajes_sis_brks_img > img{height: 100%;}
+.input_file_img_pub_propiedad {position: relative;width: 150px;text-align: center;height: 150px;overflow: hidden;transition: all 0.2s;display: inline-flex;border-radius: 6px;margin: 15px;}
+.input_file_img_pub_propiedad:hover{box-shadow: 0px 2px 3px #9a9a9a;}
+.img_upload_img {background: transparent;opacity: 0;width: 100%;height: 100%;position: absolute;cursor: pointer;}
+.contenedor_pre_img_editar_pub {height: 100%;width: 100%;}
+.img_upload {height: 100%;border-radius: 5px;}
+.cont_img_sel_youtu_not{text-align: center;margin-right: 10px;margin-left: 10px;width: auto;position: relative;top: 15px;}
+.cont_img_sel_youtu_not > img,.cont_img_ayuda_sel_youtu > a >img{height: 100%;}
+.cont_input_a_vid_not_txt{width: 100%;position: relative;top: 15px;margin-bottom: 30px;}
+.cont_img_ayuda_sel_youtu{height: 25px;position: relative;top: 16px;margin-left: 11px;}
+.img_activacion_cuenta{margin-bottom: 10px;}
+.burbuja_alerta {position: absolute;box-shadow: 0px 2px 3px 0px #6b6b6b;display: none;background: #d1272f;color: #FFF;font-family: Arial, Sans-serif;font-size: 12px;padding: 20px 10px 10px 10px;text-align: center;width: 200px;-moz-border-radius: 10px;-webkit-border-radius: 10px;border-radius: 10px;z-index: 997;}
+.burbuja_alerta:after {border: solid 10px transparent;border-top-color: #d1272f;border-bottom: 0;bottom: -20px;  content: "";display: block;height: 0;overflow: hidden;position: relative;width: 0;}
+.navbar.navbar-transparent {background-color: #e39c41 !important;}
+.navbar {background-color: #d2d2d2 !important;}
+.card .card-header-primary {background: linear-gradient(60deg, #e39c41, #f9be72) !important;}
+.ui-state-active {border: 1px solid #d2d2d2 !important; background: #e39c41 !important;}

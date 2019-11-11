@@ -34,10 +34,9 @@ if ($idrol == 0) {
 $id = $_GET['id'];
 
 // Realiza la consulta para ser visualizada en un tabla por medio de un While
-$query = mysqli_query($result,"SELECT cr.idcreditos AS idcreditos, cr.fecha AS fecha, cr.detalles AS detalles, cr.valor AS valor, cr.intereses, cr.dias_mora AS dias_mora, cr.idpago as idpago FROM clientes c 
-	INNER JOIN creditos cr 
+$query = mysqli_query($result,"SELECT cr.idcreditos AS idcreditos, cr.fecha AS fecha, cr.detalles AS detalles, cr.valor AS valor, cr.intereses, cr.dias_mora AS dias_mora, cr.idpago as idpago FROM clientes c INNER JOIN creditos cr 
 	ON c.id = cr.idclientes 
-	WHERE cr.idclientes = 1 
+	WHERE cr.idclientes = $id 
 	#AND cr.valor < 0 
 	ORDER BY cr.fecha DESC;");
 
@@ -45,7 +44,7 @@ $query = mysqli_query($result,"SELECT cr.idcreditos AS idcreditos, cr.fecha AS f
  while ($row = $query->fetch_array(MYSQLI_BOTH)){
 
  	if ($row['valor'] < 0) {
- 		$td = "&nbsp;&nbsp;";
+ 		$td = "&nbsp;&nbsp;<a class='botonTab' onclick='javascript:abrir(\"cuenta_de_cobro_min.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='C. Cobro'><i class='fa fa-file-text-o'></i></spam></a>&nbsp;";
  	}else{
  		$td = "&nbsp;&nbsp;
 			<a class='botonTab' onclick='javascript:abrir(\"comprobante.php?id=" . $row['idcreditos'] . "\")'><span data-tooltip='Recibo'><i

@@ -14,17 +14,18 @@ html, body{
 }
 
 .logo{
-	margin-top: 10%;
+	margin-top: 5%;
+  width: 150px;
 }
 
 .fecha{
-	margin-top: 10%;
+	margin-top: 5%;
 	text-align: center;
 }
 
 .imprimir{
 	margin-left: 80%;
-	margin-top: 5%;
+	margin-top: 1%;
 }
 
 .numero{

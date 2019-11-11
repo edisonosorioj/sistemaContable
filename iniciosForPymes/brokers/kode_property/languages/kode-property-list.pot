@@ -1,0 +1,2557 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: RealEstate Property Plugin Translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-01 21:13+0500\n"
+"PO-Revision-Date: 2015-08-25 21:32+0500\n"
+"Last-Translator: admin <support@kodeforest.com>\n"
+"Language-Team: kodeforest <support@kodeforest.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: ar_AE\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: kode-property-element.php:30 kode-property-option.php:328
+#: kode-property.php:35 kode-property.php:47
+msgid "Property"
+msgstr ""
+
+#: kode-property-element.php:32 kode-property-element.php:37
+#: kode-property-marker-slider-element.php:32
+#: kode-property-marker-slider-element.php:37
+#: kode-property-modern-listing-element.php:32
+#: kode-property-modern-listing-element.php:37
+#: kode-property-slider-element.php:32 kode-property-slider-element.php:37
+#: kode-search-form-element.php:32 kode-search-form-element.php:37
+#: kode-submit-listing-edit-element.php:32
+#: kode-submit-listing-edit-element.php:37 kode-submit-listing-element.php:32
+#: kode-submit-listing-element.php:37
+msgid "KodeForest"
+msgstr ""
+
+#: kode-property-element.php:44 kode-property-element.php:52
+#: kode-property-slider-element.php:44 kode-property-slider-element.php:52
+#: kode-search-form-element.php:44 kode-search-form-element.php:52
+#: kode-submit-listing-edit-element.php:44 kode-submit-listing-element.php:44
+msgid "Element Item Id"
+msgstr ""
+
+#: kode-property-element.php:46 kode-property-element.php:54
+#: kode-property-element.php:62 kode-property-element.php:73
+#: kode-property-element.php:84 kode-property-element.php:106
+#: kode-property-element.php:117 kode-property-element.php:138
+#: kode-property-element.php:150 kode-property-element.php:158
+#: kode-property-element.php:166 kode-property-element.php:177
+#: kode-property-element.php:187 kode-property-element.php:197
+#: kode-property-marker-slider-element.php:60
+#: kode-property-marker-slider-element.php:71
+#: kode-property-marker-slider-element.php:79
+#: kode-property-marker-slider-element.php:87
+#: kode-property-marker-slider-element.php:108
+#: kode-property-marker-slider-element.php:127
+#: kode-property-marker-slider-element.php:135
+#: kode-property-marker-slider-element.php:143
+#: kode-property-marker-slider-element.php:154
+#: kode-property-marker-slider-element.php:164
+#: kode-property-modern-listing-element.php:46
+#: kode-property-modern-listing-element.php:61
+#: kode-property-modern-listing-element.php:78
+#: kode-property-modern-listing-element.php:89
+#: kode-property-modern-listing-element.php:99
+#: kode-property-slider-element.php:46 kode-property-slider-element.php:54
+#: kode-property-slider-element.php:76 kode-property-slider-element.php:87
+#: kode-property-slider-element.php:97 kode-search-form-element.php:46
+#: kode-search-form-element.php:54 kode-search-form-element.php:62
+#: kode-search-form-element.php:73 kode-search-form-element.php:84
+#: kode-search-form-element.php:95 kode-submit-listing-edit-element.php:46
+#: kode-submit-listing-edit-element.php:54
+#: kode-submit-listing-edit-element.php:62 kode-submit-listing-element.php:46
+#: kode-submit-listing-element.php:54 kode-submit-listing-element.php:62
+msgid " "
+msgstr ""
+
+#: kode-property-element.php:47 kode-property-element.php:55
+#: kode-property-option.php:336 kode-property-option.php:493
+#: kode-property-option.php:531 kode-property-option.php:556
+#: kode-property-option.php:581 kode-property-option.php:635
+#: kode-property-slider-element.php:47 kode-property-slider-element.php:55
+#: kode-search-form-element.php:47 kode-search-form-element.php:55
+#: kode-submit-listing-edit-element.php:47 kode-submit-listing-element.php:47
+msgid "please add the page item id."
+msgstr ""
+
+#: kode-property-element.php:59 kode-property-option.php:345
+msgid "Property Filter"
+msgstr ""
+
+#: kode-property-element.php:63 kode-property-element.php:74
+msgid "Show"
+msgstr ""
+
+#: kode-property-element.php:64 kode-property-element.php:75
+msgid "Hide"
+msgstr ""
+
+#: kode-property-element.php:66
+msgid "Show Filter of Property."
+msgstr ""
+
+#: kode-property-element.php:70 kode-property-option.php:353
+msgid "Property Listing"
+msgstr ""
+
+#: kode-property-element.php:77
+msgid "Show property listing or hide it from here."
+msgstr ""
+
+#: kode-property-element.php:82
+msgid "Title Word Limit"
+msgstr ""
+
+#: kode-property-element.php:85
+msgid "Specify the number of title words to pull out."
+msgstr ""
+
+#: kode-property-element.php:89 kode-property-marker-slider-element.php:43
+#: kode-property-slider-element.php:59
+msgid "Select Features"
+msgstr ""
+
+#: kode-property-element.php:92 kode-property-marker-slider-element.php:46
+#: kode-property-slider-element.php:62
+msgid "Select Features."
+msgstr ""
+
+#: kode-property-element.php:96 kode-property-marker-slider-element.php:50
+#: kode-property-slider-element.php:66
+msgid "Select Status"
+msgstr ""
+
+#: kode-property-element.php:99 kode-property-marker-slider-element.php:53
+#: kode-property-slider-element.php:69
+msgid "Select Status."
+msgstr ""
+
+#: kode-property-element.php:103 kode-property-option.php:409
+msgid "Property Listing Type"
+msgstr ""
+
+#: kode-property-element.php:107 kode-property-option.php:412
+msgid "Simple"
+msgstr ""
+
+#: kode-property-element.php:108 kode-property-option.php:205
+#: kode-property-option.php:413
+msgid "Slider"
+msgstr ""
+
+#: kode-property-element.php:110 kode-property-marker-slider-element.php:64
+msgid "Show property listing simple or in slider."
+msgstr ""
+
+#: kode-property-element.php:114 kode-property-marker-slider-element.php:84
+msgid "Property Listing Style"
+msgstr ""
+
+#: kode-property-element.php:118 kode-property-marker-slider-element.php:88
+#: kode-property-option.php:420 kode-property-option.php:860
+#: kode-property-option.php:1199
+msgid "Grid View"
+msgstr ""
+
+#: kode-property-element.php:119 kode-property-marker-slider-element.php:89
+msgid "Modern Grid View"
+msgstr ""
+
+#: kode-property-element.php:120 kode-property-marker-slider-element.php:90
+#: kode-property-option.php:422 kode-property-option.php:862
+#: kode-property-option.php:1201
+msgid "Simple Full View"
+msgstr ""
+
+#: kode-property-element.php:121 kode-property-marker-slider-element.php:91
+#: kode-property-option.php:423 kode-property-option.php:863
+#: kode-property-option.php:1202
+msgid "Normal Full View"
+msgstr ""
+
+#: kode-property-element.php:122 kode-property-marker-slider-element.php:92
+#: kode-property-option.php:424 kode-property-option.php:864
+#: kode-property-option.php:1203
+msgid "Modern Full View"
+msgstr ""
+
+#: kode-property-element.php:124 kode-property-marker-slider-element.php:94
+msgid "Show property listing style."
+msgstr ""
+
+#: kode-property-element.php:128 kode-property-marker-slider-element.php:98
+#: kode-property-modern-listing-element.php:68
+msgid "Select Thumbnail"
+msgstr ""
+
+#: kode-property-element.php:131 kode-property-marker-slider-element.php:101
+#: kode-property-modern-listing-element.php:71
+msgid "Select Thumbnail."
+msgstr ""
+
+#: kode-property-element.php:135 kode-property-marker-slider-element.php:105
+#: kode-property-option.php:434 kode-property-option.php:876
+#: kode-property-option.php:1215
+msgid "Property Column Size"
+msgstr ""
+
+#: kode-property-element.php:139 kode-property-marker-slider-element.php:109
+msgid "2 COlumn"
+msgstr ""
+
+#: kode-property-element.php:140 kode-property-marker-slider-element.php:110
+#: kode-property-option.php:438 kode-property-option.php:880
+#: kode-property-option.php:1219
+msgid "3 Column"
+msgstr ""
+
+#: kode-property-element.php:141 kode-property-marker-slider-element.php:111
+msgid "4 COlumn"
+msgstr ""
+
+#: kode-property-element.php:143 kode-property-marker-slider-element.php:113
+msgid "Show property column size works only at grid and modern grid."
+msgstr ""
+
+#: kode-property-element.php:148 kode-property-marker-slider-element.php:125
+#: kode-property-option.php:444 kode-property-option.php:891
+msgid "Num Fetch"
+msgstr ""
+
+#: kode-property-element.php:151 kode-property-marker-slider-element.php:128
+#: kode-property-option.php:447
+msgid "Specify the number of propertys you want to pull out."
+msgstr ""
+
+#: kode-property-element.php:156 kode-property-option.php:450
+#: kode-property-option.php:1253
+msgid "Num Excerpt"
+msgstr ""
+
+#: kode-property-element.php:159
+msgid "Specify the number of propertys description you want to pull out."
+msgstr ""
+
+#: kode-property-element.php:163 kode-property-marker-slider-element.php:140
+#: kode-property-modern-listing-element.php:75 kode-property-option.php:455
+#: kode-property-option.php:602 kode-property-option.php:791
+#: kode-property-option.php:904 kode-property-slider-element.php:73
+msgid "Order By"
+msgstr ""
+
+#: kode-property-element.php:167 kode-property-item.php:89
+#: kode-property-item.php:1668 kode-property-item.php:3030
+#: kode-property-marker-slider-element.php:144
+#: kode-property-modern-listing-element.php:79 kode-property-option.php:458
+#: kode-property-option.php:605 kode-property-option.php:794
+#: kode-property-option.php:907 kode-property-slider-element.php:77
+msgid "Publish Date"
+msgstr ""
+
+#: kode-property-element.php:168 kode-property-item.php:93
+#: kode-property-item.php:1672 kode-property-item.php:3034
+#: kode-property-marker-slider-element.php:145
+#: kode-property-modern-listing-element.php:80 kode-property-option.php:459
+#: kode-property-option.php:606 kode-property-option.php:795
+#: kode-property-option.php:908 kode-property-slider-element.php:78
+msgid "Title"
+msgstr ""
+
+#: kode-property-element.php:169 kode-property-item.php:96
+#: kode-property-item.php:108 kode-property-item.php:1675
+#: kode-property-item.php:3037 kode-property-marker-slider-element.php:146
+#: kode-property-modern-listing-element.php:81 kode-property-option.php:460
+#: kode-property-option.php:607 kode-property-option.php:796
+#: kode-property-option.php:909 kode-property-slider-element.php:79
+msgid "Random"
+msgstr ""
+
+#: kode-property-element.php:174 kode-property-marker-slider-element.php:151
+#: kode-property-modern-listing-element.php:86 kode-property-option.php:464
+#: kode-property-option.php:611 kode-property-option.php:800
+#: kode-property-option.php:913 kode-property-slider-element.php:84
+msgid "Order"
+msgstr ""
+
+#: kode-property-element.php:178 kode-property-marker-slider-element.php:155
+#: kode-property-modern-listing-element.php:90 kode-property-option.php:467
+#: kode-property-option.php:614 kode-property-option.php:724
+#: kode-property-option.php:746 kode-property-option.php:803
+#: kode-property-option.php:916 kode-property-slider-element.php:88
+msgid "Descending Order"
+msgstr ""
+
+#: kode-property-element.php:179 kode-property-marker-slider-element.php:156
+#: kode-property-modern-listing-element.php:91 kode-property-option.php:468
+#: kode-property-option.php:615 kode-property-option.php:725
+#: kode-property-option.php:747 kode-property-option.php:804
+#: kode-property-option.php:917 kode-property-slider-element.php:89
+msgid "Ascending Order"
+msgstr ""
+
+#: kode-property-element.php:184
+msgid "Pagination"
+msgstr ""
+
+#: kode-property-element.php:188 kode-search-form-element.php:63
+#: kode-search-form-element.php:74 kode-search-form-element.php:85
+msgid "Enable"
+msgstr ""
+
+#: kode-property-element.php:189 kode-search-form-element.php:64
+#: kode-search-form-element.php:75 kode-search-form-element.php:86
+msgid "Disable"
+msgstr ""
+
+#: kode-property-element.php:195 kode-property-marker-slider-element.php:162
+#: kode-property-modern-listing-element.php:97 kode-property-option.php:476
+#: kode-property-option.php:514 kode-property-option.php:540
+#: kode-property-option.php:565 kode-property-option.php:619
+#: kode-property-option.php:751 kode-property-option.php:808
+#: kode-property-option.php:925 kode-property-option.php:940
+#: kode-property-slider-element.php:95 kode-search-form-element.php:93
+#: kode-submit-listing-edit-element.php:60 kode-submit-listing-element.php:60
+msgid "Margin Bottom"
+msgstr ""
+
+#: kode-property-element.php:198 kode-property-marker-slider-element.php:165
+#: kode-property-modern-listing-element.php:100
+#: kode-property-slider-element.php:98 kode-search-form-element.php:96
+#: kode-submit-listing-edit-element.php:63 kode-submit-listing-element.php:63
+msgid "Specify the number to add margin at bottom of the element."
+msgstr ""
+
+#: kode-property-item.php:78 kode-property-item.php:1656
+msgid "Property Listing Veiw"
+msgstr ""
+
+#: kode-property-item.php:82 kode-property-item.php:1661
+#: kode-property-item.php:3023
+msgid "Sort By:"
+msgstr ""
+
+#: kode-property-item.php:84 kode-property-item.php:103
+#: kode-property-item.php:711 kode-property-item.php:722
+#: kode-property-item.php:735 kode-property-item.php:747
+#: kode-property-item.php:800 kode-property-item.php:813
+#: kode-property-item.php:825 kode-property-item.php:837
+#: kode-property-item.php:886 kode-property-item.php:899
+#: kode-property-item.php:911 kode-property-item.php:923
+#: kode-property-item.php:973 kode-property-item.php:986
+#: kode-property-item.php:998 kode-property-item.php:1010
+#: kode-property-item.php:1077 kode-property-item.php:1079
+#: kode-property-item.php:1130 kode-property-item.php:1132
+#: kode-property-item.php:1164 kode-property-item.php:1166
+#: kode-property-item.php:1663 kode-property-item.php:1682
+#: kode-property-item.php:3044
+msgid "Any"
+msgstr ""
+
+#: kode-property-item.php:101 kode-property-item.php:1680
+msgid "Order By:"
+msgstr ""
+
+#: kode-property-item.php:105 kode-property-item.php:1684
+#: kode-property-item.php:3046
+msgid "ASC"
+msgstr ""
+
+#: kode-property-item.php:113 kode-property-item.php:1692
+#: kode-property-item.php:3054
+msgid "Select View:"
+msgstr ""
+
+#: kode-property-item.php:240 kode-property-item.php:275
+#: kode-property-item.php:2070 kode-property-item.php:2105
+#: kode-property-item.php:3235
+msgid "888.111.22.444"
+msgstr ""
+
+#: kode-property-item.php:249 kode-property-item.php:2079
+#: kode-property-item.php:3208
+msgid "Beds:"
+msgstr ""
+
+#: kode-property-item.php:250 kode-property-item.php:2080
+#: kode-property-item.php:3209
+msgid "Baths:"
+msgstr ""
+
+#: kode-property-item.php:251 kode-property-item.php:317
+#: kode-property-item.php:2081 kode-property-item.php:2147
+#: kode-property-item.php:3210 kode-property-item.php:3278
+msgid "Space:"
+msgstr ""
+
+#: kode-property-item.php:254 kode-property-item.php:292
+#: kode-property-item.php:320 kode-property-item.php:337
+#: kode-property-item.php:370 kode-property-item.php:2084
+#: kode-property-item.php:2122 kode-property-item.php:2150
+#: kode-property-item.php:2167 kode-property-item.php:2200
+#: kode-property-item.php:3213 kode-property-item.php:3252
+#: kode-property-item.php:3281 kode-property-item.php:3296
+#: kode-property-item.php:3327
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: kode-property-item.php:288 kode-property-item.php:2118
+#: kode-property-item.php:3248
+msgid "Bedrooms:"
+msgstr ""
+
+#: kode-property-item.php:289 kode-property-item.php:313
+#: kode-property-item.php:2119 kode-property-item.php:2143
+#: kode-property-item.php:3249 kode-property-item.php:3274
+msgid "Bathrooms:"
+msgstr ""
+
+#: kode-property-item.php:311 kode-property-item.php:2141
+#: kode-property-item.php:3272
+msgid "Area:"
+msgstr ""
+
+#: kode-property-item.php:312 kode-property-item.php:2142
+#: kode-property-item.php:3273
+msgid "Bedroom:"
+msgstr ""
+
+#: kode-property-item.php:316 kode-property-item.php:2146
+#: kode-property-item.php:3277
+msgid "Garage:"
+msgstr ""
+
+#: kode-property-item.php:349 kode-property-item.php:429
+#: kode-property-item.php:2179 kode-property-item.php:2259
+#: kode-property-item.php:2930 kode-property-item.php:3308
+#: kode-property-item.php:3384
+msgid "Beds"
+msgstr ""
+
+#: kode-property-item.php:350 kode-property-item.php:430
+#: kode-property-item.php:2180 kode-property-item.php:2260
+#: kode-property-item.php:2930 kode-property-item.php:3309
+#: kode-property-item.php:3385 kode-property-option.php:158
+msgid "Bath"
+msgstr ""
+
+#: kode-property-item.php:351 kode-property-item.php:394
+#: kode-property-item.php:431 kode-property-item.php:2181
+#: kode-property-item.php:2224 kode-property-item.php:2261
+#: kode-property-item.php:2686 kode-property-item.php:2930
+#: kode-property-item.php:3310 kode-property-item.php:3351
+#: kode-property-item.php:3386 kode-property-option.php:169
+#: single-property.php:95 single-property.php:125 single-property.php:154
+#: widgets/property-featured-widget.php:87
+msgid "Garage"
+msgstr ""
+
+#: kode-property-item.php:374 kode-property-item.php:712
+#: kode-property-item.php:2204 kode-property-item.php:3331
+#: kode-property-option.php:127 widgets/property-search-widget.php:67
+msgid "Rent"
+msgstr ""
+
+#: kode-property-item.php:384 kode-property-item.php:3341
+msgid "bedroom"
+msgstr ""
+
+#: kode-property-item.php:389 kode-property-item.php:2219
+#: kode-property-item.php:2364 kode-property-item.php:2681
+#: kode-property-item.php:3346
+msgid "Bathroom"
+msgstr ""
+
+#: kode-property-item.php:419 kode-property-item.php:2249
+#: kode-property-item.php:2665 kode-property-item.php:2930
+#: kode-property-item.php:3374
+msgid "View Detail"
+msgstr ""
+
+#: kode-property-item.php:674
+msgid "All Listing"
+msgstr ""
+
+#: kode-property-item.php:676
+msgid "For Rent"
+msgstr ""
+
+#: kode-property-item.php:679
+msgid "For Sale"
+msgstr ""
+
+#: kode-property-item.php:682
+msgid "Auctions"
+msgstr ""
+
+#: kode-property-item.php:697 kode-property-item.php:786
+#: kode-property-item.php:872 kode-property-item.php:959
+#: widgets/property-search-widget.php:57
+msgid "Keyword"
+msgstr ""
+
+#: kode-property-item.php:703 kode-property-item.php:792
+#: kode-property-item.php:878 kode-property-item.php:965
+msgid "Space or area(sqft)"
+msgstr ""
+
+#: kode-property-item.php:709 kode-property-option.php:122
+msgid "Propiedad para"
+msgstr ""
+
+#: kode-property-item.php:713 kode-property-option.php:125
+#: widgets/property-search-widget.php:68
+msgid "Venta"
+msgstr ""
+
+#: kode-property-item.php:714 kode-property-option.php:126
+#: widgets/property-search-widget.php:69
+msgid "Subasta"
+msgstr ""
+
+#: kode-property-item.php:720 kode-property-item.php:798
+#: kode-property-item.php:884 kode-property-item.php:971
+#: kode-property-option.php:379 kode-property-option.php:664
+#: kode-property.php:153 kode-property.php:161 kode-property.php:165
+msgid "Property Type"
+msgstr ""
+
+#: kode-property-item.php:733 kode-property-item.php:811
+#: kode-property-item.php:897 kode-property-item.php:984
+msgid "Min Beds"
+msgstr ""
+
+#: kode-property-item.php:736 kode-property-item.php:748
+#: kode-property-item.php:814 kode-property-item.php:826
+#: kode-property-item.php:838 kode-property-item.php:900
+#: kode-property-item.php:912 kode-property-item.php:924
+#: kode-property-item.php:987 kode-property-item.php:999
+#: kode-property-item.php:1011 widgets/property-search-widget.php:87
+#: widgets/property-search-widget.php:97
+msgid "2"
+msgstr ""
+
+#: kode-property-item.php:737 kode-property-item.php:749
+#: kode-property-item.php:815 kode-property-item.php:827
+#: kode-property-item.php:839 kode-property-item.php:901
+#: kode-property-item.php:913 kode-property-item.php:925
+#: kode-property-item.php:988 kode-property-item.php:1000
+#: kode-property-item.php:1012 widgets/property-search-widget.php:88
+#: widgets/property-search-widget.php:98
+msgid "3"
+msgstr ""
+
+#: kode-property-item.php:738 kode-property-item.php:750
+#: kode-property-item.php:816 kode-property-item.php:828
+#: kode-property-item.php:840 kode-property-item.php:902
+#: kode-property-item.php:914 kode-property-item.php:926
+#: kode-property-item.php:989 kode-property-item.php:1001
+#: kode-property-item.php:1013 widgets/property-search-widget.php:89
+#: widgets/property-search-widget.php:99
+msgid "4"
+msgstr ""
+
+#: kode-property-item.php:739 kode-property-item.php:751
+#: kode-property-item.php:817 kode-property-item.php:829
+#: kode-property-item.php:841 kode-property-item.php:903
+#: kode-property-item.php:915 kode-property-item.php:927
+#: kode-property-item.php:990 kode-property-item.php:1002
+#: kode-property-item.php:1014 widgets/property-search-widget.php:90
+#: widgets/property-search-widget.php:100
+msgid "5"
+msgstr ""
+
+#: kode-property-item.php:745 kode-property-item.php:823
+#: kode-property-item.php:909 kode-property-item.php:996
+msgid "Max Beds"
+msgstr ""
+
+#: kode-property-item.php:757
+msgid "Min Price"
+msgstr ""
+
+#: kode-property-item.php:765
+msgid "Max Price"
+msgstr ""
+
+#: kode-property-item.php:773 kode-property-item.php:859
+#: kode-property-item.php:945 kode-property-item.php:1032
+#: kode-property-item.php:1733 kode-property.php:43
+msgid "Search Property"
+msgstr ""
+
+#: kode-property-item.php:835 kode-property-item.php:921
+#: kode-property-item.php:1008
+msgid "Min Baths"
+msgstr ""
+
+#: kode-property-item.php:847 kode-property-item.php:933
+#: kode-property-item.php:1020
+msgid "Price Range"
+msgstr ""
+
+#: kode-property-item.php:850 kode-property-item.php:936
+#: kode-property-item.php:1023 widgets/property-search-widget.php:109
+msgid "Min"
+msgstr ""
+
+#: kode-property-item.php:852 kode-property-item.php:938
+#: kode-property-item.php:1025 widgets/property-search-widget.php:110
+msgid "Max"
+msgstr ""
+
+#: kode-property-item.php:1195
+msgid "$"
+msgstr ""
+
+#: kode-property-item.php:1687 kode-property-item.php:3049
+msgid "DESC"
+msgstr ""
+
+#: kode-property-item.php:1739 widgets/property-price-filter-widget.php:41
+msgid "Property Price Filter"
+msgstr ""
+
+#: kode-property-item.php:1740
+msgid "Add filter to get exact results you are looking for."
+msgstr ""
+
+#: kode-property-item.php:1800 kode-property-item.php:1867
+msgid "Show All..."
+msgstr ""
+
+#: kode-property-item.php:1817
+msgid "Less than 1000 sqft"
+msgstr ""
+
+#: kode-property-item.php:1873 kode-property-option.php:397
+#: kode-property-option.php:685 kode-property.php:247 single-property.php:258
+msgid "Country"
+msgstr ""
+
+#: kode-property-item.php:1874 kode-property-item.php:1896
+msgid "Add Filter to get exact what you are looking for."
+msgstr ""
+
+#: kode-property-item.php:1895 kode-property-option.php:391
+#: kode-property-option.php:678 kode-property.php:216 single-property.php:264
+msgid "City"
+msgstr ""
+
+#: kode-property-item.php:1919 single-property.php:758
+msgid "loading"
+msgstr ""
+
+#: kode-property-item.php:1920 single-property.php:760
+msgid "Please fill all required fields"
+msgstr ""
+
+#: kode-property-item.php:1924
+msgid "Get Results"
+msgstr ""
+
+#: kode-property-item.php:2214 kode-property-item.php:2363
+#: kode-property-item.php:2676
+msgid "Bedroom"
+msgstr ""
+
+#: kode-property-item.php:2274
+msgid "No Property Found!"
+msgstr ""
+
+#: kode-property-item.php:2275
+msgid "Go Back"
+msgstr ""
+
+#: kode-property-item.php:2365
+msgid "Sq Ft Area"
+msgstr ""
+
+#: kode-property-item.php:2369
+msgid "Schedule Visit"
+msgstr ""
+
+#: kode-property-item.php:2482
+msgid "Listing ID: 1234"
+msgstr ""
+
+#: kode-property-item.php:2489
+msgid "Location"
+msgstr ""
+
+#: kode-property-item.php:2496
+msgid "Type: For"
+msgstr ""
+
+#: kode-property-item.php:2503
+msgid "Bedrooms :"
+msgstr ""
+
+#: kode-property-item.php:2509 kode-property-item.php:2527
+msgid "Book Now"
+msgstr ""
+
+#: kode-property-item.php:2626 kode-property-option.php:1171
+msgid "Related Property"
+msgstr ""
+
+#: kode-property-item.php:2667 single-property.php:252
+msgid "For"
+msgstr ""
+
+#: kode-property-item.php:2930
+msgid "Sqft"
+msgstr ""
+
+#: kode-property-item.php:3461
+msgid "The page has been expired. Please refresh the page to try this again."
+msgstr ""
+
+#: kode-property-item.php:3522
+msgid "Form Submitted!"
+msgstr ""
+
+#: kode-property-item.php:3528
+msgid "Form Failed!"
+msgstr ""
+
+#: kode-property-item.php:3712
+msgid "Down Payment (%)"
+msgstr ""
+
+#: kode-property-item.php:3723 kode-property-mortgage.php:146
+msgid "Months"
+msgstr ""
+
+#: kode-property-item.php:3727 kode-property-mortgage.php:145
+msgid "Years"
+msgstr ""
+
+#: kode-property-item.php:3731
+msgid "terms"
+msgstr ""
+
+#: kode-property-item.php:3778
+msgid "Sending user info, please wait..."
+msgstr ""
+
+#: kode-property-marker-slider-element.php:30 kode-property-option.php:817
+msgid "Property Marker"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:57 kode-property-option.php:835
+msgid "Show as"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:61 kode-property-option.php:838
+msgid "Map Only"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:62 kode-property-option.php:839
+msgid "Map With Properties"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:69 kode-property-option.php:843
+msgid "Heading Title"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:72
+msgid "add title for of heading here."
+msgstr ""
+
+#: kode-property-marker-slider-element.php:77 kode-property-option.php:850
+msgid "Heading Caption"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:80
+msgid "add caption or description for of heading here."
+msgstr ""
+
+#: kode-property-marker-slider-element.php:117 kode-property-option.php:886
+msgid "Select Center Location"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:120
+msgid "Select the location in the center."
+msgstr ""
+
+#: kode-property-marker-slider-element.php:133 kode-property-option.php:897
+msgid "Map Height"
+msgstr ""
+
+#: kode-property-marker-slider-element.php:136
+msgid "Enter map height ie:350."
+msgstr ""
+
+#: kode-property-modern-listing-element.php:30
+msgid "Property Modern Listing"
+msgstr ""
+
+#: kode-property-modern-listing-element.php:44 kode-property-option.php:361
+#: kode-property-option.php:765
+msgid "Title Num Length (Word)"
+msgstr ""
+
+#: kode-property-modern-listing-element.php:47
+msgid ""
+"This is a number of word (decided by spaces) that you want to show on the "
+"property title."
+msgstr ""
+
+#: kode-property-modern-listing-element.php:51 kode-property-option.php:771
+msgid "Select Post"
+msgstr ""
+
+#: kode-property-modern-listing-element.php:54
+msgid "Select Post from here."
+msgstr ""
+
+#: kode-property-modern-listing-element.php:58
+msgid "Select Style"
+msgstr ""
+
+#: kode-property-modern-listing-element.php:62 kode-property-option.php:780
+msgid "Full List"
+msgstr ""
+
+#: kode-property-modern-listing-element.php:63 kode-property-option.php:781
+msgid "Small List"
+msgstr ""
+
+#: kode-property-mortgage.php:106
+msgid "Payment Months"
+msgstr ""
+
+#: kode-property-mortgage.php:107
+msgid "Payment Amt"
+msgstr ""
+
+#: kode-property-mortgage.php:108 kode-property-mortgage.php:117
+msgid "Interest"
+msgstr ""
+
+#: kode-property-mortgage.php:109
+msgid "Total Interest"
+msgstr ""
+
+#: kode-property-mortgage.php:110
+msgid "Principal"
+msgstr ""
+
+#: kode-property-mortgage.php:111
+msgid "Balance"
+msgstr ""
+
+#: kode-property-mortgage.php:112
+msgid "Property Loan Details"
+msgstr ""
+
+#: kode-property-mortgage.php:113
+msgid "Mortgage Schedule (P & I)"
+msgstr ""
+
+#: kode-property-mortgage.php:115
+msgid "Original Loan Amount"
+msgstr ""
+
+#: kode-property-mortgage.php:116
+msgid "Down Payment"
+msgstr ""
+
+#: kode-property-mortgage.php:118
+msgid "Term"
+msgstr ""
+
+#: kode-property-mortgage.php:119
+msgid "Loan After Down Payment"
+msgstr ""
+
+#: kode-property-mortgage.php:120
+msgid "Down Payment Amount"
+msgstr ""
+
+#: kode-property-mortgage.php:121
+msgid "Monthly Payment (P & I)"
+msgstr ""
+
+#: kode-property-mortgage.php:122
+msgid "Total Payments"
+msgstr ""
+
+#: kode-property-mortgage.php:168
+msgid "Please Enter a valid amount."
+msgstr ""
+
+#: kode-property-mortgage.php:172
+msgid "Please Enter a valid interest rate."
+msgstr ""
+
+#: kode-property-mortgage.php:176
+msgid "Please Enter a down payment (can be 0)."
+msgstr ""
+
+#: kode-property-mortgage.php:180
+msgid "Term cannot be empty."
+msgstr ""
+
+#: kode-property-mortgage.php:234
+msgid ""
+"Since Principal and Interest are not the only factors of a loan we should "
+"include an estimate for other costs involved with a loan."
+msgstr ""
+
+#: kode-property-mortgage.php:259
+msgid "An average tax figure for your purchase might be about"
+msgstr ""
+
+#: kode-property-mortgage.php:260
+msgid " for every"
+msgstr ""
+
+#: kode-property-mortgage.php:261
+msgid " assessed value per year."
+msgstr ""
+
+#: kode-property-mortgage.php:262
+msgid ""
+"If the assessed value of your home is 85%, this would make your home's "
+"assessed value"
+msgstr ""
+
+#: kode-property-mortgage.php:262
+msgid " and your monthly tax around"
+msgstr ""
+
+#: kode-property-mortgage.php:287
+#, php-format
+msgid ""
+"Your down payment was less than 20% of the loan, which means you will be "
+"paying PMI. This averages around"
+msgstr ""
+
+#: kode-property-mortgage.php:287
+msgid "for every"
+msgstr ""
+
+#: kode-property-mortgage.php:288
+msgid " borrowed."
+msgstr ""
+
+#: kode-property-mortgage.php:291
+msgid "An estimate for PMI will be around"
+msgstr ""
+
+#: kode-property-mortgage.php:292
+msgid "per month."
+msgstr ""
+
+#: kode-property-mortgage.php:295
+#, php-format
+msgid ""
+"Since you are putting down 20% or more of the loan, you will not have to pay "
+"PMI."
+msgstr ""
+
+#: kode-property-mortgage.php:317
+msgid ""
+"Homeowners Insurance is another factor of a loan.  An average estimate of "
+"your monthly insurance could be about"
+msgstr ""
+
+#: kode-property-mortgage.php:338
+msgid "With these factors, your total monthly payment estimate would be around"
+msgstr ""
+
+#: kode-property-mortgage.php:397
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: kode-property-mortgage.php:467
+msgid "Not used at this time."
+msgstr ""
+
+#: kode-property-mortgage.php:573
+msgid "Brought to you by"
+msgstr ""
+
+#: kode-property-option.php:24
+msgid "Page Layout"
+msgstr ""
+
+#: kode-property-option.php:38
+msgid "Left Sidebar"
+msgstr ""
+
+#: kode-property-option.php:44
+msgid "Right Sidebar"
+msgstr ""
+
+#: kode-property-option.php:53
+msgid "Page Option"
+msgstr ""
+
+#: kode-property-option.php:56
+msgid "Page Caption"
+msgstr ""
+
+#: kode-property-option.php:61
+msgid "Header Background Image"
+msgstr ""
+
+#: kode-property-option.php:62 kode-property-option.php:82
+#: kode-property-option.php:1272 kode-property-option.php:1529
+#: kode-property-snazzymaps.php:22
+msgid "Upload"
+msgstr ""
+
+#: kode-property-option.php:67
+msgid "Feature Property"
+msgstr ""
+
+#: kode-property-option.php:70 kode-property-option.php:184
+#: kode-property-option.php:708 kode-property-option.php:1396
+#: kode-property-option.php:1422 kode-property-option.php:1438
+#: kode-property-option.php:1493
+msgid "No"
+msgstr ""
+
+#: kode-property-option.php:71 kode-property-option.php:183
+#: kode-property-option.php:707 kode-property-option.php:1395
+#: kode-property-option.php:1421 kode-property-option.php:1437
+#: kode-property-option.php:1492
+msgid "Yes"
+msgstr ""
+
+#: kode-property-option.php:76
+msgid "Address Detail"
+msgstr ""
+
+#: kode-property-option.php:81
+msgid "Market Icon of this Location"
+msgstr ""
+
+#: kode-property-option.php:87
+msgid "Address"
+msgstr ""
+
+#: kode-property-option.php:93
+msgid "Radius"
+msgstr ""
+
+#: kode-property-option.php:99
+msgid "Google Map"
+msgstr ""
+
+#: kode-property-option.php:105
+msgid "Location Latitude"
+msgstr ""
+
+#: kode-property-option.php:111
+msgid "Location Longitude"
+msgstr ""
+
+#: kode-property-option.php:117
+msgid "Property Detail"
+msgstr ""
+
+#: kode-property-option.php:132
+msgid "Property Price Prefix"
+msgstr ""
+
+#: kode-property-option.php:137
+msgid "Property Price"
+msgstr ""
+
+#: kode-property-option.php:142
+msgid "Property Space"
+msgstr ""
+
+#: kode-property-option.php:147
+msgid "Bed"
+msgstr ""
+
+#: kode-property-option.php:152
+msgid "Bed Icon"
+msgstr ""
+
+#: kode-property-option.php:163
+msgid "Bath Icon"
+msgstr ""
+
+#: kode-property-option.php:174
+msgid "Garage Icon"
+msgstr ""
+
+#: kode-property-option.php:180
+msgid "Floor Plan"
+msgstr ""
+
+#: kode-property-option.php:195
+msgid "Property Feature Media"
+msgstr ""
+
+#: kode-property-option.php:200
+msgid "Select Post Media"
+msgstr ""
+
+#: kode-property-option.php:203 kode-property-option.php:210
+msgid "Video URL"
+msgstr ""
+
+#: kode-property-option.php:204
+msgid "Feature Image"
+msgstr ""
+
+#: kode-property-option.php:207
+msgid "Select post media type."
+msgstr ""
+
+#: kode-property-option.php:213
+msgid "Add video url, it could be uploaded video track or youtube, vimeo."
+msgstr ""
+
+#: kode-property-option.php:216 kode-property-option.php:245
+#: kode-property-option.php:428 kode-property-option.php:785
+#: kode-property-option.php:869 kode-property-option.php:1208
+msgid "Thumbnail Size"
+msgstr ""
+
+#: kode-property-option.php:229
+msgid "Property Agents"
+msgstr ""
+
+#: kode-property-option.php:234
+msgid "Agent"
+msgstr ""
+
+#: kode-property-option.php:240
+msgid "Agent Description Length"
+msgstr ""
+
+#: kode-property-option.php:242
+msgid "Agent Description Length in Characters for example: 20 Characters."
+msgstr ""
+
+#: kode-property-option.php:260
+msgid "Property Option"
+msgstr ""
+
+#: kode-property-option.php:275
+msgid "Extra Options"
+msgstr ""
+
+#: kode-property-option.php:333 kode-property-option.php:490
+#: kode-property-option.php:528 kode-property-option.php:553
+#: kode-property-option.php:578 kode-property-option.php:632
+msgid "Page Item ID"
+msgstr ""
+
+#: kode-property-option.php:339 kode-property-option.php:496
+#: kode-property-option.php:534 kode-property-option.php:559
+#: kode-property-option.php:584 kode-property-option.php:638
+msgid "Page Item Class"
+msgstr ""
+
+#: kode-property-option.php:342 kode-property-option.php:499
+#: kode-property-option.php:537 kode-property-option.php:562
+#: kode-property-option.php:587 kode-property-option.php:641
+#: kode-submit-listing-edit-element.php:55 kode-submit-listing-element.php:55
+msgid "please add the page item class."
+msgstr ""
+
+#: kode-property-option.php:348 kode-property-option.php:356
+msgid "Show Filter"
+msgstr ""
+
+#: kode-property-option.php:349 kode-property-option.php:357
+msgid "Hide Filter"
+msgstr ""
+
+#: kode-property-option.php:364 kode-property-option.php:768
+msgid ""
+"This is a number of word (decided by spaces) that you want to show on the "
+"property title. <strong>Use 0 to hide the excerpt, -1 to show full posts and "
+"use the wordpress more tag</strong>."
+msgstr ""
+
+#: kode-property-option.php:367 kode-property-option.php:590
+#: kode-property-option.php:650 kode-property-option.php:823
+#: kode-property.php:91
+msgid "Features"
+msgstr ""
+
+#: kode-property-option.php:370 kode-property-option.php:382
+#: kode-property-option.php:593 kode-property-option.php:826
+msgid ""
+"You can use Ctrl/Command button to select multiple categories or remove the "
+"selected category. <br><br> Leave this field blank to select all categories."
+msgstr ""
+
+#: kode-property-option.php:373 kode-property-option.php:596
+#: kode-property-option.php:657 kode-property-option.php:829
+msgid "Status"
+msgstr ""
+
+#: kode-property-option.php:376 kode-property-option.php:388
+#: kode-property-option.php:394 kode-property-option.php:400
+#: kode-property-option.php:406 kode-property-option.php:599
+#: kode-property-option.php:654 kode-property-option.php:661
+#: kode-property-option.php:668 kode-property-option.php:675
+#: kode-property-option.php:682 kode-property-option.php:689
+#: kode-property-option.php:696
+msgid "Will be ignored when the property filter option is enabled."
+msgstr ""
+
+#: kode-property-option.php:385 kode-property-option.php:671
+#: kode-property.php:185 kode-property.php:193 kode-property.php:197
+msgid "Room Type"
+msgstr ""
+
+#: kode-property-option.php:403 kode-property-option.php:692
+#: kode-property.php:279 kode-property.php:287 kode-property.php:291
+msgid "Neighborhood"
+msgstr ""
+
+#: kode-property-option.php:417 kode-property-option.php:857
+#: kode-property-option.php:1196
+msgid "Property Style"
+msgstr ""
+
+#: kode-property-option.php:421 kode-property-option.php:861
+#: kode-property-option.php:1200
+msgid "Moderrn Grid View"
+msgstr ""
+
+#: kode-property-option.php:437 kode-property-option.php:879
+#: kode-property-option.php:1218
+msgid "2 Column"
+msgstr ""
+
+#: kode-property-option.php:439 kode-property-option.php:881
+#: kode-property-option.php:1220
+msgid "4 Column"
+msgstr ""
+
+#: kode-property-option.php:472
+msgid "Enable Pagination"
+msgstr ""
+
+#: kode-property-option.php:479 kode-property-option.php:516
+#: kode-property-option.php:542 kode-property-option.php:567
+#: kode-property-option.php:621 kode-property-option.php:753
+#: kode-property-option.php:811 kode-property-option.php:928
+#: kode-property-option.php:943
+msgid "Spaces after ending of this item"
+msgstr ""
+
+#: kode-property-option.php:485 kode-search-form-element.php:30
+msgid "Search Form"
+msgstr ""
+
+#: kode-property-option.php:502
+msgid "Enable Sales Search"
+msgstr ""
+
+#: kode-property-option.php:506
+msgid "Enable Rent Search"
+msgstr ""
+
+#: kode-property-option.php:510
+msgid "Enable Purchase Search"
+msgstr ""
+
+#: kode-property-option.php:523 kode-submit-listing-element.php:30
+msgid "Submit Listing"
+msgstr ""
+
+#: kode-property-option.php:548
+msgid "Edit Listing"
+msgstr ""
+
+#: kode-property-option.php:573 kode-property-slider-element.php:30
+msgid "Property Slider"
+msgstr ""
+
+#: kode-property-option.php:627
+msgid "Property Cat"
+msgstr ""
+
+#: kode-property-option.php:644
+msgid "Select Filter"
+msgstr ""
+
+#: kode-property-option.php:647
+msgid "select filter from list to show its categories."
+msgstr ""
+
+#: kode-property-option.php:699
+msgid "Fetch Parent Categories"
+msgstr ""
+
+#: kode-property-option.php:701
+msgid "Fetch Parent Categories on the page"
+msgstr ""
+
+#: kode-property-option.php:704
+msgid "Hide Empty Category"
+msgstr ""
+
+#: kode-property-option.php:712
+msgid "Parent Order By"
+msgstr ""
+
+#: kode-property-option.php:715 kode-property-option.php:737
+msgid "Count"
+msgstr ""
+
+#: kode-property-option.php:716 kode-property-option.php:738
+msgid "Slug"
+msgstr ""
+
+#: kode-property-option.php:717 kode-property-option.php:739
+msgid "Name"
+msgstr ""
+
+#: kode-property-option.php:721
+msgid "Parent Order"
+msgstr ""
+
+#: kode-property-option.php:729
+msgid "Fetch Child Categories"
+msgstr ""
+
+#: kode-property-option.php:731
+msgid "Fetch Child Categories on the page"
+msgstr ""
+
+#: kode-property-option.php:734
+msgid "Child Order By"
+msgstr ""
+
+#: kode-property-option.php:743
+msgid "Child Order"
+msgstr ""
+
+#: kode-property-option.php:760
+msgid "Modern Listing"
+msgstr ""
+
+#: kode-property-option.php:774
+msgid "You can select candidate to show its biography."
+msgstr ""
+
+#: kode-property-option.php:777
+msgid "List Style"
+msgstr ""
+
+#: kode-property-option.php:832
+msgid "Will be ignored when the package filter option is enabled."
+msgstr ""
+
+#: kode-property-option.php:847
+msgid "add title for of heading here"
+msgstr ""
+
+#: kode-property-option.php:854
+msgid "add caption or description for of heading here"
+msgstr ""
+
+#: kode-property-option.php:894
+msgid "Specify the number of packages you want to pull out."
+msgstr ""
+
+#: kode-property-option.php:935
+msgid "Mortgage Calc"
+msgstr ""
+
+#: kode-property-option.php:1068 kode-property-option.php:1168
+#: kode-property-snazzymaps.php:13
+msgid "Property Options"
+msgstr ""
+
+#: kode-property-option.php:1073
+msgid "Property Search"
+msgstr ""
+
+#: kode-property-option.php:1076
+msgid "Search Style"
+msgstr ""
+
+#: kode-property-option.php:1079
+msgid "Not Selected"
+msgstr ""
+
+#: kode-property-option.php:1080
+msgid "Advance Search"
+msgstr ""
+
+#: kode-property-option.php:1081
+msgid "Compact Search"
+msgstr ""
+
+#: kode-property-option.php:1108
+msgid "Select Search Page"
+msgstr ""
+
+#: kode-property-option.php:1113
+msgid "For Rent Tab"
+msgstr ""
+
+#: kode-property-option.php:1115 kode-property-option.php:1121
+#: kode-property-option.php:1127
+msgid "You can show or hide this tab from search form."
+msgstr ""
+
+#: kode-property-option.php:1119
+msgid "For Sale Tab"
+msgstr ""
+
+#: kode-property-option.php:1125
+msgid "For Auction Tab"
+msgstr ""
+
+#: kode-property-option.php:1133
+msgid "Property Submit / Login"
+msgstr ""
+
+#: kode-property-option.php:1136
+msgid "Select Login Page"
+msgstr ""
+
+#: kode-property-option.php:1139
+msgid ""
+"Please select the page where you have added the login element from "
+"pagebuilder."
+msgstr ""
+
+#: kode-property-option.php:1142
+msgid "Select User Registration Page"
+msgstr ""
+
+#: kode-property-option.php:1145
+msgid ""
+"Please select the page where you have added the register user element from "
+"pagebuilder."
+msgstr ""
+
+#: kode-property-option.php:1148
+msgid "Select Property Submission Page"
+msgstr ""
+
+#: kode-property-option.php:1151
+msgid ""
+"Please select the page where you have added the Property Submission element "
+"from pagebuilder."
+msgstr ""
+
+#: kode-property-option.php:1154
+msgid "Select Property Submission Edit Page"
+msgstr ""
+
+#: kode-property-option.php:1157
+msgid ""
+"Please select the page where you have added the Property Submission edit "
+"element from pagebuilder."
+msgstr ""
+
+#: kode-property-option.php:1160
+msgid "Select Membership Page"
+msgstr ""
+
+#: kode-property-option.php:1163
+msgid ""
+"Please select the page where you have added the Membership element from "
+"pagebuilder."
+msgstr ""
+
+#: kode-property-option.php:1173
+msgid ""
+"You can show or hide the Related Properties on the Property Detail page."
+msgstr ""
+
+#: kode-property-option.php:1177
+msgid "Single Property Comments"
+msgstr ""
+
+#: kode-property-option.php:1179
+msgid "You can show or hide the Comments on the Property Detail page."
+msgstr ""
+
+#: kode-property-option.php:1183
+msgid "Single Post Thumbnail Size"
+msgstr ""
+
+#: kode-property-option.php:1193
+msgid "Property Filter Detail"
+msgstr ""
+
+#: kode-property-option.php:1225
+msgid "Property Filter Sidebar"
+msgstr ""
+
+#: kode-property-option.php:1227
+msgid ""
+"Please enable / disable the property Property Filter Detail page sidebar "
+"from here."
+msgstr ""
+
+#: kode-property-option.php:1231
+msgid "Property Filter Detail Sidebar"
+msgstr ""
+
+#: kode-property-option.php:1241
+msgid "Property Filter Detail Sidebar Left"
+msgstr ""
+
+#: kode-property-option.php:1247
+msgid "Property Filter Detail Sidebar Right"
+msgstr ""
+
+#: kode-property-option.php:1256
+msgid "Number of Character Show on Excerpt."
+msgstr ""
+
+#: kode-property-option.php:1259
+msgid "Properties Show"
+msgstr ""
+
+#: kode-property-option.php:1262
+msgid "Number of Properties Show on page."
+msgstr ""
+
+#: kode-property-option.php:1265
+msgid "Property Filter Pagination"
+msgstr ""
+
+#: kode-property-option.php:1267
+msgid ""
+"Please enable / disable the property Property Filter Detail page Pagination "
+"from here."
+msgstr ""
+
+#: kode-property-option.php:1271
+msgid "Property Filter Header Background Image"
+msgstr ""
+
+#: kode-property-option.php:1281
+msgid "Mortgage Calculator"
+msgstr ""
+
+#: kode-property-option.php:1284
+msgid "Select Mortgage Page"
+msgstr ""
+
+#: kode-property-option.php:1287
+msgid ""
+"Please select the page where you have added the Mortgage Calculator element "
+"from pagebuilder."
+msgstr ""
+
+#: kode-property-option.php:1290
+msgid "Calculator Title"
+msgstr ""
+
+#: kode-property-option.php:1292
+msgid "Set the title to display for the Calculator"
+msgstr ""
+
+#: kode-property-option.php:1296
+msgid "Email Text"
+msgstr ""
+
+#: kode-property-option.php:1298
+msgid "Set the description for sending an email with PDF report."
+msgstr ""
+
+#: kode-property-option.php:1302
+msgid "Email Label"
+msgstr ""
+
+#: kode-property-option.php:1304
+msgid "Set the placeholder text for the email field."
+msgstr ""
+
+#: kode-property-option.php:1308
+msgid "Amount Label"
+msgstr ""
+
+#: kode-property-option.php:1310
+msgid "Set the text for the Amount Field."
+msgstr ""
+
+#: kode-property-option.php:1314
+msgid "Amount Info Bubble"
+msgstr ""
+
+#: kode-property-option.php:1316
+msgid "Set the information bubble text for the Amount Field."
+msgstr ""
+
+#: kode-property-option.php:1320
+msgid "Default Purchase Price"
+msgstr ""
+
+#: kode-property-option.php:1322
+msgid "Set a default purchase price for the calculator"
+msgstr ""
+
+#: kode-property-option.php:1326
+msgid "Interest Label"
+msgstr ""
+
+#: kode-property-option.php:1328
+msgid "Set the text for the Interest Rate Field."
+msgstr ""
+
+#: kode-property-option.php:1332
+msgid "Interest Info Bubble"
+msgstr ""
+
+#: kode-property-option.php:1334
+msgid "Set the information bubble text for the Interest Rate Field."
+msgstr ""
+
+#: kode-property-option.php:1338
+msgid "Default Interest Rate (Percent)"
+msgstr ""
+
+#: kode-property-option.php:1340
+msgid "Set the default interest rate for the calculator"
+msgstr ""
+
+#: kode-property-option.php:1344 kode-property-option.php:1356
+msgid "Down Payment Label"
+msgstr ""
+
+#: kode-property-option.php:1346
+msgid "Set the text for the Down Payment Field."
+msgstr ""
+
+#: kode-property-option.php:1350
+msgid "Down Payment Info Bubble"
+msgstr ""
+
+#: kode-property-option.php:1352
+msgid "Set the information bubble text for the Down Payment Field."
+msgstr ""
+
+#: kode-property-option.php:1358
+msgid "Choose whether to use percent or amount input for the down payment"
+msgstr ""
+
+#: kode-property-option.php:1361 kode-property-option.php:1405
+msgid "Percent"
+msgstr ""
+
+#: kode-property-option.php:1362 kode-property-option.php:1406
+msgid "Amount"
+msgstr ""
+
+#: kode-property-option.php:1366
+msgid "Default Down Payment"
+msgstr ""
+
+#: kode-property-option.php:1368
+msgid "Set the default down payment amount"
+msgstr ""
+
+#: kode-property-option.php:1372
+msgid "Loan Term Label"
+msgstr ""
+
+#: kode-property-option.php:1374
+msgid "Set the text for the Loan Term Field."
+msgstr ""
+
+#: kode-property-option.php:1378
+msgid "Loan Term Info"
+msgstr ""
+
+#: kode-property-option.php:1380
+msgid "Set the information bubble text for the Loan Term Field."
+msgstr ""
+
+#: kode-property-option.php:1384
+msgid "Default Loan Term"
+msgstr ""
+
+#: kode-property-option.php:1386
+msgid "Set the default loan term for the calculator"
+msgstr ""
+
+#: kode-property-option.php:1390
+msgid "Enable Insurance Cost Estimate"
+msgstr ""
+
+#: kode-property-option.php:1392
+msgid "Choose whether to give a homeowners insurance estimate"
+msgstr ""
+
+#: kode-property-option.php:1400
+msgid "Insurance Amount Type"
+msgstr ""
+
+#: kode-property-option.php:1402
+msgid ""
+"This affects the value below as to whether it is a set amount or percent of "
+"the loan (divided by 12) per month"
+msgstr ""
+
+#: kode-property-option.php:1410
+msgid "Monthly Insurance Cost Estimate"
+msgstr ""
+
+#: kode-property-option.php:1412
+msgid ""
+"Set the monthly insurance cost or the percent (depending on what whas chosen "
+"above) for the calculator"
+msgstr ""
+
+#: kode-property-option.php:1416
+msgid "Enable Monthly Insurance Cost Estimate"
+msgstr ""
+
+#: kode-property-option.php:1418
+msgid "Choose whether to give a PMI estimate"
+msgstr ""
+
+#: kode-property-option.php:1426
+msgid "Monthly PMI Cost Estimate"
+msgstr ""
+
+#: kode-property-option.php:1428
+msgid ""
+"Set the monthly PMI cost for the calculator. If you dont know, leave this as-"
+"is. This is just an average cost per 100,000 dollars borrowed."
+msgstr ""
+
+#: kode-property-option.php:1432
+msgid "Enable Tax Cost Estimate"
+msgstr ""
+
+#: kode-property-option.php:1434
+msgid "Choose whether to give a tax estimate or not"
+msgstr ""
+
+#: kode-property-option.php:1442
+msgid "Tax Assessed"
+msgstr ""
+
+#: kode-property-option.php:1444
+msgid ""
+"Set the tax rate per 1000 dollars assessed. If you dont know, leave this as-"
+"is. This is just an average cost based on assessed value."
+msgstr ""
+
+#: kode-property-option.php:1448
+msgid "Disclaimer Notice"
+msgstr ""
+
+#: kode-property-option.php:1450
+msgid "Write the Disclaimer note here in the area."
+msgstr ""
+
+#: kode-property-option.php:1454
+msgid "Currency Symbol"
+msgstr ""
+
+#: kode-property-option.php:1456
+msgid "Set the currency symbol used in the Calculator (default $)"
+msgstr ""
+
+#: kode-property-option.php:1460
+msgid "Currency Format"
+msgstr ""
+
+#: kode-property-option.php:1462
+msgid "Choose the currency format you would like to use."
+msgstr ""
+
+#: kode-property-option.php:1465
+msgid "Standard Format(e.g 100,000.00)"
+msgstr ""
+
+#: kode-property-option.php:1466
+msgid "Switched Format(e.g 100,000.00)"
+msgstr ""
+
+#: kode-property-option.php:1467
+msgid "Spaces & Commas Format(e.g 100,000.00)"
+msgstr ""
+
+#: kode-property-option.php:1471
+msgid "Currency Symbol Side"
+msgstr ""
+
+#: kode-property-option.php:1473
+msgid "Choose the side for the currency symbol."
+msgstr ""
+
+#: kode-property-option.php:1476
+msgid "Left (e.g 100,000.00)"
+msgstr ""
+
+#: kode-property-option.php:1477
+msgid "Right (e.g 100,000.00)"
+msgstr ""
+
+#: kode-property-option.php:1484
+msgid "Email & PDF Settings"
+msgstr ""
+
+#: kode-property-option.php:1487
+msgid "Allow Email Report"
+msgstr ""
+
+#: kode-property-option.php:1489
+msgid "Choose whether to allow Email Reports to users or not"
+msgstr ""
+
+#: kode-property-option.php:1497
+msgid "BCC Email Address"
+msgstr ""
+
+#: kode-property-option.php:1499
+msgid ""
+"Set the email to receive a hidden copy (BCC - Blind Carbon Copy) of the user "
+"generated report"
+msgstr ""
+
+#: kode-property-option.php:1503
+msgid "From Email Address"
+msgstr ""
+
+#: kode-property-option.php:1505
+msgid ""
+"Set the From Address for the email sent to the user. Make sure that your "
+"server will allow the email you choose as the from address."
+msgstr ""
+
+#: kode-property-option.php:1509
+msgid "Custom Email Subject"
+msgstr ""
+
+#: kode-property-option.php:1511
+msgid "Enter the custom email subject here."
+msgstr ""
+
+#: kode-property-option.php:1515
+msgid "Custom Email Text"
+msgstr ""
+
+#: kode-property-option.php:1517
+msgid "Enter the custom email text over here."
+msgstr ""
+
+#: kode-property-option.php:1521
+msgid "Primary PDF Color"
+msgstr ""
+
+#: kode-property-option.php:1523
+msgid "Set your custom primary color for the PDF Results"
+msgstr ""
+
+#: kode-property-option.php:1528
+msgid "PDF Logo or Header Image (jpeg or png)"
+msgstr ""
+
+#: kode-property-option.php:1534
+msgid "PDF Header Large Text"
+msgstr ""
+
+#: kode-property-option.php:1536
+msgid "Large Text at the top of the PDF"
+msgstr ""
+
+#: kode-property-snazzymaps.php:18
+msgid "Google Map Styler"
+msgstr ""
+
+#: kode-property-snazzymaps.php:21
+msgid "Market Icon Default"
+msgstr ""
+
+#: kode-property-snazzymaps.php:27
+msgid "Market Zoom Default"
+msgstr ""
+
+#: kode-property-snazzymaps.php:33
+msgid "Select Map Style"
+msgstr ""
+
+#: kode-property-snazzymaps.php:36
+msgid ""
+"There are 3 Different Header Styles Available here. Click on the Drop Down "
+"menu and select the Header Style here from of your choice."
+msgstr ""
+
+#: kode-property.php:36
+msgid "property"
+msgstr ""
+
+#: kode-property.php:37
+msgid "Add New"
+msgstr ""
+
+#: kode-property.php:38
+msgid "Add New Property"
+msgstr ""
+
+#: kode-property.php:39
+msgid "Edit Property"
+msgstr ""
+
+#: kode-property.php:40
+msgid "New Property"
+msgstr ""
+
+#: kode-property.php:41 widgets/property-search-widget.php:75
+msgid "All Properties"
+msgstr ""
+
+#: kode-property.php:42
+msgid "View Property"
+msgstr ""
+
+#: kode-property.php:44
+msgid "No Teams found"
+msgstr ""
+
+#: kode-property.php:45
+msgid "No Teams found in Trash"
+msgstr ""
+
+#: kode-property.php:77
+msgctxt "taxonomy general name"
+msgid "Features"
+msgstr ""
+
+#: kode-property.php:78
+msgctxt "taxonomy singular name"
+msgid "Features"
+msgstr ""
+
+#: kode-property.php:79
+msgid "Search Feature"
+msgstr ""
+
+#: kode-property.php:80
+msgid "Popular Feature"
+msgstr ""
+
+#: kode-property.php:81
+msgid "All Features"
+msgstr ""
+
+#: kode-property.php:84
+msgid "Edit Features"
+msgstr ""
+
+#: kode-property.php:85
+msgid "Update Feature"
+msgstr ""
+
+#: kode-property.php:86
+msgid "Add New Feature"
+msgstr ""
+
+#: kode-property.php:87
+msgid "New Feature Name"
+msgstr ""
+
+#: kode-property.php:88
+msgid "Separate features with commas"
+msgstr ""
+
+#: kode-property.php:89
+msgid "Add or remove features"
+msgstr ""
+
+#: kode-property.php:90
+msgid "Choose from the most used features"
+msgstr ""
+
+#: kode-property.php:99 kode-property.php:103
+msgid "Property Features"
+msgstr ""
+
+#: kode-property.php:101 kode-property.php:102
+msgid "Add Property Features"
+msgstr ""
+
+#: kode-property.php:108 kode-property.php:109
+msgctxt "Type"
+msgid "Listing Type"
+msgstr ""
+
+#: kode-property.php:110
+msgid "Search Listing Type"
+msgstr ""
+
+#: kode-property.php:111
+msgid "Popular Listing Type"
+msgstr ""
+
+#: kode-property.php:112
+msgid "All Listing Type"
+msgstr ""
+
+#: kode-property.php:115
+msgid "Edit Listing Type"
+msgstr ""
+
+#: kode-property.php:116
+msgid "Update Listing Type"
+msgstr ""
+
+#: kode-property.php:117
+msgid "Add New Listing Type"
+msgstr ""
+
+#: kode-property.php:118
+msgid "New Listing Type Name"
+msgstr ""
+
+#: kode-property.php:119
+msgid "Separate listing type with commas"
+msgstr ""
+
+#: kode-property.php:120
+msgid "Add or remove listing type"
+msgstr ""
+
+#: kode-property.php:121
+msgid "Choose from the most used listing type"
+msgstr ""
+
+#: kode-property.php:122 kode-property.php:130 kode-property.php:134
+msgid "Listing Type"
+msgstr ""
+
+#: kode-property.php:132 kode-property.php:133
+msgid "Add Listing Type"
+msgstr ""
+
+#: kode-property.php:139 kode-property.php:140
+msgctxt "Type"
+msgid "Property Type"
+msgstr ""
+
+#: kode-property.php:141
+msgid "Search Property Type"
+msgstr ""
+
+#: kode-property.php:142
+msgid "Popular Property Type"
+msgstr ""
+
+#: kode-property.php:143
+msgid "All Property Type"
+msgstr ""
+
+#: kode-property.php:146
+msgid "Edit Property Type"
+msgstr ""
+
+#: kode-property.php:147
+msgid "Update Property Type"
+msgstr ""
+
+#: kode-property.php:148
+msgid "Add New Property Type"
+msgstr ""
+
+#: kode-property.php:149
+msgid "New Property Type Name"
+msgstr ""
+
+#: kode-property.php:150
+msgid "Separate Property type with commas"
+msgstr ""
+
+#: kode-property.php:151
+msgid "Add or remove Property type"
+msgstr ""
+
+#: kode-property.php:152
+msgid "Choose from the most used Property type"
+msgstr ""
+
+#: kode-property.php:163 kode-property.php:164
+msgid "Add Property Type"
+msgstr ""
+
+#: kode-property.php:171 kode-property.php:172
+msgctxt "Room Type"
+msgid "Room Type"
+msgstr ""
+
+#: kode-property.php:173
+msgid "Search Room Type"
+msgstr ""
+
+#: kode-property.php:174
+msgid "Popular Room Type"
+msgstr ""
+
+#: kode-property.php:175 kode-property.php:237 kode-property.php:269
+msgid "All Countries"
+msgstr ""
+
+#: kode-property.php:178
+msgid "Edit Room Type"
+msgstr ""
+
+#: kode-property.php:179
+msgid "Update Room Type"
+msgstr ""
+
+#: kode-property.php:180
+msgid "Add New Room Type"
+msgstr ""
+
+#: kode-property.php:181
+msgid "New Room Type Name"
+msgstr ""
+
+#: kode-property.php:182 kode-property.php:244
+msgid "Separate country with commas"
+msgstr ""
+
+#: kode-property.php:183 kode-property.php:245
+msgid "Add or remove country"
+msgstr ""
+
+#: kode-property.php:184 kode-property.php:246
+msgid "Choose from the most used country"
+msgstr ""
+
+#: kode-property.php:195 kode-property.php:196
+msgid "Add Room Type"
+msgstr ""
+
+#: kode-property.php:202 kode-property.php:203
+msgctxt "City"
+msgid "City"
+msgstr ""
+
+#: kode-property.php:204
+msgid "Search City"
+msgstr ""
+
+#: kode-property.php:205
+msgid "Popular City"
+msgstr ""
+
+#: kode-property.php:206
+msgid "All Cities"
+msgstr ""
+
+#: kode-property.php:209
+msgid "Edit City"
+msgstr ""
+
+#: kode-property.php:210
+msgid "Update City"
+msgstr ""
+
+#: kode-property.php:211
+msgid "Add New City"
+msgstr ""
+
+#: kode-property.php:212
+msgid "New City Name"
+msgstr ""
+
+#: kode-property.php:213
+msgid "Separate city with commas"
+msgstr ""
+
+#: kode-property.php:214
+msgid "Add or remove city"
+msgstr ""
+
+#: kode-property.php:215
+msgid "Choose from the most used city"
+msgstr ""
+
+#: kode-property.php:224 kode-property.php:228
+msgid "Property City"
+msgstr ""
+
+#: kode-property.php:226 kode-property.php:227
+msgid "Add Property City"
+msgstr ""
+
+#: kode-property.php:233 kode-property.php:234
+msgctxt "Country"
+msgid "Country"
+msgstr ""
+
+#: kode-property.php:235
+msgid "Search Country"
+msgstr ""
+
+#: kode-property.php:236
+msgid "Popular Country"
+msgstr ""
+
+#: kode-property.php:240
+msgid "Edit Country"
+msgstr ""
+
+#: kode-property.php:241
+msgid "Update Country"
+msgstr ""
+
+#: kode-property.php:242
+msgid "Add New Country"
+msgstr ""
+
+#: kode-property.php:243
+msgid "New Country Name"
+msgstr ""
+
+#: kode-property.php:255 kode-property.php:259
+msgid "Property Country"
+msgstr ""
+
+#: kode-property.php:257 kode-property.php:258
+msgid "Add Property Country"
+msgstr ""
+
+#: kode-property.php:265 kode-property.php:266
+msgctxt "Neighborhood"
+msgid "Neighborhood"
+msgstr ""
+
+#: kode-property.php:267
+msgid "Search Neighborhood"
+msgstr ""
+
+#: kode-property.php:268
+msgid "Popular Neighborhood"
+msgstr ""
+
+#: kode-property.php:272
+msgid "Edit Neighborhood"
+msgstr ""
+
+#: kode-property.php:273
+msgid "Update Neighborhood"
+msgstr ""
+
+#: kode-property.php:274
+msgid "Add New Neighborhood"
+msgstr ""
+
+#: kode-property.php:275
+msgid "New Neighborhood Name"
+msgstr ""
+
+#: kode-property.php:276
+msgid "Separate neighborhood with commas"
+msgstr ""
+
+#: kode-property.php:277
+msgid "Add or remove neighborhood"
+msgstr ""
+
+#: kode-property.php:278
+msgid "Choose from the most used neighborhood"
+msgstr ""
+
+#: kode-property.php:289 kode-property.php:290
+msgid "Add Neighborhood"
+msgstr ""
+
+#: kode-property.php:333
+msgid "Category Icon"
+msgstr ""
+
+#: kode-property.php:335
+msgid "Add Category Icon class here for example: fa fa-lock."
+msgstr ""
+
+#: kode-property.php:348
+msgid "Status Icon"
+msgstr ""
+
+#: kode-property.php:351
+msgid "Add Status Icon class here for example: fa fa-lock."
+msgstr ""
+
+#: kode-property.php:380 kode-property.php:404
+msgid "Minutes Away"
+msgstr ""
+
+#: kode-property.php:382 kode-property.php:407
+msgid "Write Minutes Away how far this location by."
+msgstr ""
+
+#: kode-property.php:385 kode-property.php:411
+msgid "By"
+msgstr ""
+
+#: kode-property.php:387 kode-property.php:414
+msgid "Walk"
+msgstr ""
+
+#: kode-property.php:388 kode-property.php:415
+msgid "Car"
+msgstr ""
+
+#: kode-property.php:389 kode-property.php:416
+msgid "Train"
+msgstr ""
+
+#: kode-property.php:391 kode-property.php:418
+msgid "Select how far this neighbourhood from this location by."
+msgstr ""
+
+#: kode-search-form-element.php:59
+msgid "Slaes Search"
+msgstr ""
+
+#: kode-search-form-element.php:66
+msgid "You can Enable / Disable sales search from here."
+msgstr ""
+
+#: kode-search-form-element.php:70
+msgid "Rent Search"
+msgstr ""
+
+#: kode-search-form-element.php:77
+msgid "You can Enable / Disable rent search from here."
+msgstr ""
+
+#: kode-search-form-element.php:81
+msgid "Purchase Search"
+msgstr ""
+
+#: kode-search-form-element.php:88
+msgid "You can Enable / Disable purchase search from here."
+msgstr ""
+
+#: kode-submit-listing-edit-element.php:30
+msgid "Submit Listing Edit"
+msgstr ""
+
+#: kode-submit-listing-edit-element.php:52 kode-submit-listing-element.php:52
+msgid "Element Item Class"
+msgstr ""
+
+#: single-property.php:73 single-property.php:123 single-property.php:148
+#: single-property.php:273
+msgid "Bedrooms"
+msgstr ""
+
+#: single-property.php:84 single-property.php:124 single-property.php:151
+#: single-property.php:276
+msgid "Bathrooms"
+msgstr ""
+
+#: single-property.php:221
+msgid "Essentail Information"
+msgstr ""
+
+#: single-property.php:249
+msgid "Price"
+msgstr ""
+
+#: single-property.php:255
+msgid "Property Types"
+msgstr ""
+
+#: single-property.php:255
+msgid "Resident"
+msgstr ""
+
+#: single-property.php:261
+msgid "Area"
+msgstr ""
+
+#: single-property.php:267
+msgid "State"
+msgstr ""
+
+#: single-property.php:270
+msgid "Garages"
+msgstr ""
+
+#: single-property.php:289
+msgid "Home Amenities"
+msgstr ""
+
+#: single-property.php:303
+msgid "Map View"
+msgstr ""
+
+#: single-property.php:304
+msgid ""
+"Property Map View with Nearby Places, Movies, Bar, Beauty Saloon, Hospital"
+msgstr ""
+
+#: single-property.php:654
+msgid "Reset"
+msgstr ""
+
+#: single-property.php:670
+msgid "Floor Plans"
+msgstr ""
+
+#: single-property.php:692
+msgid "See More"
+msgstr ""
+
+#: single-property.php:722
+msgid "Contact With Agents"
+msgstr ""
+
+#: single-property.php:749
+msgid "Send Us Messages"
+msgstr ""
+
+#: single-property.php:759
+msgid "Invalid Email Address "
+msgstr ""
+
+#: single-property.php:763
+msgid "submit"
+msgstr ""
+
+#: widgets/property-featured-widget.php:26
+msgid "Kodeforest Feature Property Widget"
+msgstr ""
+
+#: widgets/property-featured-widget.php:27
+msgid "A widget that show Feature Property products"
+msgstr ""
+
+#: widgets/property-featured-widget.php:85
+msgid "bed"
+msgstr ""
+
+#: widgets/property-featured-widget.php:86
+msgid "bath"
+msgstr ""
+
+#: widgets/property-featured-widget.php:108
+#: widgets/property-mortgage-calc-widget.php:61
+#: widgets/property-price-filter-widget.php:100
+#: widgets/property-search-widget.php:136
+#: widgets/property-top-features-widget.php:91
+msgid "Title :"
+msgstr ""
+
+#: widgets/property-featured-widget.php:114
+msgid "Feature Property :"
+msgstr ""
+
+#: widgets/property-mortgage-calc-widget.php:26
+msgid "Kodeforest Mortgage Calculator Widget"
+msgstr ""
+
+#: widgets/property-mortgage-calc-widget.php:27
+msgid "A widget that show mortgage Calculator"
+msgstr ""
+
+#: widgets/property-mortgage-calc-widget.php:67
+msgid "Mortgage :"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:16
+msgid "Kodeforest Property Price Filter Widget"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:17
+msgid "A widget that show All Property Filtered by Price"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:42
+msgid "What is the main reason for you to purchase products online?"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:49
+msgid "$10000-$50000"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:56
+msgid "$50001-$10000"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:63
+msgid "$10001-$15000"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:70
+msgid "$15001-$20000"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:77
+msgid "$20001-$25000"
+msgstr ""
+
+#: widgets/property-price-filter-widget.php:106
+#: widgets/property-top-features-widget.php:97
+msgid "Num Fetch :"
+msgstr ""
+
+#: widgets/property-search-widget.php:26
+msgid "Kodeforest Search Widget"
+msgstr ""
+
+#: widgets/property-search-widget.php:27
+msgid "A widget that help you to Search Property"
+msgstr ""
+
+#: widgets/property-search-widget.php:61
+msgid "Space in sqft"
+msgstr ""
+
+#: widgets/property-search-widget.php:66
+msgid "All Types"
+msgstr ""
+
+#: widgets/property-search-widget.php:86
+msgid "Min. Bedrooms"
+msgstr ""
+
+#: widgets/property-search-widget.php:96
+msgid "Max. Bedrooms"
+msgstr ""
+
+#: widgets/property-search-widget.php:106
+msgid "Price Range From"
+msgstr ""
+
+#: widgets/property-search-widget.php:115
+msgid "Search"
+msgstr ""
+
+#: widgets/property-top-features-widget.php:26
+msgid "Kodeforest Property Top Features Widget"
+msgstr ""
+
+#: widgets/property-top-features-widget.php:27
+msgid "A widget that show All Property Features"
+msgstr ""

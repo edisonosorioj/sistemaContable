@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tour apprev="15990" appversion="5.2.3" start="node1">
+  <panorama id="node1" hideabout="1">
+    <input levelingpitch="0" height="1024" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node1/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="0" leveltilesize="510" overlap="1" width="1024">
+      <level height="1024" preload="0" predecode="0" width="1024"/>
+      <level height="512" preload="0" predecode="0" width="512"/>
+      <level height="256" preload="1" predecode="1" width="256"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-56.7608" fov="70" pan="-158.295" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Vista Aérea" customnodeid="" description="" datetime="2018:09:13 08:22:24" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="-40.06" title="Plazoleta Central" description="" pan="-178.16" id="Point01" target=""/>
+      <hotspot url="{node6}" skinid="ht_node" tilt="-43.42" title="Zona de Asadero" description="" pan="-164.92" id="Point02" target=""/>
+      <hotspot url="{node7}" skinid="ht_node" tilt="-86.26" title="Zona Romantica" description="" pan="29.94" id="Point03" target=""/>
+      <hotspot url="{node8}" skinid="ht_node" tilt="-70.36" title="Cancha de Fútbol" description="" pan="-129.27" id="Point04" target=""/>
+      <hotspot url="{node3}" skinid="ht_node" tilt="-30.48" title="Entrada Principal" description="" pan="-171.41" id="Point05" target=""/>
+      <hotspot url="{node4}" skinid="ht_node" tilt="-27.85" title="Zona Verde Trasera" description="" pan="-156.47" id="Point06" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-38.59" title="Zona Verde Principal" description="" pan="-150.9" id="Point07" target=""/>
+      <hotspot url="{node9}" skinid="ht_node" tilt="-34.8" title="Cocina" description="" pan="-162.03" id="Point08" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node2" hideabout="1">
+    <input levelingpitch="2.5" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node2/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="3.9" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="337.5" fovmode="0">
+      <start tilt="-6.53149" fov="70" pan="-167.953" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Plazoleta Central" customnodeid="" description="" datetime="9/9/18 12:03 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node6}" skinid="ht_node" tilt="-9.12" title="Zona de Asadero" description="" pan="-137.84" id="Point01" target=""/>
+      <hotspot url="{node9}" skinid="ht_node" tilt="-6.2" title="Cocina" description="" pan="166.88" id="Point02" target=""/>
+      <hotspot url="{node3}" skinid="ht_node" tilt="-5.17" title="Entrada Principal" description="" pan="140.27" id="Point03" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-6.46" title="Zona Verde Principal" description="" pan="-168.13" id="Point04" target=""/>
+      <hotspot url="{node1}" skinid="ht_node" tilt="44.9" title="Vista Aérea" description="" pan="-114.39" id="Point05" target=""/>
+      <hotspot url="{node7}" skinid="ht_node" tilt="-13.64" title="Zona Romantica" description="" pan="-99.32" id="Point06" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node3" hideabout="1">
+    <input levelingpitch="2" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node3/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="0.7" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="270" fovmode="0">
+      <start tilt="-9.14705" fov="70" pan="174.016" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Entrada Principal" customnodeid="" description="" datetime="9/9/18 12:08 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node1}" skinid="ht_node" tilt="41.64" title="Vista Aérea" description="" pan="-130.15" id="Point01" target=""/>
+      <hotspot url="{node4}" skinid="ht_node" tilt="-2.58" title="Zona Verde Trasera" description="" pan="82.41" id="Point02" target=""/>
+      <hotspot url="{node11}" skinid="ht_node" tilt="-8.96" title="Sala - Comedor" description="" pan="171.44" id="Point03" target=""/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="-6.15" title="Plazoleta Central" description="" pan="-119.15" id="Point04" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node4" hideabout="1">
+    <input levelingpitch="-1.2" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node4/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="0.7" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="225" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Zona Verde Trasera" customnodeid="" description="" datetime="9/9/18 12:10 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node3}" skinid="ht_node" tilt="-5.42" title="Entrada Principal" description="" pan="-145.48" id="Point01" target=""/>
+      <hotspot url="{node1}" skinid="ht_node" tilt="36.6" title="Vista Aérea" description="" pan="175.1" id="Point02" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-4.02" title="Zona Verde Principal" description="" pan="144.66" id="Point03" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node5" hideabout="1">
+    <input levelingpitch="-2.2" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node5/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="-2.2" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="157.5" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Zona Verde Principal" customnodeid="" description="" datetime="9/9/18 12:06 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node1}" skinid="ht_node" tilt="49.62" title="Vista Aérea" description="" pan="151.84" id="Point01" target=""/>
+      <hotspot url="{node11}" skinid="ht_node" tilt="-3.86" title="Sala - Comedor" description="" pan="-112.6" id="Point02" target=""/>
+      <hotspot url="{node4}" skinid="ht_node" tilt="-5.15" title="Zona Verde Trasera" description="" pan="-43.56" id="Point03" target=""/>
+      <hotspot url="{node6}" skinid="ht_node" tilt="-1.98" title="Zona de Asadero" description="" pan="172.28" id="Point04" target=""/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="-4.91" title="Plazoleta Central" description="" pan="-162.1" id="Point05" target=""/>
+      <hotspot url="{node16}" skinid="ht_node" tilt="-2.52" title="Cuarto Principal" description="" pan="-66.74" id="Point06" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node6" hideabout="1">
+    <input levelingpitch="2.2" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node6/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="2.3" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="247.5" fovmode="0">
+      <start tilt="-20.7372" fov="70" pan="-50.3296" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Zona de Asadero" customnodeid="" description="" datetime="9/9/18 12:00 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node7}" skinid="ht_node" tilt="-18.41" title="Zona Romantica" description="" pan="-136.05" id="Point01" target=""/>
+      <hotspot url="{node8}" skinid="ht_node" tilt="-29.42" title="Cancha de Fútbol" description="" pan="-166.9" id="Point02" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-6.27" title="Zona Verde Principal" description="" pan="70.51" id="Point03" target=""/>
+      <hotspot url="{node9}" skinid="ht_node" tilt="-5.06" title="Cocina" description="" pan="31.8" id="Point04" target=""/>
+      <hotspot url="{node3}" skinid="ht_node" tilt="0.24" title="Entrada Principal" description="" pan="14.77" id="Point05" target=""/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="-6.3" title="Plazoleta Central" description="" pan="-26.48" id="Point06" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node7" hideabout="1">
+    <input levelingpitch="3.5" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node7/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.8" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="292.5" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Zona Romantica" customnodeid="" description="" datetime="9/9/18 11:53 AM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node1}" skinid="ht_node" tilt="57.45" title="Vista Aérea" description="" pan="88.98" id="Point01" target=""/>
+      <hotspot url="{node6}" skinid="ht_node" tilt="14.83" title="Zona de Asadero" description="" pan="100.1" id="Point02" target=""/>
+      <hotspot url="{node8}" skinid="ht_node" tilt="-8.07" title="Cancha de Fútbol" description="" pan="143.62" id="Point03" target=""/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="16.72" title="Plazoleta Central" description="" pan="83.24" id="Point04" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node8" hideabout="1">
+    <input levelingpitch="4.2" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node8/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="-0.3" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="247.5" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Cancha de Fútbol" customnodeid="" description="" datetime="9/9/18 11:57 AM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node6}" skinid="ht_node" tilt="19.39" title="Zona de Asadero" description="" pan="7.09" id="Point01" target=""/>
+      <hotspot url="{node1}" skinid="ht_node" tilt="49.31" title="Vista Aérea" description="" pan="25.65" id="Point02" target=""/>
+      <hotspot url="{node7}" skinid="ht_node" tilt="-2.94" title="Zona Romantica" description="" pan="-113.73" id="Point03" target=""/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="20.73" title="Plazoleta Central" description="" pan="-10.61" id="Point04" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node9" hideabout="1">
+    <input levelingpitch="-0.4" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node9/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.2" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="180" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Cocina" customnodeid="" description="" datetime="9/9/18 12:24 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node10}" skinid="ht_node" tilt="-11.42" title="Zona de Ropas" description="" pan="-91.07" id="Point01" target=""/>
+      <hotspot url="{node2}" skinid="ht_node" tilt="-17.05" title="Plazoleta Central" description="" pan="-163.57" id="Point02" target=""/>
+      <hotspot url="{node11}" skinid="ht_node" tilt="-20.52" title="Sala - Comedor" description="" pan="9.63" id="Point03" target=""/>
+      <hotspot url="{node12}" skinid="ht_node" tilt="-3.59" title="Pasillo Principal" description="" pan="-5.34" id="Point04" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node10" hideabout="1">
+    <input levelingpitch="-0.8" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node10/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="0.9" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="135" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Zona de Ropas" customnodeid="" description="" datetime="9/9/18 12:23 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node9}" skinid="ht_node" tilt="-10.16" title="Cocina" description="" pan="28.56" id="Point01" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node11" hideabout="1">
+    <input levelingpitch="-0.4" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node11/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.1" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="90" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Sala - Comedor" customnodeid="" description="" datetime="9/9/18 12:26 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node9}" skinid="ht_node" tilt="-4.71" title="Cocina" description="" pan="91.34" id="Point01" target=""/>
+      <hotspot url="{node10}" skinid="ht_node" tilt="-7.17" title="Zona de Ropas" description="" pan="113.19" id="Point02" target=""/>
+      <hotspot url="{node3}" skinid="ht_node" tilt="-13.17" title="Entrada Principal" description="" pan="166.95" id="Point03" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-19.09" title="Zona Verde Principal" description="" pan="-17.02" id="Point04" target=""/>
+      <hotspot url="{node12}" skinid="ht_node" tilt="-10.22" title="Pasillo Principal" description="" pan="-114.08" id="Point05" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node12" hideabout="1">
+    <input levelingpitch="-0.6" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node12/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.3" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="202.5" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Pasillo Principal" customnodeid="" description="" datetime="9/9/18 12:34 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node9}" skinid="ht_node" tilt="-7.17" title="Cocina" description="" pan="172.43" id="Point01" target=""/>
+      <hotspot url="{node11}" skinid="ht_node" tilt="-13.6" title="Sala - Comedor" description="" pan="161.69" id="Point02" target=""/>
+      <hotspot url="{node13}" skinid="ht_node" tilt="-18.99" title="Cuarto 1" description="" pan="-138.29" id="Point03" target=""/>
+      <hotspot url="{node14}" skinid="ht_node" tilt="-16.94" title="Baño Social" description="" pan="-49.07" id="Point04" target=""/>
+      <hotspot url="{node15}" skinid="ht_node" tilt="-9.28" title="Cuarto 2" description="" pan="-24.18" id="Point05" target=""/>
+      <hotspot url="{node16}" skinid="ht_node" tilt="-17.09" title="Cuarto Principal" description="" pan="85.14" id="Point06" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-2.05" title="Zona Verde Principal" description="" pan="76.71" id="Point07" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node13" hideabout="1">
+    <input levelingpitch="-0.5" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node13/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.2" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="180" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Cuarto 1" customnodeid="" description="" datetime="9/9/18 12:29 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node12}" skinid="ht_node" tilt="-8.53" title="Pasillo Principal" description="" pan="28.06" id="Point01" target=""/>
+      <hotspot url="{node14}" skinid="ht_node" tilt="-10.47" title="Baño Social" description="" pan="15.94" id="Point02" target=""/>
+      <hotspot url="{node15}" skinid="ht_node" tilt="1.32" title="Cuarto 2" description="" pan="17.9" id="Point03" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node14" hideabout="1">
+    <input levelingpitch="-1.3" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node14/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.3" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="315" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Baño Social" customnodeid="" description="" datetime="9/9/18 12:31 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node12}" skinid="ht_node" tilt="-20.19" title="Pasillo Principal" description="" pan="-142.46" id="Point01" target=""/>
+      <hotspot url="{node15}" skinid="ht_node" tilt="-14.31" title="Cuarto 2" description="" pan="-160.95" id="Point02" target=""/>
+      <hotspot url="{node16}" skinid="ht_node" tilt="-8.81" title="Cuarto Principal" description="" pan="-133.39" id="Point03" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node15" hideabout="1">
+    <input levelingpitch="-0.5" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node15/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.2" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="45" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Cuarto 2" customnodeid="" description="" datetime="9/9/18 12:33 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node12}" skinid="ht_node" tilt="-9.51" title="Pasillo Principal" description="" pan="-5.66" id="Point01" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node16" hideabout="1">
+    <input levelingpitch="-0.5" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node16/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.6" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="270" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Cuarto Principal" customnodeid="" description="" datetime="9/9/18 12:39 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node17}" skinid="ht_node" tilt="-14.45" title="Closet Principal" description="" pan="-87.12" id="Point01" target=""/>
+      <hotspot url="{node12}" skinid="ht_node" tilt="-11.43" title="Pasillo Principal" description="" pan="-52.26" id="Point02" target=""/>
+      <hotspot url="{node5}" skinid="ht_node" tilt="-18.35" title="Zona Verde Principal" description="" pan="-173.61" id="Point03" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node17" hideabout="1">
+    <input levelingpitch="-1" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node17/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.6" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="337.5" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Closet Principal" customnodeid="" description="" datetime="9/9/18 12:41 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node18}" skinid="ht_node" tilt="-9.29" title="Baño Principal" description="" pan="-144.22" id="Point01" target=""/>
+      <hotspot url="{node16}" skinid="ht_node" tilt="-25.84" title="Cuarto Principal" description="" pan="145.29" id="Point02" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+  <panorama id="node18" hideabout="1">
+    <input levelingpitch="-0.8" height="1344" levelbias="0.400" levelbiashidpi="0.400" leveltileurl="tiles/node18/cf_%c/l_%l/c_%x/tile_%y.jpg" levelingroll="1.6" leveltilesize="510" overlap="1" width="1344">
+      <level height="1344" preload="0" predecode="0" width="1344"/>
+      <level height="672" preload="0" predecode="0" width="672"/>
+      <level height="336" preload="1" predecode="1" width="336"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view pannorth="90" fovmode="0">
+      <start tilt="0" fov="70" pan="0" projection="4"/>
+      <flyin tilt="-90" fov="170" pan="0" projection="9"/>
+      <min tilt="-90" fov="5" pan="0"/>
+      <max tilt="90" fov="120" fovfisheye="360" pan="360" scaletofit="1" fovstereographic="270"/>
+    </view>
+    <userdata info="" author="© Brokers - Drone Productions" latitude="" title="Baño Principal" customnodeid="" description="" datetime="9/9/18 12:42 PM" source="" longitude="" copyright="© Brokers - Drone Productions" comment="" tags="Archivos"/>
+    <hotspots height="20" wordwrap="1" width="180">
+      <label textcolor="0x000000" borderradius="1" border="1" height="20" background="1" borderalpha="1" backgroundalpha="1" enabled="1" textalpha="1" wordwrap="1" bordercolor="0x000000" backgroundcolor="0xffffff" width="180"/>
+      <polystyle mode="0" borderalpha="1" backgroundalpha="0.2509803921568627" handcursor="1" bordercolor="0x0000ff" backgroundcolor="0x0000ff"/>
+      <hotspot url="{node17}" skinid="ht_node" tilt="-9.74" title="Closet Principal" description="" pan="-167.07" id="Point01" target=""/>
+      <hotspot url="{node16}" skinid="ht_node" tilt="-17.81" title="Cuarto Principal" description="" pan="-151.72" id="Point02" target=""/>
+    </hotspots>
+    <media/>
+    <transition softedge="0" blendcolor="0x000000" type="crossdissolve" blendtime="1" zoomout="0" enabled="0" zoomspeed="2" zoomin="0" zoomfov="20" zoomoutpause="1"/>
+    <autorotate useanimation="0" noderandom="1" delay="5.00" enabled="1" speed="0.200" startloaded="0" nodedelay="0.00" returntohorizon="0.000"/>
+    <control simulatemass="1" contextprojections="0" lockedkeyboardzoom="0" dblclickfullscreen="0" contextfullscreen="1" rubberband="0" speedwheel="1" sensitivity="8" hideabout="1" invertcontrol="1" lockedmouse="0" lockedkeyboard="0" invertwheel="0" lockedwheel="0"/>
+  </panorama>
+</tour>

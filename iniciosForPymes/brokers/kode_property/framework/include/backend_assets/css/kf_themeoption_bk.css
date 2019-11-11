@@ -1,0 +1,311 @@
+/* KodeForest Theme Option Panel */
+
+/* Html Structure of Theme Option panel*/
+.kode-admin-panel-wrapper{
+    background: #fff;
+	float: none;
+    text-align: center;
+    width: 97.5%;
+	margin:0 auto;
+}
+.kode-admin-nav-wrapper {
+	background:#333;
+	float:left;    
+	width:100%;
+}
+.admin-menu {
+    float:left;
+	margin:0px;
+	padding:0px;
+}
+.admin-menu li{
+	padding:0px;
+	margin:0px;
+	color: #fff;	
+	cursor:pointer;
+}
+.admin-sub-menu  li{
+	cursor:pointer;
+}
+.now-loading{
+	opacity:0;
+	position:absolute;
+	left:2%;
+}
+.kode-admin-head{
+	float:left;
+	padding:17px 10px;
+	width:200px;
+}
+.kode-admin-head > a > img{
+	width:80px;
+}
+.kode-admin-head.kode-admin-save-btn{
+	width:auto;
+	float:right;
+	margin-top:15px;
+}
+.menu-title{
+	background:#444;
+	padding:18px;
+	border:1px solid #555;
+}
+.menu-title i{
+	display:block;
+	font-size:36px;
+	margin-bottom:10px;
+}
+.overall-elements-wrapper .menu-title > span{
+	margin-left:10px;
+	display:block;
+}
+.default-sidebar-item{
+	display:none;
+}
+.sidebar-default-k{
+	width:100%;
+	display:inline-block;
+	text-align:center;
+}
+.panel-delete-sidebar{
+	position:relative;
+	float:left;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+}
+
+.panel-delete-sidebar:before{
+	content: "\f00d";
+	font-family: "fontawesome";
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+.sidebar-item{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	padding:15px;
+	width:80%;
+	display:inline-block;
+	margin: 0 auto;
+	background:#333;
+	color:#fff;
+	margin-bottom:15px;
+	transition: all 3s ease-in-out;
+	-moz-transition: all 3s ease-in-out;
+	-webkit-transition: all 3s ease-in-out;
+	-o-transition: all 3s ease-in-out;
+}
+/*Sidebar Menu */
+.kode-sidebar-section{
+	width:220px;
+	background:#333;
+	float:left;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.kode-sidebar-section .admin-sub-menu{
+	margin:0px;
+	padding:0px;
+	border:1px solid #ccc;
+	display:none;
+}
+.kode-content-section.active{
+	display:block;
+}
+.kode-content-section{
+	display:none;
+}
+.kode-sidebar-section .admin-sub-menu.active{
+	display:block;
+}
+.admin-sub-menu-list {
+    background: ghostwhite;
+    color: #333;
+    padding: 16px;
+	margin:0px;
+	border-bottom:1px solid #ccc;
+}
+.kode-admin-content-wrapper{
+	background:#fff;
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+}
+.kode-content-group{
+	float:right;	
+	background:#fff;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width:80%;
+	text-align:left;
+}
+.kode-option-wrapper {
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+	border-bottom:1px solid #eee;
+	border-left:1px solid #eee;
+    float: left;    
+    width: 100%;
+	clear:both;	
+}
+.kode-option-wrapper .kode-option {
+	padding:30px;
+}
+.kode-option-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+	color:#555
+}
+.kode-option-input{
+	margin-bottom:15px;
+}
+.kode-input-description {
+    clear: both;
+	color:#555;
+}
+/* Html Structure */
+.admin-menu li[data-class="active"] .menu-title,
+.admin-sub-menu-list.active,
+.sidebar-default-k .sidebar-item{
+	transition: background-color 300ms, color 300ms;
+	-moz-transition: background-color 300ms, color 300ms;
+	-o-transition: background-color 300ms, color 300ms;
+	-webkit-transition: background-color 300ms, color 300ms;
+}
+.sidebar-item{
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+.admin-menu li[data-class="active"] .menu-title{
+	background:#333;
+}
+.admin-sub-menu-list.active{
+	background:#333;
+	color:#fff;
+}
+.kode-upload-img-sample{
+min-width:100px;
+	min-height:50px;
+	max-width:300px;
+	max-height:100px;
+}
+.kode-reset-button{
+	float:left;
+}
+.kode-save-button{
+	float:right;
+	margin-left:15px;
+}
+.reset_default_code{
+	display:none;
+}
+.pattern-size-wrap .radio-image-wrapper{
+	width:88px !important;
+	height:88px !important;
+}
+.pattern-size-wrap .radio-image-wrapper img{
+	width:80px;
+	height:80px;
+}
+.kode-system-diagnose li{
+	padding:5px 0px;
+	width:100%;
+}
+.server-config .kode-option-title{
+	font-size:18px;
+	font-weight:bold;
+}
+.kode-system-diagnose li strong{
+	margin-right:15px;
+}
+#kode-admin-form{
+	position:relative;
+}
+#kode-admin-form.sticky .kode-sidebar-section{
+	position:fixed;
+	top:31px;
+	margin-left:114px;
+}
+#kode-admin-form.sticky #kode-admin-nav{
+	position:fixed;
+	right:0;
+	bottom:0px;
+	width:auto;
+	z-index:99999;
+	opacity:0.2;
+		transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+#kode-admin-form.sticky #kode-admin-nav:hover{
+	opacity:1;
+}
+.kode-heading-option-title{
+	float:left;
+	margin-top:12px;
+}
+.kode-heading-option-title h2 {
+    color: #fff;
+    font-size: 29px;
+    font-weight: bold;
+	line-height:29px;
+}
+.menu-title{
+	padding:25px 7px;
+}
+@media all and (min-width: 1024px) and (max-width: 1380px) {
+	.kode-content-group{
+		width:69%;
+	}
+	.menu-title{
+		padding:18px 13px;
+	}
+	.kode-admin-head{
+		width:101px;
+	}
+	#kode-admin-form.sticky .kode-sidebar-section{
+		position:fixed;
+		top:31px;
+		margin-left:129px;
+	}
+
+}
+@media all and (min-width: 768px) and (max-width: 1050px) {
+	.kode-content-group{
+		width:69%;
+	}
+	.kode-admin-head.kode-admin-save-btn,
+	.kode-admin-head{
+		width:100%;
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+	}
+	
+}
+
+@media all and (min-width: 480px) and (max-width: 639px) {
+	.kode-content-group{
+		width:79%;
+	}
+
+}
+
+@media all and (min-width: 300px) and (max-width: 480px) {
+	.kode-content-group{
+		width:79%;
+	}
+}
+

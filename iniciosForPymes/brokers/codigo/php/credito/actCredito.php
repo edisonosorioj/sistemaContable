@@ -8,9 +8,10 @@ $result = $conex->conex();
 	$fecha 		= 	$_POST['fecha'];
 	$detalles 	=	$_POST['detalles'];
 	$valor 		=	$_POST['valor'];
+	$intereses 	=	$_POST['intereses'];
 
 // Realiza la actualización del credito o abono
-$query = mysqli_query($result, "UPDATE creditos set fecha = '$fecha', detalles = '$detalles', valor = '$valor' where idcreditos = '$id';");
+$query = mysqli_query($result, "UPDATE creditos set fecha = '$fecha', detalles = '$detalles', valor = '$valor', intereses = '$intereses' where idcreditos = '$id';");
 
 if($query > 0){
 	$msg = 'El registro fue actualizado con exito';

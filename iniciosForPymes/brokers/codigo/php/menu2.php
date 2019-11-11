@@ -3,7 +3,6 @@
 if (isset($_SESSION['idrol'])){
 
 	$fecha_ultimo_pago 	= $_SESSION['fecha_ultimo_pago'];
-	$pedidomesas 		= $_SESSION['mesas'];
 	
 }
 
@@ -12,7 +11,6 @@ $fecha_contrato		= strtotime(date($fecha_ultimo_pago));
 $status 			= '';
 
 $status 		= ($fecha_contrato < $fecha_actual) ? "class='class_a_href'" 			: $status;
-$pedidomesas 	= ($pedidomesas == 1) 				? '../pedidos/pedidos_mesas.php' 	: '../pedidos/pedido.php' ;
 
 $menu = "
 	<head>
@@ -47,7 +45,7 @@ $menu = "
 				</a>
 			</li>
 			<li>
-				<a href='" . $pedidoMesas . "' " . $status . ">
+				<a href='../pedidos/pedido.php' " . $status . ">
 					<i class='icon-table nav-icon'></i>
 					<span class='nav-text'>
 						Contratos

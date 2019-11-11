@@ -1,0 +1,892 @@
+/* KodeForest Theme Option Panel */
+
+/* Html Structure of Theme Option panel*/
+.kode-admin-panel-wrapper{
+    background: #fff;
+	float: none;
+    text-align: center;
+    width: 97.5%;
+	margin:0 auto;
+}
+.kode-admin-nav-wrapper {
+	background:#333;
+	float:left;    
+	width:100%;
+}
+.admin-menu {
+    float:left;
+	margin:0px;
+	padding:0px;
+}
+.admin-menu li{
+	padding:0px;
+	margin:0px;
+	color: #fff;	
+	cursor:pointer;
+}
+.admin-sub-menu  li{
+	cursor:pointer;
+}
+.now-loading{
+	opacity:0;
+	position:absolute;
+	left:2%;
+}
+.kode-admin-head{
+	float:left;
+	padding:17px 10px;
+	width:200px;
+}
+.kode-admin-head > a > img{
+	width:80px;
+}
+.kode-admin-head.kode-admin-save-btn{
+	width:auto;
+	float:right;
+	margin-top:15px;
+}
+.menu-title{
+	background:#444;
+	padding:18px;
+	border:1px solid #555;
+}
+.menu-title i{
+	display:block;
+	font-size:36px;
+	margin-bottom:10px;
+}
+.overall-elements-wrapper .menu-title > span{
+	margin-left:10px;
+	display:block;
+}
+.default-sidebar-item{
+	display:none;
+}
+.sidebar-default-k{
+	width:100%;
+	display:inline-block;
+	text-align:center;
+}
+.panel-delete-sidebar{
+	position:relative;
+	float:left;
+	font-size:16px;
+	color:#fff;
+	cursor:pointer;
+}
+
+.panel-delete-sidebar:before{
+	content: "\f00d";
+	font-family: "fontawesome";
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+.sidebar-item{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	padding:15px;
+	width:80%;
+	display:inline-block;
+	margin: 0 auto;
+	background:#333;
+	color:#fff;
+	margin-bottom:15px;
+	transition: all 3s ease-in-out;
+	-moz-transition: all 3s ease-in-out;
+	-webkit-transition: all 3s ease-in-out;
+	-o-transition: all 3s ease-in-out;
+}
+/*Sidebar Menu */
+.kode-sidebar-section{
+	width:220px;
+	background:#333;
+	float:left;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.kode-sidebar-section .admin-sub-menu{
+	margin:0px;
+	padding:0px;
+	border:1px solid #ccc;
+	display:none;
+}
+.kode-content-section.active{
+	display:block;
+}
+.kode-content-section{
+	display:none;
+}
+.kode-sidebar-section .admin-sub-menu.active{
+	display:block;
+}
+.admin-sub-menu-list {
+    background: ghostwhite;
+    color: #333;
+    padding: 16px;
+	margin:0px;
+	border-bottom:1px solid #ccc;
+}
+.kode-admin-content-wrapper{
+	background:#fff;
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+}
+.kode-content-group{
+	float:left;	
+	background:#fff;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width:70%;
+	text-align:left;
+}
+.kode-option-wrapper {
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+	border-bottom:1px solid #eee;
+	border-left:1px solid #eee;
+    float: left;    
+    width: 100%;
+	clear:both;	
+}
+.kode-option-wrapper .kode-option {
+	padding:30px;
+}
+.kode-option-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+	color:#555
+}
+.kode-option-input{
+	margin-bottom:15px;
+}
+.kode-input-description {
+    clear: both;
+	color:#555;
+}
+/* Html Structure */
+.admin-menu li[data-class="active"] .menu-title,
+.admin-sub-menu-list.active,
+.sidebar-default-k .sidebar-item{
+	transition: background-color 300ms, color 300ms;
+	-moz-transition: background-color 300ms, color 300ms;
+	-o-transition: background-color 300ms, color 300ms;
+	-webkit-transition: background-color 300ms, color 300ms;
+}
+.sidebar-item{
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+.admin-menu li[data-class="active"] .menu-title{
+	background:#333;
+}
+.admin-sub-menu-list.active{
+	background:#333;
+	color:#fff;
+}
+.kode-upload-img-sample{
+min-width:100px;
+	min-height:50px;
+	max-width:300px;
+	max-height:100px;
+}
+.kode-reset-button{
+	float:left;
+}
+.kode-save-button{
+	float:right;
+	margin-left:15px;
+}
+.reset_default_code{
+	display:none;
+}
+.pattern-size-wrap .radio-image-wrapper{
+	width:88px !important;
+	height:88px !important;
+}
+.pattern-size-wrap .radio-image-wrapper img{
+	width:80px;
+	height:80px;
+}
+.kode-system-diagnose li{
+	padding:5px 0px;
+	width:100%;
+}
+.server-config .kode-option-title{
+	font-size:18px;
+	font-weight:bold;
+}
+.kode-system-diagnose li strong{
+	margin-right:15px;
+}
+#kode-admin-form{
+	position:relative;
+}
+/*#kode-admin-form.sticky .kode-sidebar-section{
+	position:fixed;
+	top:31px;
+	margin-left:146px;
+}*/
+#kode-admin-form.sticky #kode-admin-nav{
+	position:fixed;
+	right:0;
+	bottom:0px;
+	width:auto;
+	z-index:99999;
+	opacity:0.2;
+		transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+#kode-admin-form.sticky #kode-admin-nav:hover{
+	opacity:1;
+}
+.kode-heading-option-title{
+	float:left;
+	margin-top:12px;
+}
+.kode-heading-option-title h2 {
+    color: #fff;
+    font-size: 29px;
+    font-weight: bold;
+	line-height:29px;
+}
+.menu-title{
+	padding:25px 7px;
+}
+@media (min-width: 1370px) and (max-width: 1450px) {
+	.kode-content-group{
+		width:70%
+	}
+	
+}
+/*
+=================================================
+			FROM 1280PX TO 1366PX
+=================================================
+*/ 
+@media (min-width: 1280px) and (max-width: 1366px) {
+	.kode-content-group{
+		width:65%
+	}
+}
+
+/*
+=================================================
+			FROM 1280PX TO 1199PX
+=================================================
+*/ 
+@media (min-width: 1199px) and (max-width: 1280px) {
+	.kode-content-group{
+		width:62%
+	}
+}
+
+/*
+=================================================
+			FROM 992PX TO 1199PX
+=================================================
+*/ 
+@media (min-width: 980px) and (max-width: 1199px) {
+	.kode-content-group{
+		width:56%;
+	}
+	.menu-title{
+		padding:18px 14px;
+	}
+	.kode-admin-head{
+		width:101px;
+	}
+	.kode-sidebar-section{
+		width:212px;	
+	}
+}
+
+/*
+=================================================
+			FROM 768PX TO 979PX
+=================================================
+*/
+
+@media (min-width: 768px) and (max-width: 979px) {
+	
+	.kode-content-group{
+		width:50%;
+	}
+	.kode-sidebar-section{
+		width:212px;	
+	}
+	.kode-admin-head.kode-admin-save-btn,
+	.kode-admin-head{
+		width:100%;
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+	}
+	.kode-heading-option-title{
+		width:100%;
+	}
+}
+
+/*
+=================================================
+			FROM 0PX TO 767PX
+=================================================
+*/
+@media (max-width: 767px) {
+	.container {
+		width: 100%;
+	}
+	#kode-admin-form.sticky #kode-admin-nav{
+		position:static;
+		opacity:1;
+	}
+	.admin-menu,
+	.kode-sidebar-menu-section{
+		width:100%;
+	}
+	.kode-sidebar-section{
+		width:100%;
+	}
+	.kode-content-group{
+		width:100%;
+	}
+	.kode-option-input input.kode-upload-box-input[type="text"]{
+		width:100%;
+	}
+	.kode-admin-head.kode-admin-save-btn{
+		width:100%;
+		display:block;
+	}
+	.kode-save-button,
+	.kode-reset-button{
+		float:none;
+		display:inline-block;
+	}
+	.kode-admin-head{
+		padding:17px 0;
+	}
+	.kode-admin-head.kode-admin-save-btn{
+		margin:0px;
+	}
+	.kode-save-button{
+		margin-right:15px;
+		margin-left:0px;
+	}
+	.kode-admin-head{
+		width:100%;
+	}
+	.kode-heading-option-title{
+		width:100%;
+		margin:0px;
+	}
+	.kode-reset-button a.kdf-button,
+	a.kdf-button, .kdf-button{
+		padding:8px 15px;
+	}
+	a.kdf-button, .kdf-button{
+		padding:5px 20px 8px
+	}
+	
+	
+}
+
+/*
+=================================================
+			FROM 0PX TO 479PX
+=================================================
+*/
+@media (max-width: 480px) {
+	.kode-reset-button a.kdf-button,
+	a.kdf-button, .kdf-button{
+		padding:8px 15px;
+	}
+	a.kdf-button, .kdf-button{
+		padding:5px 20px 8px
+	}
+	.kode-heading-option-title h2{
+		padding-left:20px;
+		padding-right:20px;
+	}
+}
+
+.kode-cf-head > span,
+.kode-custom-fields-head > span,
+.kode-cf-head ul,
+.kode-cf-head ul li,
+.kode-custom-fields-head{
+	float:left;
+}
+.kode-custom-fields-head{
+	width:100%;
+}
+.kode-cf-head ul{
+	margin:0px;
+	line-height:normal;
+}
+.kode-cf-head > span,
+.kode-custom-fields-head > span{
+	margin-right:48px;
+	font-size:14px;
+	line-height:normal;
+	margin-top:10px;
+	margin-left:17px;
+}
+.kode-input-description span{
+	margin-left:0px;
+}
+.kode-cf-head ul li{
+	margin-right:10px;
+	background:#eee;
+	padding:10px;
+	margin-bottom:0px;
+}
+.kode-cf-head ul li:hover{
+	background:#333;
+	color:#fff;
+}
+.kode-custom-fields-head{
+	background:#f9f9f9;
+	padding:15px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width:100%;
+}
+.cf-post-options h4{
+	margin:0px;
+}
+.cf-post-options{
+	width:100%;
+	padding:15px 15px 0px 15px;
+	float:left;
+	background:#f1f1f1;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	
+}
+.cf-add-title .kode-option-title{
+	float:left;
+	width:100%;
+}
+.cf-add-title{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border-bottom:1px solid #ddd;
+	float:left;
+	padding-bottom:15px;
+	margin-bottom:15px;
+	width:100%;
+}
+.cf-post-options .kode-input-description span{
+	font-size:15px;
+	
+}
+.cf-add-title .kode-input-description span{
+	margin-top:10px;
+	float:left;
+}
+.kode-cf-item{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	float:left;
+	width:100%;
+	padding:5px;
+	font-size:18px;
+	background:#fff;
+	border-bottom:1px solid #ddd;
+	color:#333;	
+}
+.kode-cf-item .item-cf-title{
+	float:left;
+}
+.kode-cf-item .item-cf-title span{
+	font-size:12px;
+	color:#333;
+	margin-left:31px;
+}
+.kode-cf-item .open-this-box,.kode-cf-item .item-cf-edit{
+	margin-right:10px;
+}
+.kode-cf-item .item-cf-delete,
+.kode-cf-item .open-this-box,
+.kode-cf-item .item-cf-edit{
+	float:right;
+}
+.kode-cf-text{
+	float:left;
+	width:100%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;		
+}
+.kode-cf-meta-content {
+    float: left;
+    width: 100%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.cf-post-options .kode-option-input{
+	margin-bottom:0px;
+}
+.kode-cf-head{
+	float:left;
+	width:100%;
+	margin-bottom:10px;
+	background:#eee;
+}
+.kode-content-section .kode-option{
+	width:100%;
+box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	float:left;
+	padding-right:0px;
+}
+.kode-cf-item-content,
+.hide{
+	display:none;
+}
+
+.item-cf-title input{
+	background:#fff;
+	color:#333;
+	height:21px;
+	padding:5px;
+	font-size:14px;
+	border:none;
+}
+
+
+
+#importer-options{
+	margin-left:-15px;
+	margin-right:-15px;
+	padding:30px 0px 30px 0px;
+}
+#importer-options .kode-column-4{
+	width:33%;
+	float:left;
+	padding-right:15px;
+	padding-left:15px;
+	clear:none;
+	margin-bottom:30px;
+}
+#importer-options .kode-column-4 .kode-option {
+	padding:0px;
+	
+}
+.kode-importer-image{
+	float:left;
+	width:100%;
+	position:relative;
+	overflow:hidden;
+}
+
+.kode-importer-image .figure{
+	width:100%;
+	overflow:hidden;
+	background-color:#000;
+}
+.kode-importer-image .figure img{
+	float:left;
+	width:100%;
+	transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+}
+.kode-importer-image:hover .figure img{
+	opacity:0.3;
+}
+.kode-import-now{
+	position:absolute;
+	left:0;
+	width:100%;
+	opacity:0;
+	top:0;
+	transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+}
+.kode-importer-image:hover .kode-import-now{
+	opacity:1;
+}
+.kode-import-now a{
+	float:left;
+	text-decoration:none;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	font-weight: bold; 
+	border:none;
+	padding:10px 10px;
+	background:#00c0ff;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	width:50%;
+	text-align:center;
+	text-transform:uppercase;
+	transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+}
+.kode-import-now a:hover{
+	background-color:#000;
+	color:#fff;
+}
+.kode-importer-head{
+	float:left;
+	width:100%;
+	text-align:center;
+	background:#f8f8ff;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	padding:15px 10px;
+}
+
+.kode-importer-image h3{
+	width:100%;
+	color:#333;
+	margin:0px 0px 5px 0px;
+}
+#importer-options .kode-column-4 .kode-import-now a{
+	float:left;
+}
+.kode-column-12 {
+    float: left;
+    margin-bottom: 15px;
+    padding: 0 15px 15px;
+    position: relative;
+    width: 100%;
+}
+.kode-column-12 .kode-import-now{
+	position:relative;
+	top:0px;
+	bottom:0px;
+	float:left;
+}
+.kode-column-12 .kode-option {
+	padding:0px;
+}
+.kode-column-12 .kode-importer-more .import-now{
+		float:left;	
+	text-decoration:none;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	font-weight: bold; 
+	border:none;
+	padding:8px 20px;
+	background:#0074A2;
+}
+.kode-column-4 .figure > img,
+.kode-column-12 .figure > img{
+	width:100%;
+}
+.main-import-completed,
+.ajax_working_wait .kode-content-group #importer-options{
+	position:relative;
+	float:left;
+}
+.main-import-completed:before,
+.ajax_working_wait .kode-content-group #importer-options:before{
+	position:absolute;
+	left:0;
+	right:0;
+	width:100%;
+	height:100%;
+	content:'';
+	background:#fff;
+	opacity:1;
+	top:0;
+	bottom:0;
+	z-index:999;
+}
+.ajax_working_wait #importer-options .kode-option-wrapper > .kode-option > .now-loading{
+	opacity:1;
+	left:0px;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
+}
+.after-import{
+	height:0;
+	left:-400px;
+	position:absolute;
+	opacity:0;
+}
+.main-import-completed .after-import .kode-option-title,
+.ajax_working_wait #importer-options .after-import .kode-option-title{
+	display:none;
+}
+.import-completed.after-import,
+.ajax_working_wait #importer-options .after-import {
+    background: #fff none repeat scroll 0 0;    
+    height: auto;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 400px;
+    z-index: 9999;
+	opacity:1;
+}
+.kode-import-completed{
+	display:none;
+}
+.import-completed .kode-import-progress{
+	display:none;
+}
+.import-completed .kode-import-completed{
+	display:block;
+}
+.google-snazzy-maps .radio-image-wrapper.radio-header-wrapper{
+	width:31.6%;
+}
+
+/*kode_property_amont*/
+.kode_property_amont {
+    float: left;
+    width: 100%;
+}
+.kode_property_amount_list{
+	display: table;
+	margin:0px;
+}
+.kode_property_amont{
+	border:1px solid #e2e2e2;
+}
+.kode_property_amount_list li{
+	display: table-row;
+	background-color: transparent;
+}
+.kode_property_amount_list li:nth-child(odd){
+	background-color: #f5f5f5;
+}
+.kode_property_amont li div{
+	display: table-cell;
+	text-align: center;
+	background:transparent;
+	vertical-align: middle;
+	width:20%;
+	border-left: 1px solid  #f5f5f5;
+}
+.kode_property_amont li div:first-of-type{
+	border: none;
+}
+.kode_property_checkbox{
+	
+}
+.kode_property_table.table_2  input {
+    cursor: pointer;
+}
+.kode_property_table a{
+	display:inline-block;
+	height:28px;
+	width:28px;
+	text-align:center;
+	border-radius:100%;
+	background-color:#d5d5d5;
+	font-size:12px;
+	line-height:28px;
+	margin-right:5px;
+	color:#666666;
+}
+.kode_property_table a:hover{
+	color:#fff;
+}
+.kode_property_table.Action.search {
+    padding:22px 0 19px 12px;
+}
+.kode_property_amount_list li.kode_property_table{
+	background-color: #0070bb;
+}
+.kode_property_Action h6 ,
+.kode_property_Stauts h6 ,
+.kode_property_Amount h6 ,
+.kode_property_Due h6 ,
+.kode_property_Customer h6 ,
+.kode_property_reference h6 ,
+.kode_property_checkbox h6 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.kode_property_table.Stauts h6,
+.kode_property_table.Amount h6,
+.kode_property_table.Due h6,
+.kode_property_table.Customer h6,
+.kode_property_table.reference h6{
+	font-size: 12px;
+	font-weight:500;
+	color:#666666;
+}
+.kode_property_amount_list .kode_property_delet{
+	display:inline-block;
+	height:25px;
+	width:25px;
+	text-align:center;
+	border-radius:100%;
+	background-color:#0070bb;
+	font-size:12px;
+	line-height:25px;
+	margin-left:10px;
+	color:#666666;
+	opacity:1;
+	color:#fff;
+}
+.kode_property_amount_list li:hover .kode_property_delet{
+	opacity:1;
+	color:#fff;
+}
+#custom-search .kode-option {padding:0px;}
+#custom-search .kode-option > .kode-option-title{
+	display:none;
+}
+.kf-header-ele-section{
+	background:#ECECEC;
+	float:left;
+	width:100%;
+	padding:10px;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	font-size:14px;
+	font-weight:bold;
+}
+.kf-header-ele-section .field-name{
+	float:left;
+	width:196px;
+}
+.kode-cf-text:nth-child(2){
+	background:red;
+}
+.kode-import-now a.import-now-menu{
+	width:100%;
+	bottom:0px;
+	top:auto;
+	margin-top:91px;
+}
