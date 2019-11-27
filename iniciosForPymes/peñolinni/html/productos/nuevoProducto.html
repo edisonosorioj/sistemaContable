@@ -1,15 +1,10 @@
-<?php
-
-$id = $_GET['id'];
-
-?>
-
 <!DOCTYPE html>
 <head>
 <title>Nuevo Item</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="forpymes" />
+<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -25,6 +20,23 @@ $id = $_GET['id'];
 <script src="../../js/jquery2.0.3.min.js"></script>
 <script src="../../js/modernizr.js"></script>
 <script src="../../js/jquery.cookie.js"></script>
+<script src="../../js/screenfull.js"></script>
+		<script>
+		$(function () {
+			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+			if (!screenfull.enabled) {
+				return false;
+			}
+
+			
+
+			$('#toggle').click(function () {
+				screenfull.toggle($('#container')[0]);
+			});	
+		});
+		</script>
+		
 </head>
 <body class="dashboard-page">
 
@@ -39,28 +51,35 @@ $id = $_GET['id'];
 			<div class="agile-grids">	
 				<!-- input-forms -->
 				<div class="grids">
-					<div class="progressbar-heading grids-heading">
-						<h2>Nuevo Producto</h2>
-					</div>
 					<div class="panel panel-widget forms-panel">
 						<div class="forms">
 							<div class="form-grids widget-shadow" data-example-id="basic-forms"> 
 								<div class="form-title">
-									<h4>Datos Básicos :</h4>
+									<h4>Nuevo Item:</h4>
 								</div>
 								<div class="form-body">
-									<form action="../../php/productos/addItem.php" method="post">
-										<div class="form-group"> 
-											<input type="hidden" name="id" value="<?php echo $id; ?>" class="form-control"> 
-										</div>
+									<form action="../../php/productos/addProducto.php" method="post"> 
 										<div class="form-group"> 
 											<label>Nombre</label> 
 											<input type="text" name="nombre" class="form-control" placeholder="Nombre"> 
 										</div>
 										<div class="form-group"> 
-											<label>Valor</label> 
-											<input type="number" name="valor" class="form-control" placeholder="Valor"> 
-										</div> 
+											<label>Estado</label>
+											<select name="estado" class="form-control">
+												<option value="1">Activo</option>
+												<option value="0">Inactivo</option>
+											</select>
+										</div>
+										<div class="form-group"> 
+											<label>Grupo</label> 
+											<select name="grupo" class="form-control">
+												<option value="1">Pizzas</option>
+												<option value="2">Carnes</option>
+												<option value="3">Otros</option>
+												<option value="4">Bebidas</option>
+											</select>
+										</div>
+
 										<button type="submit" class="btn btn-default w3ls-button">Guardar</button> 
 										<button type="button" class="btn btn-default w3ls-button" onclick="window.close();">Cancelar</button> 
 									</form> 
