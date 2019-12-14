@@ -1,0 +1,48 @@
+.color-primario{
+	color: #DFA23D;
+}
+.second-color{
+	color: #5B4884;
+}
+.bg-color-primary{
+	background-color: #DFA23D;
+}
+.bg-color-second{
+	background-color: #5B4884;
+}
+.thumbs img{
+	width: 10%;
+}
+
+/*=== Adaptación Carousel Propiedades*/
+.carousel{
+	/*border: 1px solid #AEADB3 !important;*/
+}
+.carousel-indicators{
+
+}
+.carousel-indicators li img{
+	width: 100%;
+	right: 0px;
+	margin-left: auto;
+	margin-right: auto; 
+}
+
+#properties-slider .carousel-indicators li{
+	background-color: #5B4884;
+}
+
+#properties-slider .carousel-control-prev .carousel-control-prev-icon{
+	margin-left: -150%; 
+	background-color: #5B4884;
+	border-radius: 100%;
+}
+#properties-slider .carousel-control-next .carousel-control-next-icon{
+	background-color: #5B4884;
+	margin-right: -150%;
+	border-radius: 100%;
+}
+
+
+.carousel-item-property{
+}

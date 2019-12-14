@@ -61,11 +61,11 @@ $row2=$query2->fetch_assoc();
 
 $nombre_item = $row2['nombre'];
 
-if ($iditems == 1) {
+if ($id == 1) {
 	$nombreGrupo = "Pizzas";
-} elseif($iditems == 2) {
+} elseif($id == 2) {
 	$nombreGrupo = "Carnes";
-} elseif($iditems == 3) {
+} elseif($id == 3) {
 	$nombreGrupo = "Otros";
 } else {
 	$nombreGrupo = "Bebidas";
@@ -137,7 +137,7 @@ else return false;
 				</div>
 				<div class='bs-component mb20 col-md-8'>
 					<button type='button' class='btn btn-primary hvr-icon-pulse col-11' onClick='window.location.href=\"productos.php\" '>Volver</button>
-					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/productos/nuevoItem.php?id=" . $iditems . "\")'>Nuevo</button>
+					<button type='button' class='btn btn-primary hvr-icon-float-away col-11' onclick='javascript:abrir(\"../../html/productos/nuevoItem.php?id=" . $id . "\")'>Nuevo</button>
 				</div>
 				<div class='agile-tables'>
 					<div class='w3l-table-info'>

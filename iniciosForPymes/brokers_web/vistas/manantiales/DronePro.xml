@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tour apprev="17841" appversion="6.1.0" start="node11">
+  <panorama id="node11" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node11/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-12.2823" pan="-149.657" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146543" info="" datetime="" description="" nodeid="node11" customnodeid="" longitude="-75.618898" tags="Tour Virtual" comment="" title="Cocina" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="61.7111" tilt="5.9" pan="-172.58" description="" skinid="ht_node" url="{node1}" title="Cocina Opción 2" target=""/>
+      <hotspot id="Point02" distance="13.7992" tilt="3.02" pan="-222.89" description="" skinid="ht_node" url="{node2}" title="Zona Humeda" target=""/>
+      <hotspot id="Point03" distance="6.85964" tilt="-4.14" pan="-216.35" description="" skinid="ht_node" url="{node13}" title="Baño Social" target=""/>
+      <hotspot id="Point04" distance="54.432" tilt="-8.28" pan="-256.28" description="" skinid="ht_node" url="{node5}" title="Alcoba 2" target=""/>
+      <hotspot id="Point05" distance="14.2858" tilt="-11.11" pan="-277.76" description="" skinid="ht_node" url="{node6}" title="Alcoba 3" target=""/>
+      <hotspot id="Point06" distance="13.4637" tilt="-16.42" pan="-109.68" description="" skinid="ht_node" url="{node10}" title="Sala" target=""/>
+      <hotspot id="Point07" distance="29.2814" tilt="-1.24" pan="-111.93" description="" skinid="ht_node" url="{node9}" title="Balcón" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node1" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node1/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-15.0115" pan="-149.852" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146847" info="" datetime="" description="" nodeid="node1" customnodeid="" longitude="-75.619365" tags="Tour Virtual" comment="" title="Cocina Opción 2" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="61.7111" tilt="7.09" pan="-176.55" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+      <hotspot id="Point02" distance="50.3434" tilt="-18.22" pan="-106.62" description="" skinid="ht_node" url="{node10}" title="Sala" target=""/>
+      <hotspot id="Point03" distance="40.2136" tilt="-3.04" pan="-110.29" description="" skinid="ht_node" url="{node9}" title="Balcón" target=""/>
+      <hotspot id="Point04" distance="55.7396" tilt="-4.97" pan="-219.19" description="" skinid="ht_node" url="{node13}" title="Baño Social" target=""/>
+      <hotspot id="Point05" distance="15.2451" tilt="-8.94" pan="-259.32" description="" skinid="ht_node" url="{node5}" title="Alcoba 2" target=""/>
+      <hotspot id="Point06" distance="47.4269" tilt="-13.45" pan="-282.44" description="" skinid="ht_node" url="{node6}" title="Alcoba 3" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node10" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node10/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-6.34522" pan="-174.951" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146650" info="" datetime="" description="" nodeid="node10" customnodeid="" longitude="-75.618955" tags="Tour Virtual" comment="" title="Sala" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="13.4637" tilt="-2.94" pan="-168.96" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+      <hotspot id="Point02" distance="7.13469" tilt="6.08" pan="-173.82" description="" skinid="ht_node" url="{node6}" title="Alcoba 3" target=""/>
+      <hotspot id="Point03" distance="41.6226" tilt="5.69" pan="-164.48" description="" skinid="ht_node" url="{node5}" title="Alcoba 2" target=""/>
+      <hotspot id="Point04" distance="23.7832" tilt="-2.47" pan="-146.08" description="" skinid="ht_node" url="{node8}" title="Alcoba Principal" target=""/>
+      <hotspot id="Point05" distance="15.867" tilt="-15.44" pan="-10.26" description="" skinid="ht_node" url="{node9}" title="Balcón" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node5" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node5/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-24.2756" pan="151.94" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146898" info="" datetime="" description="" nodeid="node5" customnodeid="" longitude="-75.619237" tags="Tour Virtual" comment="" title="Alcoba 2" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="54.432" tilt="-4.13" pan="-117.68" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node6" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node6/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-48.3369" pan="6.32725" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146612" info="" datetime="" description="" nodeid="node6" customnodeid="" longitude="-75.619007" tags="Tour Virtual" comment="" title="Alcoba 3" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="14.2858" tilt="-17.28" pan="-55.36" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node8" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node8/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-37.4859" pan="-38.1348" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146808" info="" datetime="" description="" nodeid="node8" customnodeid="" longitude="-75.619100" tags="Tour Virtual" comment="" title="Alcoba Principal" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="19.0073" tilt="0" pan="-141.084" description="" skinid="ht_node" url="{node7}" title="Baño Alcoba" target="$fwd"/>
+      <hotspot id="Point02" distance="23.7832" tilt="-4.11" pan="-267.59" description="" skinid="ht_node" url="{node10}" title="Sala" target=""/>
+      <hotspot id="Point03" distance="10.6508" tilt="-19.94" pan="-0.23" description="" skinid="ht_node" url="{node9}" title="Balcón" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node7" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node7/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-23.0983" pan="-150.082" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146675" info="" datetime="" description="" nodeid="node7" customnodeid="" longitude="-75.618992" tags="Tour Virtual" comment="" title="Baño Alcoba" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="19.0073" tilt="-0.9" pan="-184.94" description="" skinid="ht_node" url="{node8}" title="Alcoba Principal" target=""/>
+      <hotspot id="Point02" distance="4.94574" tilt="2.91" pan="-169.01" description="" skinid="ht_node" url="{node10}" title="Sala" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node9" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node9/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-12.1032" pan="-163.002" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146783" info="" datetime="" description="" nodeid="node9" customnodeid="" longitude="-75.619007" tags="Tour Virtual" comment="" title="Balcón" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="15.867" tilt="-39.9" pan="-35.38" description="" skinid="ht_node" url="{node10}" title="Sala" target=""/>
+      <hotspot id="Point02" distance="19.0143" tilt="-14" pan="-19.62" description="" skinid="ht_node" url="{node6}" title="Alcoba 3" target=""/>
+      <hotspot id="Point03" distance="29.2814" tilt="-19.66" pan="-14.42" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+      <hotspot id="Point04" distance="10.6508" tilt="-14.55" pan="-5.77" description="" skinid="ht_node" url="{node8}" title="Alcoba Principal" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node2" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node2/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-26.5595" pan="4.37148" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146667" info="" datetime="" description="" nodeid="node2" customnodeid="" longitude="-75.618903" tags="Tour Virtual" comment="" title="Zona Humeda" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="13.7992" tilt="-21.55" pan="-337.93" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+      <hotspot id="Point02" distance="297.049" tilt="-13.57" pan="-22.67" description="" skinid="ht_node" url="{node3}" title="Baño Sauna" target=""/>
+      <hotspot id="Point03" distance="10.8237" tilt="-17.23" pan="-358.03" description="" skinid="ht_node" url="{node4}" title="Salón Social" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node3" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node3/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-37.5868" pan="-32.6512" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.147572" info="" datetime="" description="" nodeid="node3" customnodeid="" longitude="-75.616375" tags="Tour Virtual" comment="" title="Baño Sauna" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="297.049" tilt="-17.06" pan="-355" description="" skinid="ht_node" url="{node2}" title="Zona Humeda" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node4" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node4/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-5.02276" pan="152.903" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146617" info="" datetime="" description="" nodeid="node4" customnodeid="" longitude="-75.618987" tags="Tour Virtual" comment="" title="Salón Social" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="10.8237" tilt="-1.16" pan="-246.11" description="" skinid="ht_node" url="{node2}" title="Zona Humeda" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <panorama id="node13" hideabout="1">
+    <input overlap="1" leveltileurl="tiles/node13/cf_%c/l_%l/c_%x/tile_%y.jpg" width="1520" levelbias="0.400" leveltilesize="510" levelingroll="0" levelingpitch="0" height="1520" levelbiashidpi="1.000">
+      <level preload="0" predecode="0" width="1520" height="1520"/>
+      <level preload="0" predecode="0" width="760" height="760"/>
+      <level preload="1" predecode="1" width="380" height="380"/>
+      <preview color="0x808080" strip="1"/>
+    </input>
+    <view pannorth="0" fovmode="0">
+      <start tilt="-52.6516" pan="-53.8712" fov="67.6902" projection="4"/>
+      <flyin tilt="-90" pan="0" fov="170" projection="9"/>
+      <min tilt="-90" pan="0" fovpixel="2"/>
+      <max tilt="90" scaletofit="1" fovfisheye="360" pan="360" fov="120" fovstereographic="270"/>
+    </view>
+    <userdata latitude="6.146597" info="" datetime="" description="" nodeid="node13" customnodeid="" longitude="-75.618928" tags="Tour Virtual" comment="" title="Baño Social" author="" source="" copyright="®Drone Productions"/>
+    <hotspots wordwrap="1" width="180" height="20">
+      <label backgroundcolor="0xffffff" wordwrap="1" bordercolor="0x000000" background="1" textalpha="1" border="1" backgroundalpha="1" borderradius="1" borderalpha="1" enabled="1" width="180" height="20" textcolor="0x000000"/>
+      <polystyle backgroundcolor="0x0000ff" bordercolor="0x0000ff" backgroundalpha="0.25098" mode="0" handcursor="1" borderalpha="1"/>
+      <hotspot id="Point01" distance="8.2598" tilt="-6.32" pan="-157.06" description="" skinid="ht_node" url="{node2}" title="Zona Humeda" target=""/>
+      <hotspot id="Point02" distance="6.85964" tilt="-5.82" pan="-200.88" description="" skinid="ht_node" url="{node11}" title="Cocina" target=""/>
+    </hotspots>
+    <media/>
+    <transition zoomfov="20" blendcolor="0x000000" softedge="0" blendtime="1" zoomout="0" zoomoutpause="1" zoomin="2" enabled="1" type="crossdissolve" zoomspeed="2"/>
+    <autorotate useanimation="0" speed="0.050" noderandom="1" delay="2.00" enabled="1" nodefilter="" nodedelay="0.00" startloaded="0" returntohorizon="0.000"/>
+    <animation syncanimationwithvideo="0" useinautorotation="0" animsequence="Animation01"/>
+    <control invertwheel="0" contextprojections="0" dblclickfullscreen="0" invertcontrol="1" lockedkeyboardzoom="0" lockedwheel="0" hideabout="1" sensitivity="8" speedwheel="1" lockedmouse="0" simulatemass="1" rubberband="0" lockedkeyboard="0" contextfullscreen="1"/>
+  </panorama>
+  <masternode>
+    <userdata latitude="" info="" datetime="" description="" nodeid="master" customnodeid="" longitude="" tags="" comment="" title="" author="" source="" copyright=""/>
+  </masternode>
+</tour>

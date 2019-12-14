@@ -28,7 +28,7 @@ if ($idrol == 0) {
 	include "../menu3.php";
 }
 
-$query = mysqli_query($result,'SELECT i.iditems as iditems, i.nombre as nombre, i.grupo as grupo, i.estado as estado, p.idprecios as idprecios FROM items i INNER JOIN precio_x_item p ON i.iditems = p.iditems WHERE i.iditems != 0 GROUP BY i.iditems ORDER BY i.iditems');
+$query = mysqli_query($result,'SELECT i.iditems as iditems, i.nombre as nombre, i.grupo as grupo, i.estado as estado FROM items i WHERE i.iditems != 0 GROUP BY i.iditems ORDER BY i.iditems');
 
 
  while ($row = $query->fetch_array(MYSQLI_BOTH)){

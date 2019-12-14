@@ -8,7 +8,7 @@ $result = $conex->conex();
 // Con el ID que se trae de clientes permite abrir un nuevo html y con información existente
 $id=$_GET['id'];
 
-$query = mysqli_query($result, "select id, documento, empresa, nombres, telefono, correo, direccion from clientes where id='$id'");
+$query = mysqli_query($result, "select id, documento, empresa, nombres, telefono, correo, direccion, campo1 from clientes where id='$id'");
 
 $row=$query->fetch_assoc();
 	
@@ -77,11 +77,15 @@ $(function () {
 											<input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $row['nombres']; ?>" disabled/> 
 										</div> 
 										<div class="form-group"> 
-											<label>Empresa</label> 
-											<input type="text" name="empresa" class="form-control" placeholder="Empresa" value="<?php echo $row['empresa']; ?>" disabled/> 
+											<label>Unidad</label> 
+											<input type="text" name="empresa" class="form-control" placeholder="Unidad" value="<?php echo $row['empresa']; ?>" disabled/> 
 										</div> 
 										<div class="form-group"> 
-											<label>CC / NIT</label> 
+											<label>Apt o Casa</label> 
+											<input type="text" name="campo1" class="form-control" placeholder="Apt/Casa" value="<?php echo $row['campo1']; ?>" disabled/> 
+										</div> 
+										<div class="form-group"> 
+											<label>Doc.</label> 
 											<input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $row['documento']; ?>" disabled/> 
 										</div>
 										<div class="form-group"> 

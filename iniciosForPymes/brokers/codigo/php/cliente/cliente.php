@@ -24,7 +24,7 @@ if ($idrol == 0) {
 	include "../menu2.php";
 }
 // Consulta y por medio de un while muestra la lista de los clientes
-$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor + cr.intereses) as valor, cr.intereses as intereses from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
+$query = mysqli_query($result,'select c.id, c.empresa, c.documento, c.nombres, c.telefono, c.correo, c.direccion, SUM(cr.valor + cr.intereses) as valor, cr.intereses as intereses, c.campo1 as campo1 from clientes c left join creditos cr on c.id = cr.idclientes group by c.id order by c.nombres');
 
 $tr = '';
 
@@ -33,6 +33,7 @@ $tr = '';
  	$tr .=	"<tr class='rows' id='rows'>
 				<td>" . $row['documento'] 	. "</td>
 				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['empresa'] . "</a></td>
+				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['campo1'] . "</a></td>
 				<td><a onclick='javascript:abrir(\"verCliente.php?id=" . $row['id'] . "\")'>" . $row['nombres'] . "</a></td>
 				<td>" . $row['telefono'] 	. "</td>
 				<td  align='right'>$ " . number_format($row['valor'], 0, ",", ".") 	. "</td>
@@ -119,8 +120,9 @@ $html="<!DOCTYPE html>
 					    <table id='table'>
 						<thead>
 						  <tr>
-							<th>ID</th>
-							<th>Empresa</th>
+							<th>Doc.</th>
+							<th>Unidad</th>
+							<th>Apt/Casa</th>
 							<th>Nombre</th>
 							<th>Telefono</th>
 							<th>Saldo</th>

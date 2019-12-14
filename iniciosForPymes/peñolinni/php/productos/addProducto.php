@@ -9,7 +9,7 @@ $result = $conex->conex();
 	$grupo		=	$_POST['grupo'];
 
 
-	$query = mysqli_query($result,"INSERT INTO items (nombre, estado, grupo) VALUES ($nombre', '$estado', '$grupo');");
+	$query = mysqli_query($result,"INSERT INTO items (nombre, estado, grupo) VALUES ('$nombre', '$estado', '$grupo');");
 	
 	if($query > 0){
 		$msg = 'El Item fue agregado correctamente';

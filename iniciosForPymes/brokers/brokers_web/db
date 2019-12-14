@@ -1,0 +1,16 @@
+CREATE SCHEMA `brokers_web` ;
+
+CREATE TABLE `brokers_web`.`propiedad` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NULL,
+  `tipo` VARCHAR(45) NULL,
+  `zona` INT(3) NULL,
+  `estado` INT(1) NULL,
+  PRIMARY KEY (`id`));
+
+insert into propiedad (nombre,tipo,zona,estado) values ('Proyecto Babilonia','1','1','1');
+insert into propiedad (nombre,tipo,zona,estado) values ('Girasoles del Tambo','1','1','1');
+insert into propiedad (nombre,tipo,zona,estado) values ('Urbanización San Angel','1','1','1');
+insert into propiedad (nombre,tipo,zona,estado) values ('Manantiales de San José','1','1','1');
+insert into propiedad (nombre,tipo,zona,estado) values ('Apartamento Arriendo Marinilla','1','1','1');
+
