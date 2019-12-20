@@ -5,14 +5,14 @@ $conex = new conection();
 $result = $conex->conex();
 $propiedades  = '';
 $count        = 1;
-$div          = '';
-$div2         = '';
 
 // Consulta y por medio de un while muestra la lista de las propiedades
 
-$query2 = mysqli_query($result,"select * from propiedad where tipo = 1;");
+$query2 = mysqli_query($result,"SELECT p.*, z.nombre as ciudad FROM propiedad p INNER JOIN zonas z ON p.zona = z.id WHERE p.tipo = 1;");
 
 while ($row = $query2->fetch_array(MYSQLI_BOTH)){
+  $div          = '';
+  $div2         = '';
 
   if ($count == 1) {
     $div .= "<div class='carousel-item carousel-item-property active'>
@@ -27,32 +27,33 @@ while ($row = $query2->fetch_array(MYSQLI_BOTH)){
   if ($count == 3 || $count == 6 || $count == 9) {
     $div2 .= " </div>
             </div>";
-    }else{
+  }else{
       $div2 .= '';
     }
 
   $propiedades .= $div . "
         <div class='col-md-4'>
           <div class='property-wrap ftco-animate'>
-            <a href='babilonia.html' class='img' style='background-image: url(images/work-1.jpg);'></a>
+            <a href='" . $row['pagina'] .  "' class='img' style='background-image: url(" . $row['img'] .  ");'></a>
             <div class='text'>
-              <p class='price'><span class='old-price'>150 Millones</span><span class='orig-price'>$130<small>Millones</small></span></p>
+              <p class='price'><span class='orig-price'>Desde $ " . number_format($row['costo'], 0, ",", ".") .  "</span></p>
               <ul class='property_list'>
-                <li><span class='flaticon-bed'></span>3</li>
-                <li><span class='flaticon-bathtub'></span>2</li>
-                <li><span class='flaticon-floor-plan'></span>Desde 35 Mt2</li>
+                <li><span class='flaticon-bed'></span>" . $row['dato1'] .  "</li>
+                <li><span class='flaticon-bathtub'></span>" . $row['dato2'] .  "</li>
+                <li><span class='flaticon-floor-plan'></span>" . $row['dato3'] .  "</li>
               </ul>
-              <h3><a href='babilonia.html'>" . $row['nombre'] .  "</a></h3>
-              <span class='location'>Marinilla</span>
-              <a href='babilonia.html' class='d-flex align-items-center justify-content-center btn-custom'>
+              <h3><a href='" . $row['pagina'] .  "'>" . $row['nombre'] .  "</a></h3>
+              <span class='location'>" . $row['ciudad'] .  "</span>
+              <a href='" . $row['pagina'] .  "' class='d-flex align-items-center justify-content-center btn-custom'>
                 <span class='ion-ios-link'></span>
               </a>
             </div>
           </div>
-        </div>" . $div2;
+        </div>" .
+        $div2;
 
     $count=$count+1;
-  }
+}
 
 
 $html = "<!DOCTYPE html>
@@ -111,7 +112,8 @@ $html = "<!DOCTYPE html>
 
 	      <div class='collapse navbar-collapse' id='ftco-nav'>
 	        <ul class='navbar-nav ml-auto'>
-	          <li class='nav-item active'><a href='index.html' class='nav-link'>Brokers</a></li>
+	          <li class='nav-item active'><a href='index.php' class='nav-link'>Brokers</a></li>
+            <li class='nav-item'><a href='propiedades.php' class='nav-link'>Propiedades</a></li>
 	          <li class='nav-item'><a href='empresa.html' class='nav-link'>Quienes Somos</a></li>
             <li class='nav-item'><a href='contacto.html' class='nav-link'>Contácto</a></li>
 	        </ul>
@@ -126,7 +128,7 @@ $html = "<!DOCTYPE html>
       </a>
     </div>
     
-    <div class='hero-wrap ftco-degree-bg' style='background-image: url('images/bg_2.jpg');' data-stellar-background-ratio='0.5'>
+    <div class='hero-wrap ftco-degree-bg' style='background-image: url(\"images/bg_2.jpg\");' data-stellar-background-ratio='0.5'>
       <div class='overlay'></div>
       <div class='container'>
         <div class='row no-gutters slider-text justify-content-center align-items-center'>
