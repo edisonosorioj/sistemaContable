@@ -1,6 +1,6 @@
-CREATE DATABASE brokers;
+CREATE DATABASE prefacol;
 
-USE brokers;
+USE prefacol;
 
 CREATE TABLE `administradores` (`idadmin` INT NOT NULL AUTO_INCREMENT, `documento` VARCHAR(45) NOT NULL, `nombre` VARCHAR(45) NOT NULL, `apellido` VARCHAR(45) NOT NULL, `idrol` INT(10) NOT NULL, `login` VARCHAR(45) NOT NULL, `contrasena` VARCHAR(200) NOT NULL, PRIMARY KEY (`idadmin`));
 

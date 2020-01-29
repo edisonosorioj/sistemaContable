@@ -1,3 +1,5 @@
+CREATE DATABASE brokers_web;
+
 ALTER TABLE `brokers_web`.`propiedad` 
 ADD COLUMN `img` VARCHAR(100) NULL AFTER `estado`,
 ADD COLUMN `pagina` VARCHAR(100) NULL AFTER `img`,
