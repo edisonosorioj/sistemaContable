@@ -14,7 +14,7 @@ $row    = $query->fetch_assoc();
 
 $nombre_propiedad = $row['nombre_propiedad'];
 
-$directory= 'images/marinilla01/';
+$directory= 'images/manantiales/';
 $dirint   = dir($directory);
 $img      = '';
 $img2     = '';
@@ -29,7 +29,7 @@ $departamento   = $row2['nombre_departamento'];
 
 while (($archivo = $dirint->read()) !== false)
 {
-    if (eregi("gif", $archivo) || eregi("jpg", $archivo) || eregi("png", $archivo)){
+    if (preg_match("/gif/", $archivo) || preg_match("/jpg/", $archivo) || preg_match("/png/", $archivo)){
       $active = ($archivo == '01.jpg')?'active':'';
       $image = $directory . '/' . $archivo;
       $img .= "<div class='carousel-item ".$active."'>

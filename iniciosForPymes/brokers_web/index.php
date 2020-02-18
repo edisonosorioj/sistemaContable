@@ -256,7 +256,7 @@ $html = "<!DOCTYPE html>
         <div class='row'>
           <div class='col-md-4'>
             <div class='row'>
-              <p>Nace del deseo por encontrar múltiples servicios en un solo lugar, para facilidad y comodidad del cliente. En el año 2011 se inicia el proyecto en la ciudad de Medellín, dónde trabajamos durante 2 años, pero sentiamos que aún nos faltaba objetivos que lograr. Por esta razón hicimos un cambio de dirección, y es donde decidimos abrir nuestra oficina en el oriente antioqueño, en el año 2014. Desde entonces venimos trabajando para brindar cada día el mejor servicio a nuestros clientes, con innovación, calidad,  honestidad, transparencia. Para que encuentren a un click la solución a cada necesidad relacionada con sus inmuebles.</p>
+              <p style='margin-left: 2em !important;'>Nace del deseo por encontrar múltiples servicios en un solo lugar, para facilidad y comodidad del cliente. En el año 2011 se inicia el proyecto en la ciudad de Medellín, dónde trabajamos durante 2 años, pero sentiamos que aún nos faltaba objetivos que lograr. Por esta razón hicimos un cambio de dirección, y es donde decidimos abrir nuestra oficina en el oriente antioqueño, en el año 2014. Desde entonces venimos trabajando para brindar cada día el mejor servicio a nuestros clientes, con innovación, calidad,  honestidad, transparencia. Para que encuentren a un click la solución a cada necesidad relacionada con sus inmuebles.</p>
                 </div>
               </div>
         </div>
@@ -413,7 +413,7 @@ $html = "<!DOCTYPE html>
         <div class='row'>
           <div class='col-md-4'>
             <div class='row'>
-              <p>Nace del deseo por encontrar múltiples servicios en un solo lugar, para facilidad y comodidad del cliente. En el año 2011 se inicia el proyecto en la ciudad de Medellín, dónde trabajamos durante 2 años, pero sentiamos que aún nos faltaba objetivos que lograr. Por esta razón hicimos un cambio de dirección, y es donde decidimos abrir nuestra oficina en el oriente antioqueño, en el año 2014. Desde entonces venimos trabajando para brindar cada día el mejor servicio a nuestros clientes, con innovación, calidad,  honestidad, transparencia. Para que encuentren a un click la solución a cada necesidad relacionada con sus inmuebles.</p>
+              <p style='margin-left: 2em !important;'>Nace del deseo por encontrar múltiples servicios en un solo lugar, para facilidad y comodidad del cliente. En el año 2011 se inicia el proyecto en la ciudad de Medellín, dónde trabajamos durante 2 años, pero sentiamos que aún nos faltaba objetivos que lograr. Por esta razón hicimos un cambio de dirección, y es donde decidimos abrir nuestra oficina en el oriente antioqueño, en el año 2014. Desde entonces venimos trabajando para brindar cada día el mejor servicio a nuestros clientes, con innovación, calidad,  honestidad, transparencia. Para que encuentren a un click la solución a cada necesidad relacionada con sus inmuebles.</p>
                 </div>
               </div>
         </div>
@@ -445,7 +445,14 @@ $html = "<!DOCTYPE html>
               <div class='block-23 mb-3'>
                 <ul>
                   <li><span class='icon icon-map-marker'></span><span class='text'>Carrera 62a # 44 - 44 Urb. La Alameda - Rionegro, Antioquia</span></li>
-                  <li><a href='#'><span class='icon icon-phone'></span><span class='text'>300 400 4272 - 3205247665</span></a></li>
+                  <li><a href='#'><span class='icon icon-phone'></span><span class='text'>
+                  Rionegro 300 400 4272<br />
+                  Marinilla 315 555 0971<br />
+                  La Ceja 316 888 0039<br />
+                  Mantenimiento 320 524 7665<br />
+                  Jurídica 315 489 00 08<br />
+                  Financiero 305 404 44 46
+                  </span></a></li>
                   <li><a href='#'><span class='icon icon-envelope pr-4'></span><span class='text'>ventas@brokersfast.com.co</span></a></li>
                 </ul>
               </div>
