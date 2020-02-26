@@ -7,20 +7,26 @@ $result = $conex->conex();
 // ID que viene desde el enlace
 $id = $_GET['id'];
 
+require 'header.php';
+
 // Consulta y por medio de un while muestra la lista de las propiedades
 
-$query  = mysqli_query($result,"SELECT p.nombre as nombre_propiedad, z.nombre as nombre_ciudad, z.id as id_zona FROM propiedad p INNER JOIN zonas z ON p.zona = z.id WHERE p.id = $id;");
+$query  = mysqli_query($result,"SELECT p.nombre as nombre_propiedad, z.nombre as nombre_ciudad, z.id as id_zona, p.directorio as directorio FROM propiedad p INNER JOIN zonas z ON p.zona = z.id WHERE p.id = $id;");
 $row    = $query->fetch_assoc();
 
 $nombre_propiedad = $row['nombre_propiedad'];
 
-$directory= 'images/manantiales/';
+$directory= $row['directorio'];
 $dirint   = dir($directory);
 $img      = '';
 $img2     = '';
 $count    = 0;
 $ciudad   = $row['nombre_ciudad'];
 $id_zona  = $row['id_zona'];
+$li       = '';
+$li2       = '';
+$col       = 6;
+$div3      = '';
 
 $query2  = mysqli_query($result,"SELECT z1.nombre as nombre_departamento FROM zonas z INNER JOIN zonas z1 ON z.zona_padre = z1.id WHERE z.id = $id_zona;");
 $row2    = $query2->fetch_assoc();
@@ -47,72 +53,71 @@ while (($archivo = $dirint->read()) !== false)
 $dirint->close();
 
 
-$html = "<!DOCTYPE html>
-<html lang='es'>
-  <head>
-    <title>Brokers Fast</title>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-    
-    <link rel='icon' href='images/favicon.ico' >
+$query3 = mysqli_query($result,"SELECT * FROM especificaciones_propiedad WHERE id_propiedad = $id;");
 
-    <link rel='stylesheet' href='css/open-iconic-bootstrap.min.css'>
-    <link rel='stylesheet' href='css/animate.css'>
-    
-    <link rel='stylesheet' href='css/owl.carousel.min.css'>
-    <link rel='stylesheet' href='css/owl.theme.default.min.css'>
-    <link rel='stylesheet' href='css/magnific-popup.css'>
+$row3 = $query3->fetch_assoc();
 
-    <link rel='stylesheet' href='css/aos.css'>
+  $dato1 = $row3['dato1']?$row3['dato1']:'';
+  $dato2 = $row3['dato2']?$row3['dato2']:'';
+  $dato3 = $row3['dato3']?$row3['dato3']:'';
+  $dato4 = $row3['dato4']?$row3['dato4']:'';
+  $dato5 = $row3['dato5']?$row3['dato5']:'';
+  $dato6 = $row3['dato6']?$row3['dato6']:'';
+  $dato7 = $row3['dato7']?$row3['dato7']:'';
+  $dato8 = $row3['dato8']?$row3['dato8']:'';
+  $dato9 = $row3['dato9']?$row3['dato9']:'';
+  $dato10 = $row3['dato10']?$row3['dato10']:'';
+  $dato11 = $row3['dato11']?$row3['dato11']:'';
+  $dato12 = $row3['dato12']?$row3['dato12']:'';
+  $dato13 = $row3['dato13']?$row3['dato13']:'';
+  $dato14 = $row3['dato14']?$row3['dato14']:'';
+  $dato15 = $row3['dato15']?$row3['dato15']:'';
+  $dato16 = $row3['dato16']?$row3['dato16']:'';
+  $dato17 = $row3['dato17']?$row3['dato17']:'';
+  $dato18 = $row3['dato18']?$row3['dato18']:'';
+  $dato19 = $row3['dato19']?$row3['dato19']:'';
+  $dato20 = $row3['dato20']?$row3['dato20']:'';
 
-    <link rel='stylesheet' href='css/ionicons.min.css'>
+  $li .=  "
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato1) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato2) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato3) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato4) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato5) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato6) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato7) . "</li>
+  ";
 
-    <link rel='stylesheet' href='css/bootstrap-datepicker.css'>
-    <link rel='stylesheet' href='css/jquery.timepicker.css'>
+  $li2 .=  "
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato8) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato9) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato10) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato11) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato12) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato13) . "</li>
+    <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato14) . "</li>
+  ";
 
-    
-    <link rel='stylesheet' href='css/flaticon.css'>
-    <link rel='stylesheet' href='css/icomoon.css'>
-    <link rel='stylesheet' href='css/style.css'>
-    <link rel='stylesheet' href='css/styles.css'>
-    <style>
-    .btn-whatsapp {
-           display:block;
-           width:70px;
-           height:70px;
-           color:#fff;
-           position: fixed;
-           right:20px;
-           bottom:20px;
-           border-radius:50%;
-           line-height:80px;
-           text-align:center;
-           z-index:999;
-    }
-  </style>
-  <script type='text/javascript'>
-    var URLactual = window.location.href;
-  </script>
-  </head>
-  <body>
-    
-	  <nav class='navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light' id='ftco-navbar'>
-	    <div class='container'>
-	      <a class='navbar-brand' href='index.html'><img src='images/logo.png'></a>
-	      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#ftco-nav' aria-controls='ftco-nav' aria-expanded='false' aria-label='Toggle navigation'>
-	        <span class='oi oi-menu'></span> Menu
-	      </button>
+  if ($dato13 != '') {
 
-	      <div class='collapse navbar-collapse' id='ftco-nav'>
-	        <ul class='navbar-nav ml-auto'>
-	          <li class='nav-item'><a href='index.html' class='nav-link'>Brokers</a></li>
-	          <li class='nav-item'><a href='empresa.html' class='nav-link'>Quienes Somos</a></li>
-            <li class='nav-item'><a href='contacto.html' class='nav-link'>Contácto</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
+    $col = 4;
+
+    $div3 .=  "
+    <div class='col-md-" . $col . "'>
+      <ul class='features'>
+        <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato15) . "</li>
+        <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato16) . "</li>
+        <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato17) . "</li>
+        <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato18) . "</li>
+        <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato19) . "</li>
+        <li class='check'><span class='ion-ios-checkmark'></span>" . utf8_encode($dato20) . "</li>
+      </ul>
+    </div>
+    ";
+  }
+  
+
+$html = "
 
     <div class='btn-whatsapp'>
       <a href='https://api.whatsapp.com/send?phone=573004004272&text=Hola!%20Te%20contácto%20desde%20tu%20página%20web.%20Me%20gustaría%20más%20información' target='_blank'>
@@ -191,25 +196,17 @@ $html = "<!DOCTYPE html>
               <div class='tab-content' id='pills-tabContent'>
                 <div class='tab-pane fade show active' id='pills-description' role='tabpanel' aria-labelledby='pills-description-tab'>
                   <div class='row'>
-                    <div class='col-md-6'>
+                    <div class='col-md-" . $col . "'>
                       <ul class='features'>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Áreas desde: 67 Mts2</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Barrio la Alameda</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Edificio de Propiedad Horizontal</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Parqueadero Común</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Portería de 24 horas</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Unidad Cerrada</li>
+                      " . $li . "
                       </ul>
                     </div>
-                    <div class='col-md-6'>
+                    <div class='col-md-" . $col . "'>
                       <ul class='features'>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Primer Piso</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Balcón</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>2 Habitaciones</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>2 Baños</li>
-                        <li class='check'><span class='ion-ios-checkmark'></span>Calentador de Agua a Gas</li>
+                        " . $li2 . "
                       </ul>
                     </div>
+                    " . $div3 . "
                   </div>
                 </div>
 

@@ -38,3 +38,39 @@ insert into zonas (zona_padre,nombre,estado) values ('2','La Ceja',1);
 insert into zonas (zona_padre,nombre,estado) values ('2','La Unión',1);
 insert into zonas (zona_padre,nombre,estado) values ('2','Sabaneta',1);
 
+CREATE TABLE `brokers_web`.`especificaciones_propiedad` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `id_propiedad` INT NOT NULL,
+  `dato1` VARCHAR(100) NULL,
+  `dato2` VARCHAR(100) NULL,
+  `dato3` VARCHAR(100) NULL,
+  `dato4` VARCHAR(100) NULL,
+  `dato5` VARCHAR(100) NULL,
+  `dato6` VARCHAR(100) NULL,
+  `dato7` VARCHAR(100) NULL,
+  `dato8` VARCHAR(100) NULL,
+  `dato9` VARCHAR(100) NULL,
+  `dato10` VARCHAR(100) NULL,
+  `dato11` VARCHAR(100) NULL,
+  `dato12` VARCHAR(100) NULL,
+  `dato13` VARCHAR(100) NULL,
+  `dato14` VARCHAR(100) NULL,
+  `dato15` VARCHAR(100) NULL,
+  `dato16` VARCHAR(100) NULL,
+  `dato17` VARCHAR(100) NULL,
+  `dato18` VARCHAR(100) NULL,
+  `dato19` VARCHAR(100) NULL,
+  `dato20` VARCHAR(100) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `id_propiedad` (`id_propiedad` ASC));
+
+ALTER TABLE `brokers_web`.`propiedad` 
+ADD COLUMN `directorio` VARCHAR(45) NULL AFTER `costo`;
+
+UPDATE `brokers_web`.`propiedad` SET `directorio`='images/manantiales/' WHERE `id`='4';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='images/san-angel/' WHERE `id`='3';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='images/girasoles/' WHERE `id`='2';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='images/babilonia/' WHERE `id`='1';
+
+INSERT INTO `brokers_web`.`especificaciones_propiedad` (`id_propiedad`, `dato1`, `dato2`, `dato3`, `dato4`, `dato5`, `dato6`, `dato7`, `dato8`, `dato9`, `dato10`, `dato11`, `dato12`, `dato13`, `dato14`, `dato15`) VALUES ('1', 'Áreas desde: 39.73 Mts2', 'Portería', 'Recepción', 'Lobby', 'Salón Social', 'Áreas hasta: 84.53 Mts2', 'Sala de Negocios', 'Gimnasio', 'Piscina', 'Turco', 'Jacuzzi', 'Senderos Ecológicos', 'Solárium', 'Guarderia Infantil', 'Zona BBQ');
+
