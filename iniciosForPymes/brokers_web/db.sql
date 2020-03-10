@@ -12,6 +12,8 @@ CREATE TABLE `brokers_web`.`propiedad` (
   `dato2` VARCHAR(100) NULL,
   `dato3` VARCHAR(100) NULL,
   `costo` VARCHAR(45) NULL,
+  `directorio` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`));
 
 
@@ -64,8 +66,8 @@ CREATE TABLE `brokers_web`.`especificaciones_propiedad` (
   PRIMARY KEY (`id`),
   INDEX `id_propiedad` (`id_propiedad` ASC));
 
-ALTER TABLE `brokers_web`.`propiedad` 
-ADD COLUMN `directorio` VARCHAR(45) NULL AFTER `costo`;
+#ALTER TABLE `brokers_web`.`propiedad` 
+#ADD COLUMN `directorio` VARCHAR(45) NULL AFTER `costo`;
 
 UPDATE `brokers_web`.`propiedad` SET `directorio`='images/manantiales/' WHERE `id`='4';
 UPDATE `brokers_web`.`propiedad` SET `directorio`='images/san-angel/' WHERE `id`='3';
@@ -73,4 +75,21 @@ UPDATE `brokers_web`.`propiedad` SET `directorio`='images/girasoles/' WHERE `id`
 UPDATE `brokers_web`.`propiedad` SET `directorio`='images/babilonia/' WHERE `id`='1';
 
 INSERT INTO `brokers_web`.`especificaciones_propiedad` (`id_propiedad`, `dato1`, `dato2`, `dato3`, `dato4`, `dato5`, `dato6`, `dato7`, `dato8`, `dato9`, `dato10`, `dato11`, `dato12`, `dato13`, `dato14`, `dato15`) VALUES ('1', 'Áreas desde: 39.73 Mts2', 'Portería', 'Recepción', 'Lobby', 'Salón Social', 'Áreas hasta: 84.53 Mts2', 'Sala de Negocios', 'Gimnasio', 'Piscina', 'Turco', 'Jacuzzi', 'Senderos Ecológicos', 'Solárium', 'Guarderia Infantil', 'Zona BBQ');
+
+#ALTER TABLE `brokers_web`.`propiedad` 
+#ADD COLUMN `descripcion` VARCHAR(5000) NULL AFTER `directorio`;
+
+UPDATE `brokers_web`.`propiedad` SET `img`='work-1.jpg', `directorio`='images' WHERE `id`='1';
+UPDATE `brokers_web`.`propiedad` SET `img`='work-2.jpg', `directorio`='images' WHERE `id`='2';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='images' WHERE `id`='3';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='images' WHERE `id`='4';
+UPDATE `brokers_web`.`propiedad` SET `img`='work-3.jpg' WHERE `id`='3';
+UPDATE `brokers_web`.`propiedad` SET `img`='work-4.jpg' WHERE `id`='4';
+
+UPDATE `brokers_web`.`propiedad` SET `directorio`='babilonia' WHERE `id`='1';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='girasoles' WHERE `id`='2';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='sanangel' WHERE `id`='3';
+UPDATE `brokers_web`.`propiedad` SET `directorio`='manantiales' WHERE `id`='4';
+
+
 

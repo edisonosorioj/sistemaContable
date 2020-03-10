@@ -24,9 +24,10 @@ $count    = 0;
 $ciudad   = $row['nombre_ciudad'];
 $id_zona  = $row['id_zona'];
 $li       = '';
-$li2       = '';
-$col       = 6;
-$div3      = '';
+$li2      = '';
+$col      = 6;
+$div3     = '';
+$detalles = '';
 
 $query2  = mysqli_query($result,"SELECT z1.nombre as nombre_departamento FROM zonas z INNER JOIN zonas z1 ON z.zona_padre = z1.id WHERE z.id = $id_zona;");
 $row2    = $query2->fetch_assoc();
@@ -211,7 +212,7 @@ $html = "
                 </div>
 
                 <div class='tab-pane fade' id='pills-manufacturer' role='tabpanel' aria-labelledby='pills-manufacturer-tab'>
-                  <p>En Marinilla, apartamento ubicado en el barrio la Alameda. Propiedad con 67m2 con 3 habitaciones, 2 baños, sala, comedor, balcón, zona de ropas, en edificio de propiedad horizontal. Parqueadero común, portería 24 horas.</p>
+                  <p>" . utf8_encode($detalles) . "En Marinilla, apartamento ubicado en el barrio la Alameda. Propiedad con 67m2 con 3 habitaciones, 2 baños, sala, comedor, balcón, zona de ropas, en edificio de propiedad horizontal. Parqueadero común, portería 24 horas.</p>
                 </div>
 
                

@@ -28,7 +28,7 @@ while ($row = $query2->fetch_array(MYSQLI_BOTH)){
   $propiedades .= "
         <div class='col-md-4'>
           <div class='property-wrap ftco-animate'>
-            <a href='" . $pagina .  "' class='img' style='background-image: url(" . $row['img'] .  ");'></a>
+            <a href='" . $pagina .  "' class='img' style='background-image: url(vistas/" . $row['directorio'] . '/' . $row['img'] .  ");'></a>
             <div class='text " . $opacidad . "'>
               <p class='price'><span class='orig-price'>" . $desde . " $ " . number_format($row['costo'], 0, ",", ".") . $texto . "</span></p>
               <ul class='property_list'>
