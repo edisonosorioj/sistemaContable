@@ -11,12 +11,12 @@ require 'header.php';
 
 // Consulta y por medio de un while muestra la lista de las propiedades
 
-$query  = mysqli_query($result,"SELECT p.nombre as nombre_propiedad, z.nombre as nombre_ciudad, z.id as id_zona, p.directorio as directorio FROM propiedad p INNER JOIN zonas z ON p.zona = z.id WHERE p.id = $id;");
+$query  = mysqli_query($result,"SELECT p.nombre as nombre_propiedad, z.nombre as nombre_ciudad, z.id as id_zona, p.directorio as directorio, p.descripcion as descripcion FROM propiedad p INNER JOIN zonas z ON p.zona = z.id WHERE p.id = $id;");
 $row    = $query->fetch_assoc();
 
-$nombre_propiedad = $row['nombre_propiedad'];
+$nombre_propiedad = utf8_encode($row['nombre_propiedad']);
 
-$directory= $row['directorio'];
+$directory= 'vistas/'.$row['directorio'];
 $dirint   = dir($directory);
 $img      = '';
 $img2     = '';
@@ -27,7 +27,8 @@ $li       = '';
 $li2      = '';
 $col      = 6;
 $div3     = '';
-$detalles = '';
+$descripcion = '';
+$descripcion    = $row['descripcion'];
 
 $query2  = mysqli_query($result,"SELECT z1.nombre as nombre_departamento FROM zonas z INNER JOIN zonas z1 ON z.zona_padre = z1.id WHERE z.id = $id_zona;");
 $row2    = $query2->fetch_assoc();
@@ -40,7 +41,7 @@ while (($archivo = $dirint->read()) !== false)
       $active = ($archivo == '01.jpg')?'active':'';
       $image = $directory . '/' . $archivo;
       $img .= "<div class='carousel-item ".$active."'>
-                <img class='d-block w-100' src='" . $image . "' style='width:800px !important; display:block;
+                <img class='d-block w-100' src='" . $image . "' style='width:800px !important; height:500px; display:block;
                 margin:auto;'>
               </div>";
 
@@ -212,7 +213,7 @@ $html = "
                 </div>
 
                 <div class='tab-pane fade' id='pills-manufacturer' role='tabpanel' aria-labelledby='pills-manufacturer-tab'>
-                  <p>" . utf8_encode($detalles) . "En Marinilla, apartamento ubicado en el barrio la Alameda. Propiedad con 67m2 con 3 habitaciones, 2 baños, sala, comedor, balcón, zona de ropas, en edificio de propiedad horizontal. Parqueadero común, portería 24 horas.</p>
+                  <p>" . utf8_encode($descripcion) . "</p>
                 </div>
 
                

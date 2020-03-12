@@ -54,22 +54,21 @@ $result = $conex->conex();
 	opendir("../" . $directorio);
 	$destino = "../" . $directorio.'/'.$imagen;
 	copy($_FILES['imagen']['tmp_name'], $destino);
-	closedir($directorio);
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query = mysqli_query($result,"INSERT INTO propiedad (nombre, tipo, zona, estado, img, dato1, dato2, dato3, costo, directorio, descripcion) VALUES ('$nombre_propiedad', '$tipo_propiedad', '$zona_propiedad', '$estado_propiedad', '$imagen', '$can_habitaciones', '$can_banos', '$tamano_propiedad', '$costo_propiedad', '$directorio', '$descripcion');");
+	$query = mysqli_query($result,"UPDATE propiedad SET nombre = '$nombre_propiedad', tipo = '$tipo_propiedad', zona = '$zona_propiedad', estado = '$estado_propiedad', img = '$imagen', dato1 = '$can_habitaciones', dato2 = '$can_banos', dato3 = '$tamano_propiedad', costo = '$costo_propiedad', directorio = '$directorio', descripcion = '$descripcion');");
 
 	$id = mysqli_insert_id($result);
 
 // Agrega nuevos usuarios según el formulario recibido
-	$query2 = mysqli_query($result,"INSERT INTO especificaciones_propiedad (id_propiedad, dato1, dato2, dato3, dato4, dato5, dato6, dato7, dato8, dato9, dato10, dato11, dato12, dato13, dato14, dato15, dato16, dato17, dato18) VALUES ('$id', 'adicional_1', 'adicional_2', 'adicional_3', 'adicional_4', 'adicional_5', 'adicional_6', 'adicional_7', 'adicional_8', 'adicional_9', 'adicional_10', 'adicional_11', 'adicional_12', 'adicional_13', 'adicional_14', 'adicional_15', 'adicional_16', 'adicional_17', 'adicional_18');");
+	$query2 = mysqli_query($result,"UPDATE especificaciones_propiedad SET id_propiedad = '$id', dato1 = '$adicional_1', dato2 = '$adicional_2', dato3 = '$adicional_3', dato4 = '$adicional_4', dato5 = '$adicional_5', dato6 = '$adicional_6', dato7 = '$adicional_7', dato8 = '$adicional_8', dato9 = '$adicional_9', dato10 = '$adicional_10', dato11 = '$adicional_11', dato12 = '$adicional_12', dato13 = '$adicional_13', dato14 = '$adicional_14', dato15 = '$adicional_15', dato16 = '$adicional_16', dato17 = '$adicional_17', dato18 = '$adicional_18');");
 
 
 //Según la respuesta de la inserción se da una respuesta en un alert 
 	if($query > 0 && $query2 > 0){
-		$msg = "La propiedad " . $nombre_propiedad . " fue agregada.";
+		$msg = "La propiedad " . $nombre_propiedad . " fue actualizada.";
 	}else{
-		$msg = 'Error al agregar la propiedad. Intente nuevamente.';
+		$msg = 'Error al actualizar la propiedad. Intente nuevamente.';
 	}
 		
 	$html = "<script>

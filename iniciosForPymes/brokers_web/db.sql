@@ -14,8 +14,8 @@ CREATE TABLE `brokers_web`.`propiedad` (
   `costo` VARCHAR(45) NULL,
   `directorio` VARCHAR(45) NULL,
   `descripcion` VARCHAR(5000) NULL,
+  `creador` INT(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`));
-
 
 insert into propiedad (nombre,tipo,zona,estado,img,pagina,dato1,dato2,dato3,costo) values ();
 
@@ -90,6 +90,9 @@ UPDATE `brokers_web`.`propiedad` SET `directorio`='babilonia' WHERE `id`='1';
 UPDATE `brokers_web`.`propiedad` SET `directorio`='girasoles' WHERE `id`='2';
 UPDATE `brokers_web`.`propiedad` SET `directorio`='sanangel' WHERE `id`='3';
 UPDATE `brokers_web`.`propiedad` SET `directorio`='manantiales' WHERE `id`='4';
+
+ALTER TABLE `brokers_web`.`propiedad` 
+ADD COLUMN `creador` INT(11) NOT NULL DEFAULT 1 AFTER `descripcion`;
 
 
 
